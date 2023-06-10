@@ -1,0 +1,7 @@
+height: is-small
+items:
+  - title: Games
+    subtitle: Read the rules
+    icon: fa-globe
+    call_to_action_name: Read
+    call_to_action_link: /rules.html

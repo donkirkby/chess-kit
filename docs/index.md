@@ -1,5 +1,8 @@
-# Chess Kit: Assembling New Games from the Building Blocks of Chess
-
+---
+title: Chess Kit
+subtitle: Assembling New Games from the Building Blocks of Chess
+callouts: index_callouts
+---
 I am not a strong chess player - it's always seemed to me more like study than
 play. However, I do like the ideas in chess: a ragtag army of pieces with
 different moves, battling to protect their king. I wondered if I could take
@@ -25,5 +28,5 @@ together.
     use, then try to deduce how each of your pieces can capture. (2 players,
     chess set, pencils, and paper)
 
-[Zombie Chess]: https://donkirkby.github.io/chess-kit/rules.html#zombie-chess
-[Masquerade Chess]: https://donkirkby.github.io/chess-kit/rules.html#masquerade-chess
+[Zombie Chess]: rules.md#zombie-chess
+[Masquerade Chess]: rules.md#masquerade-chess
