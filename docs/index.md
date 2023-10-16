@@ -1,6 +1,6 @@
 ---
 title: Chess Kit
-subtitle: New Games from the Building Blocks of Chess
+subtitle: Silly New Games for Your Chess Set
 callouts: index_callouts
 ---
 I am not a strong chess player - it's always seemed to me more like study than
