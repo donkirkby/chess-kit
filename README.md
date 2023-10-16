@@ -25,5 +25,9 @@ together.
     use, then try to deduce how each of your pieces can capture. (2 players,
     chess set, pencils, and paper)
 
+If you're brave, you can read about [experiments] in progress.
+
+
 [Zombie Chess]: https://donkirkby.github.io/chess-kit/rules.html#zombie-chess
 [Masquerade Chess]: https://donkirkby.github.io/chess-kit/rules.html#masquerade-chess
+[experiments]: https://donkirkby.github.io/chess-kit/new_rules.html
