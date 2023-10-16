@@ -1,4 +1,4 @@
-# Chess Kit: New Games from the Building Blocks of Chess
+# Chess Kit: Silly New Games for Your Chess Set
 
 I am not a strong chess player - it's always seemed to me more like study than
 play. However, I do like the ideas in chess: a ragtag army of pieces with
