@@ -6,7 +6,11 @@ name = "pypi"
 [packages]
 svg-turtle = "*"
 python-chess = "*"
+reportlab = "*"
+space-tracer = "*"
 cairosvg = "*"
+svglib = "*"
+rlpycairo = "*"
 
 [dev-packages]
 

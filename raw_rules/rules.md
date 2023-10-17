@@ -21,19 +21,6 @@ together.
 
 ## Table of Contents
 
-* [Zombie Chess][zombie-chess] is a game where you bury each piece you
-    capture under one of your pieces. If you move off a buried piece, it
-    comes back from the dead as a zombie. (2 players, chess set, coins,
-    pencils, and paper)
-* [Masquerade Chess][masquerade-chess] is a combination of chess and
-    deduction games like Mastermind. Pieces move regularly, except when
-    they capture. Start the game by choosing which capture moves each of
-    your opponent's pieces will use, then try to deduce how each of your
-    pieces can capture. (2 players, chess set, pencils, and paper)
-
-[zombie-chess]: #zombie-chess
-[masquerade-chess]: #masquerade-chess
-
 ## Zombie Chess
 Just because you've captured a piece doesn't mean you can stop worrying about
 it. In Zombie Chess, it can come back from the dead and shamble across the board
@@ -61,7 +48,7 @@ you buried the piece.
 In this example game, Black has just captured a pawn at d4 and buried it under
 the knight at c6.
 
-![Diagram](images/rules/diagram1.png)
+    r1bqkbnr/pppp1ppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w - - 0 1
 
 At the end of your turn, check to see whether there was a piece buried under the
 piece you moved. If not, say "no zombie" and say the coordinate you checked. If
@@ -82,7 +69,7 @@ they put the white pawn back on the board with a coin under it and erase it from
 the grid. Then they decide to bury the knight under the pawn at g7 and write
 an N in that square in their hidden grid.
 
-![Diagram](images/rules/diagram2.png)
+    r1bqkbnr/pppp1ppp/2P5/8/3nP3/8/PPP2PPP/RNBQKB1R w - - 0 1
 
 Also at the end of your turn, check if you have any zombie pieces that you
 didn't move. If so, they are permanently destroyed, and moved to the dust bin
@@ -217,8 +204,3 @@ and playing with a chess set. That was playable, but uninspiring, so I abandoned
 it for 15 years. Masquerade Chess returns to the standard Chess moves, and
 players only learn about their pieces during capture, which slows the pace of
 the game.
-
-[![cc-logo]][cc-by-sa]
-
-[cc-logo]: images/cc-by-sa.png
-[cc-by-sa]: https://creativecommons.org/licenses/by-sa/4.0/
