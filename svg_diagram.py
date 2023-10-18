@@ -1,3 +1,4 @@
+import typing
 from io import BytesIO, StringIO
 
 import reportlab.graphics.shapes as reportlab_shapes
@@ -14,7 +15,7 @@ class SvgDiagram:
         drawing = svg2rlg(BytesIO(svg_bytes))
         return drawing
 
-    def to_cairo(self, png_file: str):
+    def to_cairo(self, png_file: str | typing.BinaryIO):
         svg2png(file_obj=StringIO(self.svg_text),
                 write_to=png_file,
                 background_color='transparent')

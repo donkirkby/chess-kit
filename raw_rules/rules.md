@@ -48,7 +48,16 @@ you buried the piece.
 In this example game, Black has just captured a pawn at d4 and buried it under
 the knight at c6.
 
-    r1bqkbnr/pppp1ppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w - - 0 1
+    r . b q k b n r
+    p p p p . p p p
+    . . n . . . . .
+    . . . . . . . .
+    . . . p P . . .
+    . . . . . N . .
+    P P P . . P P P
+    R N B Q K B . R
+    arrow: e5, d4, black
+    arrow: d4, c6, grey
 
 At the end of your turn, check to see whether there was a piece buried under the
 piece you moved. If not, say "no zombie" and say the coordinate you checked. If
@@ -69,7 +78,17 @@ they put the white pawn back on the board with a coin under it and erase it from
 the grid. Then they decide to bury the knight under the pawn at g7 and write
 an N in that square in their hidden grid.
 
-    r1bqkbnr/pppp1ppp/2P5/8/3nP3/8/PPP2PPP/RNBQKB1R w - - 0 1
+    r . b q k b n r
+    p p p p . p p p
+    . . P . . . . .
+    . . . . . . . .
+    . . . n P . . .
+    . . . . . . . .
+    P P P . . P P P
+    R N B Q K B . R
+    arrow: c6, d4, black
+    arrow: c6, c6, grey
+    arrow: d4, g7, grey
 
 Also at the end of your turn, check if you have any zombie pieces that you
 didn't move. If so, they are permanently destroyed, and moved to the dust bin

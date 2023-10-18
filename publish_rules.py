@@ -25,11 +25,11 @@ from reportlab.platypus.tableofcontents import TableOfContents
 from reportlab.rl_config import defaultPageSize
 from space_tracer import LivePillowImage
 
+from diagram import Diagram
 from diagram_differ import LiveSvg, DiagramDiffer
 from font_set import register_fonts
 from footer import FooterCanvas
 from book_parser import parse, Styles
-from svg_diagram import SvgDiagram
 
 PAGE_HEIGHT = defaultPageSize[1]
 PAGE_WIDTH = defaultPageSize[0]
@@ -54,39 +54,6 @@ def parse_args():
                         default=default_markdown,
                         help='markdown source file to convert')
     return parser.parse_args()
-
-
-class Diagram:
-    MAX_COLUMN_COUNT = 14
-
-    def __init__(self,
-                 page_width,
-                 page_height,
-                 board_state,
-                 show_path=False):
-        self.page_width = page_width
-        self.page_height = page_height
-        self.board_state = board_state
-        self.show_path = show_path
-        sections = board_state.split('\n---\n')
-        lines = sections[0].splitlines(True)
-        self.row_count = (len(lines) + 1) / 2
-        self.col_count = max(map(len, lines)) / 2
-        self.cell_size = self.page_width / Diagram.MAX_COLUMN_COUNT
-        self.width = self.cell_size * self.col_count
-        self.height = self.cell_size * self.row_count
-        self.resize()
-
-    def resize(self):
-        pass
-
-    def build(self) -> SvgDiagram:
-        board = chess.Board(self.board_state)
-
-        svg_text = chess.svg.board(board, size=350)
-
-        diagram = SvgDiagram(svg_text)
-        return diagram
 
 
 class DiagramWriter:
@@ -168,6 +135,7 @@ def load_contents_descriptions(contents_path: Path) -> typing.Dict[str, str]:
         return {}
     with contents_path.open() as f:
         reader = DictReader(f)
+        # noinspection PyTypeChecker
         return {row['heading']: row['description']
                 for row in reader}
 
@@ -310,16 +278,13 @@ def main():
                 story.append(PageBreak())
             continue
         elif state.style == Styles.Diagram:
-            show_path = False
             flowable = Diagram(doc.width,
                                doc.height,
-                               state.text,
-                               show_path).build().to_reportlab()
+                               state.text).build().to_reportlab()
             state.image_path = diagram_writer.add_diagram(Diagram(
                 image_width,
                 image_height,
-                state.text,
-                show_path))
+                state.text))
         else:
             flowable = Paragraph(state.text,
                                  styles[state.style])
