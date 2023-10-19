@@ -28,5 +28,8 @@ together.
     use, then try to deduce how each of your pieces can capture. (2 players,
     chess set, pencils, and paper)
 
+If you're brave, you can read about [experiments] in progress.
+
 [Zombie Chess]: rules.md#zombie-chess
 [Masquerade Chess]: rules.md#masquerade-chess
+[experiments]: new_rules.md

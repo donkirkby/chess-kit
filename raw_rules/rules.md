@@ -127,13 +127,13 @@ find their way to victory first?
 ### Setup
 Players each draw two copies of this table:
 
-| move \ cap | K | Q | R | B | N | combo |
-|------------|---|---|---|---|---|-------|
-| **K**      |   |   |   |   |   |       |
-| **Q**      |   |   |   |   |   |       |
-| **R**      |   |   |   |   |   |       |
-| **B**      |   |   |   |   |   |       |
-| **N**      |   |   |   |   |   |       |
+    type: masquerade
+    . K Q R B N combo
+    K . . . . . _
+    Q . . . . . _
+    R . . . . . _
+    B . . . . . _
+    N . . . . . _
 
 They write their opponent's name above one table and their own name above the
 other. They then fill in the table for their opponent's pieces without letting
@@ -151,25 +151,23 @@ rest of the table.
 Here's an example set up where Bob has filled in the table for Alice's pieces
 and left his own blank.
 
-**Alice**
+#### Alice
+    type: masquerade
+    . K Q R B N combo
+    K . . O . . KR
+    Q O . . . . QK
+    R . . . . O RN
+    B . . . O . BB
+    N . O . . . NQ
 
-| move \ cap | K | Q | R | B | N | combo |
-|------------|---|---|---|---|---|-------|
-| **K**      |   |   | O |   |   | KR    |
-| **Q**      | O |   |   |   |   | QK    |
-| **R**      |   |   |   |   | O | RN    |
-| **B**      |   |   |   | O |   | BB    |
-| **N**      |   | O |   |   |   | NQ    |
-
-**Bob**
-
-| move \ cap | K | Q | R | B | N | combo |
-|------------|---|---|---|---|---|-------|
-| **K**      |   |   |   |   |   |       |
-| **Q**      |   |   |   |   |   |       |
-| **R**      |   |   |   |   |   |       |
-| **B**      |   |   |   |   |   |       |
-| **N**      |   |   |   |   |   |       |
+#### Bob
+    type: masquerade
+    . K Q R B N combo
+    K . . . . . _
+    Q . . . . . _
+    R . . . . . _
+    B . . . . . _
+    N . . . . . _
 
 ### Play
 On each turn, the player may either make a standard move without capturing, or
@@ -219,7 +217,7 @@ themselves. Move fast and break things!
 ### History
 This game was inspired by Robert Abbott's Confusion, which Kerry Handscomb and
 I originally adapted as Minor Confusion by creating a more balanced set of moves
-and playing with a chess set. That was playable, but uninspiring, so I abandoned
+and playing with a chess set. That was playable but uninspiring, so I abandoned
 it for 15 years. Masquerade Chess returns to the standard Chess moves, and
 players only learn about their pieces during capture, which slows the pace of
 the game.

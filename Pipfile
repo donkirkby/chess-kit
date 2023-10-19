@@ -11,6 +11,7 @@ space-tracer = "*"
 cairosvg = "*"
 svglib = "*"
 rlpycairo = "*"
+svgwrite = "*"
 
 [dev-packages]
 pytest = "*"

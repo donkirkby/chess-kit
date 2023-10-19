@@ -121,13 +121,7 @@ find their way to victory first?
 ### Setup
 Players each draw two copies of this table:
 
-| move \ cap | K | Q | R | B | N | combo |
-|------------|---|---|---|---|---|-------|
-| **K**      |   |   |   |   |   |       |
-| **Q**      |   |   |   |   |   |       |
-| **R**      |   |   |   |   |   |       |
-| **B**      |   |   |   |   |   |       |
-| **N**      |   |   |   |   |   |       |
+![Diagram](images/rules/diagram3.png)
 
 They write their opponent's name above one table and their own name above the
 other. They then fill in the table for their opponent's pieces without letting
@@ -145,25 +139,11 @@ rest of the table.
 Here's an example set up where Bob has filled in the table for Alice's pieces
 and left his own blank.
 
-**Alice**
+#### Alice
+![Diagram](images/rules/diagram4.png)
 
-| move \ cap | K | Q | R | B | N | combo |
-|------------|---|---|---|---|---|-------|
-| **K**      |   |   | O |   |   | KR    |
-| **Q**      | O |   |   |   |   | QK    |
-| **R**      |   |   |   |   | O | RN    |
-| **B**      |   |   |   | O |   | BB    |
-| **N**      |   | O |   |   |   | NQ    |
-
-**Bob**
-
-| move \ cap | K | Q | R | B | N | combo |
-|------------|---|---|---|---|---|-------|
-| **K**      |   |   |   |   |   |       |
-| **Q**      |   |   |   |   |   |       |
-| **R**      |   |   |   |   |   |       |
-| **B**      |   |   |   |   |   |       |
-| **N**      |   |   |   |   |   |       |
+#### Bob
+![Diagram](images/rules/diagram5.png)
 
 ### Play
 On each turn, the player may either make a standard move without capturing, or

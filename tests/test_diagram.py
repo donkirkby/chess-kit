@@ -1,9 +1,9 @@
-from io import BytesIO
 from pathlib import Path
 from textwrap import dedent
 
 import chess.svg
 import pytest
+from svgwrite import Drawing
 
 from board_parser import parse_board
 from diagram import Diagram
@@ -71,6 +71,56 @@ def test_arrows(diagram_differ: DiagramDiffer):
     expected_diagram = SvgDiagram(expected_svg)
 
     diagram = Diagram(500, 500, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+def test_masquerade(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        type: masquerade
+        . K Q R B N combo
+        K . . . . . _
+        Q . O . . . QQ
+        R . . . . . _
+        B . . X . . _
+        N . . . . . _
+        """)
+    text_args = dict(text_anchor='middle',
+                     font_family='FredokaOne',
+                     font_size=25)
+    expected = Drawing(size=(300, 240))
+    for i in range(7):
+        expected.add(expected.line((40*i, 0), (40*i, 240), stroke='black'))
+        expected.add(expected.line((0, 40*i), (300, 40*i), stroke='black'))
+    expected.add(expected.line((300, 0), (300, 240), stroke='black'))
+
+    for i, c in enumerate('KQRBN'):
+        expected.add(expected.text(c, (20, 70+40*i), **text_args))
+        expected.add(expected.text(c, (60+40*i, 30), **text_args))
+        expected.add(expected.line((250, 72+40*i),
+                                   (290, 72+40*i),
+                                   stroke='black'))
+
+    expected.add(expected.text('O', (100, 110), **text_args))
+    expected.add(expected.text('X', (140, 190), **text_args))
+    expected.add(expected.text('QQ', (270, 110), **text_args))
+
+    expected.add(expected.line((0, 0), (40, 40), stroke='black'))
+    text_args['font_size'] = 15
+    expected.add(expected.text('combo', (270, 30), **text_args))
+    text_args['font_size'] = 10
+    expected.add(expected.text('mv', (15, 30), **text_args))
+    expected.add(expected.text('cap', (27, 15), **text_args))
+
+    text_args['font_size'] = 25
+    text_args['text_decoration'] = 'underline'
+
+    expected_svg = expected.tostring()
+    print(expected_svg)
+    expected_diagram = SvgDiagram(expected_svg)
+
+    diagram = Diagram(600, 600, diagram_text)
     svg_diagram = diagram.build()
 
     diagram_differ.assert_equal(svg_diagram, expected_diagram)
