@@ -113,14 +113,47 @@ def test_masquerade(diagram_differ: DiagramDiffer):
     expected.add(expected.text('mv', (15, 30), **text_args))
     expected.add(expected.text('cap', (27, 15), **text_args))
 
-    text_args['font_size'] = 25
-    text_args['text_decoration'] = 'underline'
-
-    expected_svg = expected.tostring()
-    print(expected_svg)
-    expected_diagram = SvgDiagram(expected_svg)
+    expected_diagram = SvgDiagram(expected.tostring())
 
     diagram = Diagram(600, 600, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+def test_cloak(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        type: cloak
+        . K Q R B N
+        1 . . . . .
+        2 . X . . .
+        3 . . O . .
+        4 . . . . .
+        5 . . . . .
+        6 . . . . .
+        7 . . . . .
+        8 . . . . .
+        """)
+    text_args = dict(text_anchor='middle',
+                     font_family='FredokaOne',
+                     font_size=19)
+    expected = Drawing(size=(180, 270))
+    for i in range(10):
+        expected.add(expected.line((0, 30*i), (180, 30*i), stroke='black'))
+    for j in range(7):
+        expected.add(expected.line((30*j, 0), (30*j, 270), stroke='black'))
+
+    for i, c in enumerate('12345678'):
+        expected.add(expected.text(c, (15, 52 + 30*i), **text_args))
+    for j, c in enumerate('KQRBN'):
+        expected.add(expected.text(c, (45+30*j, 22), **text_args))
+
+    expected.add(expected.text('X', (75, 82), **text_args))
+    expected.add(expected.text('O', (105, 112), **text_args))
+
+    expected_diagram = SvgDiagram(expected.tostring())
+
+    diagram = Diagram(600, 270, diagram_text)
     svg_diagram = diagram.build()
 
     diagram_differ.assert_equal(svg_diagram, expected_diagram)

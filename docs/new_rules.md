@@ -37,6 +37,10 @@ e2 would not be allowed, because it would start and end on the king side.
 
 ![Diagram](images/new_rules/diagram1.png)
 
+### Winning
+Win by check mate, as usual, but remember that the next player on the attacking
+team has to be able to make the capture.
+
 The rest of the rule changes flow from whether a piece may be captured
 immediately. A king may move into check or castle out of check, if the next
 player can't make the capture. En passant capture only works if the pawn is
@@ -59,17 +63,44 @@ put their pile back in the centre. Once a team pays a coin, they can discuss as
 much as they want until they make a move.
 
 ## Cloak and Dagger Chess
-Start with pawns in their regular positions, but replace all other pieces with
-numbered checkers. Then write down numbers and positions of other pieces. Pieces
-move normally, and you have to deduce which of your opponent's pieces are which,
-then capture their king.
+Pawns are played as usual, but all other pieces are replaced by numbered
+checkers. Players have to deduce which of their opponent's pieces are which, and
+then capture the king.
+
+### Setup
+Place all the pawns in their regular position, then use tape or stickers to
+write the numbers 1 to 8 on checkers for each player. Put the black checkers on
+black's back row and the light checkers on white's back row. Finally, write two
+grids like this to secretly record your pieces and deduce your opponent's:
+
+![Diagram](images/new_rules/diagram2.png)
+
+Obviously, you don't have to put the pieces in their standard starting
+positions, but you do have to have a standard set of pieces. (You can't give
+yourself three queens!) You also have to place your king somewhere between your
+two rooks. Write a circle for each piece you know, and an X for each piece you
+know is impossible. You might want to write X's for your own pieces as your
+opponent learns which of your combinations are impossible.
 
 At the start of your turn, you may guess the identity of one of your opponent's
-cloaked pieces. If you guess correctly, you make two moves in the current turn.
+checkers. If you guess correctly, you make two moves in the current turn.
 If you guess incorrectly, your turn is over.
+
+If one of your checkers is captured, tell your opponent which piece they
+captured.
 
 At the end of your turn, you may replace any number of your checkers with their
 uncloaked chess pieces.
+
+### Winning
+Win by capturing a cloaked king or putting an uncloaked king in check mate.
+
+A cloaked king may move into check, stay in check, or castle out of check,
+because the opponent doesn't know it's in check. Castling is the same as in
+Chess 960: the king and rook end up on the same squares they do in standard
+chess. All spaces between their start position and their end position must be
+empty, except for the king and the castling rook. All spaces between the king's
+start and end positions must not be under attack, if the king is uncloaked.
 
 ## Chess 960
 A variant invented by Bobby Fischer to [generate][generate] random starting
