@@ -10,7 +10,6 @@ from pathlib import Path
 from subprocess import call
 from textwrap import wrap, dedent
 
-import chess.svg
 # noinspection PyPackageRequirements
 from PIL import Image
 from reportlab.graphics.shapes import Image as ReportLabImage, Drawing
