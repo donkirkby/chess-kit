@@ -170,6 +170,7 @@ def main():
         images_path.mkdir(parents=True, exist_ok=True)
     contents_path = markdown_path.parent / (rules_stem + '_contents.csv')
     contents_descriptions = load_contents_descriptions(contents_path)
+    unlinked_section_names = set(contents_descriptions)
     register_fonts()
 
     with args.markdown:
@@ -293,6 +294,7 @@ def main():
                 logger.info(state.text)
             linked_text = doc.create_link(state.text)
             flowable = Paragraph(linked_text, styles[state.style])
+            unlinked_section_names.discard(state.text)
             if bulleted:
                 create_list_flowable(bulleted,
                                      group,
@@ -351,6 +353,14 @@ def main():
             f'<a href="https://creativecommons.org/licenses/by-sa/4.0/">'
             f'{datetime.now().year}</a>',
             centred_style))
+    if unlinked_section_names:
+        if len(unlinked_section_names) > 1:
+            suffix = 's'
+        else:
+            suffix = ''
+        unknown_section_message = (f'Unknown section{suffix} in contents: ' +
+                                   ', '.join(unlinked_section_names))
+        raise ValueError(unknown_section_message)
     doc.multiBuild(story, canvasmaker=partial(FooterCanvas,
                                               font_name='Raleway',
                                               is_booklet=args.booklet))

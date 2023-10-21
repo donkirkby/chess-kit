@@ -12,13 +12,13 @@ know what you think.
 * [Cloak and Dagger Chess][cloak-and-dagger-chess] is a game where you
     disguise your chess pieces as checkers, then try to identify your
     opponents pieces. (2 players, chess set, and checkers set)
-* [Chess 960][chess-960] is a game designed by Bobby Fischer to mix up
-    the game opening by randomly choosing your starting position. (Chess
-    set and deck of cards)
+* [Chess960][chess960] is a game designed by Bobby Fischer to mix up
+    the game opening by randomly choosing your starting position. (2
+    players, chess set, and deck of cards)
 
 [crowded-house]: #crowded-house
 [cloak-and-dagger-chess]: #cloak-and-dagger-chess
-[chess-960]: #chess-960
+[chess960]: #chess960
 
 ## Crowded House
 Two teams of two play, with each player moving the pieces of their colour
@@ -92,8 +92,11 @@ Here's one possible way to fill in your grid at the start of the game:
 ![Diagram](images/new_rules/diagram3.png)
 
 At the start of your turn, you may guess the identity of one of your opponent's
-checkers. If you guess correctly, you make two moves in the current turn.
-If you guess incorrectly, your turn is over.
+checkers. If you guess correctly, you may make a bonus move after your regular
+move. Your bonus move may be either a regular pawn move or to take back a pawn
+that your opponent captured and drop it on an empty square in your second rank.
+If you guess incorrectly, your opponent may make the same kind of bonus move
+before their next turn.
 
 At the end of your turn, you may replace any number of your checkers with their
 uncloaked chess pieces.
