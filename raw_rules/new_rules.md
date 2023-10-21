@@ -123,10 +123,13 @@ empty, except for the king and the castling rook. All spaces between the king's
 start and end positions must not be under attack, if the king is uncloaked.
 
 ## Chess960
-One of the challenges to learning chess is that strong players have spent a lot
-of time studying standard openings. That can also make the early game feel like
-you're following a script. Randomizing the starting position should make the
-standard openings much less important and make the play feel more creative.
+This is probably the least silly game in the collection; people organize
+Chess960 tournaments! It's still a bit silly, because it takes away the standard
+"opening book". One of the challenges to learning chess is that strong players
+have spent a lot of time studying standard openings. That can also make the
+early game feel like you're following a script. Randomizing the starting
+position should make the standard openings much less important and make the play
+feel more creative.
 
 ### Starting Position
 The idea of randomizing the starting position has been around since the 1790s,
@@ -151,13 +154,13 @@ piles of cards with the following ranks, ignoring suit:
 
 Shuffle each of the piles separately, then turn over one card from each of the
 first two piles. Using the ace through 8 to represent the squares a1 through h1,
-place the two bishops on the squares that match the two cards. Confirm that they
-are on opposite coloured squares. Now turn over one card at a time from the
-last pile, and use the identified pieces to fill in the empty squares from left
-to right. Place a knight for an 8, a queen for a queen, and a rook or king for
-a 10. Place a rook for the first and third 10, and a king for the middle 10.
-Finally, place the pawns in their regular positions and place the black pieces
-to mirror the white pieces.
+place the two white bishops on the squares that match the two cards. Confirm
+that they are on opposite-coloured squares. Now turn over one card at a time
+from the last pile, and use the identified white pieces to fill in the empty
+squares from left to right. Place a knight for an 8, a queen for a queen, and a
+rook or king for a 10. Place a rook for the first and third 10, and a king for
+the middle 10. Finally, place the pawns in their regular positions and place the
+black pieces to mirror the white pieces.
 
 As an example, imagine you turned over an ace and a 6 from the first two piles,
 then 8, 10, Q, 10, 8, 10 from the third pile. The starting position would look
