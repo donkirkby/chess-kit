@@ -99,8 +99,11 @@ Here's one possible way to fill in your grid at the start of the game:
     N . . . . . . O O
 
 At the start of your turn, you may guess the identity of one of your opponent's
-checkers. If you guess correctly, you make two moves in the current turn.
-If you guess incorrectly, your turn is over.
+checkers. If you guess correctly, you may make a bonus move after your regular
+move. Your bonus move may be either a regular pawn move or to take back a pawn
+that your opponent captured and drop it on an empty square in your second rank.
+If you guess incorrectly, your opponent may make the same kind of bonus move
+before their next turn.
 
 At the end of your turn, you may replace any number of your checkers with their
 uncloaked chess pieces.
