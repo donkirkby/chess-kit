@@ -16,18 +16,24 @@ introduction to the classic game. Players of different chess abilities that
 might find a game of regular chess frustrating may enjoy exploring these games
 together.
 
-* [Zombie Chess] is a game where you bury each piece you capture under one of
-    your pieces. If you move off a buried piece, it comes back from the dead as
-    a zombie. (2 players, chess set, coins, pencils, and paper)
-* [Masquerade Chess] is a combination of chess and deduction games like
-    Mastermind. Pieces move regularly, except when they capture. Start the
-    game by choosing which capture moves each of your opponent's pieces will
-    use, then try to deduce how each of your pieces can capture. (2 players,
-    chess set, pencils, and paper)
+* [Zombie Chess][zombie-chess] is a game where you bury each piece you
+    capture under one of your pieces. If you move off a buried piece, it
+    comes back from the dead as a zombie. (2 players, chess set, coins,
+    pencils, and paper)
+* [Masquerade Chess][masquerade-chess] is a combination of chess and
+    deduction games like Mastermind. Pieces move regularly, except when
+    they capture. Start the game by choosing which capture moves each of
+    your opponent's pieces will use, then try to deduce how each of your
+    pieces can capture. (2 players, chess set, pencils, and paper)
+* [Chess960][chess960] is a game designed by Bobby Fischer to mix up
+    the game opening by randomly choosing your starting position. (2
+    players, chess set, and deck of cards)
+
+[zombie-chess]: https://donkirkby.github.io/chess-kit/rules.html#zombie-chess
+[masquerade-chess]: https://donkirkby.github.io/chess-kit/rules.html#masquerade-chess
+[chess960]: https://donkirkby.github.io/chess-kit/rules.html#chess960
 
 If you're brave, you can read about [experiments] in progress.
 
 
-[Zombie Chess]: https://donkirkby.github.io/chess-kit/rules.html#zombie-chess
-[Masquerade Chess]: https://donkirkby.github.io/chess-kit/rules.html#masquerade-chess
 [experiments]: https://donkirkby.github.io/chess-kit/new_rules.html

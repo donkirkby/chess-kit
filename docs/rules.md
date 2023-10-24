@@ -30,9 +30,13 @@ together.
     they capture. Start the game by choosing which capture moves each of
     your opponent's pieces will use, then try to deduce how each of your
     pieces can capture. (2 players, chess set, pencils, and paper)
+* [Chess960][chess960] is a game designed by Bobby Fischer to mix up
+    the game opening by randomly choosing your starting position. (2
+    players, chess set, and deck of cards)
 
 [zombie-chess]: #zombie-chess
 [masquerade-chess]: #masquerade-chess
+[chess960]: #chess960
 
 ## Zombie Chess
 Just because you've captured a piece doesn't mean you can stop worrying about
@@ -193,10 +197,84 @@ themselves. Move fast and break things!
 ### History
 This game was inspired by Robert Abbott's Confusion, which Kerry Handscomb and
 I originally adapted as Minor Confusion by creating a more balanced set of moves
-and playing with a chess set. That was playable, but uninspiring, so I abandoned
+and playing with a chess set. That was playable but uninspiring, so I abandoned
 it for 15 years. Masquerade Chess returns to the standard Chess moves, and
 players only learn about their pieces during capture, which slows the pace of
 the game.
+
+## Chess960
+This is probably the least silly game in the collection; people organize
+Chess960 tournaments! It's still a bit silly, because it takes away the standard
+"opening book". One of the challenges to learning chess is that strong players
+have spent a lot of time studying standard openings. That can also make the
+early game feel like you're following a script. Randomizing the starting
+position should make the standard openings much less important and make the play
+feel more creative.
+
+### Starting Position
+The idea of randomizing the starting position has been around since the 1790s,
+but Bobby Fischer added some restrictions in the 1990s to avoid positions that
+strongly advantage one player:
+
+* Pawns start in their regular position.
+* The two bishops must be on different colours.
+* The king must be between the two rooks.
+* As in the standard starting position, black's pieces are a mirror reflection
+  of white's.
+
+With those restrictions, there are 960 possible starting positions. You can
+generate a random number and look up the position in a table, or use a website
+like [mark-weeks.com][weeks] to generate a position. You can also generate a
+random starting position with a standard deck of playing cards. Create three
+piles of cards with the following ranks, ignoring suit:
+
+* A, 3, 5, 7
+* 2, 4, 6, 8
+* 8, 8, 10, 10, 10, Q
+
+Shuffle each of the piles separately, then turn over one card from each of the
+first two piles. Using the ace through 8 to represent the squares a1 through h1,
+place the two white bishops on the squares that match the two cards. Confirm
+that they are on opposite-coloured squares. Now turn over one card at a time
+from the last pile, and use the identified white pieces to fill in the empty
+squares from left to right. Place a knight for an 8, a queen for a queen, and a
+rook or king for a 10. Place a rook for the first and third 10, and a king for
+the middle 10. Finally, place the pawns in their regular positions and place the
+black pieces to mirror the white pieces.
+
+As an example, imagine you turned over an ace and a 6 from the first two piles,
+then 8, 10, Q, 10, 8, 10 from the third pile. The starting position would look
+like this:
+
+![Diagram](images/rules/diagram6.png)
+
+### Castling
+The other change that Bobby Fischer made was to the castling rules. As usual,
+the king may castle with the rook to his right or his left. However, the two
+pieces' end positions after castling are the same as for standard chess. So to
+castle with the h-side rook, white's king would end on g1 and the rook on f1, no
+matter where they started. As in regular chess, there are several restrictions
+before you can castle:
+
+* The king and the rook must not have moved.
+* The king's starting square, ending square, and all the squares he moves
+  through must not be under attack.
+* All the squares the two pieces move through must be empty, except for the two
+  pieces themselves.
+
+The rest of the standard chess rules apply unchanged.
+
+[weeks]: https://www.mark-weeks.com/cfaa/chess960/c960strt.htm
+
+### Contributing
+Know some other silly chess variants? Ideas to share? Get in touch at
+[https://donkirkby.github.io/chess-kit][github].
+
+Masquerade Chess and Zombie Chess are original games designed by
+[Don Kirkby][don].
+
+[github]: https://donkirkby.github.io/chess-kit
+[don]: https://donkirkby.github.io/
 
 [![cc-logo]][cc-by-sa]
 
