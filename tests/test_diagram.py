@@ -1,5 +1,6 @@
 from pathlib import Path
 from textwrap import dedent
+import xml.etree.ElementTree as ET  # noqa
 
 import chess.svg
 import pytest
@@ -76,6 +77,87 @@ def test_arrows(diagram_differ: DiagramDiffer):
     diagram_differ.assert_equal(svg_diagram, expected_diagram)
 
 
+# noinspection DuplicatedCode
+def test_text(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        . . . k q . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . Q . . .
+        . . . P . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . K . . . .
+        text: A2, 1, 2
+        text: G3, 7, 3
+        """)
+    text_args = dict(text_anchor='middle',
+                     font_family='Raleway',
+                     font_size=25)
+    expected_text = diagram_text.split('text')[0]
+    expected_board = parse_board(expected_text)
+    expected_board_svg = chess.svg.board(
+        expected_board,
+        size=195)
+    Diagram.register_svg()
+    expected_tree = ET.fromstring(expected_board_svg)
+    extra = Drawing(size=(300, 240))
+    extra.add(extra.text('A2', (37.5, 320), **text_args))
+    extra.add(extra.text('G3', (307.5, 275), **text_args))
+    expected_tree.extend(extra.get_xml())
+    expected_diagram = SvgDiagram(ET.tostring(expected_tree,
+                                              encoding='unicode'))
+    ET.register_namespace('', '')  # Force registration again.
+
+    diagram = Diagram(390, 195, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_offset(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        . . . k q . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . Q . . .
+        . . . P . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . K . . . .
+        margins: 2, 1
+        text: A2, 1, 2
+        text: G3, 7, 3
+        """)
+    text_args = dict(text_anchor='middle',
+                     font_family='Raleway',
+                     font_size=25)
+    expected_text = diagram_text.split('margins')[0]
+    expected_board = parse_board(expected_text)
+    expected_board_svg = chess.svg.board(
+        expected_board,
+        size=195)
+    Diagram.register_svg()
+    expected_tree = ET.fromstring(expected_board_svg)
+    expected_tree.set('width', '285')
+    expected_tree.set('height', '240')
+    expected_tree.set('viewBox', '-90 -45 570 480')
+    extra = Drawing(size=(300, 240))
+    extra.add(extra.text('A2', (37.5, 320), **text_args))
+    extra.add(extra.text('G3', (307.5, 275), **text_args))
+    # extra.add(extra.rect((390+45, 15), (45, 45)))
+    expected_tree.extend(extra.get_xml())
+    expected_diagram = SvgDiagram(ET.tostring(expected_tree,
+                                              encoding='unicode'))
+
+    diagram = Diagram(570, 240, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
 def test_masquerade(diagram_differ: DiagramDiffer):
     diagram_text = dedent("""\
         type: masquerade

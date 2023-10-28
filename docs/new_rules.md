@@ -24,43 +24,41 @@ filled out or change based on feedback from players.
 Two teams of two play, with each player moving the pieces of their colour
 on the left or right half of the board. As usual, white moves first, then
 alternates with black. Each king-side player takes the first move for their
-team, then alternates with their partner. As an example, imagine Walter plays
-king-side white, Winnie plays queen-side white, Betty plays king-side black, and
-Bob plays queen-side black. Then the play order would be Walter, Betty, Winnie,
-Bob, Walter, Betty, and so on.
+team, then alternates with their partner.
 
-### Rule changes
-The key rule is that you can only move a piece that either starts or ends on
-your side of the board. In this example, queen-side white may move the bishop as
-shown, because it ends up on the queen side of the board. Moving the bishop to
-e2 would not be allowed, because it would start and end on the king side.
+In the following example, Walter plays king-side white, Winnie plays queen-side
+white, Betty plays king-side black, and Bob plays queen-side black. Then the
+play order would be Walter, Betty, Winnie, Bob, Walter, Betty, and so on.
 
 ![Diagram](images/new_rules/diagram1.png)
 
-### Winning
-Win by check mate, as usual, but remember that the next player on the attacking
-team has to be able to make the capture.
+### Rule changes
+The key rule is that you may only move a piece that either starts or ends on
+your side of the board.
+
+In this example, Winnie may move the bishop as shown, because it ends up on the
+queen side of the board. Winnie may not move the bishop to e2, because it would
+start and end on the king side.
+
+![Diagram](images/new_rules/diagram2.png)
+
+If a player has no pieces on their side and can't move any pieces to their side,
+they move nothing on that turn.
 
 The rest of the rule changes flow from whether a piece may be captured
 immediately. A king may move into check or castle out of check, if the next
 player can't make the capture. En passant capture only works if the pawn is
 captured immediately after its first move.
 
+### Winning
+Win by check mate, as usual, but remember that the next player on the attacking
+team has to be able to make the capture.
+
 ### Talking
 This is a silly game, so feel free to chat with your partner, but remember that
 the other team is listening. Any discussion should be heard by both teams, so
 no secret codes or second languages! Of course, players should also feel free to
 ignore their partner's advice.
-
-If partners are giving too much advice or want a more challenging game, add a
-chess clock. Decide on an overall time, then decide on a time cost for talking.
-As an example, you might play with a start time of 30 minutes and a 2-minute
-bonus for each time your opponents talk. It's probably easiest to put a handful
-of coins next to the board. Whenever your team discusses a move, either move a
-coin from the centre to your opponents' pile or from your pile to the centre. If
-a team runs out of time, they can add 2 minutes for each coin in their pile and
-put their pile back in the centre. Once a team pays a coin, they can discuss as
-much as they want until they make a move.
 
 # Broken Games
 These ideas seemed promising, but didn't work at the table. Maybe I'll come back
@@ -78,7 +76,7 @@ write the numbers 1 to 8 on checkers for each player. Put the black checkers on
 black's back row and the light checkers on white's back row. Finally, write two
 grids like this to secretly record your pieces and deduce your opponent's:
 
-![Diagram](images/new_rules/diagram2.png)
+![Diagram](images/new_rules/diagram3.png)
 
 Obviously, you don't have to put the pieces in their standard starting
 positions, but you do have to have a standard set of pieces. (You can't give
@@ -94,7 +92,7 @@ opponent learns which of your combinations are impossible.
 
 Here's one possible way to fill in your grid at the start of the game:
 
-![Diagram](images/new_rules/diagram3.png)
+![Diagram](images/new_rules/diagram4.png)
 
 At the start of your turn, you may guess the identity of one of your opponent's
 checkers. If you guess correctly, you may make a bonus move after your regular
