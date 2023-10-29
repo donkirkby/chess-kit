@@ -33,12 +33,15 @@ play order would be Walter, Betty, Winnie, Bob, Walter, Betty, and so on.
 ![Diagram](images/new_rules/diagram1.png)
 
 ### Rule changes
-The key rule is that you may only move a piece that either starts or ends on
-your side of the board.
+The key rule is that you may only move a piece that either
 
-In this example, Winnie may move the bishop as shown, because it ends up on the
-queen side of the board. Winnie may not move the bishop to e2, because it would
-start and end on the king side.
+* **starts** on your side of the board, or
+* **ends** on your side of the board.
+
+In this example, Winnie may move any piece that starts or ends on the queen
+side of the board, shown by the dashed rectangle. She may move the bishop as
+shown by the arrow, because it ends up on the queen side of the board. Winnie
+may not move the bishop to e2, because it would start and end on the king side.
 
 ![Diagram](images/new_rules/diagram2.png)
 
@@ -55,10 +58,10 @@ Win by check mate, as usual, but remember that the next player on the attacking
 team has to be able to make the capture.
 
 ### Talking
-This is a silly game, so feel free to chat with your partner, but remember that
-the other team is listening. Any discussion should be heard by both teams, so
-no secret codes or second languages! Of course, players should also feel free to
-ignore their partner's advice.
+This game shouldn't be taken too seriously, so feel free to chat with your
+partner, but remember that the other team is listening. Any discussion should
+be heard by both teams, so no secret codes or second languages! Of course,
+players should also feel free to ignore their partner's advice.
 
 # Broken Games
 These ideas seemed promising, but didn't work at the table. Maybe I'll come back

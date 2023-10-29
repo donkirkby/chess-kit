@@ -116,7 +116,7 @@ def test_text(diagram_differ: DiagramDiffer):
 
 
 # noinspection DuplicatedCode
-def test_offset(diagram_differ: DiagramDiffer):
+def test_margins(diagram_differ: DiagramDiffer):
     diagram_text = dedent("""\
         . . . k q . . .
         . . . . . . . .
@@ -146,7 +146,6 @@ def test_offset(diagram_differ: DiagramDiffer):
     extra = Drawing(size=(300, 240))
     extra.add(extra.text('A2', (37.5, 320), **text_args))
     extra.add(extra.text('G3', (307.5, 275), **text_args))
-    # extra.add(extra.rect((390+45, 15), (45, 45)))
     expected_tree.extend(extra.get_xml())
     expected_diagram = SvgDiagram(ET.tostring(expected_tree,
                                               encoding='unicode'))
@@ -155,6 +154,62 @@ def test_offset(diagram_differ: DiagramDiffer):
     svg_diagram = diagram.build()
 
     diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_rect(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        . . . k q . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . Q . . .
+        . . . P . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . K . . . .
+        rect: 2, 6, 5, 7
+        """)
+    expected_text = diagram_text.split('rect')[0]
+    expected_board = parse_board(expected_text)
+    expected_board_svg = chess.svg.board(
+        expected_board,
+        size=195)
+    Diagram.register_svg()
+    expected_tree = ET.fromstring(expected_board_svg)
+    extra = Drawing(size=(300, 240))
+    extra.add(extra.rect((60, 60),
+                         (180, 90),
+                         fill_opacity=0,
+                         stroke='blue',
+                         stroke_dasharray='7.5',
+                         stroke_width=5))
+    expected_tree.extend(extra.get_xml())
+    expected_diagram = SvgDiagram(ET.tostring(expected_tree,
+                                              encoding='unicode'))
+
+    diagram = Diagram(390, 195, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_unknown(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        . . . k q . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . Q . . .
+        . . . P . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . K . . . .
+        bogus: What is this?
+        """)
+
+    diagram = Diagram(570, 240, diagram_text)
+    with pytest.raises(ValueError, match=r'Unknown diagram command: bogus'):
+        diagram.build()
 
 
 # noinspection DuplicatedCode

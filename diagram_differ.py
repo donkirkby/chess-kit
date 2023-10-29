@@ -19,12 +19,8 @@ class LiveSvg(LiveImage):
         self.write_png(png_alpha_bytes)
         return png_alpha_bytes.getvalue()
 
-    def write_png(self, file: typing.Union[typing.BinaryIO, Path]):
-        drawing = self.diagram.to_reportlab()
-        png_bytes = BytesIO(drawToString(drawing, 'PNG'))
-        image = Image.open(png_bytes)
-        image_alpha = image.convert('RGBA')
-        image_alpha.save(file, 'PNG')
+    def write_png(self, file: typing.BinaryIO | Path | str):
+        self.diagram.to_cairo(file)
 
     def save(self, file_path: Path) -> Path:
         """ Save the image to a file.

@@ -200,21 +200,21 @@ def main():
         if hasattr(style, 'fontSize'):
             if style.name.startswith('Heading'):
                 scale = 1.5
-                style.fontName = 'Fredoka'
+                style.fontName = 'Heading'
             else:
                 scale = 2
-                style.fontName = 'Raleway'
+                style.fontName = 'Body'
             if False and args.booklet:
                 style.fontSize *= scale
                 style.leading *= scale
     paragraph_style = styles[Styles.Normal]
     numbered_list_style = ListStyle('default_list',
-                                    bulletFontName='Raleway',
+                                    bulletFontName='Body',
                                     bulletFontSize=paragraph_style.fontSize,
                                     leftIndent=paragraph_style.fontSize * 1.5,
                                     bulletFormat='%s.')
     bulleted_list_style = ListStyle('default_list',
-                                    bulletFontName='Raleway',
+                                    bulletFontName='Body',
                                     bulletFontSize=paragraph_style.fontSize,
                                     leftIndent=paragraph_style.fontSize * 1.5)
     centred_style = ParagraphStyle('Author',
@@ -265,7 +265,7 @@ def main():
                 subtitle_style = ParagraphStyle('Subtitle',
                                                 parent=paragraph_style,
                                                 alignment=TA_CENTER,
-                                                fontName='Raleway-Italic')
+                                                fontName='Body-Italic')
                 story.append(Paragraph(subtitle_text, subtitle_style))
             if args.booklet:
                 story.append(Spacer(0, page_size[1] * 0.15))
@@ -362,7 +362,7 @@ def main():
                                    ', '.join(unlinked_section_names))
         raise ValueError(unknown_section_message)
     doc.multiBuild(story, canvasmaker=partial(FooterCanvas,
-                                              font_name='Raleway',
+                                              font_name='Body',
                                               is_booklet=args.booklet))
     if not args.no_merge:
         with merged_path.open('w') as merged_file:

@@ -31,7 +31,7 @@ class Diagram:
         square_size = 45
         x0 = 15 - 0.5*square_size
         y0 = 9.112 * square_size
-        text_elements = Drawing()
+        extra_elements = Drawing()
         text_args = dict(text_anchor='middle',
                          font_family='Raleway',
                          font_size=round(0.55*square_size))
@@ -42,17 +42,30 @@ class Diagram:
             if command == 'text':
                 x = round(x0 + float(fields[1]) * square_size, 1)
                 y = round(y0 - float(fields[2]) * square_size, 1)
-                # fields[0] = str(y)
-                text_elements.add(text_elements.text(fields[0],
-                                                     (x, y),
-                                                     **text_args))
+                extra_elements.add(extra_elements.text(fields[0],
+                                                       (x, y),
+                                                       **text_args))
+            elif command == 'rect':
+                x1, y1, x2, y2 = [float(field) for field in fields]
+                left = round(15 + (x1-1)*square_size, 1)
+                top = round(15 + (8 - y2) * square_size, 1)
+                width = round((x2-x1+1)*square_size, 1)
+                height = round((y2-y1+1)*square_size, 1)
+                extra_elements.add(extra_elements.rect((left, top),
+                                                       (width, height),
+                                                       fill_opacity=0,
+                                                       stroke='blue',
+                                                       stroke_width=5,
+                                                       stroke_dasharray='7.5'))
             elif command == 'margins':
                 margins = tuple(float(n) for n in fields[:2])
-            else:
+            elif command == 'arrow':
                 tail = getattr(chess, fields[0].upper())
                 head = getattr(chess, fields[1].upper())
                 colour = fields[2]
                 arrows.append(chess.svg.Arrow(tail, head, color=colour))
+            else:
+                raise ValueError(f'Unknown diagram command: {command}.')
         original_view_size = 390  # chess library always uses this size
         view_width = original_view_size + 2*margins[0]*square_size
         view_height = original_view_size + 2*margins[1]*square_size
@@ -69,7 +82,7 @@ class Diagram:
         board_tree.set('viewBox', view_box)
         board_tree.set('width', str(image_width))
         board_tree.set('height', str(image_height))
-        board_tree.extend(text_elements.get_xml())
+        board_tree.extend(extra_elements.get_xml())
 
         diagram = SvgDiagram(ET.tostring(board_tree, encoding='unicode'))
         return diagram
