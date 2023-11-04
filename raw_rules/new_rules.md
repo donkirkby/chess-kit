@@ -11,74 +11,177 @@ know what you think.
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
 
-## Crowded House
-Two teams of two play, with each player moving the pieces of their colour
-on the left or right half of the board. As usual, white moves first, then
-alternates with black. Each king-side player takes the first move for their
-team, then alternates with their partner.
+## Manna Chess
+The god of war drops manna after every capture, and manna can make any piece a
+king. This game adds a little chaos to chess, and accelerates the end game.
 
-In the following example, Walter plays king-side white, Winnie plays queen-side
-white, Betty plays king-side black, and Bob plays queen-side black. Then the
-play order would be Walter, Betty, Winnie, Bob, Walter, Betty, and so on.
+### Equipment
+A standard chess set, a standard set of 24 checkers, and two dice. The checkers
+must be stackable, and you must be able to stack a chess piece on top of the
+checkers. Coins or poker chips would also work, as long as they fit inside the
+chess board squares.
 
-    r n b q k b n r
-    p p p p p p p p
-    . . . . . . . .
-    . . . . . . . .
-    . . . . . . . .
-    . . . . . . . .
-    P P P P P P P P
-    R N B Q K B N R
-    margins: 3, 0
-    text: 1: Walter, 10.5, 1
-    text: 2: Betty, 10.5, 8
-    text: 3: Winnie, -1.5, 1
-    text: 4: Bob, -1.5, 8
+### Setup
+Set up the chess pieces in the standard start position, and randomly choose who
+will play white. Place the 24 checkers and the dice beside the board.
 
-### Rule changes
-The key rule is that you may only move a piece that either
+### Play
+All the regular chess rules apply, plus you get to drop manna after one of your
+pieces is captured. If one or more of your pieces were just captured, start your
+turn by pointing to one of the four corners of the board. Then roll two dice to
+decide which file (column) the manna will land on. The corner you're pointing to
+is 3, then count up across the board to the number you rolled. Rolls of 2, 11,
+or 12 miss the board, and you get no manna. Then roll the two dice again to
+decide which rank (row) the manna will land on. Again, you're pointing at 3,
+and count up across the board to 10. If manna lands on the board, add a checker
+to that square. The colour of the checker doesn't matter. If that square has a
+chess piece or other checkers on it, add the new checker to the stack.
 
-* **starts** on your side of the board, or
-* **ends** on your side of the board.
-
-In this example, Winnie may move any piece that starts or ends on the queen
-side of the board, shown by the dashed rectangle. She may move the bishop as
-shown by the arrow, because it ends up on the queen side of the board. Winnie
-may not move the bishop to e2, because it would start and end on the king side.
+In the following example, white just captured a pawn with the bishop, so now
+black points to the bottom-left corner and rolls a 7 and a 6. Counting from the
+left, the 7 puts it on the e file. Counting from the bottom, the 6 puts it on
+e4.
 
     r n b q k b n r
-    p p p p . p p p
+    . p p p p p p p
+    B . . . . . . .
     . . . . . . . .
+    . . . . . . . .
+    . . . . P . . .
+    P P P P . P P P
+    R N B Q K . N R
+    arrow: f1, a6, white
+    arrow: e4, e4, gray
+
+Checkers or stacks of checkers without a chess piece on them are neutral manna
+pieces that can be captured by either player. When you capture them, stack your
+capturing piece on top. You cannot jump over manna, except with a knight. When
+you capture an opponent's piece, you keep any manna they were carrying.
+
+Captured manna are carried with the chess piece on top when you move the chess
+piece. If one of your pieces has manna after you move it, you may eat one of
+those manna and make an extra king move with that piece. Eat a manna by
+removing it from the stack and putting back in the supply beside the board. If
+the piece still has manna, you may continue making king moves until you run out.
+
+For example, in this position, the pawns at e3 and e5 cannot capture the manna
+at e4. However, the white pawn at d3 can. Once it captures the manna, it could
+immediately eat it and capture the pawn at e5 with a king's move. That would be
+a poor choice, though, because the pawn at d6 could capture it back.
+
+    r n b q k b n r
+    . p p . . p p p
+    B . . p . . . .
+    . . . . p . . .
+    . . . . . . . .
+    . . . P P . . .
+    P P P . . P P P
+    R N B Q K . N R
+    arrow: e4, e4, gray
+
+White decides to capture the manna, but not eat it.
+
+    r n b q k b n r
+    . p p . . p p p
+    B . . p . . . .
     . . . . p . . .
     . . . . P . . .
-    . . . . . . . .
-    P P P P . P P P
-    R N B Q K B N R
-    arrow: f1, c4, white
-    margins: 3, 0
-    text: 1: Walter, 10.5, 1
-    text: 2: Betty, 10.5, 8
-    text: 3: Winnie, -1.5, 1
-    text: 4: Bob, -1.5, 8
-    rect: 1, 1, 4, 8
-
-If a player has no pieces on their side and can't move any pieces to their side,
-they move nothing on that turn.
-
-The rest of the rule changes flow from whether a piece may be captured
-immediately. A king may move into check or castle out of check, if the next
-player can't make the capture. En passant capture only works if the pawn is
-captured immediately after its first move.
+    . . . . P . . .
+    P P P . . P P P
+    R N B Q K . N R
+    arrow: e4, e4, gray
+    arrow: d3, e4, white
 
 ### Winning
-Win by check mate, as usual, but remember that the next player on the attacking
-team has to be able to make the capture.
+Win by capturing the king, either with a regular move or with a manna move. You
+must call check or check mate if you can, but it's possible for a lucky manna
+drop to allow a capture when you couldn't call check mate on the previous turn.
 
-### Talking
-This game shouldn't be taken too seriously, so feel free to chat with your
-partner, but remember that the other team is listening. Any discussion should
-be heard by both teams, so no secret codes or second languages! Of course,
-players should also feel free to ignore their partner's advice.
+### Manna Strategy
+Because 7 is the most common roll with two dice, you have some control over
+where the manna will drop when you choose which corner to count from. For
+example, if you chose the bottom-left corner 1296 times, here are how many times
+you would expect the manna to land in each square:
+
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    text: 4, 1, 1
+    text: 6, 1, 2
+    text: 8, 1, 3
+    text: 10, 1, 4
+    text: 12, 1, 5
+    text: 10, 1, 6
+    text: 8, 1, 7
+    text: 6, 1, 8
+    text: 6, 2, 1
+    text: 9, 2, 2
+    text: 12, 2, 3
+    text: 15, 2, 4
+    text: 18, 2, 5
+    text: 15, 2, 6
+    text: 12, 2, 7
+    text: 9, 2, 8
+    text: 8, 3, 1
+    text: 12, 3, 2
+    text: 16, 3, 3
+    text: 20, 3, 4
+    text: 24, 3, 5
+    text: 20, 3, 6
+    text: 16, 3, 7
+    text: 12, 3, 8
+    text: 10, 4, 1
+    text: 15, 4, 2
+    text: 20, 4, 3
+    text: 25, 4, 4
+    text: 30, 4, 5
+    text: 25, 4, 6
+    text: 20, 4, 7
+    text: 15, 4, 8
+    text: 12, 5, 1
+    text: 18, 5, 2
+    text: 24, 5, 3
+    text: 30, 5, 4
+    text: 36, 5, 5
+    text: 30, 5, 6
+    text: 24, 5, 7
+    text: 18, 5, 8
+    text: 10, 6, 1
+    text: 15, 6, 2
+    text: 20, 6, 3
+    text: 25, 6, 4
+    text: 30, 6, 5
+    text: 25, 6, 6
+    text: 20, 6, 7
+    text: 15, 6, 8
+    text: 8, 7, 1
+    text: 12, 7, 2
+    text: 16, 7, 3
+    text: 20, 7, 4
+    text: 24, 7, 5
+    text: 20, 7, 6
+    text: 16, 7, 7
+    text: 12, 7, 8
+    text: 6, 8, 1
+    text: 9, 8, 2
+    text: 12, 8, 3
+    text: 15, 8, 4
+    text: 18, 8, 5
+    text: 15, 8, 6
+    text: 12, 8, 7
+    text: 9, 8, 8
+
+You would also expect to miss the board 272 times, so you will drop a piece of
+manna roughly 8 out of 10 times you roll.
+
+You can see that the most likely square is the centre square opposite the corner
+you start counting in, so check which squares you occupy or can attack before
+you roll for manna.
 
 # Broken Games
 These ideas seemed promising, but didn't work at the table. Maybe I'll come back

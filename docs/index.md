@@ -1,6 +1,6 @@
 ---
 title: Chess Kit
-subtitle: Silly New Games for Your Chess Set
+subtitle: Lighthearted New Games for Your Chess Set
 callouts: index_callouts
 ---
 I am not a strong chess player - it's always seemed to me more like study than
@@ -28,12 +28,15 @@ together.
     they capture. Start the game by choosing which capture moves each of
     your opponent's pieces will use, then try to deduce how each of your
     pieces can capture. (2 players, chess set, pencils, and paper)
+* [Crowded House][crowded-house] is the only four-player game I know
+    of on a standard chess set. (4 players and chess set)
 * [Chess960][chess960] is a game designed by Bobby Fischer to mix up
     the game opening by randomly choosing your starting position. (2
     players, chess set, and deck of cards)
 
 [zombie-chess]: rules.md#zombie-chess
 [masquerade-chess]: rules.md#masquerade-chess
+[crowded-house]: rules.md#crowded-house
 [chess960]: rules.md#chess960
 
 If you're interested, you can read my [design journal]. If you're brave, you can

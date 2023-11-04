@@ -30,12 +30,15 @@ together.
     they capture. Start the game by choosing which capture moves each of
     your opponent's pieces will use, then try to deduce how each of your
     pieces can capture. (2 players, chess set, pencils, and paper)
+* [Crowded House][crowded-house] is the only four-player game I know
+    of on a standard chess set. (4 players and chess set)
 * [Chess960][chess960] is a game designed by Bobby Fischer to mix up
     the game opening by randomly choosing your starting position. (2
     players, chess set, and deck of cards)
 
 [zombie-chess]: #zombie-chess
 [masquerade-chess]: #masquerade-chess
+[crowded-house]: #crowded-house
 [chess960]: #chess960
 
 ## Zombie Chess
@@ -75,9 +78,9 @@ zombie, and erase it from your grid.
 
 The next turn in the example game, White uses the knight at f3 to capture the
 pawn at d4. First, they check for zombies. There are no black pieces in the
-graveyard, so they say "no zombies". Then, they choose where to bury the pawn.
-They decide to bury it under the pawn at b2, so they write a P in their hidden
-grid at b2.
+graveyard, so they say "no zombies anywhere". Then, they choose where to bury
+the pawn. They decide to bury it under the pawn at b2, so they write a P in
+their hidden grid at b2.
 
 Black responds by capturing the knight at d4 with their knight at c6. First,
 they check for zombies. There is a white pawn in the graveyard, so they check
@@ -120,7 +123,7 @@ castling, complete the move before revealing any zombies.
 Masquerade Chess is regular chess, but all the pieces above pawns have a secret
 identity. They use their standard moves, except when capturing. Each player
 knows the capture moves of their opponent's pieces, but not their own. Who can
-find their way to victory first?
+deduce their way to victory first?
 
 ### Setup
 Players each draw two copies of this table:
@@ -202,6 +205,49 @@ it for 15 years. Masquerade Chess returns to the standard Chess moves, and
 players only learn about their pieces during capture, which slows the pace of
 the game.
 
+## Crowded House
+Two teams of two play, with each player moving the pieces of their colour
+on the left or right half of the board. As usual, white moves first, then
+alternates with black. Each king-side player takes the first move for their
+team, then alternates with their partner.
+
+In the following example, Walter plays king-side white, Winnie plays queen-side
+white, Betty plays king-side black, and Bob plays queen-side black. Then the
+play order would be Walter, Betty, Winnie, Bob, Walter, Betty, and so on.
+
+![Diagram](images/rules/diagram6.png)
+
+### Rule changes
+The key rule is that you may only move a piece that either
+
+* **starts** on your side of the board, or
+* **ends** on your side of the board.
+
+In this example, Winnie may move any piece that starts or ends on the queen
+side of the board, shown by the dashed rectangle. She may move the bishop as
+shown by the arrow, because it ends up on the queen side of the board. Winnie
+may not move the bishop to e2, because it would start and end on the king side.
+
+![Diagram](images/rules/diagram7.png)
+
+If a player has no pieces on their side and can't move any pieces to their side,
+they move nothing on that turn.
+
+The rest of the rule changes flow from whether a piece may be captured
+immediately. A king may move into check or castle out of check, if the next
+player can't make the capture. En passant capture only works if the pawn is
+captured immediately after its first move.
+
+### Winning
+Win by check mate, as usual, but remember that the next player on the attacking
+team has to be able to make the capture.
+
+### Talking
+This game shouldn't be taken too seriously, so feel free to chat with your
+partner, but remember that the other team is listening. Any discussion should
+be heard by both teams, so no secret codes or second languages! Of course,
+players should also feel free to ignore their partner's advice.
+
 ## Chess960
 This is probably the least silly game in the collection; people organize
 Chess960 tournaments! It's still a bit silly, because it takes away the standard
@@ -246,7 +292,7 @@ As an example, imagine you turned over an ace and a 6 from the first two piles,
 then 8, 10, Q, 10, 8, 10 from the third pile. The starting position would look
 like this:
 
-![Diagram](images/rules/diagram6.png)
+![Diagram](images/rules/diagram8.png)
 
 ### Castling
 The other change that Bobby Fischer made was to the castling rules. As usual,
@@ -267,7 +313,7 @@ The rest of the standard chess rules apply unchanged.
 [weeks]: https://www.mark-weeks.com/cfaa/chess960/c960strt.htm
 
 ### Contributing
-Know some other silly chess variants? Ideas to share? Get in touch at
+Know some other lighthearted chess variants? Ideas to share? Get in touch at
 [https://donkirkby.github.io/chess-kit][github].
 
 Masquerade Chess and Zombie Chess are original games designed by

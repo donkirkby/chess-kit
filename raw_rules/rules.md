@@ -67,9 +67,9 @@ zombie, and erase it from your grid.
 
 The next turn in the example game, White uses the knight at f3 to capture the
 pawn at d4. First, they check for zombies. There are no black pieces in the
-graveyard, so they say "no zombies". Then, they choose where to bury the pawn.
-They decide to bury it under the pawn at b2, so they write a P in their hidden
-grid at b2.
+graveyard, so they say "no zombies anywhere". Then, they choose where to bury
+the pawn. They decide to bury it under the pawn at b2, so they write a P in
+their hidden grid at b2.
 
 Black responds by capturing the knight at d4 with their knight at c6. First,
 they check for zombies. There is a white pawn in the graveyard, so they check
@@ -122,7 +122,7 @@ castling, complete the move before revealing any zombies.
 Masquerade Chess is regular chess, but all the pieces above pawns have a secret
 identity. They use their standard moves, except when capturing. Each player
 knows the capture moves of their opponent's pieces, but not their own. Who can
-find their way to victory first?
+deduce their way to victory first?
 
 ### Setup
 Players each draw two copies of this table:
@@ -222,6 +222,75 @@ it for 15 years. Masquerade Chess returns to the standard Chess moves, and
 players only learn about their pieces during capture, which slows the pace of
 the game.
 
+## Crowded House
+Two teams of two play, with each player moving the pieces of their colour
+on the left or right half of the board. As usual, white moves first, then
+alternates with black. Each king-side player takes the first move for their
+team, then alternates with their partner.
+
+In the following example, Walter plays king-side white, Winnie plays queen-side
+white, Betty plays king-side black, and Bob plays queen-side black. Then the
+play order would be Walter, Betty, Winnie, Bob, Walter, Betty, and so on.
+
+    r n b q k b n r
+    p p p p p p p p
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    P P P P P P P P
+    R N B Q K B N R
+    margins: 3, 0
+    text: 1: Walter, 10.5, 1
+    text: 2: Betty, 10.5, 8
+    text: 3: Winnie, -1.5, 1
+    text: 4: Bob, -1.5, 8
+
+### Rule changes
+The key rule is that you may only move a piece that either
+
+* **starts** on your side of the board, or
+* **ends** on your side of the board.
+
+In this example, Winnie may move any piece that starts or ends on the queen
+side of the board, shown by the dashed rectangle. She may move the bishop as
+shown by the arrow, because it ends up on the queen side of the board. Winnie
+may not move the bishop to e2, because it would start and end on the king side.
+
+    r n b q k b n r
+    p p p p . p p p
+    . . . . . . . .
+    . . . . p . . .
+    . . . . P . . .
+    . . . . . . . .
+    P P P P . P P P
+    R N B Q K B N R
+    arrow: f1, c4, white
+    margins: 3, 0
+    text: 1: Walter, 10.5, 1
+    text: 2: Betty, 10.5, 8
+    text: 3: Winnie, -1.5, 1
+    text: 4: Bob, -1.5, 8
+    rect: 1, 1, 4, 8
+
+If a player has no pieces on their side and can't move any pieces to their side,
+they move nothing on that turn.
+
+The rest of the rule changes flow from whether a piece may be captured
+immediately. A king may move into check or castle out of check, if the next
+player can't make the capture. En passant capture only works if the pawn is
+captured immediately after its first move.
+
+### Winning
+Win by check mate, as usual, but remember that the next player on the attacking
+team has to be able to make the capture.
+
+### Talking
+This game shouldn't be taken too seriously, so feel free to chat with your
+partner, but remember that the other team is listening. Any discussion should
+be heard by both teams, so no secret codes or second languages! Of course,
+players should also feel free to ignore their partner's advice.
+
 ## Chess960
 This is probably the least silly game in the collection; people organize
 Chess960 tournaments! It's still a bit silly, because it takes away the standard
@@ -294,7 +363,7 @@ The rest of the standard chess rules apply unchanged.
 [weeks]: https://www.mark-weeks.com/cfaa/chess960/c960strt.htm
 
 ### Contributing
-Know some other silly chess variants? Ideas to share? Get in touch at
+Know some other lighthearted chess variants? Ideas to share? Get in touch at
 [https://donkirkby.github.io/chess-kit][github].
 
 Masquerade Chess and Zombie Chess are original games designed by

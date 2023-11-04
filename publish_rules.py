@@ -254,7 +254,7 @@ def main():
             subtitle_text = state.subtitle
             if title_text == 'The Rules of Chess Kit':
                 title_text = 'Chess Kit'
-                subtitle_text = 'Silly New Games for Your Chess Set'
+                subtitle_text = 'Lighthearted New Games for Your Chess Set'
             if args.booklet:
                 story.append(Spacer(0, page_size[1] * 0.3))
             title_style = ParagraphStyle('MainTitle',

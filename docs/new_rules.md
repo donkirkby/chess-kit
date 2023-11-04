@@ -7,61 +7,93 @@ These are new games that aren't ready yet. You can try them out and let me
 know what you think.
 
 ## Table of Contents
-* [Crowded House][crowded-house] is the only four-player game I know
-    of on a standard set. (4 players and chess set)
+* [Manna Chess][manna-chess] adds random power ups to chess. (2
+    players, chess set, checkers set, and 2 dice)
 * [Cloak and Dagger Chess][cloak-and-dagger-chess] is a game where you
     disguise your chess pieces as checkers, then try to identify your
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
 
-[crowded-house]: #crowded-house
+[manna-chess]: #manna-chess
 [cloak-and-dagger-chess]: #cloak-and-dagger-chess
 
 # New Games
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
 
-## Crowded House
-Two teams of two play, with each player moving the pieces of their colour
-on the left or right half of the board. As usual, white moves first, then
-alternates with black. Each king-side player takes the first move for their
-team, then alternates with their partner.
+## Manna Chess
+The god of war drops manna after every capture, and manna can make any piece a
+king. This game adds a little chaos to chess, and accelerates the end game.
 
-In the following example, Walter plays king-side white, Winnie plays queen-side
-white, Betty plays king-side black, and Bob plays queen-side black. Then the
-play order would be Walter, Betty, Winnie, Bob, Walter, Betty, and so on.
+### Equipment
+A standard chess set, a standard set of 24 checkers, and two dice. The checkers
+must be stackable, and you must be able to stack a chess piece on top of the
+checkers. Coins or poker chips would also work, as long as they fit inside the
+chess board squares.
+
+### Setup
+Set up the chess pieces in the standard start position, and randomly choose who
+will play white. Place the 24 checkers and the dice beside the board.
+
+### Play
+All the regular chess rules apply, plus you get to drop manna after one of your
+pieces is captured. If one or more of your pieces were just captured, start your
+turn by pointing to one of the four corners of the board. Then roll two dice to
+decide which file (column) the manna will land on. The corner you're pointing to
+is 3, then count up across the board to the number you rolled. Rolls of 2, 11,
+or 12 miss the board, and you get no manna. Then roll the two dice again to
+decide which rank (row) the manna will land on. Again, you're pointing at 3,
+and count up across the board to 10. If manna lands on the board, add a checker
+to that square. The colour of the checker doesn't matter. If that square has a
+chess piece or other checkers on it, add the new checker to the stack.
+
+In the following example, white just captured a pawn with the bishop, so now
+black points to the bottom-left corner and rolls a 7 and a 6. Counting from the
+left, the 7 puts it on the e file. Counting from the bottom, the 6 puts it on
+e4.
 
 ![Diagram](images/new_rules/diagram1.png)
 
-### Rule changes
-The key rule is that you may only move a piece that either
+Checkers or stacks of checkers without a chess piece on them are neutral manna
+pieces that can be captured by either player. When you capture them, stack your
+capturing piece on top. You cannot jump over manna, except with a knight. When
+you capture an opponent's piece, you keep any manna they were carrying.
 
-* **starts** on your side of the board, or
-* **ends** on your side of the board.
+Captured manna are carried with the chess piece on top when you move the chess
+piece. If one of your pieces has manna after you move it, you may eat one of
+those manna and make an extra king move with that piece. Eat a manna by
+removing it from the stack and putting back in the supply beside the board. If
+the piece still has manna, you may continue making king moves until you run out.
 
-In this example, Winnie may move any piece that starts or ends on the queen
-side of the board, shown by the dashed rectangle. She may move the bishop as
-shown by the arrow, because it ends up on the queen side of the board. Winnie
-may not move the bishop to e2, because it would start and end on the king side.
+For example, in this position, the pawns at e3 and e5 cannot capture the manna
+at e4. However, the white pawn at d3 can. Once it captures the manna, it could
+immediately eat it and capture the pawn at e5 with a king's move. That would be
+a poor choice, though, because the pawn at d6 could capture it back.
 
 ![Diagram](images/new_rules/diagram2.png)
 
-If a player has no pieces on their side and can't move any pieces to their side,
-they move nothing on that turn.
+White decides to capture the manna, but not eat it.
 
-The rest of the rule changes flow from whether a piece may be captured
-immediately. A king may move into check or castle out of check, if the next
-player can't make the capture. En passant capture only works if the pawn is
-captured immediately after its first move.
+![Diagram](images/new_rules/diagram3.png)
 
 ### Winning
-Win by check mate, as usual, but remember that the next player on the attacking
-team has to be able to make the capture.
+Win by capturing the king, either with a regular move or with a manna move. You
+must call check or check mate if you can, but it's possible for a lucky manna
+drop to allow a capture when you couldn't call check mate on the previous turn.
 
-### Talking
-This game shouldn't be taken too seriously, so feel free to chat with your
-partner, but remember that the other team is listening. Any discussion should
-be heard by both teams, so no secret codes or second languages! Of course,
-players should also feel free to ignore their partner's advice.
+### Manna Strategy
+Because 7 is the most common roll with two dice, you have some control over
+where the manna will drop when you choose which corner to count from. For
+example, if you chose the bottom-left corner 1296 times, here are how many times
+you would expect the manna to land in each square:
+
+![Diagram](images/new_rules/diagram4.png)
+
+You would also expect to miss the board 272 times, so you will drop a piece of
+manna roughly 8 out of 10 times you roll.
+
+You can see that the most likely square is the centre square opposite the corner
+you start counting in, so check which squares you occupy or can attack before
+you roll for manna.
 
 # Broken Games
 These ideas seemed promising, but didn't work at the table. Maybe I'll come back
@@ -79,7 +111,7 @@ write the numbers 1 to 8 on checkers for each player. Put the black checkers on
 black's back row and the light checkers on white's back row. Finally, write two
 grids like this to secretly record your pieces and deduce your opponent's:
 
-![Diagram](images/new_rules/diagram3.png)
+![Diagram](images/new_rules/diagram5.png)
 
 Obviously, you don't have to put the pieces in their standard starting
 positions, but you do have to have a standard set of pieces. (You can't give
@@ -95,7 +127,7 @@ opponent learns which of your combinations are impossible.
 
 Here's one possible way to fill in your grid at the start of the game:
 
-![Diagram](images/new_rules/diagram4.png)
+![Diagram](images/new_rules/diagram6.png)
 
 At the start of your turn, you may guess the identity of one of your opponent's
 checkers. If you guess correctly, you may make a bonus move after your regular
