@@ -100,7 +100,7 @@ drop to allow a capture when you couldn't call check mate on the previous turn.
 ### Manna Strategy
 Because 7 is the most common roll with two dice, you have some control over
 where the manna will drop when you choose which corner to count from. For
-example, if you chose the bottom-left corner 1296 times, here are how many times
+example, if you chose the bottom-left corner 1000 times, here are how many times
 you would expect the manna to land in each square:
 
     . . . . . . . .
@@ -111,72 +111,72 @@ you would expect the manna to land in each square:
     . . . . . . . .
     . . . . . . . .
     . . . . . . . .
-    text: 4, 1, 1
-    text: 6, 1, 2
-    text: 8, 1, 3
-    text: 10, 1, 4
-    text: 12, 1, 5
-    text: 10, 1, 6
-    text: 8, 1, 7
-    text: 6, 1, 8
-    text: 6, 2, 1
-    text: 9, 2, 2
-    text: 12, 2, 3
-    text: 15, 2, 4
-    text: 18, 2, 5
-    text: 15, 2, 6
-    text: 12, 2, 7
-    text: 9, 2, 8
-    text: 8, 3, 1
-    text: 12, 3, 2
-    text: 16, 3, 3
-    text: 20, 3, 4
-    text: 24, 3, 5
-    text: 20, 3, 6
-    text: 16, 3, 7
-    text: 12, 3, 8
-    text: 10, 4, 1
-    text: 15, 4, 2
-    text: 20, 4, 3
-    text: 25, 4, 4
-    text: 30, 4, 5
-    text: 25, 4, 6
-    text: 20, 4, 7
-    text: 15, 4, 8
-    text: 12, 5, 1
-    text: 18, 5, 2
-    text: 24, 5, 3
-    text: 30, 5, 4
-    text: 36, 5, 5
-    text: 30, 5, 6
-    text: 24, 5, 7
-    text: 18, 5, 8
-    text: 10, 6, 1
-    text: 15, 6, 2
-    text: 20, 6, 3
-    text: 25, 6, 4
-    text: 30, 6, 5
-    text: 25, 6, 6
-    text: 20, 6, 7
-    text: 15, 6, 8
-    text: 8, 7, 1
-    text: 12, 7, 2
-    text: 16, 7, 3
-    text: 20, 7, 4
-    text: 24, 7, 5
-    text: 20, 7, 6
-    text: 16, 7, 7
-    text: 12, 7, 8
-    text: 6, 8, 1
-    text: 9, 8, 2
-    text: 12, 8, 3
-    text: 15, 8, 4
-    text: 18, 8, 5
-    text: 15, 8, 6
-    text: 12, 8, 7
-    text: 9, 8, 8
+    text: 3, 1, 1
+    text: 5, 1, 2
+    text: 6, 1, 3
+    text: 8, 1, 4
+    text: 9, 1, 5
+    text: 8, 1, 6
+    text: 6, 1, 7
+    text: 5, 1, 8
+    text: 5, 2, 1
+    text: 7, 2, 2
+    text: 9, 2, 3
+    text: 12, 2, 4
+    text: 14, 2, 5
+    text: 12, 2, 6
+    text: 9, 2, 7
+    text: 7, 2, 8
+    text: 6, 3, 1
+    text: 9, 3, 2
+    text: 12, 3, 3
+    text: 15, 3, 4
+    text: 19, 3, 5
+    text: 15, 3, 6
+    text: 12, 3, 7
+    text: 9, 3, 8
+    text: 8, 4, 1
+    text: 12, 4, 2
+    text: 15, 4, 3
+    text: 19, 4, 4
+    text: 23, 4, 5
+    text: 19, 4, 6
+    text: 15, 4, 7
+    text: 12, 4, 8
+    text: 9, 5, 1
+    text: 14, 5, 2
+    text: 19, 5, 3
+    text: 23, 5, 4
+    text: 28, 5, 5
+    text: 23, 5, 6
+    text: 19, 5, 7
+    text: 14, 5, 8
+    text: 8, 6, 1
+    text: 12, 6, 2
+    text: 15, 6, 3
+    text: 19, 6, 4
+    text: 23, 6, 5
+    text: 19, 6, 6
+    text: 15, 6, 7
+    text: 12, 6, 8
+    text: 6, 7, 1
+    text: 9, 7, 2
+    text: 12, 7, 3
+    text: 15, 7, 4
+    text: 19, 7, 5
+    text: 15, 7, 6
+    text: 12, 7, 7
+    text: 9, 7, 8
+    text: 5, 8, 1
+    text: 7, 8, 2
+    text: 9, 8, 3
+    text: 12, 8, 4
+    text: 14, 8, 5
+    text: 12, 8, 6
+    text: 9, 8, 7
+    text: 7, 8, 8
 
-You would also expect to miss the board 272 times, so you will drop a piece of
+You would also expect to miss the board 210 times, so you will add a piece of
 manna roughly 8 out of 10 times you roll.
 
 You can see that the most likely square is the centre square opposite the corner

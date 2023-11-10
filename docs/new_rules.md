@@ -83,12 +83,12 @@ drop to allow a capture when you couldn't call check mate on the previous turn.
 ### Manna Strategy
 Because 7 is the most common roll with two dice, you have some control over
 where the manna will drop when you choose which corner to count from. For
-example, if you chose the bottom-left corner 1296 times, here are how many times
+example, if you chose the bottom-left corner 1000 times, here are how many times
 you would expect the manna to land in each square:
 
 ![Diagram](images/new_rules/diagram4.png)
 
-You would also expect to miss the board 272 times, so you will drop a piece of
+You would also expect to miss the board 210 times, so you will add a piece of
 manna roughly 8 out of 10 times you roll.
 
 You can see that the most likely square is the centre square opposite the corner
