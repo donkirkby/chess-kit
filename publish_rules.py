@@ -66,6 +66,7 @@ class DiagramWriter:
         self.diagram_differ = DiagramDiffer()
         self.diagram_differ.tolerance = 10
         self.is_disabled = is_disabled
+        self.unused_images = set(images_folder.glob('diagram*.png'))
 
     def add_diagram(self, diagram: Diagram) -> Path:
         if self.is_disabled:
@@ -77,6 +78,7 @@ class DiagramWriter:
         file_name = f'diagram{self.diagram_count}.png'
         target_path = self.images_folder / file_name
         relative_path = target_path.relative_to(self.target_folder)
+        self.unused_images.remove(target_path)
         try:
             old_image = LivePillowImage(Image.open(target_path))
             self.diagram_differ.compare(old_image, image)
@@ -86,6 +88,10 @@ class DiagramWriter:
             pass
         image.write_png(target_path)
         return relative_path
+
+    def remove_unused_images(self) -> None:
+        for image_path in self.unused_images:
+            image_path.unlink()
 
 
 class RulesDocTemplate(SimpleDocTemplate):
@@ -347,6 +353,7 @@ def main():
                              first_bullet,
                              bulleted_list_style,
                              numbered_list_style)
+    diagram_writer.remove_unused_images()
     if not args.booklet:
         story.append(cc_drawing)
         story.append(Paragraph(

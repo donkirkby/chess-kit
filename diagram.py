@@ -35,6 +35,9 @@ class Diagram:
         text_args = dict(text_anchor='middle',
                          font_family='Raleway',
                          font_size=round(0.55*square_size))
+        corner_text_args = dict(text_anchor='middle',
+                                font_family='Raleway',
+                                font_size=round(0.375*square_size))
         margins = (0, 0)
         for line in lines[8:]:
             command, body = line.split(':', maxsplit=1)
@@ -45,6 +48,12 @@ class Diagram:
                 extra_elements.add(extra_elements.text(fields[0],
                                                        (x, y),
                                                        **text_args))
+            elif command == 'corner text':
+                x = round(x0 + (float(fields[1]) - 0.344) * square_size, 1)
+                y = round(y0 - (float(fields[2]) + 0.445) * square_size, 1)
+                extra_elements.add(extra_elements.text(fields[0],
+                                                       (x, y),
+                                                       **corner_text_args))
             elif command == 'rect':
                 x1, y1, x2, y2 = [float(field) for field in fields]
                 left = round(15 + (x1-1)*square_size, 1)

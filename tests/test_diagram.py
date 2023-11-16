@@ -116,6 +116,44 @@ def test_text(diagram_differ: DiagramDiffer):
 
 
 # noinspection DuplicatedCode
+def test_corner_text(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        . . . k q . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . Q . . .
+        . . . P . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . K . . . .
+        corner text: X, 4, 1
+        arrow: d1, d1, gray
+        """)
+    text_args = dict(text_anchor='middle',
+                     font_family='Raleway',
+                     font_size=17)
+    expected_text = diagram_text.split('corner')[0]
+    expected_board = parse_board(expected_text)
+    expected_board_svg = chess.svg.board(
+        expected_board,
+        arrows=(chess.svg.Arrow(chess.D1, chess.D1, color='gray'),),
+        size=195)
+    Diagram.register_svg()
+    expected_tree = ET.fromstring(expected_board_svg)
+    extra = Drawing(size=(300, 240))
+    extra.add(extra.text('X', (157, 345), **text_args))
+    expected_tree.extend(extra.get_xml())
+    expected_diagram = SvgDiagram(ET.tostring(expected_tree,
+                                              encoding='unicode'))
+    ET.register_namespace('', '')  # Force registration again.
+
+    diagram = Diagram(390, 195, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
 def test_margins(diagram_differ: DiagramDiffer):
     diagram_text = dedent("""\
         . . . k q . . .
