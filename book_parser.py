@@ -45,7 +45,8 @@ def parse(source):
             last_printed.raw_text += s.raw_text
             continue
         s.text = replace_links(s.text, links)
-        s.text = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', s.text)
+        s.text = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', s.text)
+        s.text = re.sub(r'\*(.*?)\*', r'<em>\1</em>', s.text)
         printed_states.append(s)
         last_printed = s
     return printed_states

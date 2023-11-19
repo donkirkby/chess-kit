@@ -100,6 +100,101 @@ promotes, and may continue making king moves if it still has checkers.
 Win by checkmate, as in regular chess, but you may use extra moves to threaten
 the king.
 
+## Cooperative Chess
+If you don't like battling your friend across the board, you can team up against
+the game itself. A hand of cards limits what you can capture, and you try to
+eliminate as many *types* of pieces as you can.
+
+### Equipment
+A standard chess set and 34 cards from a standard deck of 54 cards. You will use
+the 2 jokers, plus cards to match the chess pieces:
+
+* Wild - 2 Jokers
+* White King - KH
+* White Queen - QH
+* White Rooks - 10H, 10D
+* White Bishops  - 9H, 9D
+* White Knights - 8H, 8D
+* White Pawns - 2H-5H, 2D-5D
+* Black King - KS
+* Black Queen - QS
+* Black Rooks - 10S, 10C
+* Black Bishops  - 9S, 9C
+* Black Knights - 8S, 8C
+* Black Pawns - 2S-5S, 2C-5C
+
+### Setup
+* One player **stands** the chess pieces in the standard start position.
+* Meanwhile, the other player **shuffles** the 34 cards,
+* **deals** 3 to each player, and
+* **places** the rest of the cards next to the board as a draw pile.
+* When the chess pieces are set up, the first player secretly places a white
+  pawn in one hand and a black pawn in the other. The other player then
+  **chooses** a hand to decide their colour.
+
+### Play
+White plays the first turn, and then players alternate. Each turn has four
+possible steps:
+
+1. You may make a **non-capturing** chess move.
+2. You must **play a card** from your hand to your discard stack.
+3. You may make multiple **capturing** chess moves, if the cards allow.
+4. You must **draw a card** to bring your hand back to 3.
+
+As the game progresses, you will move the cards between three face-up,
+spread-out stacks of cards: White's discards, Black's discards, and the captured
+cards. It's best to spread the cards enough that you can see which cards have
+already been played.
+
+The chess pieces make the same moves as in regular chess, but you can only
+make a capture if the cards match:
+
+1. The **capturing** piece must be the same piece type as the card that the
+   capturing player just played, and
+2. the **captured** piece must be the same piece type as the top card on the
+   other player's discard stack.
+
+Pieces may match cards of either colour. On each turn, all moves must be made
+with one piece.
+
+When you capture a piece, remove the piece from the board, and move the captured
+piece's card from your partner's discard stack to the captured cards stack. If
+you can make another capture move that matches the next card in your partner's
+stack, you may continue.
+
+There are three types of **wild** cards:
+
+1. Jokers are always wild, and can match any piece type. They may match
+   different piece types when they capture and when they are captured.
+2. If you no longer have any pieces of a certain type, then that type of card is
+   wild on your discard stack. For example, if you have no queen, then a queen
+   card on your stack lets you capture with any piece and lets your partner
+   capture any of your pieces.
+3. A double colour match makes the next capture wild. If both the capturing
+   piece and the captured piece match the colour of their cards, then the next
+   captured card becomes wild, as long as you can capture it in the same turn.
+   White pieces match red cards. Colour matches don't count on wild cards.
+
+Castling is allowed. En passant capture is allowed. You may promote a pawn on
+the last rank to any other piece. It can be an effective way to get rid of your
+last pawn.
+
+### Winning
+The game ends immediately when you capture a king. You then get a point for each
+piece type that was completely removed from the board, both colours. For
+example, if you captured both queens, all four bishops, and a king, but still
+had at least one pawn, one knight, one rook, and the other king still on the
+board, then you would score 2 points.
+
+If the draw pile is empty, continue playing until you run out of cards in your
+hands. If you run out of cards without capturing a king, you lose.
+
+### Talking
+The game works best if players know something about each other's cards, but not
+everything. They should feel free to ask each other yes or no questions about
+their hands and to discuss general strategy, but shouldn't just reveal their
+hands.
+
 # Broken Games
 These ideas seemed promising, but didn't work at the table. Maybe I'll come back
 to them, if I get inspired. Masquerade Chess seemed broken for 15 years, before
