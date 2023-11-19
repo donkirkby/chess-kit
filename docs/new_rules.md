@@ -91,26 +91,26 @@ the king.
 
 ## Cooperative Chess
 If you don't like battling your friend across the board, you can team up against
-the game itself. A hand of cards limits what you can capture, and you try to
-eliminate as many *types* of pieces as you can.
+the game itself. A hand of cards limits what you can capture, and you work
+together to eliminate as many *types* of pieces as you can.
 
 ### Equipment
 A standard chess set and 34 cards from a standard deck of 54 cards. You will use
 the 2 jokers, plus cards to match the chess pieces:
 
 * Wild - 2 Jokers
-* White King - KH
-* White Queen - QH
-* White Rooks - 10H, 10D
-* White Bishops  - 9H, 9D
-* White Knights - 8H, 8D
-* White Pawns - 2H-5H, 2D-5D
-* Black King - KS
-* Black Queen - QS
-* Black Rooks - 10S, 10C
-* Black Bishops  - 9S, 9C
-* Black Knights - 8S, 8C
-* Black Pawns - 2S-5S, 2C-5C
+* White King - King of Hearts
+* White Queen - Queen of Hearts
+* White Rooks - 10 of Hearts and Diamonds
+* White Bishops  - 9 of Hearts and Diamonds
+* White Knights - 8 of Hearts and Diamonds
+* White Pawns - 2-5 of Hearts and Diamonds
+* Black King - K of Spades
+* Black Queen - Q of Spades
+* Black Rooks - 10 of Spades and Clubs
+* Black Bishops  - 9 of Spades and Clubs
+* Black Knights - 8 of Spades and Clubs
+* Black Pawns - 2-5 of Spades and Clubs
 
 ### Setup
 * One player **stands** the chess pieces in the standard start position.
@@ -166,7 +166,7 @@ There are three types of **wild** cards:
 
 Castling is allowed. En passant capture is allowed. You may promote a pawn on
 the last rank to any other piece. It can be an effective way to get rid of your
-last pawn.
+last pawn. You may move a king into check or leave it in check.
 
 ### Winning
 The game ends immediately when you capture a king. You then get a point for each
