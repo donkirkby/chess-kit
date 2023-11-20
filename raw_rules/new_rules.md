@@ -106,18 +106,17 @@ the game itself. A hand of cards limits what you can capture, and you work
 together to eliminate as many *types* of pieces as you can.
 
 ### Equipment
-A standard chess set and 34 cards from a standard deck of 54 cards. You will use
-the 2 jokers, plus cards to match the chess pieces:
+A standard chess set and 32 cards from a standard deck of 52 cards. You will use
+cards to match the chess pieces:
 
-* Wild - 2 Jokers
 * White King - King of Hearts
 * White Queen - Queen of Hearts
 * White Rooks - 10 of Hearts and Diamonds
 * White Bishops  - 9 of Hearts and Diamonds
 * White Knights - 8 of Hearts and Diamonds
 * White Pawns - 2-5 of Hearts and Diamonds
-* Black King - K of Spades
-* Black Queen - Q of Spades
+* Black King - King of Spades
+* Black Queen - Queen of Spades
 * Black Rooks - 10 of Spades and Clubs
 * Black Bishops  - 9 of Spades and Clubs
 * Black Knights - 8 of Spades and Clubs
@@ -125,7 +124,7 @@ the 2 jokers, plus cards to match the chess pieces:
 
 ### Setup
 * One player **stands** the chess pieces in the standard start position.
-* Meanwhile, the other player **shuffles** the 34 cards,
+* Meanwhile, the other player **shuffles** the 32 cards,
 * **deals** 3 to each player, and
 * **places** the rest of the cards next to the board as a draw pile.
 * When the chess pieces are set up, the first player secretly places a white
@@ -134,7 +133,7 @@ the 2 jokers, plus cards to match the chess pieces:
 
 ### Play
 White plays the first turn, and then players alternate. Each turn has four
-possible steps:
+possible steps, in this order:
 
 1. You may make a **non-capturing** chess move.
 2. You must **play a card** from your hand to your discard stack.
@@ -162,18 +161,17 @@ piece's card from your partner's discard stack to the captured cards stack. If
 you can make another capture move that matches the next card in your partner's
 stack, you may continue.
 
-There are three types of **wild** cards:
+There are two types of **wild** cards that can match any piece type. They may
+match different piece types when they capture and when they are captured.
 
-1. Jokers are always wild, and can match any piece type. They may match
-   different piece types when they capture and when they are captured.
-2. If you no longer have any pieces of a certain type, then that type of card is
+1. If you no longer have any pieces of a certain type, then that type of card is
    wild on your discard stack. For example, if you have no queen, then a queen
    card on your stack lets you capture with any piece and lets your partner
    capture any of your pieces.
-3. A double colour match makes the next capture wild. If both the capturing
+2. A double colour match makes the next capture wild. If both the capturing
    piece and the captured piece match the colour of their cards, then the next
    captured card becomes wild, as long as you can capture it in the same turn.
-   White pieces match red cards. Colour matches don't count on wild cards.
+   White pieces match red cards.
 
 Castling is allowed. En passant capture is allowed. You may promote a pawn on
 the last rank to any other piece. It can be an effective way to get rid of your
