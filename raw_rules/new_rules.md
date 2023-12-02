@@ -94,7 +94,9 @@ both have checkers. You may capture a pawn en passant on the second rank at the
 usual square after a regular move of two squares. You may not capture en passant
 at a square that the pawn left using an extra move, and you may not use an extra
 move to capture en passant. A pawn that moves to the back rank immediately
-promotes, and may continue making king moves if it still has checkers.
+promotes, and may continue making king moves if it still has checkers. You may
+not move a piece to reveal a check on your king, even if you then use an extra
+move to block the check again.
 
 ### Winning
 Win by checkmate, as in regular chess, but you may use extra moves to threaten
