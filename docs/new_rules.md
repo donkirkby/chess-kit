@@ -14,6 +14,9 @@ know what you think.
 * [Half Alice Chess][half-alice-chess] moves pieces through the
     looking glass to a parallel universe after each move. (2 players,
     chess set, and checkers set)
+* [Neighbour Chess Solitaire][neighbour-chess-solitaire] move pieces
+    using their neighbours' moves to form one connected group. (1 player,
+    chess set, and deck of cards)
 * [Cloak and Dagger Chess][cloak-and-dagger-chess] is a game where you
     disguise your chess pieces as checkers, then try to identify your
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
@@ -21,6 +24,7 @@ know what you think.
 [adrenaline-chess]: #adrenaline-chess
 [cooperative-chess]: #cooperative-chess
 [half-alice-chess]: #half-alice-chess
+[neighbour-chess-solitaire]: #neighbour-chess-solitaire
 [cloak-and-dagger-chess]: #cloak-and-dagger-chess
 
 # New Games
@@ -231,6 +235,74 @@ by the queen before switching. It can't move to b7, because it would be in check
 by the rook after switching. The only legal move is to a7.
 
 ![Diagram](images/new_rules/diagram3.png)
+
+## Neighbour Chess Solitaire
+Pairs of chess pieces help each other across the board until you gather them all
+into one connected group. Keep adding pieces until you have enough to start, but
+you get more points for fewer pieces making fewer moves.
+
+### Equipment
+A standard chess set and a standard deck of 52 cards.
+
+### Setup
+Place all the chess pieces except the pawns beside the board. Put the pawns
+away, you won't need them.
+
+From the deck of cards, create two smaller decks. The first is a deck for the
+chess pieces:
+
+* White King - King of Hearts
+* White Queen - Queen of Hearts
+* White Rooks - 10 of Hearts and Diamonds
+* White Bishops  - 9 of Hearts and Diamonds
+* White Knights - 8 of Hearts and Diamonds
+* Black King - King of Spades
+* Black Queen - Queen of Spades
+* Black Rooks - 10 of Spades and Clubs
+* Black Bishops  - 9 of Spades and Clubs
+* Black Knights - 8 of Spades and Clubs
+
+The second is a deck for the positions on the board: 2 - 6 of Hearts, Diamonds,
+Spades, and Clubs.
+
+Put the rest of the cards away, you won't need them. Then shuffle each deck and
+place them next to the board as the two draw piles.
+
+### Play
+In the first part of the game, you add pieces to the board, as directed by the
+two decks of cards.
+
+1. Flip over the top card of the pieces deck and place it on a discard pile.
+2. Take the piece that matches that card, and hold it above the board. If it's
+   the first piece, hold it above the bottom left corner. Otherwise, hold it
+   above the last piece you added. (Check the discard pile, if you forget which
+   piece you added last.)
+3. Flip over the top card of the positions deck and place it on a second discard
+   pile.
+4. Now move the piece from the square it's above to a new square and add it to
+   the board. If the position card is a red card, move the piece that many
+   squares to the right, otherwise move the piece that many squares up. If you
+   move off the edge of the board, loop around to the opposite side and keep
+   counting.
+5. If the space you move to is occupied, you may move to any of the 8 neighbour
+   spaces. If all of them are occupied, you may move to any of their neighbours,
+   and so on. You may not wrap around the edge of the board in this case, so
+   edges and corners have fewer than 8 neighbours.
+
+After adding any piece, you may choose to stop adding and try to move the pieces
+into one connected group.
+
+1. Before each move, spend a card from one of the draw piles to a discard pile.
+2. Then move one of the chess pieces. However, it doesn't use its usual move.
+   Instead, use the move of one of its neighbours of the same colour in the 8
+   squares around it. If a piece has no neighbours of the same colour, it cannot
+   move.
+
+### Winning
+If you can get from any piece to any other piece on the board only stepping on
+neighbouring pieces, then you have formed one connected group and you win. Count
+how many cards you have left in the two draw piles, and that's how many points
+you win.
 
 # Broken Games
 These ideas seemed promising, but didn't work at the table. Maybe I'll come back
