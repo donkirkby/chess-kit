@@ -195,6 +195,58 @@ everything. They should feel free to ask each other yes or no questions about
 their hands and to discuss general strategy, but shouldn't just reveal their
 hands.
 
+## Half Alice Chess
+Alice Chess is a popular variant invented by Vernon Parton in 1953, usually
+played with one set on two boards. Since I wanted all the games in this
+collection to be playable with one chess set, I found a way to play it on one
+board by placing the mirror pieces on checkers. I'm not the first to suggest
+this idea, but I think it makes it easier to see the connections between the two
+sets of pieces.
+
+The main idea is that pieces switch back and forth between the two sides of a
+mirror, as in Lewis Carroll's "Alice Through the Looking Glass". This causes
+many surprising positions and interactions, well worth exploring.
+
+### Equipment
+A standard chess set and a standard checkers set. For full compatibility with
+the original rules, you'd need 16 checkers of each colour, but I think it's
+unlikely you'd ever need more than the standard 12.
+
+### Setup
+Place the chess pieces in their standard opening position, give the light
+checkers to White and the dark checkers to Black.
+
+### Play
+Pieces not on checkers are on one side of the mirror, pieces on checkers are on
+the other side of the mirror. Rules are as in orthodox chess, with these
+changes:
+
+* The move must be legal under orthodox chess rules.
+* Switch the moved piece to the other side of the mirror after it moves. (Add or
+  remove a checker.)
+* Pieces cannot capture pieces on the other side of the mirror, but they can
+  move through squares that are occupied by pieces on the other side of the
+  mirror.
+
+### Winning
+Place the opponent's king in checkmate. A king may not evade check by switching
+to the other side of the mirror, because the move must be legal before the
+switch.
+
+In this example, the king cannot move to a8, because it would still be in check
+by the queen before switching. It can't move to b7, because it would be in check
+by the rook after switching. The only legal move is to a7.
+
+    . k . Q . . . .
+    . . . . . . . .
+    . R . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . K
+    arrow: b6,b6,white
+
 # Broken Games
 These ideas seemed promising, but didn't work at the table. Maybe I'll come back
 to them, if I get inspired. Masquerade Chess seemed broken for 15 years, before

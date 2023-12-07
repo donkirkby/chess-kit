@@ -11,12 +11,16 @@ know what you think.
     players, chess set, and checkers set)
 * [Cooperative Chess][cooperative-chess] lets you play together
     against the game. (2 players, chess set, and deck of cards)
+* [Half Alice Chess][half-alice-chess] moves pieces through the
+    looking glass to a parallel universe after each move. (2 players,
+    chess set, and checkers set)
 * [Cloak and Dagger Chess][cloak-and-dagger-chess] is a game where you
     disguise your chess pieces as checkers, then try to identify your
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
 
 [adrenaline-chess]: #adrenaline-chess
 [cooperative-chess]: #cooperative-chess
+[half-alice-chess]: #half-alice-chess
 [cloak-and-dagger-chess]: #cloak-and-dagger-chess
 
 # New Games
@@ -184,6 +188,50 @@ everything. They should feel free to ask each other yes or no questions about
 their hands and to discuss general strategy, but shouldn't just reveal their
 hands.
 
+## Half Alice Chess
+Alice Chess is a popular variant invented by Vernon Parton in 1953, usually
+played with one set on two boards. Since I wanted all the games in this
+collection to be playable with one chess set, I found a way to play it on one
+board by placing the mirror pieces on checkers. I'm not the first to suggest
+this idea, but I think it makes it easier to see the connections between the two
+sets of pieces.
+
+The main idea is that pieces switch back and forth between the two sides of a
+mirror, as in Lewis Carroll's "Alice Through the Looking Glass". This causes
+many surprising positions and interactions, well worth exploring.
+
+### Equipment
+A standard chess set and a standard checkers set. For full compatibility with
+the original rules, you'd need 16 checkers of each colour, but I think it's
+unlikely you'd ever need more than the standard 12.
+
+### Setup
+Place the chess pieces in their standard opening position, give the light
+checkers to White and the dark checkers to Black.
+
+### Play
+Pieces not on checkers are on one side of the mirror, pieces on checkers are on
+the other side of the mirror. Rules are as in orthodox chess, with these
+changes:
+
+* The move must be legal under orthodox chess rules.
+* Switch the moved piece to the other side of the mirror after it moves. (Add or
+  remove a checker.)
+* Pieces cannot capture pieces on the other side of the mirror, but they can
+  move through squares that are occupied by pieces on the other side of the
+  mirror.
+
+### Winning
+Place the opponent's king in checkmate. A king may not evade check by switching
+to the other side of the mirror, because the move must be legal before the
+switch.
+
+In this example, the king cannot move to a8, because it would still be in check
+by the queen before switching. It can't move to b7, because it would be in check
+by the rook after switching. The only legal move is to a7.
+
+![Diagram](images/new_rules/diagram3.png)
+
 # Broken Games
 These ideas seemed promising, but didn't work at the table. Maybe I'll come back
 to them, if I get inspired. Masquerade Chess seemed broken for 15 years, before
@@ -200,7 +248,7 @@ write the numbers 1 to 8 on checkers for each player. Put the black checkers on
 black's back row and the light checkers on white's back row. Finally, write two
 grids like this to secretly record your pieces and deduce your opponent's:
 
-![Diagram](images/new_rules/diagram3.png)
+![Diagram](images/new_rules/diagram4.png)
 
 Obviously, you don't have to put the pieces in their standard starting
 positions, but you do have to have a standard set of pieces. (You can't give
@@ -216,7 +264,7 @@ opponent learns which of your combinations are impossible.
 
 Here's one possible way to fill in your grid at the start of the game:
 
-![Diagram](images/new_rules/diagram4.png)
+![Diagram](images/new_rules/diagram5.png)
 
 At the start of your turn, you may guess the identity of one of your opponent's
 checkers. If you guess correctly, you may make a bonus move after your regular

@@ -78,7 +78,7 @@ class DiagramWriter:
         file_name = f'diagram{self.diagram_count}.png'
         target_path = self.images_folder / file_name
         relative_path = target_path.relative_to(self.target_folder)
-        self.unused_images.remove(target_path)
+        self.unused_images.discard(target_path)
         try:
             old_image = LivePillowImage(Image.open(target_path))
             self.diagram_differ.compare(old_image, image)
