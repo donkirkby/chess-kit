@@ -1,3 +1,4 @@
+import typing
 from pathlib import Path
 from textwrap import dedent
 import xml.etree.ElementTree as ET  # noqa
@@ -143,6 +144,44 @@ def test_corner_text(diagram_differ: DiagramDiffer):
     extra = Drawing(size=(300, 240))
     extra.add(extra.text('X', (157, 345), **text_args))
     expected_tree.extend(extra.get_xml())
+    expected_diagram = SvgDiagram(ET.tostring(expected_tree,
+                                              encoding='unicode'))
+    ET.register_namespace('', '')  # Force registration again.
+
+    diagram = Diagram(390, 195, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_card(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        . . Q . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . k . .
+        . . . . . . . .
+        . . . . . . . .
+        card: QH, 0, 0
+        card: KS, 6, 5
+        """)
+    expected_text = diagram_text.split('card')[0]
+    expected_board = parse_board(expected_text)
+    expected_board_svg = chess.svg.board(
+        expected_board,
+        size=195)
+    Diagram.register_svg()
+    expected_tree = ET.fromstring(expected_board_svg)
+    card_map: typing.Dict[str, ET.Element]
+    _, card_map = ET.XMLID(Diagram.CARDS_PATH.read_text())
+    queen_svg = card_map['card-QH']
+    king_svg = card_map['card-KS']
+    queen_svg.attrib['transform'] = f'scale(0.25), translate(60, -453)'
+    king_svg.attrib['transform'] = f'scale(0.25), translate(1140, 447)'
+    expected_tree.extend([queen_svg, king_svg])
     expected_diagram = SvgDiagram(ET.tostring(expected_tree,
                                               encoding='unicode'))
     ET.register_namespace('', '')  # Force registration again.

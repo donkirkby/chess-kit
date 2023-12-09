@@ -109,20 +109,7 @@ together to eliminate as many *types* of pieces as you can.
 
 ### Equipment
 A standard chess set and 32 cards from a standard deck of 52 cards. You will use
-cards to match the chess pieces:
-
-* White King - King of Hearts
-* White Queen - Queen of Hearts
-* White Rooks - 10 of Hearts and Diamonds
-* White Bishops  - 9 of Hearts and Diamonds
-* White Knights - 8 of Hearts and Diamonds
-* White Pawns - 2-5 of Hearts and Diamonds
-* Black King - King of Spades
-* Black Queen - Queen of Spades
-* Black Rooks - 10 of Spades and Clubs
-* Black Bishops  - 9 of Spades and Clubs
-* Black Knights - 8 of Spades and Clubs
-* Black Pawns - 2-5 of Spades and Clubs
+cards to match the chess pieces, as shown in appendix A.
 
 ### Setup
 * One player **stands** the chess pieces in the standard start position.
@@ -227,6 +214,8 @@ changes:
 * Pieces cannot capture pieces on the other side of the mirror, but they can
   move through squares that are occupied by pieces on the other side of the
   mirror.
+* If you're playing with 12 checkers each, then you must have a free checker in
+  order to move piece without a checker.
 
 ### Winning
 Place the opponent's king in checkmate. A king may not evade check by switching
@@ -261,18 +250,8 @@ although anything from 30 seconds to two minutes would be fine.
 Place all the chess pieces except the pawns beside the board. Put the pawns
 away, you won't need them.
 
-From the deck of cards, use one card to represent each piece:
-
-* White King - King of Hearts
-* White Queen - Queen of Hearts
-* White Rooks - 10 of Hearts and Diamonds
-* White Bishops  - 9 of Hearts and Diamonds
-* White Knights - 8 of Hearts and Diamonds
-* Black King - King of Spades
-* Black Queen - Queen of Spades
-* Black Rooks - 10 of Spades and Clubs
-* Black Bishops  - 9 of Spades and Clubs
-* Black Knights - 8 of Spades and Clubs
+From the deck of cards, use one card to represent each piece, as shown in
+appendix A. You don't need the pawn cards, so you should end up with 16 cards.
 
 Put the rest of the cards away, you won't need them. Then shuffle the cards and
 place them next to the board. Draw one card at a time, placing the matching
@@ -293,8 +272,8 @@ the paper, leaving enough room for 9 scores and a course total. Leave room for
 
 ### Play
 Each turn, **draw** two cards and place them face up next to the board where all
-players can see them. Check the table above, and **announce** the two chosen
-piece types for this turn. Then **start** the timer.
+players can see them. Check appendix A if you need to, and **announce** the two
+chosen piece types for this turn. Then **start** the timer.
 
 All players now plan how to get one of the two pieces to hit a golf ball at the
 other in the fewest strokes. While planning, no one actually moves the pieces.
@@ -375,19 +354,9 @@ A standard chess set and a standard deck of 52 cards.
 Place all the chess pieces except the pawns beside the board. Put the pawns
 away, you won't need them.
 
-From the deck of cards, create two smaller decks. The first is a deck for the
-chess pieces:
-
-* White King - King of Hearts
-* White Queen - Queen of Hearts
-* White Rooks - 10 of Hearts and Diamonds
-* White Bishops  - 9 of Hearts and Diamonds
-* White Knights - 8 of Hearts and Diamonds
-* Black King - King of Spades
-* Black Queen - Queen of Spades
-* Black Rooks - 10 of Spades and Clubs
-* Black Bishops  - 9 of Spades and Clubs
-* Black Knights - 8 of Spades and Clubs
+From the deck of cards, create two smaller decks. The first is a deck of 16
+cards for the chess pieces, as shown in appendix A. You don't need the pawn
+cards.
 
 The second is a deck for the positions on the board: 2 - 6 of Hearts, Diamonds,
 Spades, and Clubs.
@@ -507,3 +476,77 @@ you're safe. You're not even safe from the pawns, because your opponent can
 sometimes make two pawn moves.
 
 Maybe it's too similar to Masquerade Chess to begin with.
+
+## Appendix A
+These diagrams show which playing cards represent each chess piece in several
+games. Red cards represent white pieces, and black cards represent black pieces.
+If you don't mind defacing a deck of cards, you can add the letter or symbol for
+the pieces just below the suit symbol in the corners, pressing lightly to avoid
+marking the back of the cards. Otherwise, remember how the numbers correspond to
+the pieces in this appendix. To start with, the pawns match the small numbers:
+2 to 5.
+
+    P P . . . . p p
+    P P . . . . p p
+    P P . . . . p p
+    P P . . . . p p
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    card: 2H, 2, 0
+    card: 2D, 2.5, 0
+    card: 2S, 3.5, 0
+    card: 2C, 4, 0
+    card: 3H, 2, 1
+    card: 3D, 2.5, 1
+    card: 3S, 3.5, 1
+    card: 3C, 4, 1
+    card: 4H, 2, 2
+    card: 4D, 2.5, 2
+    card: 4S, 3.5, 2
+    card: 4C, 4, 2
+    card: 5H, 2, 3
+    card: 5D, 2.5, 3
+    card: 5S, 3.5, 3
+    card: 5C, 4, 3
+
+The non-royal pieces match the high numbers, ordered by strength. The knights
+match 8s and the bishops match 9s.
+
+    N N . . . . n n
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    B B . . . . b b
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    card: 8H, 2, 0
+    card: 8D, 2.5, 0
+    card: 8S, 3.5, 0
+    card: 8C, 4, 0
+    card: 9H, 2, 4
+    card: 9D, 2.5, 4
+    card: 9S, 3.5, 4
+    card: 9C, 4, 4
+
+The rooks match 10s, and the royal cards match the obvious queens and kings of
+hearts and spades.
+
+    R R . . . . r r
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    Q . . . . . . q
+    K . . . . . . k
+    . . . . . . . .
+    . . . . . . . .
+    card: 10H, 2, 0
+    card: 10D, 2.5, 0
+    card: 10S, 3.5, 0
+    card: 10C, 4, 0
+    card: QH, 2, 4
+    card: QS, 4, 4
+    card: KH, 2, 5
+    card: KS, 4, 5

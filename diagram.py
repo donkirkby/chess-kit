@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET  # noqa
+from pathlib import Path
 
 import chess.svg
 from svgwrite import Drawing
@@ -8,6 +9,8 @@ from svg_diagram import SvgDiagram
 
 
 class Diagram:
+    CARDS_PATH = Path(__file__).parent / 'English_pattern_playing_cards_deck.svg'
+
     @staticmethod
     def register_svg():
         ET.register_namespace('', 'http://www.w3.org/2000/svg')
@@ -31,13 +34,15 @@ class Diagram:
         square_size = 45
         x0 = 15 - 0.5*square_size
         y0 = 9.112 * square_size
-        extra_elements = Drawing()
+        drawing = Drawing()
+        extra_svg = []
         text_args = dict(text_anchor='middle',
                          font_family='Raleway',
                          font_size=round(0.55*square_size))
         corner_text_args = dict(text_anchor='middle',
                                 font_family='Raleway',
                                 font_size=round(0.375*square_size))
+        _, card_map = ET.XMLID(self.CARDS_PATH.read_text())
         margins = (0, 0)
         for line in lines[8:]:
             command, body = line.split(':', maxsplit=1)
@@ -45,27 +50,27 @@ class Diagram:
             if command == 'text':
                 x = round(x0 + float(fields[1]) * square_size, 1)
                 y = round(y0 - float(fields[2]) * square_size, 1)
-                extra_elements.add(extra_elements.text(fields[0],
-                                                       (x, y),
-                                                       **text_args))
+                extra_svg.append(drawing.text(fields[0],
+                                              (x, y),
+                                              **text_args))
             elif command == 'corner text':
                 x = round(x0 + (float(fields[1]) - 0.344) * square_size, 1)
                 y = round(y0 - (float(fields[2]) + 0.445) * square_size, 1)
-                extra_elements.add(extra_elements.text(fields[0],
-                                                       (x, y),
-                                                       **corner_text_args))
+                extra_svg.append(drawing.text(fields[0],
+                                              (x, y),
+                                              **corner_text_args))
             elif command == 'rect':
                 x1, y1, x2, y2 = [float(field) for field in fields]
                 left = round(15 + (x1-1)*square_size, 1)
                 top = round(15 + (8 - y2) * square_size, 1)
                 width = round((x2-x1+1)*square_size, 1)
                 height = round((y2-y1+1)*square_size, 1)
-                extra_elements.add(extra_elements.rect((left, top),
-                                                       (width, height),
-                                                       fill_opacity=0,
-                                                       stroke='blue',
-                                                       stroke_width=5,
-                                                       stroke_dasharray='7.5'))
+                extra_svg.append(drawing.rect((left, top),
+                                              (width, height),
+                                              fill_opacity=0,
+                                              stroke='blue',
+                                              stroke_width=5,
+                                              stroke_dasharray='7.5'))
             elif command == 'margins':
                 margins = tuple(float(n) for n in fields[:2])
             elif command == 'arrow':
@@ -73,6 +78,15 @@ class Diagram:
                 head = getattr(chess, fields[1].upper())
                 colour = fields[2]
                 arrows.append(chess.svg.Arrow(tail, head, color=colour))
+            elif command == 'card':
+                card, x, y = fields
+                x = float(x)
+                y = float(y)
+                card_svg = card_map[f'card-{card}']
+                x = 180*x + 60
+                y = 180*y - 453
+                card_svg.attrib['transform'] = f'scale(0.25), translate({x}, {y})'
+                extra_svg.append(card_svg)
             else:
                 raise ValueError(f'Unknown diagram command: {command}.')
         original_view_size = 390  # chess library always uses this size
@@ -91,7 +105,12 @@ class Diagram:
         board_tree.set('viewBox', view_box)
         board_tree.set('width', str(image_width))
         board_tree.set('height', str(image_height))
-        board_tree.extend(extra_elements.get_xml())
+        extra_elements = []
+        for extra in extra_svg:
+            if not isinstance(extra, ET.Element):
+                extra = extra.get_xml()
+            extra_elements.append(extra)
+        board_tree.extend(extra_elements)
 
         diagram = SvgDiagram(ET.tostring(board_tree, encoding='unicode'))
         return diagram
