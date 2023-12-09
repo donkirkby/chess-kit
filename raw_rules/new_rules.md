@@ -247,6 +247,122 @@ by the rook after switching. The only legal move is to a7.
     . . . . . . . K
     arrow: b6,b6,white
 
+## Chess Golf
+Pairs of chess pieces caddy for each other, while all the players try to work
+out the most efficient path to deliver a golf ball across the board.
+
+### Equipment
+A standard chess set and a standard deck of 52 cards. You'll also need a pencil
+and paper for keeping score, a timer, and some coins. 4 coins are probably
+enough, and you can even play without them. A one-minute timer works well,
+although anything from 30 seconds to two minutes would be fine.
+
+### Setup
+Place all the chess pieces except the pawns beside the board. Put the pawns
+away, you won't need them.
+
+From the deck of cards, use one card to represent each piece:
+
+* White King - King of Hearts
+* White Queen - Queen of Hearts
+* White Rooks - 10 of Hearts and Diamonds
+* White Bishops  - 9 of Hearts and Diamonds
+* White Knights - 8 of Hearts and Diamonds
+* Black King - King of Spades
+* Black Queen - Queen of Spades
+* Black Rooks - 10 of Spades and Clubs
+* Black Bishops  - 9 of Spades and Clubs
+* Black Knights - 8 of Spades and Clubs
+
+Put the rest of the cards away, you won't need them. Then shuffle the cards and
+place them next to the board. Draw one card at a time, placing the matching
+piece on the board. Starting in the top left corner, leave the following numbers
+of empty squares before each piece:
+
+* Kings - 6 empty squares
+* Queens - 5 empty squares
+* Rooks - 3 empty squares
+* Bishops - 2 empty squares
+* Knights - 1 empty square
+
+Shuffle the cards again, and place them next to the board as a draw pile.
+
+Choose a scorekeeper, and get them to write everyone's initials at the top of
+the paper, leaving enough room for 9 scores and a course total. Leave room for
+18 scores, if you're playing a full round.
+
+### Play
+Each turn, **draw** two cards and place them face up next to the board where all
+players can see them. Check the table above, and **announce** the two chosen
+piece types for this turn. Then **start** the timer.
+
+All players now plan how to get one of the two pieces to hit a golf ball at the
+other in the fewest strokes. While planning, no one actually moves the pieces.
+For each stroke, choose a piece to hit a golf ball. They can hit a golf ball
+to land one chess move away. However, they don't use their own type of move.
+Instead, they pick one of their neighbouring pieces as a caddy and use the
+caddy's golf club to move the ball with the caddy's chess move.
+
+If one of the two chosen piece types can hit a ball to the other chosen piece
+type, then that's the final stroke and no pieces move. Otherwise, the ball has
+to land in an empty square, and the piece that hit it moves to the empty square.
+The caddy doesn't move. Remember, though, don't actually move any pieces while
+planning. Just visualize how the pieces will move and count how many strokes you
+need to deliver the ball.
+
+One extra restriction: all white pieces are right handed, and can only use
+right-handed, white caddies. All black pieces are left handed, and can only use
+left-handed, black caddies. Caddies must be in one of the 8 squares directly
+surrounding the piece.
+
+If no black pieces have caddies or no white pieces have caddies at the start of
+the game, start at the kings and work your way down to the knights. If swapping
+a black and a white piece would make it so that there is at least one caddy pair
+of each colour, then make the swap and stop.
+
+You may move other pieces besides the two chosen piece types. This is often
+helpful if the chosen pieces have no neighbours.
+
+When you have found a path and counted the strokes, put your fist on the table
+to show that you're ready. When all the players have a fist on the table or
+when the timer runs out, the planning phase ends.
+
+Now, everyone reveals their stroke count at the same time. Bang your fist on the
+table as you count "one, two, three." As you say "three," everyone puts out a
+number of fingers to show how many strokes they need. The scorekeeper writes
+down everyone's strokes. If you think it's impossible, put out zero fingers.
+
+The player with the fewest strokes must now demonstrate the path. If some
+players are tied for fewest, start with the scorekeeper and go around to the
+left until you reach one of the tied players. That player must demonstrate. It
+can be helpful to start by placing coins under all the pieces that you're going
+to move, so you can reset if you get confused.
+
+Players should not be allowed to hesitate more than a few seconds while
+demonstrating. Be kind, especially to younger players, but you can't sit and
+try to solve it at this point.
+
+If the player can't demonstrate their path, then they get the maximum of all the
+other players' strokes, plus a one-stroke penalty. Reset the pieces to where
+they started and get the player with the next lowest strokes to demonstrate.
+
+If some players put out zero fingers, let the lowest nonzero player demonstrate.
+If they are successful, then all the zero players get the maximum strokes plus
+a one-stroke penalty.
+
+After a successful demonstration, leave the pieces in their final positions, but
+remember that the last stroke only delivers the ball without moving the piece.
+Remove the coins, if you used them. Choose a new scorekeeper by passing the
+pencil and paper one player to the left.
+
+### Game End
+Continue drawing two cards each turn until the deck runs out. For the ninth
+hole, use the two kings. If you want to play a full round, shuffle the cards and
+play the back nine holes. You don't need to lay out the pieces again.
+
+Add up the scores for all 9 or 18 holes, and award the game to the player with
+the lowest score. A tie goes to the best dressed player.
+
 ## Neighbour Chess Solitaire
 Pairs of chess pieces help each other across the board until you gather them all
 into one connected group. Keep adding pieces until you have enough to start, but
