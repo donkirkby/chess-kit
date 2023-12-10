@@ -235,8 +235,48 @@ by the rook after switching. The only legal move is to a7.
 ![Diagram](images/new_rules/half-alice-chess1.png)
 
 ## Chess Golf
-Pairs of chess pieces caddy for each other, while all the players try to work
-out the most efficient path to deliver a golf ball across the board.
+All the players try to work out the most efficient way to bring two pieces
+together, using all the wrong moves. This game is a series of puzzles, so let's
+start with an example:
+
+![Diagram](images/new_rules/chess-golf1.png)
+
+Every puzzle starts with the pieces spread around the board, and two cards
+choosing two types of pieces according to the table in appendix A. The goal is
+to make one piece type threaten the other in as few moves as possible. In this
+example, you have to make the white king threaten one of the black bishops or
+make one of the black bishops threaten the white king.
+
+You might think that the bishop at e5 is already threatening the king, but in
+this game, the piece's original movement is irrelevant. Pieces can only
+**borrow** the moves of a neighbouring piece in the 8 squares immediately
+surrounding them, a bit like a golfer takes a golf club from the caddy standing
+next to them. That means that the bishop at e5 can only move like a knight and
+the king can't move at all. Also, pieces can only borrow the moves of a
+neighbour that's the **same colour**, so the bishop at a2 can't move at all.
+
+Now that you know how the pieces move, here's one possible solution:
+
+![Diagram](images/new_rules/chess-golf2.png)
+
+The bishop moves like a knight to g6 and then moves like a king to h5. Then it
+borrows the queen's move to threaten the king at h2. The solution takes 2 moves.
+
+You're not limited to moving the two chosen piece types. Here's a solution that
+doesn't move either of the chosen piece types:
+
+![Diagram](images/new_rules/chess-golf3.png)
+
+The white bishop uses the rook's move to get out of the way, and then the black
+rook comes down to b3. The bishop at a2 can now use the rook's move to threaten
+the king. This solution also takes 2 moves.
+
+There are solutions that help the white king threaten a black bishop, but they
+take at least 3 moves.
+
+Now that you've seen how to solve one of the puzzles, the rest of the rules
+explain how to solve a series of these puzzles with a group of players, keeping
+score like a round of golf.
 
 ### Equipment
 A standard chess set and a standard deck of 52 cards. You'll also need a pencil
@@ -263,64 +303,49 @@ of empty squares before each piece:
 * Knights - 1 empty square
 
 Here's an example with all the cards laid out in the order they were drawn, from
-the 9 of clubs and the 10 of hearts to the queen of hearts. Check to make sure
-you agree with where the pieces were placed.
+the 9 and 10 of hearts to the queen of hearts. Check to make sure you agree with
+where the pieces were placed.
 
-![Diagram](images/new_rules/chess-golf1.png)
+![Diagram](images/new_rules/chess-golf4.png)
 
 When all 16 pieces are on the board, shuffle the cards again, and place them
 next to the board as a draw pile.
 
-Choose a scorekeeper, and get them to write everyone's initials at the top of
-the paper, leaving enough room for 9 scores and a course total. Leave room for
-18 scores, if you're playing a full round.
+Randomly choose a scorekeeper, and get them to write everyone's initials at the
+top of the paper, leaving enough room for 9 scores and a course total. Leave
+room for 18 scores, if you're playing a full round.
 
 ### Play
 To start each turn, **check** that at least one white piece has another white
-piece in the 8 squares directly surrounding it. Make the same check for at least
-one pair of black neighbours. In the rare case where either of those is not
-true, then you need to swap pairs of pieces to make it true. Start by looking at
-the two kings. If swapping their positions would fix at least one of the
-colours without ruining the other colour, then make the swap. Make the same
-check with the two queens. Continue with the rooks, bishops, and knights,
-checking all four possible swaps for each piece type. Stop checking when both
-colours have at least one pair of neighbours.
+piece it can borrow moves from. Make the same check for at least one black
+piece. In the rare case where no pieces of a colour can move, move the king to
+the closest square where it has a neighbour of the same colour. In this example
+after the second solution above, no white pieces can move. Start the turn by
+moving the white king to g1, g2, or g3 where it can borrow moves from the
+knight or the queen. If there is more than one move at the same distance, the
+scorekeeper may choose.
 
-Swaps aren't usually needed, particularly after the first turn. Once you're
-ready to start the main turn, **draw** two cards and place them face up next to
-the board where all players can see them. Check appendix A if you need to, and
-**announce** the two chosen piece types for this turn. Then **start** the timer.
+![Diagram](images/new_rules/chess-golf5.png)
 
-All players now plan how to get one of the two pieces to hit a golf ball at the
-other in the fewest strokes. While planning, no one actually moves the pieces.
-For each stroke, choose a piece to hit a golf ball. They can hit a golf ball
-to land one chess move away. However, they don't use their own type of move.
-Instead, they pick one of their neighbouring pieces as a caddy and use the
-caddy's golf club to move the ball with the caddy's chess move.
+Once you're ready to start the main turn, **draw** two cards and place them face
+up next to the board where all players can see them. Check appendix A if you
+need to, and **announce** the two chosen piece types for this turn. Then
+**start** the timer.
 
-If one of the two chosen piece types can hit a ball to the other chosen piece
-type, then that's the final stroke and no pieces move. Otherwise, the ball has
-to land in an empty square, and the piece that hit it moves to the empty square.
-The caddy doesn't move. Remember, though, don't actually move any pieces while
-planning. Just visualize how the pieces will move and count how many strokes you
-need to deliver the ball.
+All players now try to **solve** the puzzle in as few moves as possible. While
+planning, no one actually moves the pieces. Just visualize how the pieces will
+move and count how many moves you need to threaten one of the piece types with
+the other.
 
-One extra restriction: all white pieces are right handed, and can only use
-right-handed, white caddies. All black pieces are left handed, and can only use
-left-handed, black caddies. Caddies must be in one of the 8 squares directly
-surrounding the piece.
-
-You may move other pieces besides the two chosen piece types. This is often
-helpful if the chosen pieces have no neighbours.
-
-When you **find** a path and count the strokes, put your fist on the table
+When you **find** a path and count the moves, put your fist on the table
 to show that you're ready. When all the players have a fist on the table or
 when the timer runs out, the planning phase ends.
 
-Now, everyone **reveals** their stroke count at the same time. Bang your fist on
+Now, everyone **reveals** their move count at the same time. Bang your fist on
 the table as you count "one, two, three." As you say "three," everyone puts out
-a number of fingers to show how many strokes they need. The scorekeeper writes
-down everyone's strokes. If you think it's impossible, put out zero fingers.
+a number of fingers to show how many moves they need. The scorekeeper writes
+down everyone's numbers. If you think it's impossible, make a thumbs down
+gesture, and the scorekeeper will write an X.
 
 The player with the fewest strokes must now **demonstrate** the path. If some
 players are tied for fewest, start with the scorekeeper and go around to the
@@ -333,24 +358,24 @@ demonstrating. Be kind, especially to younger players, but they can't sit and
 try to solve it at this point.
 
 If the player can't demonstrate their path, then they get the maximum of all the
-other players' strokes, plus a one-stroke penalty. Reset the pieces to where
-they started and get the player with the next lowest strokes to demonstrate.
+other players' numbers, plus a one-point penalty. Reset the pieces to where
+they started and get the player with the next lowest number to demonstrate.
 
-If some players put out zero fingers, let the lowest nonzero player demonstrate.
-If they are successful, then all the zero players get the maximum strokes plus
-a one-stroke penalty.
+If some players say it's impossible, let the player with the lowest number
+demonstrate. If they are successful, then all the players with an X get the
+maximum number plus a one-point penalty.
 
-After a successful demonstration, leave the pieces in their final positions, but
-remember that the last stroke only delivers the ball without moving the piece.
+After a successful demonstration, leave the pieces in their final positions.
 Remove the coins, if you used them. **Pass** the pencil and paper one player to
 the left to choose a new scorekeeper.
 
 ### Game End
-Continue drawing two cards each turn until the deck runs out. For the ninth
-hole, use the two kings. If you want to play a full round, shuffle the cards and
-play the back nine holes. You don't need to lay out the pieces again.
+Continue drawing two cards each for eight turns until the deck runs out. For the
+ninth turn, use the two kings. If you want to play a full round, shuffle the
+cards and play the back nine holes of your chess golf course. You don't need to
+lay out the pieces again.
 
-Add up the scores for all 9 or 18 holes, and award the game to the player with
+Add up the points for all 9 or 18 turns, and award the game to the player with
 the lowest score. A tie goes to the best dressed player.
 
 ## Neighbour Chess Solitaire
