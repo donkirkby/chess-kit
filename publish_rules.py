@@ -1,7 +1,9 @@
 import logging
 import os
+import re
 import typing
 from argparse import ArgumentParser, FileType, ArgumentDefaultsHelpFormatter
+from collections import Counter
 from csv import DictReader
 from datetime import datetime
 from functools import partial
@@ -60,7 +62,7 @@ class DiagramWriter:
                  target_folder: Path,
                  images_folder: Path,
                  is_disabled=False):
-        self.diagram_count = 0
+        self.diagram_counts = Counter()
         self.target_folder = target_folder
         self.images_folder = images_folder
         self.diagram_differ = DiagramDiffer()
@@ -68,14 +70,16 @@ class DiagramWriter:
         self.is_disabled = is_disabled
         self.unused_images = set(images_folder.glob('diagram*.png'))
 
-    def add_diagram(self, diagram: Diagram) -> Path:
+    def add_diagram(self, diagram: Diagram, prefix='diagram') -> Path:
         if self.is_disabled:
             return Path(os.devnull)
 
-        self.diagram_count += 1
         svg_diagram = diagram.build()
         image = LiveSvg(svg_diagram)
-        file_name = f'diagram{self.diagram_count}.png'
+        slugged_prefix = slug(prefix)
+        self.diagram_counts[slugged_prefix] += 1
+        diagram_count = self.diagram_counts[slugged_prefix]
+        file_name = f'{slugged_prefix}{diagram_count}.png'
         target_path = self.images_folder / file_name
         relative_path = target_path.relative_to(self.target_folder)
         self.unused_images.discard(target_path)
@@ -145,8 +149,8 @@ def load_contents_descriptions(contents_path: Path) -> typing.Dict[str, str]:
                 for row in reader}
 
 
-def slug(heading: str) -> str:
-    return heading.lower().replace(" ", "-")
+def slug(text: str) -> str:
+    return re.sub(r'\W+', '-', text).lower()
 
 
 def format_contents_markdown(
@@ -287,10 +291,15 @@ def main():
             flowable = Diagram(doc.width,
                                doc.height,
                                state.text).build().to_reportlab()
+            if len(headings) < 2:
+                prefix = 'diagram'
+            else:
+                prefix = headings[1]
             state.image_path = diagram_writer.add_diagram(Diagram(
                 image_width,
                 image_height,
-                state.text))
+                state.text),
+                prefix)
         else:
             flowable = Paragraph(state.text,
                                  styles[state.style])

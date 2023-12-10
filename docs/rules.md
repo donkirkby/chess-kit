@@ -68,7 +68,7 @@ you buried the piece.
 In this example game, Black has just captured a pawn at d4 and buried it under
 the knight at c6.
 
-![Diagram](images/rules/diagram1.png)
+![Diagram](images/rules/zombie-chess1.png)
 
 At the end of your turn, check to see whether there was a piece buried under the
 piece you moved. If not, say "no zombie" and say the coordinate you checked. If
@@ -89,7 +89,7 @@ they put the white pawn back on the board with a coin under it and erase it from
 the grid. Then they decide to bury the knight under the pawn at g7 and write
 an N in that square in their hidden grid.
 
-![Diagram](images/rules/diagram2.png)
+![Diagram](images/rules/zombie-chess2.png)
 
 Also at the end of your turn, check if you have any zombie pieces that you
 didn't move. If so, they are permanently destroyed, and moved to the dust bin
@@ -128,7 +128,7 @@ deduce their way to victory first?
 ### Setup
 Players each draw two copies of this table:
 
-![Diagram](images/rules/diagram3.png)
+![Diagram](images/rules/masquerade-chess1.png)
 
 They write their opponent's name above one table and their own name above the
 other. They then fill in the table for their opponent's pieces without letting
@@ -147,10 +147,10 @@ Here's an example set up where Bob has filled in the table for Alice's pieces
 and left his own blank.
 
 #### Alice
-![Diagram](images/rules/diagram4.png)
+![Diagram](images/rules/masquerade-chess2.png)
 
 #### Bob
-![Diagram](images/rules/diagram5.png)
+![Diagram](images/rules/masquerade-chess3.png)
 
 ### Play
 On each turn, the player may either make a standard move without capturing, or
@@ -215,7 +215,7 @@ In the following example, Walter plays king-side white, Winnie plays queen-side
 white, Betty plays king-side black, and Bob plays queen-side black. Then the
 play order would be Walter, Betty, Winnie, Bob, Walter, Betty, and so on.
 
-![Diagram](images/rules/diagram6.png)
+![Diagram](images/rules/crowded-house1.png)
 
 ### Rule changes
 The key rule is that you may only move a piece that either
@@ -228,7 +228,7 @@ side of the board, shown by the dashed rectangle. She may move the bishop as
 shown by the arrow, because it ends up on the queen side of the board. Winnie
 may not move the bishop to e2, because it would start and end on the king side.
 
-![Diagram](images/rules/diagram7.png)
+![Diagram](images/rules/crowded-house2.png)
 
 If a player has no pieces on their side and can't move any pieces to their side,
 they move nothing on that turn.
@@ -292,7 +292,7 @@ As an example, imagine you turned over an ace and a 6 from the first two piles,
 then 8, 10, Q, 10, 8, 10 from the third pile. The starting position would look
 like this:
 
-![Diagram](images/rules/diagram8.png)
+![Diagram](images/rules/chess9601.png)
 
 ### Castling
 The other change that Bobby Fischer made was to the castling rules. As usual,

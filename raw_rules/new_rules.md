@@ -120,6 +120,23 @@ cards to match the chess pieces, as shown in appendix A.
   pawn in one hand and a black pawn in the other. The other player then
   **chooses** a hand to decide their colour.
 
+    r n b q k b n r
+    p p p p p p p p
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    P P P P P P P P
+    R N B Q K B N R
+    margins: 0, 1, 6, 1
+    card: back, 11, -1
+    card: back, 11.5, -0.75
+    card: back, 12, -0.5
+    card: back, 9, 2.5
+    card: back, 11, 6
+    card: back, 11.5, 5.75
+    card: back, 12, 5.5
+
 ### Play
 White plays the first turn, and then players alternate. Each turn has four
 possible steps, in this order:
@@ -264,16 +281,58 @@ of empty squares before each piece:
 * Bishops - 2 empty squares
 * Knights - 1 empty square
 
-Shuffle the cards again, and place them next to the board as a draw pile.
+Here's an example with all the cards laid out in the order they were drawn, from
+the 9 of clubs and the 10 of hearts to the queen of hearts. Check to make sure
+you agree with where the pieces were placed.
+
+    . . b . . . R .
+    . . . . . k . .
+    . r . n . N . .
+    . r . . b . . .
+    R . . . . . q .
+    . B . N . n . .
+    B . . . . . . K
+    . . . . . Q . .
+    margins: 0, 0, 4, 0
+    card: 9C, 8.5, 0
+    card: 10H, 9, 0
+    card: KS, 9.5, 0
+    card: 10C, 10, 0
+    card: 8S, 8.5, 1
+    card: 8H, 9, 1
+    card: 10S, 9.5, 1
+    card: 9S, 10, 1
+    card: 10D, 8.5, 2
+    card: QS, 9, 2
+    card: 9D, 9.5, 2
+    card: 8D, 10, 2
+    card: 8C, 8.5, 3
+    card: 9H, 9, 3
+    card: KH, 9.5, 3
+    card: QH, 10, 3
+
+When all 16 pieces are on the board, shuffle the cards again, and place them
+next to the board as a draw pile.
 
 Choose a scorekeeper, and get them to write everyone's initials at the top of
 the paper, leaving enough room for 9 scores and a course total. Leave room for
 18 scores, if you're playing a full round.
 
 ### Play
-Each turn, **draw** two cards and place them face up next to the board where all
-players can see them. Check appendix A if you need to, and **announce** the two
-chosen piece types for this turn. Then **start** the timer.
+To start each turn, **check** that at least one white piece has another white
+piece in the 8 squares directly surrounding it. Make the same check for at least
+one pair of black neighbours. In the rare case where either of those is not
+true, then you need to swap pairs of pieces to make it true. Start by looking at
+the two kings. If swapping their positions would fix at least one of the
+colours without ruining the other colour, then make the swap. Make the same
+check with the two queens. Continue with the rooks, bishops, and knights,
+checking all four possible swaps for each piece type. Stop checking when both
+colours have at least one pair of neighbours.
+
+Swaps aren't usually needed, particularly after the first turn. Once you're
+ready to start the main turn, **draw** two cards and place them face up next to
+the board where all players can see them. Check appendix A if you need to, and
+**announce** the two chosen piece types for this turn. Then **start** the timer.
 
 All players now plan how to get one of the two pieces to hit a golf ball at the
 other in the fewest strokes. While planning, no one actually moves the pieces.
@@ -294,31 +353,26 @@ right-handed, white caddies. All black pieces are left handed, and can only use
 left-handed, black caddies. Caddies must be in one of the 8 squares directly
 surrounding the piece.
 
-If no black pieces have caddies or no white pieces have caddies at the start of
-the game, start at the kings and work your way down to the knights. If swapping
-a black and a white piece would make it so that there is at least one caddy pair
-of each colour, then make the swap and stop.
-
 You may move other pieces besides the two chosen piece types. This is often
 helpful if the chosen pieces have no neighbours.
 
-When you have found a path and counted the strokes, put your fist on the table
+When you **find** a path and count the strokes, put your fist on the table
 to show that you're ready. When all the players have a fist on the table or
 when the timer runs out, the planning phase ends.
 
-Now, everyone reveals their stroke count at the same time. Bang your fist on the
-table as you count "one, two, three." As you say "three," everyone puts out a
-number of fingers to show how many strokes they need. The scorekeeper writes
+Now, everyone **reveals** their stroke count at the same time. Bang your fist on
+the table as you count "one, two, three." As you say "three," everyone puts out
+a number of fingers to show how many strokes they need. The scorekeeper writes
 down everyone's strokes. If you think it's impossible, put out zero fingers.
 
-The player with the fewest strokes must now demonstrate the path. If some
+The player with the fewest strokes must now **demonstrate** the path. If some
 players are tied for fewest, start with the scorekeeper and go around to the
 left until you reach one of the tied players. That player must demonstrate. It
 can be helpful to start by placing coins under all the pieces that you're going
 to move, so you can reset if you get confused.
 
 Players should not be allowed to hesitate more than a few seconds while
-demonstrating. Be kind, especially to younger players, but you can't sit and
+demonstrating. Be kind, especially to younger players, but they can't sit and
 try to solve it at this point.
 
 If the player can't demonstrate their path, then they get the maximum of all the
@@ -331,8 +385,8 @@ a one-stroke penalty.
 
 After a successful demonstration, leave the pieces in their final positions, but
 remember that the last stroke only delivers the ball without moving the piece.
-Remove the coins, if you used them. Choose a new scorekeeper by passing the
-pencil and paper one player to the left.
+Remove the coins, if you used them. **Pass** the pencil and paper one player to
+the left to choose a new scorekeeper.
 
 ### Game End
 Continue drawing two cards each turn until the deck runs out. For the ninth

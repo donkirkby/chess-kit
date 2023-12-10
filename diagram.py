@@ -1,3 +1,4 @@
+import copy
 import xml.etree.ElementTree as ET  # noqa
 from pathlib import Path
 
@@ -10,6 +11,7 @@ from svg_diagram import SvgDiagram
 
 class Diagram:
     CARDS_PATH = Path(__file__).parent / 'English_pattern_playing_cards_deck.svg'
+    CARD_BACK_PATH = Path(__file__).parent / 'Atlas_deck_card_back_blue_and_brown.svg'
 
     @staticmethod
     def register_svg():
@@ -43,7 +45,9 @@ class Diagram:
                                 font_family='Raleway',
                                 font_size=round(0.375*square_size))
         _, card_map = ET.XMLID(self.CARDS_PATH.read_text())
-        margins = (0, 0)
+        _, card_backs = ET.XMLID(self.CARD_BACK_PATH.read_text())
+        card_back_svg = card_backs['card-back']
+        margins = (0, 0, 0, 0)
         for line in lines[8:]:
             command, body = line.split(':', maxsplit=1)
             fields = [field.strip() for field in body.split(',')]
@@ -72,7 +76,9 @@ class Diagram:
                                               stroke_width=5,
                                               stroke_dasharray='7.5'))
             elif command == 'margins':
-                margins = tuple(float(n) for n in fields[:2])
+                margins = tuple(float(n) for n in fields[:4])
+                if len(margins) == 2:
+                    margins *= 2
             elif command == 'arrow':
                 tail = getattr(chess, fields[0].upper())
                 head = getattr(chess, fields[1].upper())
@@ -82,7 +88,12 @@ class Diagram:
                 card, x, y = fields
                 x = float(x)
                 y = float(y)
-                card_svg = card_map[f'card-{card}']
+                if card == 'back':
+                    card_svg = card_back_svg
+                else:
+                    card_svg = card_map[f'card-{card}']
+                # copy, then modify
+                card_svg = copy.deepcopy(card_svg)
                 x = 180*x + 60
                 y = 180*y - 453
                 card_svg.attrib['transform'] = f'scale(0.25), translate({x}, {y})'
@@ -90,8 +101,8 @@ class Diagram:
             else:
                 raise ValueError(f'Unknown diagram command: {command}.')
         original_view_size = 390  # chess library always uses this size
-        view_width = original_view_size + 2*margins[0]*square_size
-        view_height = original_view_size + 2*margins[1]*square_size
+        view_width = original_view_size + (margins[0] + margins[2])*square_size
+        view_height = original_view_size + (margins[1] + margins[3])*square_size
         x_aspect = self.page_width/2/view_width
         y_aspect = self.page_height/view_height
         aspect = min(x_aspect, y_aspect)

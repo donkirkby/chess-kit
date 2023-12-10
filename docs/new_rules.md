@@ -64,7 +64,7 @@ checker doesn't matter, and you may stack multiple checkers under a piece.
 In the following example, white just captured a pawn with the bishop, and
 finishes the turn by adding a checker under the pawn at h7.
 
-![Diagram](images/new_rules/diagram1.png)
+![Diagram](images/new_rules/adrenaline-chess1.png)
 
 To move a piece with checkers under it, you must make a regular move for that
 piece, and bring the checkers along. Then you may use up one of the checkers
@@ -91,7 +91,7 @@ a direct capture by the queen, f1 and f3 could be captured by the queen or the
 black bishop. g3 might give a glimmer of hope, until you notice that the black
 pawn at h5 has a checker. It is checkmate.
 
-![Diagram](images/new_rules/diagram2.png)
+![Diagram](images/new_rules/adrenaline-chess2.png)
 
 After castling, you may use both the king and the rook for extra moves, if they
 both have checkers. You may capture a pawn en passant on the second rank at the
@@ -123,6 +123,8 @@ cards to match the chess pieces, as shown in appendix A.
 * When the chess pieces are set up, the first player secretly places a white
   pawn in one hand and a black pawn in the other. The other player then
   **chooses** a hand to decide their colour.
+
+![Diagram](images/new_rules/cooperative-chess1.png)
 
 ### Play
 White plays the first turn, and then players alternate. Each turn has four
@@ -230,7 +232,7 @@ In this example, the king cannot move to a8, because it would still be in check
 by the queen before switching. It can't move to b7, because it would be in check
 by the rook after switching. The only legal move is to a7.
 
-![Diagram](images/new_rules/diagram3.png)
+![Diagram](images/new_rules/half-alice-chess1.png)
 
 ## Chess Golf
 Pairs of chess pieces caddy for each other, while all the players try to work
@@ -260,16 +262,34 @@ of empty squares before each piece:
 * Bishops - 2 empty squares
 * Knights - 1 empty square
 
-Shuffle the cards again, and place them next to the board as a draw pile.
+Here's an example with all the cards laid out in the order they were drawn, from
+the 9 of clubs and the 10 of hearts to the queen of hearts. Check to make sure
+you agree with where the pieces were placed.
+
+![Diagram](images/new_rules/chess-golf1.png)
+
+When all 16 pieces are on the board, shuffle the cards again, and place them
+next to the board as a draw pile.
 
 Choose a scorekeeper, and get them to write everyone's initials at the top of
 the paper, leaving enough room for 9 scores and a course total. Leave room for
 18 scores, if you're playing a full round.
 
 ### Play
-Each turn, **draw** two cards and place them face up next to the board where all
-players can see them. Check appendix A if you need to, and **announce** the two
-chosen piece types for this turn. Then **start** the timer.
+To start each turn, **check** that at least one white piece has another white
+piece in the 8 squares directly surrounding it. Make the same check for at least
+one pair of black neighbours. In the rare case where either of those is not
+true, then you need to swap pairs of pieces to make it true. Start by looking at
+the two kings. If swapping their positions would fix at least one of the
+colours without ruining the other colour, then make the swap. Make the same
+check with the two queens. Continue with the rooks, bishops, and knights,
+checking all four possible swaps for each piece type. Stop checking when both
+colours have at least one pair of neighbours.
+
+Swaps aren't usually needed, particularly after the first turn. Once you're
+ready to start the main turn, **draw** two cards and place them face up next to
+the board where all players can see them. Check appendix A if you need to, and
+**announce** the two chosen piece types for this turn. Then **start** the timer.
 
 All players now plan how to get one of the two pieces to hit a golf ball at the
 other in the fewest strokes. While planning, no one actually moves the pieces.
@@ -290,31 +310,26 @@ right-handed, white caddies. All black pieces are left handed, and can only use
 left-handed, black caddies. Caddies must be in one of the 8 squares directly
 surrounding the piece.
 
-If no black pieces have caddies or no white pieces have caddies at the start of
-the game, start at the kings and work your way down to the knights. If swapping
-a black and a white piece would make it so that there is at least one caddy pair
-of each colour, then make the swap and stop.
-
 You may move other pieces besides the two chosen piece types. This is often
 helpful if the chosen pieces have no neighbours.
 
-When you have found a path and counted the strokes, put your fist on the table
+When you **find** a path and count the strokes, put your fist on the table
 to show that you're ready. When all the players have a fist on the table or
 when the timer runs out, the planning phase ends.
 
-Now, everyone reveals their stroke count at the same time. Bang your fist on the
-table as you count "one, two, three." As you say "three," everyone puts out a
-number of fingers to show how many strokes they need. The scorekeeper writes
+Now, everyone **reveals** their stroke count at the same time. Bang your fist on
+the table as you count "one, two, three." As you say "three," everyone puts out
+a number of fingers to show how many strokes they need. The scorekeeper writes
 down everyone's strokes. If you think it's impossible, put out zero fingers.
 
-The player with the fewest strokes must now demonstrate the path. If some
+The player with the fewest strokes must now **demonstrate** the path. If some
 players are tied for fewest, start with the scorekeeper and go around to the
 left until you reach one of the tied players. That player must demonstrate. It
 can be helpful to start by placing coins under all the pieces that you're going
 to move, so you can reset if you get confused.
 
 Players should not be allowed to hesitate more than a few seconds while
-demonstrating. Be kind, especially to younger players, but you can't sit and
+demonstrating. Be kind, especially to younger players, but they can't sit and
 try to solve it at this point.
 
 If the player can't demonstrate their path, then they get the maximum of all the
@@ -327,8 +342,8 @@ a one-stroke penalty.
 
 After a successful demonstration, leave the pieces in their final positions, but
 remember that the last stroke only delivers the ball without moving the piece.
-Remove the coins, if you used them. Choose a new scorekeeper by passing the
-pencil and paper one player to the left.
+Remove the coins, if you used them. **Pass** the pencil and paper one player to
+the left to choose a new scorekeeper.
 
 ### Game End
 Continue drawing two cards each turn until the deck runs out. For the ninth
@@ -412,7 +427,7 @@ write the numbers 1 to 8 on checkers for each player. Put the black checkers on
 black's back row and the light checkers on white's back row. Finally, write two
 grids like this to secretly record your pieces and deduce your opponent's:
 
-![Diagram](images/new_rules/diagram4.png)
+![Diagram](images/new_rules/cloak-and-dagger-chess1.png)
 
 Obviously, you don't have to put the pieces in their standard starting
 positions, but you do have to have a standard set of pieces. (You can't give
@@ -428,7 +443,7 @@ opponent learns which of your combinations are impossible.
 
 Here's one possible way to fill in your grid at the start of the game:
 
-![Diagram](images/new_rules/diagram5.png)
+![Diagram](images/new_rules/cloak-and-dagger-chess2.png)
 
 At the start of your turn, you may guess the identity of one of your opponent's
 checkers. If you guess correctly, you may make a bonus move after your regular
@@ -470,17 +485,17 @@ marking the back of the cards. Otherwise, remember how the numbers correspond to
 the pieces in this appendix. To start with, the pawns match the small numbers:
 2 to 5.
 
-![Diagram](images/new_rules/diagram6.png)
+![Diagram](images/new_rules/appendix-a1.png)
 
 The non-royal pieces match the high numbers, ordered by strength. The knights
 match 8s and the bishops match 9s.
 
-![Diagram](images/new_rules/diagram7.png)
+![Diagram](images/new_rules/appendix-a2.png)
 
 The rooks match 10s, and the royal cards match the obvious queens and kings of
 hearts and spades.
 
-![Diagram](images/new_rules/diagram8.png)
+![Diagram](images/new_rules/appendix-a3.png)
 
 
 [![cc-logo]][cc-by-sa]
