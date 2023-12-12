@@ -21,10 +21,12 @@ class Diagram:
     def __init__(self,
                  page_width: float,
                  page_height: float,
-                 board_state: str):
+                 board_state: str,
+                 half_width: bool = True):
         self.page_width = page_width
         self.page_height = page_height
         self.board_state = board_state
+        self.half_width = half_width
 
     def build(self) -> SvgDiagram:
         if self.board_state.startswith('type: '):
@@ -103,7 +105,9 @@ class Diagram:
         original_view_size = 390  # chess library always uses this size
         view_width = original_view_size + (margins[0] + margins[2])*square_size
         view_height = original_view_size + (margins[1] + margins[3])*square_size
-        x_aspect = self.page_width/2/view_width
+        x_aspect = self.page_width/view_width
+        if self.half_width:
+            x_aspect /= 2
         y_aspect = self.page_height/view_height
         aspect = min(x_aspect, y_aspect)
         image_width = view_width * aspect

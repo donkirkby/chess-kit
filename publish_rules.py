@@ -29,7 +29,7 @@ from space_tracer import LivePillowImage
 from diagram import Diagram
 from diagram_differ import LiveSvg, DiagramDiffer
 from font_set import register_fonts
-from footer import FooterCanvas
+from footer import FooterCanvas, ZineCanvas
 from book_parser import parse, Styles
 
 PAGE_HEIGHT = defaultPageSize[1]
@@ -46,6 +46,9 @@ def parse_args():
     parser.add_argument('--booklet',
                         action='store_true',
                         help='Use smaller pages for a booklet.')
+    parser.add_argument('--zine',
+                        action='store_true',
+                        help='Use 1/4 letter pages for a zine.')
     parser.add_argument('--no-merge',
                         action='store_true',
                         help="Don't write merged markdown, only PDF.")
@@ -54,7 +57,10 @@ def parse_args():
                         nargs='?',
                         default=default_markdown,
                         help='markdown source file to convert')
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.zine:
+        args.booklet = True
+    return args
 
 
 class DiagramWriter:
@@ -189,7 +195,10 @@ def main():
                                    images_path,
                                    is_disabled=args.no_merge)
     if args.booklet:
-        page_size = (4.25 * inch, 6.875 * inch)
+        if args.zine:
+            page_size = (4.25 * inch, 5.5 * inch)
+        else:
+            page_size = (4.25 * inch, 6.875 * inch)
         vertical_margin = 0.3 * inch
         side_margin = 0.5 * inch
     else:
@@ -281,16 +290,19 @@ def main():
                 story.append(Spacer(0, page_size[1] * 0.15))
                 story.append(Paragraph('Don Kirkby', centred_style))
                 story.append(Spacer(0, page_size[1] * 0.15))
-                story.append(Paragraph('???-?-????-????-?', centred_style))
-                story.append(Paragraph('Imprint: Lulu.com', centred_style))
+                if not args.zine:
+                    story.append(Paragraph('???-?-????-????-?', centred_style))
+                    story.append(Paragraph('Imprint: Lulu.com', centred_style))
                 story.append(cc_drawing)
                 story.append(Paragraph(f'{datetime.now().year}', centred_style))
                 story.append(PageBreak())
             continue
         elif state.style == Styles.Diagram:
+            half_width_diagrams = not args.booklet
             flowable = Diagram(doc.width,
                                doc.height,
-                               state.text).build().to_reportlab()
+                               state.text,
+                               half_width_diagrams).build().to_reportlab()
             if len(headings) < 2:
                 prefix = 'diagram'
             else:
@@ -377,7 +389,11 @@ def main():
         unknown_section_message = (f'Unknown section{suffix} in contents: ' +
                                    ', '.join(unlinked_section_names))
         raise ValueError(unknown_section_message)
-    doc.multiBuild(story, canvasmaker=partial(FooterCanvas,
+    if args.zine:
+        canvas_class = ZineCanvas
+    else:
+        canvas_class = FooterCanvas
+    doc.multiBuild(story, canvasmaker=partial(canvas_class,
                                               font_name='Body',
                                               is_booklet=args.booklet))
     if not args.no_merge:

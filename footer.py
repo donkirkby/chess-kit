@@ -34,3 +34,32 @@ class FooterCanvas(canvas.Canvas):
                                    bottom,
                                    "https://donkirkby.github.io/chess-kit")
         self.restoreState()
+
+
+class ZineCanvas(FooterCanvas):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.pages = []
+
+    def showPage(self):
+        self.pages.append(dict(self.__dict__))
+        self._startPage()
+
+    def save(self):
+        while len(self.pages) % 8 != 0:
+            self.showPage()
+        original_pages = self.pages[:]
+        reordered_pages = []
+        while original_pages:
+            reordered_pages.append(original_pages.pop(1))
+            reordered_pages.append(original_pages.pop(-2))
+            reordered_pages.append(original_pages.pop(2))
+            reordered_pages.append(original_pages.pop(-3))
+            reordered_pages.append(original_pages.pop(-1))
+            reordered_pages.append(original_pages.pop(0))
+            reordered_pages.append(original_pages.pop(-1))
+            reordered_pages.append(original_pages.pop(0))
+        for page in reordered_pages:
+            self.__dict__.update(page)
+            super().showPage()
+        super().save()
