@@ -78,6 +78,39 @@ def test_arrows(diagram_differ: DiagramDiffer):
     diagram_differ.assert_equal(svg_diagram, expected_diagram)
 
 
+def test_margin_arrows(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        . . . k q . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . Q . . .
+        . . . P . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . K . . . .
+        arrow: e0, d1, grey
+        margins: 0, 0, 0, 1
+        """)
+    expected_text = diagram_text.split('arrow')[0]
+    expected_board = parse_board(expected_text)
+    expected_svg = chess.svg.board(
+        expected_board,
+        arrows=[chess.svg.Arrow(-4, 3, color='grey')],
+        size=250)
+    Diagram.register_svg()
+    expected_tree = ET.fromstring(expected_svg)
+    expected_tree.set('width', '250')
+    expected_tree.set('height', '278')
+    expected_tree.set('viewBox', '0 0 390 433.68')
+    expected_diagram = SvgDiagram(ET.tostring(expected_tree,
+                                              encoding='unicode'))
+
+    diagram = Diagram(500, 500, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
 # noinspection DuplicatedCode
 def test_text(diagram_differ: DiagramDiffer):
     diagram_text = dedent("""\

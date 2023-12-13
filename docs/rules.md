@@ -436,8 +436,13 @@ like this:
 The other change that Bobby Fischer made was to the castling rules. As usual,
 the king may castle with the rook to his right or his left. However, the two
 pieces' end positions after castling are the same as for standard chess. So to
-castle with the h-side rook, white's king would end on g1 and the rook on f1, no
-matter where they started. As in regular chess, there are several restrictions
+castle with the a-side rook, white's king would end on c1 and the rook on d1, no
+matter where they started. In the example above, white's third move could be to
+castle.
+
+![Diagram](images/rules/chess9602.png)
+
+As in regular chess, there are several restrictions
 before you can castle:
 
 * The king and the rook must not have moved.

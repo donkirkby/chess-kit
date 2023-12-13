@@ -49,10 +49,7 @@ class Diagram:
         _, card_map = ET.XMLID(self.CARDS_PATH.read_text())
         _, card_backs = ET.XMLID(self.CARD_BACK_PATH.read_text())
         card_back_svg = card_backs['card-back']
-        if self.half_width:
-            margins = (0, 0, 0, 0)
-        else:
-            margins = (0, 0, 4, 0)
+        margins = [0, 0, 0, 0]
         for line in lines[8:]:
             command, body = line.split(':', maxsplit=1)
             fields = [field.strip() for field in body.split(',')]
@@ -81,12 +78,12 @@ class Diagram:
                                               stroke_width=5,
                                               stroke_dasharray='7.5'))
             elif command == 'margins':
-                margins = tuple(float(n) for n in fields[:4])
+                margins = [float(n) for n in fields[:4]]
                 if len(margins) == 2:
                     margins *= 2
             elif command == 'arrow':
-                tail = getattr(chess, fields[0].upper())
-                head = getattr(chess, fields[1].upper())
+                tail = parse_square(fields[0])
+                head = parse_square(fields[1])
                 colour = fields[2]
                 arrows.append(chess.svg.Arrow(tail, head, color=colour))
             elif command == 'card':
@@ -106,6 +103,8 @@ class Diagram:
             else:
                 raise ValueError(f'Unknown diagram command: {command}.')
         original_view_size = 390  # chess library always uses this size
+        if not self.half_width and (margins[0] + margins[2]) < 4:
+            margins[2] = 4 - margins[0]
         view_width = original_view_size + (margins[0] + margins[2])*square_size
         view_height = original_view_size + (margins[1] + margins[3])*square_size
         x_aspect = self.page_width/view_width
@@ -194,3 +193,9 @@ class Diagram:
 
         diagram = SvgDiagram(drawing.tostring())
         return diagram
+
+
+def parse_square(text: str) -> int:
+    file = ord(text[0].upper()) - 65
+    rank = int(text[1:]) - 1
+    return rank*8 + file
