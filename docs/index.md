@@ -30,6 +30,11 @@ together.
     pieces can capture. (2 players, chess set, pencils, and paper)
 * [Crowded House][crowded-house] is the only four-player game I know
     of on a standard chess set. (4 players and chess set)
+* [Cooperative Chess][cooperative-chess] lets you play together
+    against the game. (2 players, chess set, and deck of cards)
+* [Half Alice Chess][half-alice-chess] moves pieces through the
+    looking glass to a parallel universe after each move. (2 players,
+    chess set, and checkers set)
 * [Chess960][chess960] is a game designed by Bobby Fischer to mix up
     the game opening by randomly choosing your starting position. (2
     players, chess set, and deck of cards)
@@ -37,6 +42,8 @@ together.
 [zombie-chess]: rules.md#zombie-chess
 [masquerade-chess]: rules.md#masquerade-chess
 [crowded-house]: rules.md#crowded-house
+[cooperative-chess]: rules.md#cooperative-chess
+[half-alice-chess]: rules.md#half-alice-chess
 [chess960]: rules.md#chess960
 
 If you're interested, you can read my [design journal]. If you're brave, you can

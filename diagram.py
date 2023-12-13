@@ -49,7 +49,10 @@ class Diagram:
         _, card_map = ET.XMLID(self.CARDS_PATH.read_text())
         _, card_backs = ET.XMLID(self.CARD_BACK_PATH.read_text())
         card_back_svg = card_backs['card-back']
-        margins = (0, 0, 0, 0)
+        if self.half_width:
+            margins = (0, 0, 0, 0)
+        else:
+            margins = (0, 0, 4, 0)
         for line in lines[8:]:
             command, body = line.split(':', maxsplit=1)
             fields = [field.strip() for field in body.split(',')]

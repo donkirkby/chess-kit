@@ -9,11 +9,6 @@ know what you think.
 ## Table of Contents
 * [Adrenaline Chess][adrenaline-chess] adds power ups to chess. (2
     players, chess set, and checkers set)
-* [Cooperative Chess][cooperative-chess] lets you play together
-    against the game. (2 players, chess set, and deck of cards)
-* [Half Alice Chess][half-alice-chess] moves pieces through the
-    looking glass to a parallel universe after each move. (2 players,
-    chess set, and checkers set)
 * [Chess Golf][chess-golf] makes players race to plan the best route,
     as the pieces caddy each other around the board. (1 or more players,
     chess set, deck of cards, timer, coins, pencil and paper)
@@ -23,16 +18,11 @@ know what you think.
 * [Cloak and Dagger Chess][cloak-and-dagger-chess] is a game where you
     disguise your chess pieces as checkers, then try to identify your
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
-* [Appendix A][appendix-a] shows which playing cards represent each
-    chess piece.
 
 [adrenaline-chess]: #adrenaline-chess
-[cooperative-chess]: #cooperative-chess
-[half-alice-chess]: #half-alice-chess
 [chess-golf]: #chess-golf
 [neighbour-chess-solitaire]: #neighbour-chess-solitaire
 [cloak-and-dagger-chess]: #cloak-and-dagger-chess
-[appendix-a]: #appendix-a
 
 # New Games
 These games are in early development or playtesting. The rules might get more
@@ -105,134 +95,6 @@ move to block the check again.
 ### Winning
 Win by checkmate, as in regular chess, but you may use extra moves to threaten
 the king.
-
-## Cooperative Chess
-If you don't like battling your friend across the board, you can team up against
-the game itself. A hand of cards limits what you can capture, and you work
-together to eliminate as many *types* of pieces as you can.
-
-### Equipment
-A standard chess set and 32 cards from a standard deck of 52 cards. You will use
-cards to match the chess pieces, as shown in appendix A.
-
-### Setup
-* One player **stands** the chess pieces in the standard start position.
-* Meanwhile, the other player **shuffles** the 32 cards,
-* **deals** 3 to each player, and
-* **places** the rest of the cards next to the board as a draw pile.
-* When the chess pieces are set up, the first player secretly places a white
-  pawn in one hand and a black pawn in the other. The other player then
-  **chooses** a hand to decide their colour.
-
-![Diagram](images/new_rules/cooperative-chess1.png)
-
-### Play
-White plays the first turn, and then players alternate. Each turn has four
-possible steps, in this order:
-
-1. You may make a **non-capturing** chess move.
-2. You must **play a card** from your hand to your discard stack.
-3. You may make multiple **capturing** chess moves, if the cards allow.
-4. You must **draw a card** to bring your hand back to 3.
-
-As the game progresses, you will move the cards between three face-up,
-spread-out stacks of cards: White's discards, Black's discards, and the captured
-cards. It's best to spread the cards enough that you can see which cards have
-already been played.
-
-The chess pieces make the same moves as in regular chess, but you can only
-make a capture if the cards match:
-
-1. The **capturing** piece must be the same piece type as the card that the
-   capturing player just played, and
-2. the **captured** piece must be the same piece type as the top card on the
-   other player's discard stack.
-
-Pieces may match cards of either colour. On each turn, all moves must be made
-with one piece.
-
-When you capture a piece, remove the piece from the board, and move the captured
-piece's card from your partner's discard stack to the captured cards stack. If
-you can make another capture move that matches the next card in your partner's
-stack, you may continue.
-
-There are two types of **wild** cards that can match any piece type. They may
-match different piece types when they capture and when they are captured.
-
-1. If you no longer have any pieces of a certain type, then that type of card is
-   wild on your discard stack. For example, if you have no queen, then a queen
-   card on your stack lets you capture with any piece and lets your partner
-   capture any of your pieces.
-2. A double colour match makes the next capture wild. If both the capturing
-   piece and the captured piece match the colour of their cards, then the next
-   captured card becomes wild, as long as you can capture it in the same turn.
-   White pieces match red cards.
-
-Castling is allowed. En passant capture is allowed. You may promote a pawn on
-the last rank to any other piece. It can be an effective way to get rid of your
-last pawn. You may move a king into check or leave it in check.
-
-### Winning
-The game ends immediately when you capture a king. You then get a point for each
-piece type that was completely removed from the board, both colours. For
-example, if you captured both queens, all four bishops, and a king, but still
-had at least one pawn, one knight, one rook, and the other king still on the
-board, then you would score 2 points.
-
-If the draw pile is empty, continue playing until you run out of cards in your
-hands. If you run out of cards without capturing a king, you lose.
-
-### Talking
-The game works best if players know something about each other's cards, but not
-everything. They should feel free to ask each other yes or no questions about
-their hands and to discuss general strategy, but shouldn't just reveal their
-hands.
-
-## Half Alice Chess
-Alice Chess is a popular variant invented by Vernon Parton in 1953, usually
-played with one set on two boards. Since I wanted all the games in this
-collection to be playable with one chess set, I found a way to play it on one
-board by placing the mirror pieces on checkers. I'm not the first to suggest
-this idea, but I think it makes it easier to see the connections between the two
-sets of pieces.
-
-The main idea is that pieces switch back and forth between the two sides of a
-mirror, as in Lewis Carroll's "Alice Through the Looking Glass". This causes
-many surprising positions and interactions, well worth exploring.
-
-### Equipment
-A standard chess set and a standard checkers set. For full compatibility with
-the original rules, you'd need 16 checkers of each colour, but I think it's
-unlikely you'd ever need more than the standard 12.
-
-### Setup
-Place the chess pieces in their standard opening position, give the light
-checkers to White and the dark checkers to Black.
-
-### Play
-Pieces not on checkers are on one side of the mirror, pieces on checkers are on
-the other side of the mirror. Rules are as in orthodox chess, with these
-changes:
-
-* The move must be legal under orthodox chess rules.
-* Switch the moved piece to the other side of the mirror after it moves. (Add or
-  remove a checker.)
-* Pieces cannot capture pieces on the other side of the mirror, but they can
-  move through squares that are occupied by pieces on the other side of the
-  mirror.
-* If you're playing with 12 checkers each, then you must have a free checker in
-  order to move piece without a checker.
-
-### Winning
-Place the opponent's king in checkmate. A king may not evade check by switching
-to the other side of the mirror, because the move must be legal before the
-switch.
-
-In this example, the king cannot move to a8, because it would still be in check
-by the queen before switching. It can't move to b7, because it would be in check
-by the rook after switching. The only legal move is to a7.
-
-![Diagram](images/new_rules/half-alice-chess1.png)
 
 ## Chess Golf
 All the players try to work out the most efficient way to bring two pieces
@@ -500,28 +362,6 @@ you're safe. You're not even safe from the pawns, because your opponent can
 sometimes make two pawn moves.
 
 Maybe it's too similar to Masquerade Chess to begin with.
-
-## Appendix A
-These diagrams show which playing cards represent each chess piece in several
-games. Red cards represent white pieces, and black cards represent black pieces.
-If you don't mind defacing a deck of cards, you can add the letter or symbol for
-the pieces just below the suit symbol in the corners, pressing lightly to avoid
-marking the back of the cards. Otherwise, remember how the numbers correspond to
-the pieces in this appendix. To start with, the pawns match the small numbers:
-2 to 5.
-
-![Diagram](images/new_rules/appendix-a1.png)
-
-The non-royal pieces match the high numbers, ordered by strength. The knights
-match 8s and the bishops match 9s.
-
-![Diagram](images/new_rules/appendix-a2.png)
-
-The rooks match 10s, and the royal cards match the obvious queens and kings of
-hearts and spades.
-
-![Diagram](images/new_rules/appendix-a3.png)
-
 
 [![cc-logo]][cc-by-sa]
 
