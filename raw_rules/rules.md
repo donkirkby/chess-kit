@@ -321,7 +321,7 @@ cards to match the chess pieces, as shown in appendix A.
     card: back, 11, -1
     card: back, 11.5, -0.75
     card: back, 12, -0.5
-    card: back, 9, 2.5
+    card: back, 8.5, 2.5
     card: back, 11, 6
     card: back, 11.5, 5.75
     card: back, 12, 5.5
@@ -356,6 +356,68 @@ piece's card from your partner's discard stack to the captured cards stack. If
 you can make another capture move that matches the next card in your partner's
 stack, you may continue.
 
+As an example, imagine that black has a knight card, a bishop card, and a king
+card in hand with the following position:
+
+    r n b q k b n r
+    p p p . p p p p
+    . . . . . . . .
+    . . . P . . . .
+    . . . . P . . .
+    . . . . . . . .
+    P P . P . P P P
+    R N B Q K B N R
+    margins: 0, 1, 6, 1
+    card: back, 8.5, 2.5
+    card: 2D, 11, 2.5
+    card: 3D, 8.5, 6
+    card: 3S, 9, 6
+
+They can move the bishop to e6, play their bishop card, and then capture both
+pawns.
+
+    r n . q k b n r
+    p p p . p p p p
+    . . . . . . . .
+    . . . . . . . .
+    . . . . b . . .
+    . . . . . . . .
+    P P . P . P P P
+    R N B Q K B N R
+    margins: 0, 1, 6, 1
+    card: back, 8.5, 2.5
+    card: 2D, 11, 2.5
+    card: 3S, 11.5, 2.5
+    card: 3D, 12, 2.5
+    card: 9S, 8.5, -1
+    arrow: c8, e6, black
+    arrow: e6, d5, black
+    arrow: d5, e4, black
+
+The king can't get close enough to attack this turn, but the knight card
+might be an even better option:
+
+    r n b q k b . r
+    p p p . p p p p
+    . . . . . . . .
+    . . . P . . . .
+    . . . . . . . .
+    . . . . . . . .
+    P P . n . P P P
+    R N B Q K B N R
+    margins: 0, 1, 6, 1
+    card: back, 8.5, 2.5
+    card: 2D, 11, 2.5
+    card: 3S, 11.5, 2.5
+    card: 3D, 12, 2.5
+    card: 8C, 8.5, -1
+    arrow: g8, f6, black
+    arrow: f6, e4, black
+    arrow: e4, d2, black
+
+Now the knight can be attacked by anything except a pawn or a rook, and it can
+attack anything except a queen.
+
 There are two types of **wild** cards that can match any piece type. They may
 match different piece types when they capture and when they are captured.
 
@@ -367,6 +429,45 @@ match different piece types when they capture and when they are captured.
    piece and the captured piece match the colour of their cards, then the next
    captured card becomes wild, as long as you can capture it in the same turn.
    White pieces match red cards.
+
+In this slight change from the previous example, you might think that black can
+only capture one pawn.
+
+    r n b q k b n r
+    p p p . p p p p
+    . . . . . . . .
+    . . . P . . . .
+    . . . . P . . .
+    . . . . . . . .
+    P P . P . P P P
+    R N B Q K B N R
+    margins: 0, 1, 6, 1
+    card: back, 8.5, 2.5
+    card: 2D, 11, 2.5
+    card: 10C, 8.5, 6
+    card: 3D, 9, 6
+
+However, since white's pawn card matches colour, black can make the rook card
+wild by using a black card to capture a white pawn. Black could do either of the
+moves shown before, or even capture something bigger than a pawn:
+
+    r n . q k b n r
+    p p p . p p p p
+    . . . . . . . .
+    . . . P . . . .
+    . . . . . . . .
+    . . . . . . . .
+    P P . P . P P P
+    R b B Q K B N R
+    margins: 0, 1, 6, 1
+    card: back, 8.5, 2.5
+    card: 2D, 11, 2.5
+    card: 3D, 11.5, 2.5
+    card: 10C, 12, 2.5
+    card: 9S, 8.5, -1
+    arrow: c8, f5, black
+    arrow: f5, e4, black
+    arrow: e4, b1, black
 
 Castling is allowed. En passant capture is allowed. You may promote a pawn on
 the last rank to any other piece. It can be an effective way to get rid of your
@@ -421,7 +522,7 @@ changes:
   move through squares that are occupied by pieces on the other side of the
   mirror.
 * If you're playing with 12 checkers each, then you must have a free checker in
-  order to move piece without a checker.
+  order to move a piece without a checker.
 
 ### Winning
 Place the opponent's king in checkmate. A king may not evade check by switching
@@ -430,7 +531,7 @@ switch.
 
 In this example, the king cannot move to a8, because it would still be in check
 by the queen before switching. It can't move to b7, because it would be in check
-by the rook after switching. The only legal move is to a7.
+by the rook after switching.
 
     . k . Q . . . .
     . . . . . . . .
@@ -441,6 +542,20 @@ by the rook after switching. The only legal move is to a7.
     . . . . . . . .
     . . . . . . . K
     arrow: b6,b6,white
+
+The only legal move is to a7.
+
+    . . . Q . . . .
+    k . . . . . . .
+    . R . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . .
+    . . . . . . . K
+    arrow: b6,b6,white
+    arrow: b8,a7,black
+    arrow: a7,a7,black
 
 ## Chess960
 This is probably the least silly game in the collection; people organize

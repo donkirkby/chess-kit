@@ -308,6 +308,24 @@ piece's card from your partner's discard stack to the captured cards stack. If
 you can make another capture move that matches the next card in your partner's
 stack, you may continue.
 
+As an example, imagine that black has a knight card, a bishop card, and a king
+card in hand with the following position:
+
+![Diagram](images/rules/cooperative-chess2.png)
+
+They can move the bishop to e6, play their bishop card, and then capture both
+pawns.
+
+![Diagram](images/rules/cooperative-chess3.png)
+
+The king can't get close enough to attack this turn, but the knight card
+might be an even better option:
+
+![Diagram](images/rules/cooperative-chess4.png)
+
+Now the knight can be attacked by anything except a pawn or a rook, and it can
+attack anything except a queen.
+
 There are two types of **wild** cards that can match any piece type. They may
 match different piece types when they capture and when they are captured.
 
@@ -319,6 +337,17 @@ match different piece types when they capture and when they are captured.
    piece and the captured piece match the colour of their cards, then the next
    captured card becomes wild, as long as you can capture it in the same turn.
    White pieces match red cards.
+
+In this slight change from the previous example, you might think that black can
+only capture one pawn.
+
+![Diagram](images/rules/cooperative-chess5.png)
+
+However, since white's pawn card matches colour, black can make the rook card
+wild by using a black card to capture a white pawn. Black could do either of the
+moves shown before, or even capture something bigger than a pawn:
+
+![Diagram](images/rules/cooperative-chess6.png)
 
 Castling is allowed. En passant capture is allowed. You may promote a pawn on
 the last rank to any other piece. It can be an effective way to get rid of your
@@ -373,7 +402,7 @@ changes:
   move through squares that are occupied by pieces on the other side of the
   mirror.
 * If you're playing with 12 checkers each, then you must have a free checker in
-  order to move piece without a checker.
+  order to move a piece without a checker.
 
 ### Winning
 Place the opponent's king in checkmate. A king may not evade check by switching
@@ -382,9 +411,13 @@ switch.
 
 In this example, the king cannot move to a8, because it would still be in check
 by the queen before switching. It can't move to b7, because it would be in check
-by the rook after switching. The only legal move is to a7.
+by the rook after switching.
 
 ![Diagram](images/rules/half-alice-chess1.png)
+
+The only legal move is to a7.
+
+![Diagram](images/rules/half-alice-chess2.png)
 
 ## Chess960
 This is probably the least silly game in the collection; people organize
