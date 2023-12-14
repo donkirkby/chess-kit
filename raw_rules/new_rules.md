@@ -125,16 +125,16 @@ start with an example:
 
 Every puzzle starts with the pieces spread around the board, and two cards
 choosing two types of pieces according to the table in appendix A. The goal is
-to make one piece type threaten the other in as few moves as possible. In this
-example, you have to make the white king threaten one of the black bishops or
-make one of the black bishops threaten the white king.
+to make one piece type capture the other in as few moves as possible. In this
+example, you have to make the white king capture one of the black bishops or
+make one of the black bishops capture the white king.
 
-You might think that the bishop at e5 is already threatening the king, but in
+You might think that the bishop at e5 could directly capture the king, but in
 this game, the piece's original movement is irrelevant. Pieces can only
-**borrow** the moves of a neighbouring piece in the 8 squares immediately
+**borrow** a move from a neighbouring piece in the 8 squares immediately
 surrounding them, a bit like a golfer takes a golf club from the caddy standing
 next to them. That means that the bishop at e5 can only move like a knight and
-the king can't move at all. Also, pieces can only borrow the moves of a
+the king can't move at all. Also, pieces can only borrow moves from a
 neighbour that's the **same colour**, so the bishop at a2 can't move at all.
 
 Now that you know how the pieces move, here's one possible solution:
@@ -142,22 +142,23 @@ Now that you know how the pieces move, here's one possible solution:
     . . B . . . R .
     . . . . . k . .
     . r . n . N . .
-    . r . . . . . b
+    . r . . . . . .
     R . . . . . q .
     . B . n . N . .
-    b . . . . . . K
+    b . . . . . . b
     . . . . . Q . .
     margins: 0, 0, 4, 0
     card: KH, 10, 0.5
     card: 9S, 10, 4.5
     arrow: e5, g6, black
     arrow: g6, h5, black
+    arrow: h5, h2, black
 
 The bishop moves like a knight to g6 and then moves like a king to h5. Then it
-borrows the queen's move to threaten the king at h2. The solution takes 2 moves.
+borrows the queen's move to capture the king at h2. The solution takes 3 moves.
 
-You're not limited to moving the two chosen piece types. Here's a solution that
-doesn't move either of the chosen piece types:
+You're not limited to moving the two chosen piece types. Here's a 3-move
+solution where a chosen piece type only makes the final capture move:
 
     . . B . . . R .
     . . . . . k . .
@@ -165,20 +166,21 @@ doesn't move either of the chosen piece types:
     . . . . b . . .
     R . . . . . q .
     . r B n . N . .
-    b . . . . . . K
+    . . . . . . . b
     . . . . . Q . .
     margins: 0, 0, 4, 0
     card: KH, 10, 0.5
     card: 9S, 10, 4.5
     arrow: b3, c3, white
     arrow: b5, b3, black
+    arrow: a2, h2, black
 
 The white bishop uses the rook's move to get out of the way, and then the black
-rook comes down to b3. The bishop at a2 can now use the rook's move to threaten
-the king. This solution also takes 2 moves.
+rook comes down to b3. The bishop at a2 can now use the rook's move to capture
+the king.
 
-There are solutions that help the white king threaten a black bishop, but they
-take at least 3 moves.
+There are solutions that help the white king capture a black bishop, but they
+take at least 4 moves.
 
 Now that you've seen how to solve one of the puzzles, the rest of the rules
 explain how to solve a series of these puzzles with a group of players, keeping
@@ -238,60 +240,36 @@ where the pieces were placed.
     card: KH, 9.5, 3
     card: QH, 10, 3
 
-When all 16 pieces are on the board, shuffle the cards again, and place them
-next to the board as a draw pile.
+When all 16 pieces are on the board, randomly choose a dealer to shuffle the
+cards again.
 
-Randomly choose a scorekeeper, and get them to write everyone's initials at the
-top of the paper, leaving enough room for 9 scores and a course total. Leave
-room for 18 scores, if you're playing a full round.
+Also choose a scorekeeper, and get them to write everyone's initials at the
+top of the paper, leaving enough room for 9 scores and a course total.
 
 ### Play
-To start each turn, **check** that at least one white piece has another white
-piece it can borrow moves from. Make the same check for at least one black
-piece. In the rare case where no pieces of a colour can move, move the king to
-the closest square where it has a neighbour of the same colour. In this example
-after the second solution above, no white pieces can move. Start the turn by
-moving the white king to g1, g2, or g3 where it can borrow moves from the
-knight or the queen. If there is more than one move at the same distance, the
-scorekeeper may choose.
-
-    . . B . . . R .
-    . . . . . k . .
-    . r . n . N . .
-    . . . . b . . .
-    R . . . . . q .
-    . r B n . N . .
-    b . . . . . . K
-    . . . . . Q . .
-    margins: 0, 0, 4, 0
-    card: KH, 10, 0.5
-    card: 9S, 10, 4.5
-    arrow: h2, g3, white
-    arrow: h2, g2, white
-    arrow: h2, g1, white
-
-Once you're ready to start the main turn, **draw** two cards and place them face
+On the first turn, the dealer will **draw** two cards and place them face
 up next to the board where all players can see them. Check appendix A if you
-need to, and **announce** the two chosen piece types for this turn. Then
-**start** the timer.
+need to, and **announce** the two chosen piece types for this turn. On later
+turns, only draw one card and play it on top of the card for the piece that was
+just captured.
 
-All players now try to **solve** the puzzle in as few moves as possible. While
-planning, no one actually moves the pieces. Just visualize how the pieces will
-move and count how many moves you need to threaten one of the piece types with
-the other.
+**Start** the timer, while all players try to **solve** the puzzle in as few
+moves as possible. While solving, no one actually moves the pieces. Just
+visualize how the pieces will move and count how many moves you need to capture
+one of the piece types with the other.
 
-When you **find** a path and count the moves, put your fist on the table
+When you **find** a solution and count the moves, put your fist on the table
 to show that you're ready. When all the players have a fist on the table or
-when the timer runs out, the planning phase ends.
+when the timer runs out, the solving phase ends.
 
 Now, everyone **reveals** their move count at the same time. Bang your fist on
 the table as you count "one, two, three." As you say "three," everyone puts out
 a number of fingers to show how many moves they need. The scorekeeper writes
-down everyone's numbers. If you think it's impossible, make a thumbs down
-gesture, and the scorekeeper will write an X.
+down everyone's numbers. If you think it's impossible, keep your hand in a fist
+as a zero.
 
 The player with the fewest strokes must now **demonstrate** the path. If some
-players are tied for fewest, start with the scorekeeper and go around to the
+players are tied for fewest, start with the dealer and go around to the
 left until you reach one of the tied players. That player must demonstrate. It
 can be helpful to start by placing coins under all the pieces that you're going
 to move, so you can reset if you get confused.
@@ -304,22 +282,46 @@ If the player can't demonstrate their path, then they get the maximum of all the
 other players' numbers, plus a one-point penalty. Reset the pieces to where
 they started and get the player with the next lowest number to demonstrate.
 
-If some players say it's impossible, let the player with the lowest number
-demonstrate. If they are successful, then all the players with an X get the
-maximum number plus a one-point penalty.
+If some players say it's impossible, let the player with the lowest nonzero
+number demonstrate. If they are successful, then all the players with a zero get
+the maximum number plus a one-point penalty.
 
-After a successful demonstration, leave the pieces in their final positions.
-Remove the coins, if you used them. **Pass** the pencil and paper one player to
-the left to choose a new scorekeeper.
+After a successful demonstration, leave the pieces in their final positions, and
+place the captured piece beside the board. Remove the coins, if you used them.
+**Pass** the deck one player to the left to choose a new dealer.
+
+### Special Moves
+The basic moves are to borrow a move from a neighbouring piece of the same
+colour. You may only capture one of the chosen piece types with the other one.
+No other captures are allowed.
+
+In addition, there are two special moves to help when you get stuck:
+
+1. Move any piece on the board using a king's move of one square in any
+   direction.
+2. Add one of the captured pieces back to the board. You may add it to any
+   square, except that you may not add one of the chosen piece types to a
+   square that neighbours the other chosen piece type.
+
+The special moves are powerful, but expensive. When you count up your moves, a
+special move counts as 10. For example, adding a piece and then immediately
+using it to capture would count as 11 moves.
+
+To allow scores over 10, use this special system when revealing your move counts:
+
+* 1 point for right hand fingers
+* 5 points for right hand thumb
+* 10 points for left hand fingers
+* 50 points for left hand thumb
+
+That will let you reveal scores up to 99, more than you will need. If that's too
+fiddly, you can give each player their own paper and pencil to write their
+scores in secret before everyone reveals them.
 
 ### Game End
-Continue drawing two cards each for eight turns until the deck runs out. For the
-ninth turn, use the two kings. If you want to play a full round, shuffle the
-cards and play the back nine holes of your chess golf course. You don't need to
-lay out the pieces again.
-
-Add up the points for all 9 or 18 turns, and award the game to the player with
-the lowest score. A tie goes to the best dressed player.
+Continue dealing a new card each turn until you have played 9 turns. Add up the
+points for all 9 turns, and award the game to the player with the lowest score.
+A tie goes to the best dressed player.
 
 ## Neighbour Chess Solitaire
 Pairs of chess pieces help each other across the board until you gather them all
