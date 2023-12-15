@@ -25,6 +25,9 @@ together.
     they capture. Start the game by choosing which capture moves each of
     your opponent's pieces will use, then try to deduce how each of your
     pieces can capture. (2 players, chess set, pencils, and paper)
+* [Chess Golf][chess-golf] makes players race to plan the best route,
+    as the pieces caddy each other around the board. (1 or more players,
+    chess set, deck of cards, timer, coins, pencil and paper)
 * [Crowded House][crowded-house] is the only four-player game I know
     of on a standard chess set. (4 players and chess set)
 * [Cooperative Chess][cooperative-chess] lets you play together
@@ -38,6 +41,7 @@ together.
 
 [zombie-chess]: https://donkirkby.github.io/chess-kit/rules.html#zombie-chess
 [masquerade-chess]: https://donkirkby.github.io/chess-kit/rules.html#masquerade-chess
+[chess-golf]: https://donkirkby.github.io/chess-kit/rules.html#chess-golf
 [crowded-house]: https://donkirkby.github.io/chess-kit/rules.html#crowded-house
 [cooperative-chess]: https://donkirkby.github.io/chess-kit/rules.html#cooperative-chess
 [half-alice-chess]: https://donkirkby.github.io/chess-kit/rules.html#half-alice-chess

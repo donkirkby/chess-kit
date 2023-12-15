@@ -9,9 +9,6 @@ know what you think.
 ## Table of Contents
 * [Adrenaline Chess][adrenaline-chess] adds power ups to chess. (2
     players, chess set, and checkers set)
-* [Chess Golf][chess-golf] makes players race to plan the best route,
-    as the pieces caddy each other around the board. (1 or more players,
-    chess set, deck of cards, timer, coins, pencil and paper)
 * [Neighbour Chess Solitaire][neighbour-chess-solitaire] moves pieces
     using their neighbours' moves to form one connected group. (1 player,
     chess set, and deck of cards)
@@ -20,7 +17,6 @@ know what you think.
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
 
 [adrenaline-chess]: #adrenaline-chess
-[chess-golf]: #chess-golf
 [neighbour-chess-solitaire]: #neighbour-chess-solitaire
 [cloak-and-dagger-chess]: #cloak-and-dagger-chess
 
@@ -95,163 +91,6 @@ move to block the check again.
 ### Winning
 Win by checkmate, as in regular chess, but you may use extra moves to threaten
 the king.
-
-## Chess Golf
-All the players try to work out the most efficient way to bring two pieces
-together, using all the wrong moves. This game is a series of puzzles, so let's
-start with an example:
-
-![Diagram](images/new_rules/chess-golf1.png)
-
-Every puzzle starts with the pieces spread around the board, and two cards
-choosing two types of pieces according to the table in appendix A. The goal is
-to make one piece type capture the other in as few moves as possible. In this
-example, you have to make the white king capture one of the black bishops or
-make one of the black bishops capture the white king.
-
-You might think that the bishop at e5 could directly capture the king, but in
-this game, the piece's original movement is irrelevant. Pieces can only
-**borrow** a move from a neighbouring piece in the 8 squares immediately
-surrounding them, a bit like a golfer takes a golf club from the caddy standing
-next to them. That means that the bishop at e5 can only move like a knight and
-the king can't move at all. Also, pieces can only borrow moves from a
-neighbour that's the **same colour**, so the bishop at a2 can't move at all.
-
-Now that you know how the pieces move, here's one possible solution:
-
-![Diagram](images/new_rules/chess-golf2.png)
-
-The bishop moves like a knight to g6 and then moves like a king to h5. Then it
-borrows the queen's move to capture the king at h2. The solution takes 3 moves.
-
-You're not limited to moving the two chosen piece types. Here's a 3-move
-solution where a chosen piece type only makes the final capture move:
-
-![Diagram](images/new_rules/chess-golf3.png)
-
-The white bishop uses the rook's move to get out of the way, and then the black
-rook comes down to b3. The bishop at a2 can now use the rook's move to capture
-the king.
-
-There are solutions that help the white king capture a black bishop, but they
-take at least 4 moves.
-
-Now that you've seen how to solve one of the puzzles, the rest of the rules
-explain how to solve a series of these puzzles with a group of players, keeping
-score like a round of golf.
-
-### Equipment
-A standard chess set and a standard deck of 52 cards. You'll also need a pencil
-and paper for keeping score, a timer, and some coins. 4 coins are probably
-enough, and you can even play without them. A one-minute timer works well,
-although anything from 30 seconds to two minutes would be fine.
-
-### Setup
-Place all the chess pieces except the pawns beside the board. Put the pawns
-away, you won't need them.
-
-From the deck of cards, use one card to represent each piece, as shown in
-appendix A. You don't need the pawn cards, so you should end up with 16 cards.
-
-Put the rest of the cards away, you won't need them. Then shuffle the cards and
-place them next to the board. Draw one card at a time, placing the matching
-piece on the board. Starting in the top left corner, leave the following numbers
-of empty squares before each piece:
-
-* Kings - 6 empty squares
-* Queens - 5 empty squares
-* Rooks - 3 empty squares
-* Bishops - 2 empty squares
-* Knights - 1 empty square
-
-Here's an example with all the cards laid out in the order they were drawn, from
-the 9 and 10 of hearts to the queen of hearts. Check to make sure you agree with
-where the pieces were placed.
-
-![Diagram](images/new_rules/chess-golf4.png)
-
-When all 16 pieces are on the board, randomly choose a dealer to shuffle the
-cards again.
-
-Also choose a scorekeeper, and get them to write everyone's initials at the
-top of the paper, leaving enough room for 9 scores and a course total.
-
-### Play
-On the first turn, the dealer will **draw** two cards and place them face
-up next to the board where all players can see them. Check appendix A if you
-need to, and **announce** the two chosen piece types for this turn. On later
-turns, only draw one card and play it on top of the card for the piece that was
-just captured.
-
-**Start** the timer, while all players try to **solve** the puzzle in as few
-moves as possible. While solving, no one actually moves the pieces. Just
-visualize how the pieces will move and count how many moves you need to capture
-one of the piece types with the other.
-
-When you **find** a solution and count the moves, put your fist on the table
-to show that you're ready. When all the players have a fist on the table or
-when the timer runs out, the solving phase ends.
-
-Now, everyone **reveals** their move count at the same time. Bang your fist on
-the table as you count "one, two, three." As you say "three," everyone puts out
-a number of fingers to show how many moves they need. The scorekeeper writes
-down everyone's numbers. If you think it's impossible, keep your hand in a fist
-as a zero.
-
-The player with the fewest strokes must now **demonstrate** the path. If some
-players are tied for fewest, start with the dealer and go around to the
-left until you reach one of the tied players. That player must demonstrate. It
-can be helpful to start by placing coins under all the pieces that you're going
-to move, so you can reset if you get confused.
-
-Players should not be allowed to hesitate more than a few seconds while
-demonstrating. Be kind, especially to younger players, but they can't sit and
-try to solve it at this point.
-
-If the player can't demonstrate their path, then they get the maximum of all the
-other players' numbers, plus a one-point penalty. Reset the pieces to where
-they started and get the player with the next lowest number to demonstrate.
-
-If some players say it's impossible, let the player with the lowest nonzero
-number demonstrate. If they are successful, then all the players with a zero get
-the maximum number plus a one-point penalty.
-
-After a successful demonstration, leave the pieces in their final positions, and
-place the captured piece beside the board. Remove the coins, if you used them.
-**Pass** the deck one player to the left to choose a new dealer.
-
-### Special Moves
-The basic moves are to borrow a move from a neighbouring piece of the same
-colour. You may only capture one of the chosen piece types with the other one.
-No other captures are allowed.
-
-In addition, there are two special moves to help when you get stuck:
-
-1. Move any piece on the board using a king's move of one square in any
-   direction.
-2. Add one of the captured pieces back to the board. You may add it to any
-   square, except that you may not add one of the chosen piece types to a
-   square that neighbours the other chosen piece type.
-
-The special moves are powerful, but expensive. When you count up your moves, a
-special move counts as 10. For example, adding a piece and then immediately
-using it to capture would count as 11 moves.
-
-To allow scores over 10, use this special system when revealing your move counts:
-
-* 1 point for right hand fingers
-* 5 points for right hand thumb
-* 10 points for left hand fingers
-* 50 points for left hand thumb
-
-That will let you reveal scores up to 99, more than you will need. If that's too
-fiddly, you can give each player their own paper and pencil to write their
-scores in secret before everyone reveals them.
-
-### Game End
-Continue dealing a new card each turn until you have played 9 turns. Add up the
-points for all 9 turns, and award the game to the player with the lowest score.
-A tie goes to the best dressed player.
 
 ## Neighbour Chess Solitaire
 Pairs of chess pieces help each other across the board until you gather them all
