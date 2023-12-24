@@ -49,6 +49,65 @@ def test_new_golf_state():
                                     chess.Piece(chess.QUEEN, chess.BLACK)])
 
 
+def test_display_chosen_only():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . q .
+        . B . n . N . .
+        b . . . . . . K
+        . . . . . N . .
+        chosen: Bbq""")
+
+    state = GolfState(start_text)
+
+    assert state.display() == start_text
+
+
+def test_display_taking():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . q .
+        . . . n . N . .
+        B . . . . . . K
+        . . . . . N . .
+        chosen: Bbq
+        taking: a2
+        taken: b""")
+
+    state = GolfState(start_text)
+
+    assert state.display() == start_text
+
+
+def test_repr():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . q .
+        . . . n . N . .
+        B . . . . . . K
+        . . . . . N . .
+        chosen: Bbq
+        taking: a2
+        taken: b""")
+
+    expected_repr = (r"GolfState('. . B . . . R .\n. . . . . . . .\n"
+                     r". r . n . Q . .\n. r . . b k . .\nR . . . . . q .\n"
+                     r". . . n . N . .\nB . . . . . . K\n. . . . . N . .\n"
+                     r"chosen: Bbq\ntaking: a2\ntaken: b')")
+    repr_text = repr(GolfState(start_text))
+
+    assert repr_text == expected_repr
+
+
 def test_captured_golf_state():
     start_text = dedent("""\
         . . B . . . R .
@@ -289,3 +348,96 @@ def test_find_moves_free_king_moves():
 
     assert len(moves) == len(expected_moves)
     assert set(moves) == expected_moves
+
+
+def test_move_no_capture():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . q .
+        B . . n . N . .
+        b . . . . . . K
+        . . . . . N . .
+        chosen: Bbq""")
+    expected_end_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . q .
+        . B . n . N . .
+        b . . . . . . K
+        . . . . . N . .
+        chosen: Bbq""")
+
+    state1 = GolfState(start_text)
+    state2 = state1.move(chess.Move(chess.A3, chess.B3))
+
+    end_text = state2.display()
+    assert end_text == expected_end_text
+
+
+def test_move_capture():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . q .
+        B . . n . N . .
+        b . . . . . . K
+        . . . . . N . .
+        chosen: Bbq""")
+    expected_end_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . q .
+        . . . n . N . .
+        B . . . . . . K
+        . . . . . N . .
+        chosen: Bbq
+        taking: a2
+        taken: b""")
+
+    state1 = GolfState(start_text)
+    state2 = state1.move(chess.Move(chess.A3, chess.A2))
+
+    end_text = state2.display()
+    assert end_text == expected_end_text
+
+
+def test_move_has_taken():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . . .
+        B . . n . N . .
+        b . . . . . . K
+        . . . . . N . .
+        chosen: Bbq
+        taking: a3
+        taken: q""")
+    expected_end_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . . .
+        . B . n . N . .
+        b . . . . . . K
+        . . . . . N . .
+        chosen: Bbq
+        taking: b3
+        taken: q""")
+
+    state1 = GolfState(start_text)
+    state2 = state1.move(chess.Move(chess.A3, chess.B3))
+
+    end_text = state2.display()
+    assert end_text == expected_end_text

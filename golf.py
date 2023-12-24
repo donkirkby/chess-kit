@@ -1,5 +1,6 @@
 import typing
 from collections import Counter
+from copy import copy
 from textwrap import dedent
 
 import chess
@@ -8,7 +9,7 @@ from board_parser import parse_board
 
 
 class GolfState:
-    def __init__(self, text: str):
+    def __init__(self, text: str) -> None:
         board_lines = text.splitlines()
         board_text = '\n'.join(board_lines[:8])
         self.board = parse_board(board_text)
@@ -29,6 +30,20 @@ class GolfState:
             else:
                 label = line.split(':')[0]
                 raise ValueError(f'Unknown golf label: {label!r}.')
+
+    def __repr__(self):
+        display = self.display()
+        return f'GolfState({display!r})'
+
+    def display(self):
+        sections = [str(self.board),
+                    'chosen: ' + ''.join(str(piece) for piece in self.chosen)]
+        if self.taking:
+            sections.append('taking: ' + chess.SQUARE_NAMES[self.taking])
+        if self.taken:
+            sections.append('taken: ' + ''.join(str(piece)
+                                                for piece in self.taken))
+        return '\n'.join(sections)
 
     def find_moves(self):
         colour_move_counts = Counter()
@@ -78,6 +93,22 @@ class GolfState:
 
                 colour_move_counts[moving_piece.color] += 1
                 yield move
+
+    def move(self, move: chess.Move) -> typing.Self:
+        new_state = copy(self)
+        new_board = self.board.copy()
+        new_taken = self.taken.copy()
+        taken_piece = new_board.piece_at(move.to_square)
+        new_board.push(move)
+
+        if taken_piece is not None:
+            new_taken[taken_piece] += 1
+            new_state.taking = move.to_square
+        elif self.taking == move.from_square:
+            new_state.taking = move.to_square
+        new_state.board = new_board
+        new_state.taken = new_taken
+        return new_state
 
 
 def get_neighbour_types(board: chess.Board,
