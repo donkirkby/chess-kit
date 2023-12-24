@@ -120,15 +120,16 @@ def test_find_moves_not_chosen_taken():
         . . . . . b . .
         . . . . . . . .
         . . . . . . . n
-        . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
+        . . . . . K . Q
+        . . . . k . . .
+        . . . . . . b .
+        . . . . . . . n
         chosen: Bb"""))
 
     expected_moves = {chess.Move(chess.H8, chess.H7),  # bishop uses rook
                       chess.Move(chess.H8, chess.H6),
-                      chess.Move(chess.G8, chess.H7)}  # rook uses bishop
+                      chess.Move(chess.G8, chess.H7),  # rook uses bishop
+                      chess.Move(chess.G2, chess.E1)}  # bishop uses knight
 
     moves = list(state.find_moves())
 
@@ -143,16 +144,17 @@ def test_find_moves_both_chosen():
         . . . . . n . .
         . . . . . . . .
         . . . . . . . b
-        . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
+        . . . . . K . Q
+        . . . . q . . .
+        . . . . . . b .
+        . . . . . . . n
         chosen: Bb"""))
 
     expected_moves = {chess.Move(chess.H8, chess.H7),  # bishop uses rook
                       chess.Move(chess.H8, chess.H6),
                       chess.Move(chess.H8, chess.H5),
-                      chess.Move(chess.G8, chess.H7)}  # rook uses bishop
+                      chess.Move(chess.G8, chess.H7),  # rook uses bishop
+                      chess.Move(chess.G2, chess.E1)}  # bishop uses knight
 
     moves = list(state.find_moves())
 
@@ -167,15 +169,16 @@ def test_find_moves_same_type_not_allowed():
         . . . . . b . .
         . . . . . . . .
         . . . . . . . B
-        . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
+        . . . . . k . q
+        . . . . Q . . .
+        . . . . . . b .
+        . . . . . . . n
         chosen: Bb"""))
 
     expected_moves = {chess.Move(chess.H8, chess.H7),  # bishop uses rook
                       chess.Move(chess.H8, chess.H6),
-                      chess.Move(chess.G8, chess.H7)}  # rook uses bishop
+                      chess.Move(chess.G8, chess.H7),  # rook uses bishop
+                      chess.Move(chess.G2, chess.E1)}  # bishop uses knight
 
     moves = list(state.find_moves())
 
@@ -190,16 +193,17 @@ def test_find_moves_same_type_allowed():
         . . . . . b . .
         . . . . . . . .
         . . . . . . . B
-        . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
+        . . . . . k . q
+        . . . . Q . . .
+        . . . . . . b .
+        . . . . . . . n
         chosen: BB"""))
 
     expected_moves = {chess.Move(chess.H8, chess.H7),  # bishop uses rook
                       chess.Move(chess.H8, chess.H6),
                       chess.Move(chess.H8, chess.H5),
-                      chess.Move(chess.G8, chess.H7)}  # rook uses bishop
+                      chess.Move(chess.G8, chess.H7),  # rook uses bishop
+                      chess.Move(chess.G2, chess.E1)}  # bishop uses knight
 
     moves = list(state.find_moves())
 
@@ -214,15 +218,19 @@ def test_find_moves_single_piece_may_capture():
         n . q . . k . n
         . . . . . . . .
         . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
-        . . . . . . . .
+        . . . . . . . b
+        . . . . . . K .
+        . . . . b . r .
+        . . . . . . Q r
         chosen: Bbn
         taking: a8
         taken: b"""))
 
-    expected_moves = {chess.Move(chess.A8, chess.A7)}  # bishop uses rook
+    expected_moves = {chess.Move(chess.A8, chess.A7),  # bishop uses rook
+                      chess.Move(chess.G2, chess.F2),  # rook uses rook
+                      chess.Move(chess.G2, chess.H2),
+                      chess.Move(chess.H1, chess.H2),
+                      chess.Move(chess.H1, chess.H3)}
 
     moves = list(state.find_moves())
 
@@ -231,7 +239,7 @@ def test_find_moves_single_piece_may_capture():
 
 
 # noinspection DuplicatedCode
-def test_find_moves():
+def test_find_moves_no_repeat_captures():
     state = GolfState(dedent("""\
         B R . . . . . .
         r . . . . . . .
@@ -247,6 +255,35 @@ def test_find_moves():
 
     expected_moves = {chess.Move(chess.B8, chess.C7),  # rook uses bishop
                       chess.Move(chess.G2, chess.H4)}  # bishop uses knight
+
+    moves = list(state.find_moves())
+
+    assert len(moves) == len(expected_moves)
+    assert set(moves) == expected_moves
+
+
+# noinspection DuplicatedCode
+def test_find_moves_free_king_moves():
+    state = GolfState(dedent("""\
+        N R . . . . . .
+        r . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . n
+        chosen: nr"""))
+
+    expected_moves = {chess.Move(chess.B8, chess.A6),  # rook uses knight
+                      chess.Move(chess.B8, chess.C6),
+                      chess.Move(chess.B8, chess.D7),
+                      chess.Move(chess.A7, chess.A6),  # rook gets king
+                      chess.Move(chess.A7, chess.B6),
+                      chess.Move(chess.A7, chess.B7),
+                      chess.Move(chess.H1, chess.G1),  # knight gets king
+                      chess.Move(chess.H1, chess.G2),
+                      chess.Move(chess.H1, chess.H2)}
 
     moves = list(state.find_moves())
 
