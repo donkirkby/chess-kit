@@ -951,8 +951,8 @@ hearts and spades.
 Know some other lighthearted chess variants? Ideas to share? Get in touch at
 [https://donkirkby.github.io/chess-kit][github].
 
-Zombie Chess, Masquerade Chess, Crowded House, and Cooperative Chess are
-original games designed by [Don Kirkby][don].
+Zombie Chess, Masquerade Chess, Chess Golf, Crowded House, and Cooperative Chess
+are original games designed by [Don Kirkby][don].
 
 [github]: https://donkirkby.github.io/chess-kit
 [don]: https://donkirkby.github.io/

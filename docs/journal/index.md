@@ -49,3 +49,18 @@ solitaire.
 
 I also converted the scripts for publishing the Donimoes rules as PDF and
 website to this project.
+
+### Nov 2023 - Adrenaline Chess
+Started with Manna Chess, where manna drops randomly after each capture, and
+gives the piece carrying it one extra king move. Players found the random drops
+annoying, so we switched to Adrenaline Chess, where you choose which opposing
+piece to give an adrenaline boost to after each capture. Made for some
+interesting tactics of giving the boost to a piece you could capture it back
+from.
+
+### Dec 2023 - Chess Golf
+Started with Neighbour Chess Solitaire, where the pieces borrow their
+neighbour's move, and then merged it with Ricochet Robots to make Chess Golf.
+Struggled with the mechanics of automatically adding pieces back to the board
+and what to do when a colour has no neighbouring pairs. Fixed it by adding
+special moves that can be done any time, but are expensive.
