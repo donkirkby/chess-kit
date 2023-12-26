@@ -12,6 +12,7 @@ cairosvg = "*"
 svglib = "*"
 rlpycairo = "*"
 svgwrite = "*"
+networkx = "*"
 
 [dev-packages]
 pytest = "*"

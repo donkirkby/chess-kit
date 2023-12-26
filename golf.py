@@ -1,7 +1,7 @@
 import typing
 from collections import Counter
 from copy import copy
-from textwrap import dedent
+import random
 
 import chess
 
@@ -9,6 +9,24 @@ from board_parser import parse_board
 
 
 class GolfState:
+    SYMBOLS = 'NNBBRRQKnnbbrrqk'
+
+    @classmethod
+    def setup(cls, rng: random.Random = None):
+        if rng is None:
+            rng = random
+        symbols_list = list(cls.SYMBOLS)
+        gaps = {'n': 1, 'b': 2, 'r': 3, 'q': 5, 'k': 6}
+        rng.shuffle(symbols_list)
+        board = chess.Board.empty()
+        square = -1
+        for symbol in symbols_list:
+            square += gaps[symbol.lower()] + 1
+            board.set_piece_at(square, chess.Piece.from_symbol(symbol))
+        board.apply_transform(chess.flip_vertical)
+        board_text = str(board)
+        return GolfState(board_text)
+
     def __init__(self, text: str) -> None:
         board_lines = text.splitlines()
         board_text = '\n'.join(board_lines[:8])
@@ -36,14 +54,26 @@ class GolfState:
         return f'GolfState({display!r})'
 
     def display(self):
-        sections = [str(self.board),
-                    'chosen: ' + ''.join(str(piece) for piece in self.chosen)]
-        if self.taking:
+        sections = [str(self.board)]
+        if self.chosen:
+            sections.append('chosen: ' +
+                            ''.join(sorted(str(piece)
+                                           for piece in self.chosen.elements())))
+        if self.taking is not None:
             sections.append('taking: ' + chess.SQUARE_NAMES[self.taking])
         if self.taken:
-            sections.append('taken: ' + ''.join(str(piece)
-                                                for piece in self.taken))
+            sections.append('taken: ' +
+                            ''.join(sorted(str(piece) for piece in self.taken)))
         return '\n'.join(sections)
+
+    @property
+    def is_solved(self):
+        return sum((self.chosen - self.taken).values()) <= 1
+
+    def choose(self, *symbols):
+        new_state = copy(self)
+        new_state.chosen = Counter(symbols)
+        return new_state
 
     def find_moves(self):
         colour_move_counts = Counter()
@@ -99,6 +129,8 @@ class GolfState:
         new_board = self.board.copy()
         new_taken = self.taken.copy()
         taken_piece = new_board.piece_at(move.to_square)
+        moving_piece = new_board.piece_at(move.from_square)
+        new_board.turn = moving_piece.color
         new_board.push(move)
 
         if taken_piece is not None:
@@ -125,21 +157,3 @@ def get_neighbour_types(board: chess.Board,
             continue
         neighbour_types.add(neighbour.piece_type)
     return neighbour_types
-
-
-def main():
-    board = parse_board(dedent("""\
-        . . B . . . R .
-        . . . . . k . .
-        . r . n . N . .
-        . r . . b . . .
-        R . . . . . q .
-        . B . n . N . .
-        b . . . . . . K
-        . . . . . Q . ."""))
-    for square, piece in board.piece_map().items():
-        print(square, piece)
-
-
-if __name__ == '__main__':
-    main()

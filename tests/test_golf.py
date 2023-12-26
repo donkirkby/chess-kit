@@ -1,4 +1,5 @@
 from collections import Counter
+from random import Random
 from textwrap import dedent
 
 import chess
@@ -6,6 +7,12 @@ import pytest
 
 from board_parser import parse_board
 from golf import get_neighbour_types, GolfState
+
+
+class DummyRandom(Random):
+    def shuffle(self, x):
+        # Do nothing to x
+        pass
 
 
 def test_get_neighbour_types():
@@ -26,7 +33,28 @@ def test_get_neighbour_types():
     assert neighbour_types == expected_neighbour_types
 
 
+# noinspection DuplicatedCode
 def test_new_golf_state():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . q .
+        . B . n . N . .
+        b . . . . . . K
+        . . . . . N . .""")
+    expected_board = parse_board(start_text.split('chosen')[0])
+
+    state = GolfState(start_text)
+
+    assert state.board == expected_board
+    assert state.taking is None
+    assert state.taken == Counter()
+    assert state.chosen == Counter()
+
+
+def test_new_golf_state_chosen():
     start_text = dedent("""\
         . . B . . . R .
         . . . . . . . .
@@ -47,6 +75,22 @@ def test_new_golf_state():
     assert state.chosen == Counter([chess.Piece(chess.BISHOP, chess.WHITE),
                                     chess.Piece(chess.BISHOP, chess.BLACK),
                                     chess.Piece(chess.QUEEN, chess.BLACK)])
+
+
+def test_display_no_chosen():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . q .
+        . B . n . N . .
+        b . . . . . . K
+        . . . . . N . .""")
+
+    state = GolfState(start_text)
+
+    assert state.display() == start_text
 
 
 def test_display_chosen_only():
@@ -441,3 +485,169 @@ def test_move_has_taken():
 
     end_text = state2.display()
     assert end_text == expected_end_text
+
+
+def test_is_solved():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . . .
+        B . . n . N . .
+        b . . . . . . K
+        . . . . . N . .
+        chosen: Bbq
+        taking: a3
+        taken: q""")
+
+    state1 = GolfState(start_text)
+    state2 = state1.move(chess.Move(chess.A3, chess.A2))
+
+    assert not state1.is_solved
+    assert state2.is_solved
+
+
+def test_is_solved_no_chosen():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . . .
+        B . . n . N . .
+        b . . . . . . K
+        . . . . . N . .""")
+
+    state = GolfState(start_text)
+
+    assert state.is_solved
+
+
+def test_setup():
+    rng = DummyRandom()
+    expected_display = dedent("""\
+        . N . N . . B .
+        . B . . . R . .
+        . R . . . . . Q
+        . . . . . . K .
+        n . n . . b . .
+        b . . . r . . .
+        r . . . . . q .
+        . . . . . k . .""")
+
+    state = GolfState.setup(rng)
+
+    assert state.display() == expected_display
+
+
+def test_choose():
+    start_text = dedent("""\
+        . N . N . . B .
+        . B . . . R . .
+        . R . . . . . Q
+        . . . . . . K .
+        n . n . . b . .
+        b . . . r . . .
+        r . . . . . q .
+        . . . . . k . .""")
+    expected_display = dedent("""\
+        . N . N . . B .
+        . B . . . R . .
+        . R . . . . . Q
+        . . . . . . K .
+        n . n . . b . .
+        b . . . r . . .
+        r . . . . . q .
+        . . . . . k . .
+        chosen: Bq""")
+
+    state1 = GolfState(start_text)
+    state2 = state1.choose('q', 'B')
+
+    assert state2.display() == expected_display
+
+
+def test_choose_duplicates():
+    start_text = dedent("""\
+        . N . N . . B .
+        . B . . . R . .
+        . R . . . . . Q
+        . . . . . . K .
+        n . n . . b . .
+        b . . . r . . .
+        r . . . . . q .
+        . . . . . k . .""")
+    expected_display = dedent("""\
+        . N . N . . B .
+        . B . . . R . .
+        . R . . . . . Q
+        . . . . . . K .
+        n . n . . b . .
+        b . . . r . . .
+        r . . . . . q .
+        . . . . . k . .
+        chosen: BB""")
+
+    state1 = GolfState(start_text)
+    state2 = state1.choose('B', 'B')
+
+    assert state2.display() == expected_display
+
+
+def test_move_black():
+    start_text = dedent("""\
+        . . . . . . K .
+        . . R . . . R .
+        . B . . . . . Q
+        . . . . . q . .
+        . . . . k . . .
+        r . N . . b . n
+        . n . . b . . B
+        . N . . . r . .
+        chosen: Qbq""")
+    expected_text = dedent("""\
+        . . . . . . K .
+        . . R . . . R .
+        . B . . . q . Q
+        . . . . . . . .
+        . . . . k . . .
+        r . N . . b . n
+        . n . . b . . B
+        . N . . . r . .
+        chosen: Qbq""")
+    state1 = GolfState(start_text)
+    state2 = state1.move(chess.Move.from_uci('f5f6'))
+
+    assert state2.display() == expected_text
+
+
+def test_move_taking_to_zero():
+    start_text = dedent("""\
+        . . . . . . k .
+        . . . . Q . . B
+        . n . . . . . .
+        K . . . R . . .
+        . . . . . . q .
+        . . . . . R . N
+        r N . . B . . b
+        . . . r . n . .
+        chosen: bqr
+        taking: a2
+        taken: b""")
+    expected_text = dedent("""\
+        . . . . . . k .
+        . . . . Q . . B
+        . n . . . . . .
+        K . . . R . . .
+        . . . . . . q .
+        . . . . . R . N
+        . N . . B . . b
+        r . . r . n . .
+        chosen: bqr
+        taking: a1
+        taken: b""")
+    state1 = GolfState(start_text)
+    state2 = state1.move(chess.Move.from_uci('a2a1'))
+
+    assert state2.display() == expected_text
