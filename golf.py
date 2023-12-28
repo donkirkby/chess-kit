@@ -142,6 +142,22 @@ class GolfState:
         new_state.taken = new_taken
         return new_state
 
+    def drop(self, rng=None) -> typing.Self:
+        if rng is None:
+            rng = random
+        new_state = copy(self)
+        new_state.board = self.board.copy()
+        new_state.taken = Counter()
+        new_state.taking = None
+        new_state.chosen = Counter()
+        to_drop = list(self.taken.elements())
+        occupied = chess.SquareSet(self.board.occupied)
+        empty_spaces = chess.SquareSet(chess.BB_ALL) - occupied
+        targets = rng.sample(list(empty_spaces), len(to_drop))
+        for piece, target in zip(to_drop, targets):
+            new_state.board.set_piece_at(target, piece)
+        return new_state
+
 
 def get_neighbour_types(board: chess.Board,
                         square: chess.Square) -> typing.Set[chess.PieceType]:

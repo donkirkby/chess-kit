@@ -14,6 +14,9 @@ class DummyRandom(Random):
         # Do nothing to x
         pass
 
+    def sample(self, population, k, *, counts=None):
+        return population[:k]
+
 
 def test_get_neighbour_types():
     board = parse_board(dedent("""\
@@ -651,3 +654,61 @@ def test_move_taking_to_zero():
     state2 = state1.move(chess.Move.from_uci('a2a1'))
 
     assert state2.display() == expected_text
+
+
+def test_drop():
+    start_text = dedent("""\
+        . N . N . . B .
+        . B . . . R . .
+        . R . . . . . k
+        . . . . . . K .
+        n . n . . b . .
+        b . . . . . . .
+        r . . . . . q .
+        . . . . . . . .
+        chosen: Qkr
+        taking: h6
+        taken: Qr""")
+    expected_display = dedent("""\
+        . N . N . . B .
+        . B . . . R . .
+        . R . . . . . k
+        . . . . . . K .
+        n . n . . b . .
+        b . . . . . . .
+        r . . . . . q .
+        Q r . . . . . .""")
+
+    state1 = GolfState(start_text)
+    state2 = state1.drop(DummyRandom())
+
+    assert state2.display() == expected_display
+
+
+def test_drop_duplicates():
+    start_text = dedent("""\
+        . N . N . . B .
+        . B . . . R . .
+        . R . . . . . k
+        . . . . . . K .
+        n . n . . b . .
+        b . . . . . . .
+        Q . . . . . q .
+        . . . . . . . .
+        chosen: krr
+        taking: h6
+        taken: rr""")
+    expected_display = dedent("""\
+        . N . N . . B .
+        . B . . . R . .
+        . R . . . . . k
+        . . . . . . K .
+        n . n . . b . .
+        b . . . . . . .
+        Q . . . . . q .
+        r r . . . . . .""")
+
+    state1 = GolfState(start_text)
+    state2 = state1.drop(DummyRandom())
+
+    assert state2.display() == expected_display
