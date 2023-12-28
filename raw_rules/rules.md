@@ -223,8 +223,8 @@ players only learn about their pieces during capture, which slows the pace of
 the game.
 
 ## Chess Golf
-All the players try to work out the most efficient way to bring two pieces
-together, using all the wrong moves. This game is a series of puzzles, so let's
+All the players try to work out the most efficient way to capture the chosen
+pieces, using all the wrong moves. This game is a series of puzzles, so let's
 start with an example:
 
     . . B . . . R .
@@ -243,9 +243,9 @@ start with an example:
     arrow: b2, h2, grey
     arrow: g2, a2, grey
 
-Every puzzle starts with the pieces spread around the board, and two cards
-choosing two types of pieces according to the table in appendix A. The goal is
-to make one piece type capture the other in as few moves as possible. In this
+Every puzzle starts with the pieces spread around the board, and some cards
+choosing types of pieces according to the table in appendix A. The goal is
+to make one piece type capture the others in as few moves as possible. In this
 example, you have to make the white king capture one of the black bishops or
 make one of the black bishops capture the white king.
 
@@ -321,8 +321,8 @@ appendix A. You don't need the pawn cards, so you should end up with 16 cards.
 
 Put the rest of the cards away, you won't need them. Then shuffle the cards and
 place them next to the board. Draw one card at a time, placing the matching
-piece on the board. Starting in the top left corner, leave the following numbers
-of empty squares before each piece:
+piece on the board. Starting at a1 through h1, then a2 through h2, all the way
+to h8. Leave the following numbers of empty squares before each piece:
 
 * Kings - 6 empty squares
 * Queens - 5 empty squares
@@ -334,14 +334,14 @@ Here's an example with all the cards laid out in the order they were drawn, from
 the 9 and 10 of hearts to the queen of hearts. Check to make sure you agree with
 where the pieces were placed.
 
-    . . B . . . R .
-    . . . . . k . .
-    . r . n . N . .
-    . r . . b . . .
-    R . . . . . q .
-    . B . n . N . .
-    b . . . . . . K
     . . . . . Q . .
+    b . . . . . . K
+    . B . n . N . .
+    R . . . . . q .
+    . r . . b . . .
+    . r . n . N . .
+    . . . . . k . .
+    . . B . . . R .
     margins: 0, 0, 4, 0
     card: 9H, 8.5, 0
     card: 10H, 9, 0
@@ -369,18 +369,16 @@ top of the paper, leaving enough room for 9 scores and a course total.
 ### Play
 On the first turn, the dealer will **draw** two cards and place them face
 up next to the board where all players can see them. Check appendix A if you
-need to, and **announce** the two chosen piece types for this turn. On later
-turns, only draw one card and play it on top of the card for the piece that was
-just captured.
+need to, and **announce** the two chosen piece types for this turn.
 
-**Start** the timer, while all players try to **solve** the puzzle in as few
-moves as possible. While solving, no one actually moves the pieces. Just
-visualize how the pieces will move and count how many moves you need to capture
-one of the piece types with the other.
+All players try to **solve** the puzzle in as few moves as possible. While
+solving, no one actually moves the pieces. Just visualize how the pieces will
+move and count how many moves you need to capture one of the piece types with
+the other.
 
-When you **find** a solution and count the moves, put your fist on the table
-to show that you're ready. When all the players have a fist on the table or
-when the timer runs out, the solving phase ends.
+When you **find** a solution and count the moves, start the timer, then put your
+fist on the table to show that you're ready. When all the players have a fist on
+the table or when the timer runs out, the solving phase ends.
 
 Now, everyone **reveals** their move count at the same time. Bang your fist on
 the table as you count "one, two, three." As you say "three," everyone puts out
@@ -388,7 +386,7 @@ a number of fingers to show how many moves they need. The scorekeeper writes
 down everyone's numbers. If you think it's impossible, keep your hand in a fist
 as a zero.
 
-The player with the fewest strokes must now **demonstrate** the path. If some
+The player with the fewest moves must now **demonstrate** the path. If some
 players are tied for fewest, start with the dealer and go around to the
 left until you reach one of the tied players. That player must demonstrate. It
 can be helpful to start by placing coins under all the pieces that you're going
@@ -407,40 +405,64 @@ number demonstrate. If they are successful, then all the players with a zero get
 the maximum number plus a one-point penalty.
 
 After a successful demonstration, leave the pieces in their final positions, and
-place the captured piece beside the board. Remove the coins, if you used them.
-**Pass** the deck one player to the left to choose a new dealer.
+add any captured pieces back to the board in any empty squares. Remove the
+coins, if you used them. **Pass** the deck one player to the left to choose a
+new dealer.
 
-### Special Moves
+### Special Move
 The basic moves are to borrow a move from a neighbouring piece of the same
 colour. You may only capture one of the chosen piece types with the other one.
 No other captures are allowed.
 
-In addition, there are two special moves to help when you get stuck:
+In addition, there is one special move to help when you get stuck: if one of the
+colours has no pairs of pieces next to each other, then any piece of that colour
+may make a king's move.
 
-1. Move any piece on the board using a king's move of one square in any
-   direction.
-2. Add one of the captured pieces back to the board. You may add it to any
-   square, except that you may not add one of the chosen piece types to a
-   square that neighbours the other chosen piece type.
+For example, in the position below, neither the white knights nor the black
+queen has any neighbours of the matching colour. One way to move them is
+bringing in other pieces to borrow moves from. However, there's an easier way.
 
-The special moves are powerful, but expensive. When you count up your moves, a
-special move counts as 10. For example, adding a piece and then immediately
-using it to capture would count as 11 moves.
+    . . . . . Q . .
+    b . . . . . . K
+    . B . n . N . .
+    R . . . . . q .
+    . r . . b . . .
+    . r . n . N . .
+    . . . . . k . .
+    . . B . . . R .
+    margins: 0, 0, 4, 0
+    card: QS, 10, 0.5
+    card: 8H, 10, 4.5
 
-To allow scores over 10, use this special system when revealing your move counts:
+Moving the bishop breaks the last pair of neighbouring white pieces, so the
+white knight at f6 can now use a king's move to capture the black queen.
 
-* 1 point for right hand fingers
-* 5 points for right hand thumb
-* 10 points for left hand fingers
-* 50 points for left hand thumb
+    . . . . . Q . .
+    b . . . . . . K
+    . . B n . . . .
+    R . . . . . N .
+    . r . . b . . .
+    . r . n . N . .
+    . . . . . k . .
+    . . B . . . R .
+    margins: 0, 0, 4, 0
+    card: QS, 10, 0.5
+    card: 8H, 10, 4.5
+    arrow: b6, c6, white
+    arrow: f6, g5, white
 
-That will let you reveal scores up to 99, more than you will need. If that's too
-fiddly, you can give each player their own paper and pencil to write their
-scores in secret before everyone reveals them.
+### Difficulty Level
+Once all players pick the same number of moves on a turn, the dealer may choose
+to increase the difficulty level by dealing one more card on later turns. If
+all players pick the same number of moves on a turn with three cards, the dealer
+may increase to four cards, and so on.
 
 ### Game End
-Continue dealing a new card each turn until you have played 9 turns. Add up the
-points for all 9 turns, and award the game to the player with the lowest score.
+Continue dealing new cards each turn until you have played 9 turns. If you
+don't have enough cards to deal, shuffle the discard pile back in before you
+deal. Add up the points for all 9 turns, and award the game to the player with
+the lowest score.
+
 A tie goes to the best dressed player.
 
 ## Crowded House
