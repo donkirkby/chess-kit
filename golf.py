@@ -27,27 +27,52 @@ class GolfState:
         board_text = str(board)
         return GolfState(board_text)
 
-    def __init__(self, text: str) -> None:
-        board_lines = text.splitlines()
-        board_text = '\n'.join(board_lines[:8])
-        self.board = parse_board(board_text)
+    def __init__(self, text: str = None, state_bytes: bytes = None) -> None:
         self.taking = None
         self.taken = Counter()
         self.chosen = Counter()
-        for line in board_lines[8:]:
-            if line.startswith('chosen:'):
-                chosen_text = line[7:].strip()
-                self.chosen = Counter(chess.Piece.from_symbol(c)
-                                      for c in chosen_text)
-            elif line.startswith('taking:'):
-                self.taking = chess.parse_square(line[7:].strip())
-            elif line.startswith('taken:'):
-                taken_text = line[6:].strip()
-                self.taken = Counter(chess.Piece.from_symbol(c)
-                                     for c in taken_text)
-            else:
-                label = line.split(':')[0]
-                raise ValueError(f'Unknown golf label: {label!r}.')
+        if state_bytes is not None:
+            board = chess.Board.empty()
+            state_int = int.from_bytes(state_bytes)
+            ignored_positions = []
+            for counter in (self.taken, self.chosen):
+                element_count = state_int % 16
+                state_int >>= 4
+                for _ in range(element_count):
+                    piece_index = state_int % 16
+                    if counter is self.taken:
+                        ignored_positions.append(piece_index)
+                    state_int >>= 4
+                    symbol = self.SYMBOLS[piece_index]
+                    piece = chess.Piece.from_symbol(symbol)
+                    counter[piece] += 1
+            if self.taken.total():
+                self.taking = state_int % 64
+                state_int >>= 6
+            for i, symbol in enumerate(reversed(self.SYMBOLS)):
+                if (len(self.SYMBOLS) - i - 1) not in ignored_positions:
+                    square = state_int % 64
+                    board.set_piece_at(square, chess.Piece.from_symbol(symbol))
+                state_int >>= 6
+            self.board = board
+        else:
+            board_lines = text.splitlines()
+            board_text = '\n'.join(board_lines[:8])
+            self.board = parse_board(board_text)
+            for line in board_lines[8:]:
+                if line.startswith('chosen:'):
+                    chosen_text = line[7:].strip()
+                    self.chosen = Counter(chess.Piece.from_symbol(c)
+                                          for c in chosen_text)
+                elif line.startswith('taking:'):
+                    self.taking = chess.parse_square(line[7:].strip())
+                elif line.startswith('taken:'):
+                    taken_text = line[6:].strip()
+                    self.taken = Counter(chess.Piece.from_symbol(c)
+                                         for c in taken_text)
+                else:
+                    label = line.split(':')[0]
+                    raise ValueError(f'Unknown golf label: {label!r}.')
 
     def __repr__(self):
         display = self.display()
@@ -65,6 +90,32 @@ class GolfState:
             sections.append('taken: ' +
                             ''.join(sorted(str(piece) for piece in self.taken)))
         return '\n'.join(sections)
+
+    def to_bytes(self) -> bytes:
+        positions: typing.List[int | None] = [None] * 16
+        for square, piece in self.board.piece_map().items():
+            index = self.SYMBOLS.index(piece.symbol())
+            if positions[index] is not None:
+                index += 1
+            positions[index] = square
+        state_int = 0
+        for position in positions:
+            if position is None:
+                position = 0
+            state_int = (state_int << 6) + position
+        bits_needed = 16*6
+        if self.taking is not None:
+            state_int = (state_int << 6) + self.taking
+            bits_needed += 6
+        for counter in (self.chosen, self.taken):
+            for piece in counter.elements():
+                piece_index = self.SYMBOLS.rindex(piece.symbol())
+                state_int = (state_int << 4) + piece_index
+                bits_needed += 4
+            state_int = (state_int << 4) + counter.total()
+            bits_needed += 4
+
+        return int.to_bytes(state_int, (bits_needed + 7) // 8)
 
     @property
     def is_solved(self):

@@ -132,6 +132,27 @@ def test_display_taking():
     assert state.display() == start_text
 
 
+def test_bytes():
+    start_text = dedent("""\
+        . . B . . . R .
+        . . . . . . . .
+        . r . n . Q . .
+        . r . . b k . .
+        R . . . . . q .
+        . . . n . N . .
+        B . . . . . . K
+        . . . . . N . .
+        chosen: Bbq
+        taking: a2
+        taken: b""")
+
+    state1 = GolfState(start_text)
+    state_bytes = state1.to_bytes()
+    state2 = GolfState(state_bytes=state_bytes)
+
+    assert state2.display() == start_text
+
+
 def test_repr():
     start_text = dedent("""\
         . . B . . . R .
