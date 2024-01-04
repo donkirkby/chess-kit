@@ -13,6 +13,7 @@ svglib = "*"
 rlpycairo = "*"
 svgwrite = "*"
 networkx = "*"
+coverage = "*"
 
 [dev-packages]
 pytest = "*"

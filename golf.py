@@ -126,7 +126,7 @@ class GolfState:
         new_state.chosen = Counter(symbols)
         return new_state
 
-    def find_moves(self):
+    def find_moves(self) -> typing.Iterator[chess.Move]:
         colour_move_counts = Counter()
         for square, piece in self.board.piece_map().items():
             for neighbour_type in get_neighbour_types(self.board, square):
@@ -143,7 +143,10 @@ class GolfState:
                                                    square,
                                                    colour_move_counts)
 
-    def find_moves_by_type(self, neighbour_type, square, colour_move_counts):
+    def find_moves_by_type(self,
+                           neighbour_type,
+                           square,
+                           colour_move_counts) -> typing.Iterator[chess.Move]:
         board_copy = self.board.copy()
         moving_piece = board_copy.piece_at(square)
         can_capture = moving_piece in self.chosen

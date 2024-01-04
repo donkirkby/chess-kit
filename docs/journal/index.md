@@ -63,4 +63,9 @@ Started with Neighbour Chess Solitaire, where the pieces borrow their
 neighbour's move, and then merged it with Ricochet Robots to make Chess Golf.
 Struggled with the mechanics of automatically adding pieces back to the board
 and what to do when a colour has no neighbouring pairs. Fixed it by adding
-special moves that can be done any time, but are expensive.
+special moves that can be done any time, but are expensive, then decided to
+add pieces back between rounds, and make a king's move when there are no
+neighbouring pairs of a colour.
+
+Breadth-first search could only handle the easy problems, so investigated Monte
+Carlo tree search.
