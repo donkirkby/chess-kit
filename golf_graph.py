@@ -1,8 +1,7 @@
 import logging
 import math
-import random
 import typing
-from collections import defaultdict, Counter
+from collections import defaultdict
 from concurrent.futures import Future, ProcessPoolExecutor
 from dataclasses import dataclass
 
@@ -180,57 +179,3 @@ class GolfGraph:
         goal = self.last_bytes
         solution_nodes = shortest_path(self.graph, self.start_bytes, goal)
         return solution_nodes
-
-
-def main():
-    logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',
-                        level=logging.INFO)
-    logger.info('Starting.')
-
-    deal_count = 2
-    totals_frequency = Counter()
-    longest = 0
-    try:
-        for game_num in range(1000):
-            deck = []
-            state = GolfState.setup()
-            total_moves = 0
-
-            for _ in range(9):
-                if len(deck) < deal_count:
-                    deck = list(GolfState.SYMBOLS)
-                    random.shuffle(deck)
-                chosen = deck[:deal_count]
-                deck = deck[deal_count:]
-                state = state.choose(*chosen)
-                graph = GolfGraph()
-                try:
-                    graph.walk(state, size_limit=500_000)
-                except GraphLimitExceeded:
-                    logger.error('Graph limit exceeded:\n%s',
-                                 state.display())
-                    break
-                solution = graph.get_solution()
-                if len(solution) > longest:
-                    longest = len(solution)
-                    logger.info('Problem:\n' + state.display())
-                    logger.info('Solution: ...' + ' ' * 120 + str(solution))
-                total_moves += len(solution)
-                state = GolfState(graph.last_bytes)
-                state = state.drop()
-            else:
-                totals_frequency[total_moves] += 1
-                logger.info('Game %d, total moves: %d.',
-                            game_num,
-                            total_moves)
-    finally:
-        if len(totals_frequency) > 0:
-            min_total = min(totals_frequency)
-            max_total = max(totals_frequency)
-            logger.info('Totals frequency:')
-            for total in range(min_total, max_total + 1):
-                logger.info(f'{total}: {totals_frequency[total]}')
-
-
-if __name__ == '__main__':
-    main()

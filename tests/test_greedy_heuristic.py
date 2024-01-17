@@ -46,7 +46,7 @@ def test_capture():
     assert value == expected_value
 
 
-def test():
+def test_chosen_neighbour():
     state = GolfState(dedent("""\
         . N . N . . R B
         . B . . . . . .
@@ -61,6 +61,26 @@ def test():
     move_text = 'e7g8'
     depth = 1
     expected_value = 9  # 10 for moving next to chosen piece - 1 for depth
+
+    value = heuristic.analyse(state, move_text, depth)
+    assert value == expected_value
+
+
+def test():
+    state = GolfState(dedent("""\
+        . N . N . . . R
+        . B . . . . . .
+        . R . . . . B Q
+        . . . . . . k .
+        n . n . . b . .
+        b . . . r . . .
+        r . . . . . q .
+        . . . . . K . .
+        chosen: BQq"""))
+    heuristic = GreedyHeuristic()
+    move_text = 'g8g6'
+    depth = 1
+    expected_value = 29  # 20 + 10 - 1 for depth
 
     value = heuristic.analyse(state, move_text, depth)
     assert value == expected_value
