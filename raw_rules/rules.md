@@ -465,6 +465,62 @@ the lowest score.
 
 A tie goes to the best dressed player.
 
+### Problems
+Here are some positions that are more challenging than average. The chosen
+pieces are circled, and solutions are given at the end of the book. See if your
+solutions are as short.
+
+#### Problem 1
+    . . . R . . b .
+    . Q . . . K . N
+    . . . R . . . .
+    b . . . . . n .
+    N . . . . . . B
+    . . . n . . k .
+    . B . . q . . r
+    . r . . . . . .
+    margins: 0, 0, 4, 0
+    card: 9S, 9, 2.5
+    card: 9C, 9.5, 2.5
+    arrow: a5, a5, black
+    arrow: g8, g8, black
+
+#### Problem 2
+    . . . . . r . b
+    . . n . . . . .
+    . . . . . . . .
+    . . . Q . . . .
+    B k . . . . n .
+    . . . . N . . .
+    R r . K R . B .
+    N . . . . q b .
+    margins: 0, 0, 4, 0
+    card: 8S, 9, 2.5
+    card: 8C, 9.5, 2.5
+    card: 10S, 10, 2.5
+    arrow: g4, g4, black
+    arrow: c7, c7, black
+    arrow: f8, f8, black
+    arrow: b2, b2, black
+
+#### Problem 3
+    . N . . b . b .
+    . n r . . B . .
+    . . . B . . . R
+    . . . . . . k .
+    N . . . . . q .
+    . . . . Q n . .
+    . . r . . . R .
+    . . . . . K . .
+    margins: 0, 0, 4, 0
+    card: 8H, 9, 2.5
+    card: 8D, 9.5, 2.5
+    card: 9H, 10, 2.5
+    arrow: a4, a4, white
+    arrow: b8, b8, white
+    arrow: d6, d6, white
+    arrow: f7, f7, white
+
 ## Crowded House
 Two teams of two play, with each player moving the pieces of their colour
 on the left or right half of the board. As usual, white moves first, then
@@ -968,6 +1024,14 @@ hearts and spades.
     card: QS, 4, 4
     card: KH, 2, 5
     card: KS, 4, 5
+
+## Solutions
+### Chess Golf Solutions
+Here are the solutions to the Chess Golf problems.
+
+1. d3b5, a5c6, c6e7, g3g4, g5f6, e7g8
+2. e3g3, g1b6, c7f4, g4e5, f4e6, e6f8, f8g7, g7e5
+3. g2f2, e3e7, f7b3, a4d7, d7d6, d6d8, d8b8
 
 ### Contributing
 Know some other lighthearted chess variants? Ideas to share? Get in touch at

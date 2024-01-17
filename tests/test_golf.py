@@ -619,6 +619,24 @@ def test_choose_duplicates():
     assert state2.display() == expected_display
 
 
+def test_choose_symbols():
+    start_text = dedent("""\
+        . N . N . . B .
+        . B . . . R . .
+        . R . . . . . Q
+        . . . . . . K .
+        n . n . . b . .
+        b . . . r . . .
+        r . . . . . q .
+        . . . . . k . .""")
+
+    state1 = GolfState(start_text)
+    state2 = state1.choose('B', 'B')
+    state3 = GolfState(state2.display())
+
+    assert state2.chosen == state3.chosen
+
+
 def test_move_black():
     start_text = dedent("""\
         . . . . . . K .
@@ -675,6 +693,71 @@ def test_move_taking_to_zero():
     state2 = state1.move(chess.Move.from_uci('a2a1'))
 
     assert state2.display() == expected_text
+
+
+def test_no_castling():
+    state_text = dedent("""\
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . K . . .""")
+    move_text = 'e1c1'
+    expected_state_text = dedent("""\
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . K . . . . .""")
+    state1 = GolfState(state_text)
+
+    state2 = state1.move(chess.Move.from_uci(move_text))
+
+    assert state2.display() == expected_state_text
+
+
+def test_duplicate_taken():
+    state_text = dedent("""\
+        B . . . q . . .
+        k . . . . . . .
+        . . . . . . . .
+        b . n K . B . .
+        . . . . . N . .
+        R . . . R . . .
+        . . . . n . . N
+        . Q . . . . b .
+        chosen: Nrr
+        taking: f4
+        taken: rr""")
+    state = GolfState(state_text)
+
+    assert state.display() == state_text
+
+
+def test_duplicate_taken_in_bytes():
+    state_text = dedent("""\
+        B . . . q . . .
+        k . . . . . . .
+        . . . . . . . .
+        b . n K . B . .
+        . . . . . N . .
+        R . . . R . . .
+        . . . . n . . N
+        . Q . . . . b .
+        chosen: Nrr
+        taking: f4
+        taken: rr""")
+    state1 = GolfState(state_text)
+    state_bytes = state1.to_bytes()
+    state2 = GolfState(state_bytes=state_bytes)
+
+    assert state2.display() == state_text
 
 
 def test_drop():

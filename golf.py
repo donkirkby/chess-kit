@@ -88,7 +88,8 @@ class GolfState:
             sections.append('taking: ' + chess.SQUARE_NAMES[self.taking])
         if self.taken:
             sections.append('taken: ' +
-                            ''.join(sorted(str(piece) for piece in self.taken)))
+                            ''.join(sorted(str(piece)
+                                           for piece in self.taken.elements())))
         return '\n'.join(sections)
 
     def to_bytes(self) -> bytes:
@@ -108,9 +109,13 @@ class GolfState:
             state_int = (state_int << 6) + self.taking
             bits_needed += 6
         for counter in (self.chosen, self.taken):
+            used_indexes = set()
             for piece in counter.elements():
                 piece_index = self.SYMBOLS.rindex(piece.symbol())
+                if piece_index in used_indexes:
+                    piece_index -= 1
                 state_int = (state_int << 4) + piece_index
+                used_indexes.add(piece_index)
                 bits_needed += 4
             state_int = (state_int << 4) + counter.total()
             bits_needed += 4
@@ -123,7 +128,8 @@ class GolfState:
 
     def choose(self, *symbols):
         new_state = copy(self)
-        new_state.chosen = Counter(symbols)
+        new_state.chosen = Counter(chess.Piece.from_symbol(symbol)
+                                   for symbol in symbols)
         return new_state
 
     def find_moves(self) -> typing.Iterator[chess.Move]:
@@ -184,8 +190,8 @@ class GolfState:
         new_taken = self.taken.copy()
         taken_piece = new_board.piece_at(move.to_square)
         moving_piece = new_board.piece_at(move.from_square)
-        new_board.turn = moving_piece.color
-        new_board.push(move)
+        new_board.set_piece_at(move.from_square, None)
+        new_board.set_piece_at(move.to_square, moving_piece)
 
         if taken_piece is not None:
             new_taken[taken_piece] += 1

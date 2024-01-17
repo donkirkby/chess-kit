@@ -376,6 +376,20 @@ the lowest score.
 
 A tie goes to the best dressed player.
 
+### Problems
+Here are some positions that are more challenging than average. The chosen
+pieces are circled, and solutions are given at the end of the book. See if your
+solutions are as short.
+
+#### Problem 1
+![Diagram](images/rules/chess-golf7.png)
+
+#### Problem 2
+![Diagram](images/rules/chess-golf8.png)
+
+#### Problem 3
+![Diagram](images/rules/chess-golf9.png)
+
 ## Crowded House
 Two teams of two play, with each player moving the pieces of their colour
 on the left or right half of the board. As usual, white moves first, then
@@ -669,6 +683,14 @@ The rooks match 10s, and the royal cards match the obvious queens and kings of
 hearts and spades.
 
 ![Diagram](images/rules/appendix-a3.png)
+
+## Solutions
+### Chess Golf Solutions
+Here are the solutions to the Chess Golf problems.
+
+1. d3b5, a5c6, c6e7, g3g4, g5f6, e7g8
+2. e3g3, g1b6, c7f4, g4e5, f4e6, e6f8, f8g7, g7e5
+3. g2f2, e3e7, f7b3, a4d7, d7d6, d6d8, d8b8
 
 ### Contributing
 Know some other lighthearted chess variants? Ideas to share? Get in touch at
