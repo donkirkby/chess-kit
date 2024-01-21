@@ -4,8 +4,8 @@ from copy import deepcopy
 
 import chess.svg
 
-from chess_deck import SvgPage, SvgSymbol, SvgCard, SvgGrid, SvgPips
-from diagram import Diagram
+from chess_deck import SvgCard, SvgGrid, SvgPips
+from diagram import Diagram, SvgPage, SvgSymbol
 from diagram_differ import DiagramDiffer
 from svg_diagram import SvgDiagram
 
@@ -180,11 +180,35 @@ def test_pips_transform(diagram_differ: DiagramDiffer):
 def test_card(diagram_differ: DiagramDiffer):
     expected_page = SvgPage(171, 266)
     expected_page.append(ET.Element('rect',
-                                    {'width': '171',
+                                    {'fill': 'white',
+                                     'width': '171',
                                      'height': '266',
-                                     'fill': 'white',
-                                     'stroke': 'black',
+                                     'stroke': '#bbbbbb',
                                      'stroke-width': '4'}))
+    expected_page.append(ET.Element('rect',
+                                    {'fill': 'white',
+                                     'x': '3',
+                                     'y': '3',
+                                     'width': '165',
+                                     'height': '260',
+                                     'stroke': '#cccccc',
+                                     'stroke-width': '2'}))
+    expected_page.append(ET.Element('rect',
+                                    {'fill': 'white',
+                                     'x': '5',
+                                     'y': '5',
+                                     'width': '161',
+                                     'height': '256',
+                                     'stroke': '#dddddd',
+                                     'stroke-width': '2'}))
+    expected_page.append(ET.Element('rect',
+                                    {'fill': 'white',
+                                     'x': '7',
+                                     'y': '7',
+                                     'width': '157',
+                                     'height': '252',
+                                     'stroke': '#eeeeee',
+                                     'stroke-width': '2'}))
     expected_pips = SvgPips(5)
     expected_pips.x = 85.5
     expected_pips.y = 133

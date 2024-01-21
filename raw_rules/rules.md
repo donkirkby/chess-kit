@@ -952,78 +952,47 @@ The rest of the standard chess rules apply unchanged.
 [weeks]: https://www.mark-weeks.com/cfaa/chess960/c960strt.htm
 
 ## Appendix A
-These diagrams show which playing cards represent each chess piece in several
-games. Red cards represent white pieces, and black cards represent black pieces.
-If you don't mind defacing a deck of cards, you can add the letter or symbol for
-the pieces just below the suit symbol in the corners, pressing lightly to avoid
-marking the back of the cards. Otherwise, remember how the numbers correspond to
-the pieces in this appendix. To start with, the pawns match the small numbers:
-2 to 5.
+Several of the games require a deck of cards to match each chess piece. There
+are a few options to choose from:
 
-    P P . . . . p p
-    P P . . . . p p
-    P P . . . . p p
-    P P . . . . p p
-    . . . . . . . .
-    . . . . . . . .
-    . . . . . . . .
-    . . . . . . . .
-    card: 2H, 2, 0
-    card: 2D, 2.5, 0
-    card: 2S, 3.5, 0
-    card: 2C, 4, 0
-    card: 3H, 2, 1
-    card: 3D, 2.5, 1
-    card: 3S, 3.5, 1
-    card: 3C, 4, 1
-    card: 4H, 2, 2
-    card: 4D, 2.5, 2
-    card: 4S, 3.5, 2
-    card: 4C, 4, 2
-    card: 5H, 2, 3
-    card: 5D, 2.5, 3
-    card: 5S, 3.5, 3
-    card: 5C, 4, 3
+* Use standard playing cards, and memorize which cards match which pieces, as
+  shown in the table below.
+* If you don't mind defacing a deck of cards, write the letters for the chess
+  pieces on the cards, as shown in the table below. Press lightly to avoid
+  marking the back of the cards.
+* Download the chess deck PDF from
+  [https://donkirkby.github.io/chess-kit][github], print out the cards on card
+  stock, then cut them out.
 
-The non-royal pieces match the high numbers, ordered by strength. The knights
-match 8s and the bishops match 9s.
+If you're going to use standard playing cards, these tables show the cards that
+match each type of piece. Some of the games also use cards to randomly lay out
+the pieces on the board, and these tables show how big a gap to leave before
+each type of piece.
 
-    N N . . . . n n
-    . . . . . . . .
-    . . . . . . . .
-    . . . . . . . .
-    B B . . . . b b
-    . . . . . . . .
-    . . . . . . . .
-    . . . . . . . .
-    card: 8H, 2, 0
-    card: 8D, 2.5, 0
-    card: 8S, 3.5, 0
-    card: 8C, 4, 0
-    card: 9H, 2, 4
-    card: 9D, 2.5, 4
-    card: 9S, 3.5, 4
-    card: 9C, 4, 4
+The cards with small numbers match pawns. Kings and queens are obvious, and the
+other pieces are sorted by strength to match the number cards from 8 to 10.
 
-The rooks match 10s, and the royal cards match the obvious queens and kings of
-hearts and spades.
+Black cards match black pieces:
 
-    R R . . . . r r
-    . . . . . . . .
-    . . . . . . . .
-    . . . . . . . .
-    Q . . . . . . q
-    K . . . . . . k
-    . . . . . . . .
-    . . . . . . . .
-    card: 10H, 2, 0
-    card: 10D, 2.5, 0
-    card: 10S, 3.5, 0
-    card: 10C, 4, 0
-    card: QH, 2, 4
-    card: QS, 4, 4
-    card: KH, 2, 5
-    card: KS, 4, 5
+    type: cards
+    Piece Cards Gap
+    p 2S 3S 4S 5S 2C 3C 4C 5C _
+    n  _  _  _ 8S 8C  _  _  _ 1
+    b  _  _  _ 9S 9C  _  _  _ 2
+    r  _  _ _ 10S 10C _  _  _ 3
+    q  _  _  _ QS  _  _  _  _ 5
+    k  _  _  _ KS  _  _  _  _ 6
+
+Red cards match white pieces:
+
+    type: cards
+    Piece Cards Gap
+    P 2H 3H 4H 5H 2D 3D 4D 5D _
+    N  _  _  _ 8H 8D  _  _  _ 1
+    B  _  _  _ 9H 9D  _  _  _ 2
+    R  _  _ _ 10H 10D _  _  _ 3
+    Q  _  _  _ QH  _  _  _  _ 5
+    K  _  _  _ KH  _  _  _  _ 6
 
 ## Solutions
 ### Chess Golf Solutions

@@ -8,6 +8,64 @@ from svgwrite import Drawing
 from board_parser import parse_board
 from svg_diagram import SvgDiagram
 
+SUIT_PATHS = dict(
+    c="""m 9.2604166,14.816667 c 0.529167,1.058333 1.8520834,2.645832
+        3.1750004,2.645832 2.38125,0 3.439583,-2.116665 3.439583,-4.762499
+        0,-2.645833 -1.058333,-5.0270835 -3.439583,-5.0270835 -1.322917,0
+        -2.116667,1.3229167 -2.9104174,2.1166667 -0.264583,0.2645838
+        -0.529166,0 -0.264583,-0.2645834 C 10.054167,8.7312498
+        11.377084,6.6145832 11.377084,4.7624999 11.377084,2.6458333
+        10.054167,0 7.9374996,0 5.8208333,0 4.4979166,2.6458333
+        4.4979166,4.7624999 c 0,1.8520833 1.3229167,3.9687499
+        2.116667,4.7624999 0.264583,0.2645834 0,0.5291672 -0.264584,0.2645834
+        C 5.5562499,8.9958332 4.7624999,7.6729165 3.4395833,7.6729165
+        1.0583333,7.6729165 0,10.054167 0,12.7 c 0,2.645834 1.0583333,4.7625
+        3.4395833,4.7625 1.3229166,0 2.6458333,-1.5875 3.1750003,-2.645833
+        0.264583,-0.264583 0.264583,0 0.264583,0.264583 -0.264583,2.116667
+        -0.264583,2.645834 -0.529167,4.233334 -0.264583,1.5875
+        -1.058333,4.497916 -1.058333,4.497916 1.322917,-0.529167
+        3.96875,-0.529167 5.2916674,0 0,0 -0.7937504,-2.910416
+        -1.0583344,-4.497916 -0.264583,-1.5875 -0.264583,-2.116667
+        -0.529166,-4.233334 0,-0.264583 0,-0.529166 0.264583,-0.264583 z
+        """,
+    d="""m 7.9631905,1.5214548 c 0,0 1.4246819,3.4346511 3.0868115,5.7244194
+        1.662128,2.2897674 4.036599,4.5795328 4.036599,4.5795328 0,0
+        -2.374471,2.28977 -4.036599,4.579538 -1.6621296,2.289767
+        -3.0868115,5.724419 -3.0868115,5.724419 0,0 -1.4246819,-3.434652
+        -3.0868108,-5.724419 -1.6621289,-2.289768 -4.03659883,-4.579538
+        -4.03659883,-4.579538 0,0 2.37446993,-2.2897654 4.03659883,-4.5795328
+        C 6.5385086,4.9561059 7.9631905,1.5214548 7.9631905,1.5214548 Z
+            """,
+    h="""m 7.69329,5.0174806 c 0,-2.7038812 -1.395829,-4.4062308
+        -3.4189167,-4.4062308 -2.0230879,0 -3.66312517,2.1919309
+        -3.66312517,4.8958118 0.008523,0.2339194 0.004444,0.4629457
+        0,0.6884736 0,1.7865994 0.65370917,3.519316 1.22104167,5.1406018
+        0.5834211,1.66726 1.4246065,3.128588 2.2131382,4.620424
+        1.221342,2.310677 3.8920704,6.685843 3.8920704,6.685843 0,0
+        2.6707286,-4.375166 3.8920696,-6.685843 0.788532,-1.491836
+        1.629718,-2.953164 2.213139,-4.620424 0.567333,-1.6212858
+        1.221041,-3.3540024 1.221041,-5.1406018 -0.0069,-0.2385238
+        -0.0045,-0.468681 0,-0.6884736 0,-2.7038809 -1.640037,-4.8958118
+        -3.663124,-4.8958118 -2.0230887,0 -3.4189173,1.7023496
+        -3.4189173,4.4062308 0,0.489581 -0.4884167,0.489581 -0.4884167,0 z
+        """,
+    s="""m 9.260417,14.816667 c 0.264583,1.058333 1.322917,3.704166
+        3.175,3.704166 2.381251,0 3.439581,-2.116666 3.439581,-4.7625
+        0,-1.852083 -0.68234,-3.072418 -1.322914,-4.497916
+        C 13.870019,7.742574 12.864222,6.387727 11.90625,5.027084
+        10.677181,3.281389 7.9375,0 7.9375,0 7.9375,0 5.197819,3.281389
+        3.96875,5.027084 3.010779,6.387727 2.004981,7.742574
+        1.322917,9.260417 0.682348,10.685915 0,11.90625 0,13.758333
+        c 0,2.645834 1.058334,4.7625 3.439584,4.7625 1.852083,0
+        2.910416,-2.645833 3.175,-3.704166 0.264583,-0.264584 0.264583,0
+        0.264583,0.264583 C 6.614584,17.197917 6.614584,17.727083
+        6.35,19.314583 6.085417,20.902083 5.291667,23.8125 5.291667,23.8125
+        c 1.322917,-0.529167 3.96875,-0.529167 5.291667,0 0,0
+        -0.79375,-2.910417 -1.058334,-4.497917 -0.264583,-1.5875
+        -0.264583,-2.116666 -0.529166,-4.233333 0,-0.264583 0,-0.529167
+        0.264583,-0.264583 z
+        """)
+
 
 class Diagram:
     CARDS_PATH = Path(__file__).parent / 'English_pattern_playing_cards_deck.svg'
@@ -138,7 +196,9 @@ class Diagram:
         rows = [line.split() for line in lines]
         column_count = max(len(row) for row in rows)
         grid_type = header.split(':', maxsplit=1)[1].strip()
-        raw_width = self.page_width / 2
+        raw_width = self.page_width
+        if self.half_width:
+            raw_width /= 2
         if grid_type == 'masquerade':
             cell_width = round(raw_width / (column_count + 0.5))
         else:
@@ -154,6 +214,8 @@ class Diagram:
                          font_family='FredokaOne',
                          font_size=round(cell_size*.25))
         for j in range(column_count):
+            if grid_type == 'cards' and 1 < j < column_count - 1:
+                continue
             drawing.add(drawing.line((cell_size * j, 0),
                                      (cell_size * j, height),
                                      stroke='black'))
@@ -171,6 +233,11 @@ class Diagram:
             y = round(cell_size*.37)
             drawing.add(drawing.text('cap', (x, y), **text_args))
 
+        card_args = dict(text_anchor='end',
+                         font_family='FredokaOne',
+                         font_size=round(cell_size * .63))
+        svg_page = SvgPage(width, height)
+
         for i, row in enumerate(rows):
             if i != 0 and grid_type == 'masquerade':
                 dx = round(cell_size*0.25)
@@ -178,20 +245,50 @@ class Diagram:
                 drawing.add(drawing.line((6*cell_size+dx, cell_size*(i+1) - dy),
                                          (width-dx, cell_size*(i+1) - dy),
                                          stroke='black'))
+            y = round(cell_size * .75) + cell_size*i
+            if i == 0 and grid_type == 'cards':
+                text_args['font_size'] = round(cell_size*.43)
+                x = round(cell_size * column_count / 2)
+                drawing.add(drawing.text('Cards', (x, y), **text_args))
+                x = round(cell_size * (column_count - 0.5))
+                drawing.add(drawing.text('Gap', (x, y), **text_args))
+                continue
             for j, cell in enumerate(row):
                 if cell in '._':
                     continue
                 text_args['font_size'] = round(cell_size * .63)
-                y = round(cell_size * .75) + cell_size*i
                 if j != 6 or grid_type != 'masquerade':
                     x = round(cell_size * (j + 0.5))
                 else:
                     x = round(cell_size * (j + 0.75))
                     if i == 0:
                         text_args['font_size'] = round(cell_size*.37)
-                drawing.add(drawing.text(cell, (x, y), **text_args))
+                if grid_type == 'cards' and j == 0:
+                    svg_symbol = SvgSymbol(cell)
+                    svg_symbol.x = x
+                    svg_symbol.y = y - round(cell_size*0.232)
+                    svg_symbol.scale = round(cell_size*0.014, 1)
+                    svg_page.append(svg_symbol.to_element())
+                elif grid_type != 'cards' or len(cell) < 2:
+                    drawing.add(drawing.text(cell, (x, y), **text_args))
+                else:
+                    x += round(cell_size * 0.04)
+                    rank = cell[:-1]
+                    suit_letter = cell[-1].lower()
+                    text = drawing.text(rank, (x, y), **card_args)
+                    drawing.add(text)
+                    suit_path = SUIT_PATHS[suit_letter]
+                    path = drawing.path(suit_path)
+                    if suit_letter in 'hd':
+                        path.fill('none')
+                        path.stroke('black', round(cell_size * 0.03))
+                    path.translate(round(x + cell_size * 0.02),
+                                   round(y - cell_size * 0.45))
+                    path.scale(round(cell_size * 0.019, 1))
+                    drawing.add(path)
 
-        diagram = SvgDiagram(drawing.tostring())
+        svg_page.append(drawing.get_xml())
+        diagram = SvgDiagram(svg_page.to_svg())
         return diagram
 
 
@@ -199,3 +296,46 @@ def parse_square(text: str) -> int:
     file = ord(text[0].upper()) - 65
     rank = int(text[1:]) - 1
     return rank*8 + file
+
+
+class SvgPage:
+    def __init__(self, width: float, height: float) -> None:
+        self.root = ET.XML(f'<svg xmlns="http://www.w3.org/2000/svg" '
+                           f'viewBox="0 0 {width} {height}" '
+                           f'width="{width}" height="{height}"/>')
+        self.width = width
+        self.height = height
+
+    def append(self, element: ET.Element) -> None:
+        self.root.append(element)
+
+    def to_svg(self) -> str:
+        return ET.tostring(self.root, encoding='unicode')
+
+
+class SvgSymbol:
+    BASE_SIZE = 45
+
+    def __init__(self, symbol: str) -> None:
+        self.symbol = symbol
+        self.scale = 1
+        self.rotation = 0
+        self.x = self.y = 0
+
+    def to_element(self) -> ET.Element:
+        piece_svg = chess.svg.piece(chess.Piece.from_symbol(self.symbol))
+        Diagram.register_svg()
+        piece_tree = ET.XML(piece_svg)
+        ns = {'': 'http://www.w3.org/2000/svg'}
+        piece_group = piece_tree.find('g', ns)
+        x_offset = -self.BASE_SIZE / 2
+        if self.symbol.upper() == 'Q':
+            x_offset += 0.2
+        elif self.symbol.upper() == 'K':
+            x_offset += 0.5
+        piece_group.set('transform',
+                        f'translate({self.x} {self.y}) '
+                        f'scale({self.scale}) '
+                        f'rotate({self.rotation}) '
+                        f'translate({x_offset} {-self.BASE_SIZE / 2})')
+        return piece_group

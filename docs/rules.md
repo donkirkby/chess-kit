@@ -664,25 +664,33 @@ The rest of the standard chess rules apply unchanged.
 [weeks]: https://www.mark-weeks.com/cfaa/chess960/c960strt.htm
 
 ## Appendix A
-These diagrams show which playing cards represent each chess piece in several
-games. Red cards represent white pieces, and black cards represent black pieces.
-If you don't mind defacing a deck of cards, you can add the letter or symbol for
-the pieces just below the suit symbol in the corners, pressing lightly to avoid
-marking the back of the cards. Otherwise, remember how the numbers correspond to
-the pieces in this appendix. To start with, the pawns match the small numbers:
-2 to 5.
+Several of the games require a deck of cards to match each chess piece. There
+are a few options to choose from:
+
+* Use standard playing cards, and memorize which cards match which pieces, as
+  shown in the table below.
+* If you don't mind defacing a deck of cards, write the letters for the chess
+  pieces on the cards, as shown in the table below. Press lightly to avoid
+  marking the back of the cards.
+* Download the chess deck PDF from
+  [https://donkirkby.github.io/chess-kit][github], print out the cards on card
+  stock, then cut them out.
+
+If you're going to use standard playing cards, these tables show the cards that
+match each type of piece. Some of the games also use cards to randomly lay out
+the pieces on the board, and these tables show how big a gap to leave before
+each type of piece.
+
+The cards with small numbers match pawns. Kings and queens are obvious, and the
+other pieces are sorted by strength to match the number cards from 8 to 10.
+
+Black cards match black pieces:
 
 ![Diagram](images/rules/appendix-a1.png)
 
-The non-royal pieces match the high numbers, ordered by strength. The knights
-match 8s and the bishops match 9s.
+Red cards match white pieces:
 
 ![Diagram](images/rules/appendix-a2.png)
-
-The rooks match 10s, and the royal cards match the obvious queens and kings of
-hearts and spades.
-
-![Diagram](images/rules/appendix-a3.png)
 
 ## Solutions
 ### Chess Golf Solutions

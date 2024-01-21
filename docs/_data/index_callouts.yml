@@ -5,3 +5,8 @@ items:
     icon: fa-globe
     call_to_action_name: Read
     call_to_action_link: /rules.html
+  - title: Cards
+    subtitle: Print your own
+    icon: fa-heart
+    call_to_action_name: Download
+    call_to_action_link: /chess-deck.pdf

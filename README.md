@@ -48,7 +48,8 @@ together.
 [chess960]: https://donkirkby.github.io/chess-kit/rules.html#chess960
 
 If you're interested, you can read my [design journal]. If you're brave, you can
-read about [experiments] in progress.
+read about [experiments] in progress ([PDF]).
 
 [design journal]: https://donkirkby.github.io/chess-kit/journal/
 [experiments]: https://donkirkby.github.io/chess-kit/new_rules.html
+[PDF]: https://donkirkby.github.io/chess-kit/new_rules.pdf

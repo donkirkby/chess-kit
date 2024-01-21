@@ -9,7 +9,7 @@ from datetime import datetime
 from functools import partial
 from logging import getLogger, basicConfig
 from pathlib import Path
-from subprocess import call
+from subprocess import run, Popen
 from textwrap import wrap, dedent
 
 # noinspection PyPackageRequirements
@@ -17,6 +17,7 @@ from PIL import Image
 from reportlab.graphics.shapes import Image as ReportLabImage, Drawing
 from reportlab.lib import pagesizes
 from reportlab.lib.enums import TA_CENTER
+from reportlab.pdfbase.pdfdoc import PDFInfo
 from reportlab.platypus import SimpleDocTemplate, Paragraph, PageBreak
 from reportlab.platypus.flowables import Spacer, KeepTogether, ListFlowable
 from reportlab.lib.styles import getSampleStyleSheet, ListStyle, ParagraphStyle
@@ -74,7 +75,7 @@ class DiagramWriter:
         self.diagram_differ = DiagramDiffer()
         self.diagram_differ.tolerance = 10
         self.is_disabled = is_disabled
-        self.unused_images = set(images_folder.glob('diagram*.png'))
+        self.unused_images = set(images_folder.glob('*.png'))
 
     def add_diagram(self, diagram: Diagram, prefix='diagram') -> Path:
         if self.is_disabled:
@@ -208,6 +209,12 @@ def main():
 
     doc = RulesDocTemplate(str(pdf_path),
                            author='Don Kirkby',
+                           keywords=['chess',
+                                     'games',
+                                     'card-games',
+                                     'board-games',
+                                     'puzzles'],
+                           creator=PDFInfo.creator,
                            pagesize=page_size,
                            leftMargin=side_margin,
                            rightMargin=side_margin,
@@ -257,23 +264,16 @@ def main():
                                       leftIndent=20,
                                       firstLineIndent=-10,
                                       leading=16)]
-    cc_aspect = 88 / 31
-    cc_width = page_size[0] * 0.1
-    padding = 6
-    cc_height = cc_width / cc_aspect
-    cc_drawing = Drawing(doc.width, cc_height * 2)
-    cc_drawing.add(ReportLabImage(
-        (doc.width - cc_width) / 2 - padding, 0,
-        cc_width, cc_height,
-        'docs/images/cc-by-sa.png'))
+    cc_section = create_cc_section(doc, centred_style)
     for state in states:
         if state.style == Styles.Metadata:
-            doc.title = state.text
             title_text = state.text
             subtitle_text = state.subtitle
             if title_text == 'The Rules of Chess Kit':
                 title_text = 'Chess Kit'
                 subtitle_text = 'Lighthearted New Games for Your Chess Set'
+            doc.title = title_text
+            doc.subject = subtitle_text
             if args.booklet:
                 story.append(Spacer(0, page_size[1] * 0.3))
             title_style = ParagraphStyle('MainTitle',
@@ -293,8 +293,7 @@ def main():
                 if not args.zine:
                     story.append(Paragraph('???-?-????-????-?', centred_style))
                     story.append(Paragraph('Imprint: Lulu.com', centred_style))
-                story.append(cc_drawing)
-                story.append(Paragraph(f'{datetime.now().year}', centred_style))
+                story.extend(cc_section)
                 story.append(PageBreak())
             continue
         elif state.style == Styles.Diagram:
@@ -376,11 +375,7 @@ def main():
                              numbered_list_style)
     diagram_writer.remove_unused_images()
     if not args.booklet:
-        story.append(cc_drawing)
-        story.append(Paragraph(
-            f'<a href="https://creativecommons.org/licenses/by-sa/4.0/">'
-            f'{datetime.now().year}</a>',
-            centred_style))
+        story.extend(cc_section)
     if unlinked_section_names:
         if len(unlinked_section_names) > 1:
             suffix = 's'
@@ -408,8 +403,34 @@ def main():
                 [cc-by-sa]: https://creativecommons.org/licenses/by-sa/4.0/
                 '''))
 
+    try:
+        run(['pdfsizeopt', '--v=30', pdf_path, pdf_path])
+    except FileNotFoundError:
+        logger.warning('pdfsizeopt not installed, so PDF is not optimized.')
+    try:
+        Popen(["evince", pdf_path])
+    except FileNotFoundError:
+        logger.warning('PDF viewer evince is not installed.')
     logger.info('Done.')
-    call(["evince", pdf_path])
+
+
+def create_cc_section(doc: SimpleDocTemplate, centred_style):
+    cc_aspect = 88 / 31
+    # noinspection PyUnresolvedReferences
+    cc_width = doc.pagesize[0] * 0.1
+    padding = 6
+    cc_height = cc_width / cc_aspect
+    cc_drawing = Drawing(doc.width, cc_height * 2)
+    cc_drawing.add(ReportLabImage(
+        (doc.width - cc_width) / 2 - padding, 0,
+        cc_width, cc_height,
+        'docs/images/cc-by-sa.png'))
+    cc_link = Paragraph(
+        f'<a href="https://creativecommons.org/licenses/by-sa/4.0/">'
+        f'{datetime.now().year}</a>',
+        centred_style)
+    cc_section = [cc_drawing, cc_link]
+    return cc_section
 
 
 def create_list_flowable(bulleted,

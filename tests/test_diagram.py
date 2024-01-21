@@ -8,7 +8,7 @@ import pytest
 from svgwrite import Drawing
 
 from board_parser import parse_board
-from diagram import Diagram
+from diagram import Diagram, SUIT_PATHS, SvgPage, SvgSymbol
 from diagram_differ import DiagramDiffer
 from svg_diagram import SvgDiagram
 
@@ -443,6 +443,63 @@ def test_cloak(diagram_differ: DiagramDiffer):
     expected_diagram = SvgDiagram(expected.tostring())
 
     diagram = Diagram(600, 270, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+def test_cards(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        type: cards
+        Piece Cards Gap
+        P 2H 2D 3H 3D _
+        r _ 10S 10C _ 2
+        """)
+    expected_page = SvgPage(480, 240)
+    card_args = dict(text_anchor='end', font_size=50, font_family='FredokaOne')
+    title_args = dict(text_anchor='middle', font_size=34, font_family='FredokaOne')
+
+    expected = Drawing(size=(expected_page.width, expected_page.height))
+    for i in range(4):
+        expected.add(expected.line((0, 80*i), (480, 80*i), stroke='black'))
+    for x in [0, 80, 400, 480]:
+        expected.add(expected.line((x, 0), (x, 240), stroke='black'))
+
+    expected.add(expected.text('Gap', (440, 60), **title_args))
+    expected.add(expected.text('Cards', (240, 60), **title_args))
+
+    title_args['font_size'] = 50
+    for x, y, rank, suit in [(80, 140, '2', 'h'),
+                             (160, 140, '2', 'd'),
+                             (240, 140, '3', 'h'),
+                             (320, 140, '3', 'd'),
+                             (160, 220, '10', 's'),
+                             (240, 220, '10', 'c')]:
+        expected.add(expected.text(rank, (x + 43, y), **card_args))
+        heart_path = SUIT_PATHS[suit]
+        path = expected.path(heart_path)
+        if suit in 'hd':
+            path.fill('none')
+            path.stroke('black', '2px')
+        path.translate(x + 45, y - 36)
+        path.scale(1.5)
+        expected.add(path)
+    expected.add(expected.text('2', (440, 220), **title_args))
+    expected_page.append(expected.get_xml())
+    pawn = SvgSymbol('P')
+    pawn.x = 40
+    pawn.y = 121
+    pawn.scale = 1.1
+    expected_page.append(pawn.to_element())
+    rook = SvgSymbol('r')
+    rook.x = 40
+    rook.y = 201
+    rook.scale = 1.1
+    expected_page.append(rook.to_element())
+
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    diagram = Diagram(960, 270, diagram_text)
     svg_diagram = diagram.build()
 
     diagram_differ.assert_equal(svg_diagram, expected_diagram)

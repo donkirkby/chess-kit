@@ -51,7 +51,8 @@ together.
 [chess960]: rules.md#chess960
 
 If you're interested, you can read my [design journal]. If you're brave, you can
-read about [experiments] in progress.
+read about [experiments] in progress ([PDF]).
 
 [design journal]: journal/
 [experiments]: new_rules.md
+[PDF]: new_rules.pdf
