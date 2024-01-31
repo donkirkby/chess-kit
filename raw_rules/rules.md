@@ -322,13 +322,8 @@ appendix A. You don't need the pawn cards, so you should end up with 16 cards.
 Put the rest of the cards away, you won't need them. Then shuffle the cards and
 place them next to the board. Draw one card at a time, placing the matching
 piece on the board. Starting at a1 through h1, then a2 through h2, all the way
-to h8. Leave the following numbers of empty squares before each piece:
-
-* Kings - 6 empty squares
-* Queens - 5 empty squares
-* Rooks - 3 empty squares
-* Bishops - 2 empty squares
-* Knights - 1 empty square
+to h8. The table in appendix A shows how big a gap to leave before each piece.
+That is, how many empty squares to leave before placing each piece.
 
 Here's an example with all the cards laid out in the order they were drawn, from
 the 9 and 10 of hearts to the queen of hearts. Check to make sure you agree with
@@ -967,7 +962,8 @@ are a few options to choose from:
 If you're going to use standard playing cards, these tables show the cards that
 match each type of piece. Some of the games also use cards to randomly lay out
 the pieces on the board, and these tables show how big a gap to leave before
-each type of piece.
+each type of piece. That is, how many empty squares to leave before placing the
+piece.
 
 The cards with small numbers match pawns. Kings and queens are obvious, and the
 other pieces are sorted by strength to match the number cards from 8 to 10.

@@ -9,6 +9,8 @@ know what you think.
 ## Table of Contents
 * [Adrenaline Chess][adrenaline-chess] adds power ups to chess. (2
     players, chess set, and checkers set)
+* [Parade Chess Solitaire][parade-chess-solitaire] pieces move each
+    other into a connected group. (1 player, chess set, and deck of cards)
 * [Neighbour Chess Solitaire][neighbour-chess-solitaire] moves pieces
     using their neighbours' moves to form one connected group. (1 player,
     chess set, and deck of cards)
@@ -17,6 +19,7 @@ know what you think.
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
 
 [adrenaline-chess]: #adrenaline-chess
+[parade-chess-solitaire]: #parade-chess-solitaire
 [neighbour-chess-solitaire]: #neighbour-chess-solitaire
 [cloak-and-dagger-chess]: #cloak-and-dagger-chess
 
@@ -92,10 +95,80 @@ move to block the check again.
 Win by checkmate, as in regular chess, but you may use extra moves to threaten
 the king.
 
+## Parade Chess Solitaire
+Half the chess pieces are on parade, giving each other orders, and they have to
+form up into one connected group. Keep adding pieces until you have enough to
+start, but you get more points for fewer pieces making fewer moves.
+
+### Equipment
+A standard chess set and a standard deck of 52 cards.
+
+### Setup
+Place all the chess pieces except the pawns beside the board. Put the pawns
+away, you won't need them.
+
+From the deck of cards, use one card to represent each piece, as shown in
+appendix A. You don't need the pawn cards, so you should end up with 16 cards.
+
+Put the rest of the cards away, you won't need them. Then shuffle the cards and
+deal them into two piles of eight next to the board. From one of the piles, draw
+one card at a time, placing the matching piece on the board. Starting at a1
+through h1, then a2 through h2, and so on until you've placed eight pieces on
+the board. The table in appendix A shows how big a gap to leave before each
+piece. That is, how many empty squares to leave before placing each piece.
+
+Here's an example with all the cards laid out in the order they were drawn, from
+the 9 and 10 of hearts to the 9 of spades. Check to make sure you agree with
+where the pieces were placed.
+
+![Diagram](images/new_rules/parade-chess-solitaire1.png)
+
+### Play
+Take the remaining stack of eight cards, and spend them on actions to bring the
+chess pieces together. Each card can be spent on one of two actions:
+
+1. **Move** a piece. Take the top card from your deck and play it face down next
+   to the discard pile from the setup phase. Then use one of the pieces on the
+   board to move another piece. A piece can move any piece of the opposite
+   colour from a square that it could attack in regular chess. Pick up the piece
+   that you want to move, and then place it in another square that piece moving
+   it could attack. For example, black knight at d3 could move the white bishop
+   from c1 to b2, e1, f4, e5, or c5. The king could move either of the white
+   pieces next to it to any of the other spaces next to it.
+2. **Add** a piece. Take the top card from your deck and play it face up onto
+   the discard pile from the setup phase. Add the piece as in the setup phase,
+   leaving the regular gap after the piece that is in the occupied rank farthest
+   from 1 and in the rightmost file of that rank. In the example above, if you
+   played the 8 of diamonds, you would play a white knight at g7 to leave a
+   one-square gap after the black bishop.
+
+Here's an example of using the black bishop at e4 to move the white knight from
+f3 to g2:
+
+![Diagram](images/new_rules/parade-chess-solitaire2.png)
+
+### Winning
+If you can get from any piece to any other piece on the board only stepping on
+neighbouring pieces, then you have formed one connected group and you win.
+Diagonal neighbours don't count. Count how many cards you have left in your
+hand, and that's how many points you win.
+
+If you run out of cards before you form one connected group, pick up all 16
+cards, and use them to count negative points until you form a connected group.
+You may only move pieces and not add any.
+
+# Broken Games
+These ideas seemed promising, but didn't work at the table. Maybe I'll come back
+to them, if I get inspired. Masquerade Chess seemed broken for 15 years, before
+I had the idea to hide only the capture moves.
+
 ## Neighbour Chess Solitaire
 Pairs of chess pieces help each other across the board until you gather them all
 into one connected group. Keep adding pieces until you have enough to start, but
 you get more points for fewer pieces making fewer moves.
+
+This game might not be broken, but it inspired Chess Golf, and they're too
+similar to keep both.
 
 ### Equipment
 A standard chess set and a standard deck of 52 cards.
@@ -149,11 +222,6 @@ If you can get from any piece to any other piece on the board only stepping on
 neighbouring pieces, then you have formed one connected group and you win. Count
 how many cards you have left in the two draw piles, and that's how many points
 you win.
-
-# Broken Games
-These ideas seemed promising, but didn't work at the table. Maybe I'll come back
-to them, if I get inspired. Masquerade Chess seemed broken for 15 years, before
-I had the idea to hide only the capture moves.
 
 ## Cloak and Dagger Chess
 Pawns are played as usual, but all other pieces are replaced by numbered
