@@ -313,14 +313,26 @@ class SvgPage:
         return ET.tostring(self.root, encoding='unicode')
 
 
-class SvgSymbol:
-    BASE_SIZE = 45
-
-    def __init__(self, symbol: str) -> None:
-        self.symbol = symbol
+class SvgGroup:
+    def __init__(self) -> None:
         self.scale = 1
         self.rotation = 0
         self.x = self.y = 0
+
+    def to_element(self) -> ET.Element:
+        group = ET.Element('g')
+        group.set('transform',
+                  f'translate({self.x} {self.y}) scale({self.scale}) '
+                  f'rotate({self.rotation})')
+        return group
+
+
+class SvgSymbol(SvgGroup):
+    BASE_SIZE = 45
+
+    def __init__(self, symbol: str) -> None:
+        super().__init__()
+        self.symbol = symbol
 
     def to_element(self) -> ET.Element:
         piece_svg = chess.svg.piece(chess.Piece.from_symbol(self.symbol))
@@ -334,8 +346,7 @@ class SvgSymbol:
         elif self.symbol.upper() == 'K':
             x_offset += 0.5
         piece_group.set('transform',
-                        f'translate({self.x} {self.y}) '
-                        f'scale({self.scale}) '
-                        f'rotate({self.rotation}) '
                         f'translate({x_offset} {-self.BASE_SIZE / 2})')
-        return piece_group
+        parent_group = super().to_element()
+        parent_group.append(piece_group)
+        return parent_group

@@ -16,9 +16,10 @@ class SvgDiagram:
         drawing = svg2rlg(BytesIO(svg_bytes))
         return drawing
 
-    def to_cairo(self, png_file: str | Path | typing.BinaryIO):
+    def to_cairo(self, png_file: str | Path | typing.BinaryIO, **kwargs):
         if isinstance(png_file, Path):
             png_file = str(png_file)
         svg2png(file_obj=StringIO(self.svg_text),
                 write_to=png_file,
-                background_color='transparent')
+                background_color='transparent',
+                **kwargs)

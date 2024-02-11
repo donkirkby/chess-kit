@@ -4,7 +4,7 @@ from copy import deepcopy
 
 import chess.svg
 
-from chess_deck import SvgCard, SvgGrid, SvgPips
+from chess_deck import SvgCard, SvgGrid, SvgPips, SvgCardBack
 from diagram import Diagram, SvgPage, SvgSymbol
 from diagram_differ import DiagramDiffer
 from svg_diagram import SvgDiagram
@@ -74,7 +74,7 @@ def test_symbol_rotation(diagram_differ: DiagramDiffer):
     card_symbol = 'N'
     expected_piece = SvgSymbol(card_symbol).to_element()
     expected_piece.set('transform',
-                       'translate(200 100) scale(1 1) rotate(45) translate(-22.5 -22.5)')
+                       'translate(200 100) scale(1 1) rotate(45)')
     expected_page.append(expected_piece)
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
@@ -95,7 +95,7 @@ def test_symbol_scale(diagram_differ: DiagramDiffer):
     card_symbol = 'N'
     expected_piece = SvgSymbol(card_symbol).to_element()
     expected_piece.set('transform',
-                       'translate(200 100) scale(2) translate(-22.5 -22.5)')
+                       'translate(200 100) scale(2)')
     expected_page.append(expected_piece)
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
@@ -266,6 +266,22 @@ def test_card_transform(diagram_differ: DiagramDiffer):
     card2.x = 85.5
     card2.y = 133
     page.append(card2.to_element())
+    svg_diagram = SvgDiagram(page.to_svg())
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_card_back(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(171, 266)
+    expected_back = SvgCardBack()
+    expected_element = expected_back.to_element()
+    expected_page.append(expected_element)
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(171, 266)
+    card = SvgCardBack()
+    page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
     diagram_differ.assert_equal(svg_diagram, expected_diagram)
