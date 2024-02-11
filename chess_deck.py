@@ -145,16 +145,18 @@ class SvgCardBack(SvgCard):
     def to_element(self) -> ET.Element:
         group = super().to_element()
         group.clear()
+        board = ET.Element('g')
+        group.append(board)
         aspect = self.rect_width / self.rect_height
         x_offset = (self.rect_height - self.rect_width) * 0.5
-        group.set('transform',
+        board.set('transform',
                   f'translate({self.x} {self.y}) '
                   f'scale({self.scale}) '
                   f'scale({aspect} 1) '
                   f'translate({x_offset} 0) ')
-        group.append(self.create_gradient('darkGradient',
+        board.append(self.create_gradient('darkGradient',
                                           0))
-        group.append(self.create_gradient('lightGradient',
+        board.append(self.create_gradient('lightGradient',
                                           255))
 
         rows = 24
@@ -187,10 +189,21 @@ class SvgCardBack(SvgCard):
                     x1, y1 = self.convert_coordinates(x0,
                                                       y0 + (steps-k)*y_size/steps)
                     points.append(f'{x1},{y1}')
-                group.append(ET.Element('polygon',
+                board.append(ET.Element('polygon',
                                         {'points': ' '.join(points),
                                          'fill': fill,
                                          'stroke': fill}))
+        # for symbol, x, y in [('K', 0.24-.07, 0.07+.045),
+        #                      ('Q', 0.75+.07, 0.07+.045)]:
+        #     svg_symbol = SvgSymbol(symbol)
+        #     svg_symbol.x = self.rect_width * x
+        #     svg_symbol.y = self.rect_height * y
+        #     svg_symbol.scale = 0.65
+        #     group.append(svg_symbol.to_element())
+        #     svg_symbol.rotation = 180
+        #     svg_symbol.x = self.rect_width - svg_symbol.x
+        #     svg_symbol.y = self.rect_height - svg_symbol.y
+        #     group.append(svg_symbol.to_element())
         return group
 
     def create_gradient(self,
@@ -205,7 +218,7 @@ class SvgCardBack(SvgCard):
         gradient.append(ET.Element('stop',
                                    {'offset': '75%', 'stop-color': f'#{shade}'}))
         gradient.append(ET.Element('stop',
-                                   {'offset': '1', 'stop-color': '#7f7f7f'}))
+                                   {'offset': '1', 'stop-color': '#bbbbbb'}))
         return gradient
 
     def convert_coordinates(self,
