@@ -273,13 +273,13 @@ def test_card_transform(diagram_differ: DiagramDiffer):
 
 # noinspection DuplicatedCode
 def test_card_back(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(171, 266)
+    expected_page = SvgPage(150, 225)
     expected_back = SvgCardBack()
     expected_element = expected_back.to_element()
     expected_page.append(expected_element)
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
-    page = SvgPage(171, 266)
+    page = SvgPage(150, 225)
     card = SvgCardBack()
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())

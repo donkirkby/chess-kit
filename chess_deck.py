@@ -81,8 +81,8 @@ class SvgCard(SvgGroup):
     def __init__(self, symbol: str, has_border: bool = True) -> None:
         super().__init__()
         self.symbol = symbol
-        self.rect_width = 171
-        self.rect_height = 266
+        self.rect_width = self.BASE_WIDTH
+        self.rect_height = self.BASE_HEIGHT
         self.has_border = has_border
 
     def to_element(self) -> ET.Element:
@@ -139,6 +139,9 @@ class SvgCard(SvgGroup):
 
 
 class SvgCardBack(SvgCard):
+    BASE_WIDTH = 150
+    BASE_HEIGHT = 225
+
     def __init__(self):
         super().__init__('p')
 
@@ -147,79 +150,58 @@ class SvgCardBack(SvgCard):
         group.clear()
         board = ET.Element('g')
         group.append(board)
-        aspect = self.rect_width / self.rect_height
-        x_offset = (self.rect_height - self.rect_width) * 0.5
         board.set('transform',
                   f'translate({self.x} {self.y}) '
-                  f'scale({self.scale}) '
-                  f'scale({aspect} 1) '
-                  f'translate({x_offset} 0) ')
-        board.append(self.create_gradient('darkGradient',
-                                          0))
-        board.append(self.create_gradient('lightGradient',
-                                          255))
+                  f'scale({self.scale}) ')
 
-        rows = 24
-        columns = 24
-        x_size = self.rect_height * 0.1
-        y_size = self.rect_width * 0.1
-        steps = 6
+        columns, rows = 8, 13
+        gutter = self.rect_width * 0.1
+        size = (self.rect_width - 2*gutter) / columns
+        xc = (self.rect_width + (columns % 2) * size) / 2
+        yc = (self.rect_height + (rows % 2) * size) / 2
+        border = ET.Element('rect',
+                            dict(x=str(xc - columns // 2 * size),
+                                 y=str(yc - (rows + 1) // 2 * size),
+                                 width=str(columns * size),
+                                 height=str(rows * size),
+                                 rx=str(size / 3),
+                                 fill='transparent',
+                                 stroke='black'))
+        clip_id = 'border-clip'
+        clip_path = ET.Element('clipPath',
+                               dict(id=clip_id))
+        clip_path.append(deepcopy(border))
+        board.append(clip_path)
+        board.append(border)
+        steps = 50
         for i in range(-rows//2, -rows//2 + rows):
             for j in range(-columns//2, -columns//2 + columns):
-                if i % 2 == j % 2:
-                    fill = "url('#lightGradient')"
-                else:
-                    fill = "url('#darkGradient')"
-                x0 = j*x_size + (self.rect_width + (columns % 2)*x_size) / 2
-                y0 = i*y_size + (self.rect_height + (rows % 2)*y_size) / 2
+                if i % 2 != j % 2:
+                    continue
+                x0 = j * size + xc
+                y0 = i * size + yc
                 points = []
                 for k in range(steps):
-                    x1, y1 = self.convert_coordinates(x0 + k*x_size/steps,
+                    x1, y1 = self.convert_coordinates(x0 + k * size / steps,
                                                       y0)
                     points.append(f'{x1},{y1}')
                 for k in range(steps):
-                    x1, y1 = self.convert_coordinates(x0 + x_size,
-                                                      y0 + k*y_size/steps)
+                    x1, y1 = self.convert_coordinates(x0 + size,
+                                                      y0 + k * size / steps)
                     points.append(f'{x1},{y1}')
                 for k in range(steps):
-                    x1, y1 = self.convert_coordinates(x0 + (steps-k)*x_size/steps,
-                                                      y0 + y_size)
+                    x1, y1 = self.convert_coordinates(x0 + (steps - k) * size / steps,
+                                                      y0 + size)
                     points.append(f'{x1},{y1}')
                 for k in range(steps):
                     x1, y1 = self.convert_coordinates(x0,
-                                                      y0 + (steps-k)*y_size/steps)
+                                                      y0 + (steps - k) * size / steps)
                     points.append(f'{x1},{y1}')
                 board.append(ET.Element('polygon',
                                         {'points': ' '.join(points),
-                                         'fill': fill,
-                                         'stroke': fill}))
-        # for symbol, x, y in [('K', 0.24-.07, 0.07+.045),
-        #                      ('Q', 0.75+.07, 0.07+.045)]:
-        #     svg_symbol = SvgSymbol(symbol)
-        #     svg_symbol.x = self.rect_width * x
-        #     svg_symbol.y = self.rect_height * y
-        #     svg_symbol.scale = 0.65
-        #     group.append(svg_symbol.to_element())
-        #     svg_symbol.rotation = 180
-        #     svg_symbol.x = self.rect_width - svg_symbol.x
-        #     svg_symbol.y = self.rect_height - svg_symbol.y
-        #     group.append(svg_symbol.to_element())
+                                         'fill': 'black',
+                                         'clip-path': f'url(#{clip_id})'}))
         return group
-
-    def create_gradient(self,
-                        gradient_id: str,
-                        start_shade: int = 0):
-        gradient = ET.Element('radialGradient',
-                              dict(id=gradient_id,
-                                   r=str(self.rect_height*0.475),
-                                   cx=str(self.rect_width/2),
-                                   gradientUnits='userSpaceOnUse'))
-        shade = f'{start_shade:02x}' * 3
-        gradient.append(ET.Element('stop',
-                                   {'offset': '75%', 'stop-color': f'#{shade}'}))
-        gradient.append(ET.Element('stop',
-                                   {'offset': '1', 'stop-color': '#bbbbbb'}))
-        return gradient
 
     def convert_coordinates(self,
                             x: float,
@@ -229,7 +211,7 @@ class SvgCardBack(SvgCard):
         z = x - x0 + 1j*(y - y0)  # convert to complex number
         theta = np.angle(z)
         r = np.abs(z)
-        theta += r**3 / y0 * np.pi * 0.00002
+        theta += self.sigmoid((r-self.rect_width/4)*0.25) * np.pi
         z2 = r * np.exp(1j*theta)
         x2 = np.real(z2) + x0
         y2 = np.imag(z2) + y0
@@ -259,7 +241,7 @@ class SvgGrid(SvgGroup):
 
 
 def generate_images():
-    bleed = 0.01
+    bleed = 0.0
     output_width = 750
     output_height = 1125
     image_folder = Path(__file__).parent / 'deck'
@@ -278,7 +260,7 @@ def generate_images():
                      output_height=output_height)
     for symbol in 'KQRBNPkqrbnp':
         filename = image_folder / f'card-{symbol}.png'
-        page = SvgPage(SvgCardBack.BASE_WIDTH, SvgCardBack.BASE_HEIGHT)
+        page = SvgPage(SvgCard.BASE_WIDTH, SvgCard.BASE_HEIGHT)
         card = SvgCard(symbol, has_border=False)
         card.scale = card_back.scale
         card.x = card_back.x
