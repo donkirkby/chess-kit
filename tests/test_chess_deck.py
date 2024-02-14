@@ -69,48 +69,6 @@ def test_piece_translate(diagram_differ: DiagramDiffer):
 
 
 # noinspection DuplicatedCode
-def test_symbol_rotation(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(400, 200)
-    card_symbol = 'N'
-    expected_piece = SvgSymbol(card_symbol).to_element()
-    expected_piece.set('transform',
-                       'translate(200 100) scale(1 1) rotate(45)')
-    expected_page.append(expected_piece)
-    expected_diagram = SvgDiagram(expected_page.to_svg())
-
-    page = SvgPage(400, 200)
-    piece = SvgSymbol(card_symbol)
-    piece.x = 200
-    piece.y = 100
-    piece.rotation = 45
-    page.append(piece.to_element())
-
-    svg_diagram = SvgDiagram(page.to_svg())
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
-
-
-# noinspection DuplicatedCode
-def test_symbol_scale(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(400, 200)
-    card_symbol = 'N'
-    expected_piece = SvgSymbol(card_symbol).to_element()
-    expected_piece.set('transform',
-                       'translate(200 100) scale(2)')
-    expected_page.append(expected_piece)
-    expected_diagram = SvgDiagram(expected_page.to_svg())
-
-    page = SvgPage(400, 200)
-    piece = SvgSymbol(card_symbol)
-    piece.x = 200
-    piece.y = 100
-    piece.scale = 2
-    page.append(piece.to_element())
-
-    svg_diagram = SvgDiagram(page.to_svg())
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
-
-
-# noinspection DuplicatedCode
 def test_pips(diagram_differ: DiagramDiffer):
     expected_page = SvgPage(90, 90)
     expected_page.append(ET.Element('rect',
@@ -266,6 +224,43 @@ def test_card_transform(diagram_differ: DiagramDiffer):
     card2.x = 85.5
     card2.y = 133
     page.append(card2.to_element())
+    svg_diagram = SvgDiagram(page.to_svg())
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_card_checker(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(171, 266)
+    expected_pips = SvgPips(9)
+    expected_pips.x = 85.5
+    expected_pips.y = 133
+    expected_pips.scale = 0.75
+    expected_page.append(expected_pips.to_element())
+    expected_piece = SvgSymbol('C')
+    expected_piece.scale = 0.75
+    expected_piece.x = 22.5
+    expected_piece.y = 22.5
+    expected_page.append(expected_piece.to_element())
+    expected_piece2 = deepcopy(expected_piece)
+    expected_piece2.rotation = 180
+    expected_piece2.x = 171 - expected_piece.x
+    expected_piece2.y = 266 - expected_piece.y
+    expected_page.append(expected_piece2.to_element())
+    expected_piece3 = deepcopy(expected_piece)
+    expected_piece3.x = 85.5
+    expected_piece3.y = 133 - 45
+    expected_piece3.scale = 1.75
+    expected_page.append(expected_piece3.to_element())
+    expected_piece4 = deepcopy(expected_piece3)
+    expected_piece4.rotation = 180
+    expected_piece4.y = 133 + 45
+    expected_page.append(expected_piece4.to_element())
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(171, 266)
+    card = SvgCard('C9', has_border=False)
+    page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
     diagram_differ.assert_equal(svg_diagram, expected_diagram)

@@ -4,6 +4,7 @@ from textwrap import dedent
 import xml.etree.ElementTree as ET  # noqa
 
 import chess.svg
+import numpy as np
 import pytest
 from svgwrite import Drawing
 
@@ -502,4 +503,133 @@ def test_cards(diagram_differ: DiagramDiffer):
     diagram = Diagram(960, 270, diagram_text)
     svg_diagram = diagram.build()
 
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+def test_symbol_rotation(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(400, 200)
+    card_symbol = 'N'
+    expected_piece = SvgSymbol(card_symbol).to_element()
+    expected_piece.set('transform',
+                       'translate(200 100) scale(1 1) rotate(45)')
+    expected_page.append(expected_piece)
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(400, 200)
+    piece = SvgSymbol(card_symbol)
+    piece.x = 200
+    piece.y = 100
+    piece.rotation = 45
+    page.append(piece.to_element())
+
+    svg_diagram = SvgDiagram(page.to_svg())
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+def test_symbol_scale(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(400, 200)
+    card_symbol = 'N'
+    expected_piece = SvgSymbol(card_symbol).to_element()
+    expected_piece.set('transform',
+                       'translate(200 100) scale(2)')
+    expected_page.append(expected_piece)
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(400, 200)
+    piece = SvgSymbol(card_symbol)
+    piece.x = 200
+    piece.y = 100
+    piece.scale = 2
+    page.append(piece.to_element())
+
+    svg_diagram = SvgDiagram(page.to_svg())
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+def test_symbol_white_checker(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(133, 171)
+    expected_page.append(ET.Element('circle',
+                                    {'cx': '65',
+                                     'cy': '85',
+                                     'r': '34',
+                                     'fill': 'transparent',
+                                     'stroke': 'black',
+                                     'stroke-width': '3'}))
+    expected_page.append(ET.Element('circle',
+                                    {'cx': '65',
+                                     'cy': '85',
+                                     'r': '24',
+                                     'fill': 'transparent',
+                                     'stroke': 'black',
+                                     'stroke-width': '3'}))
+    z0 = 65 + 85j
+    r1 = 27
+    r2 = 31
+    ridge_count = 48
+    for i in range(ridge_count):
+        theta = i / ridge_count * 2 * np.pi
+        z1 = r1 * np.exp(1j * theta) + z0
+        z2 = r2 * np.exp(1j * theta) + z0
+        expected_page.append(ET.Element('line',
+                                        {'x1': str(np.real(z1)),
+                                         'y1': str(np.imag(z1)),
+                                         'x2': str(np.real(z2)),
+                                         'y2': str(np.imag(z2)),
+                                         'stroke': 'black',
+                                         'stroke-width': '2'}))
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(133, 171)
+    piece = SvgSymbol('C')
+    piece.x = 65
+    piece.y = 85
+    piece.scale = 2
+    page.append(piece.to_element())
+
+    svg_diagram = SvgDiagram(page.to_svg())
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_symbol_black_checker(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(133, 171)
+    expected_page.append(ET.Element('circle',
+                                    {'cx': '65',
+                                     'cy': '85',
+                                     'r': '34',
+                                     'fill': 'black',
+                                     'stroke': 'black',
+                                     'stroke-width': '3'}))
+    expected_page.append(ET.Element('circle',
+                                    {'cx': '65',
+                                     'cy': '85',
+                                     'r': '24',
+                                     'fill': 'transparent',
+                                     'stroke': 'white',
+                                     'stroke-width': '3'}))
+    z0 = 65 + 85j
+    r1 = 27
+    r2 = 33
+    ridge_count = 48
+    for i in range(ridge_count):
+        theta = i / ridge_count * 2 * np.pi
+        z1 = r1 * np.exp(1j * theta) + z0
+        z2 = r2 * np.exp(1j * theta) + z0
+        expected_page.append(ET.Element('line',
+                                        {'x1': str(np.real(z1)),
+                                         'y1': str(np.imag(z1)),
+                                         'x2': str(np.real(z2)),
+                                         'y2': str(np.imag(z2)),
+                                         'stroke': 'white',
+                                         'stroke-width': '2'}))
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(133, 171)
+    piece = SvgSymbol('c')
+    piece.x = 65
+    piece.y = 85
+    piece.scale = 2
+    page.append(piece.to_element())
+
+    svg_diagram = SvgDiagram(page.to_svg())
     diagram_differ.assert_equal(svg_diagram, expected_diagram)

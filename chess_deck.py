@@ -49,6 +49,18 @@ O O|
 O O|
 O O|
 ---+
+O O|
+OOO|
+O O|
+---+
+OOO|
+O O|
+OOO|
+---+
+OOO|
+OOO|
+OOO|
+---+
 """
 
 
@@ -80,7 +92,12 @@ class SvgCard(SvgGroup):
 
     def __init__(self, symbol: str, has_border: bool = True) -> None:
         super().__init__()
-        self.symbol = symbol
+        if len(symbol) == 1:
+            self.symbol = symbol
+            self.pips = self.PIPS[symbol.lower()]
+        else:
+            self.symbol = symbol[0]
+            self.pips = int(symbol[1:])
         self.rect_width = self.BASE_WIDTH
         self.rect_height = self.BASE_HEIGHT
         self.has_border = has_border
@@ -109,9 +126,8 @@ class SvgCard(SvgGroup):
                 y += diff
                 rect_width -= 2*diff
                 rect_height -= 2*diff
-        pips_count = self.PIPS[self.symbol.lower()]
-        if pips_count:
-            pips = SvgPips(pips_count)
+        if self.pips:
+            pips = SvgPips(self.pips)
             pips.x = self.BASE_WIDTH / 2
             pips.y = self.BASE_HEIGHT / 2
             pips.scale = 0.75
@@ -241,30 +257,33 @@ class SvgGrid(SvgGroup):
 
 
 def generate_images():
-    bleed = 0.0
     output_width = 750
     output_height = 1125
     image_folder = Path(__file__).parent / 'deck'
     image_folder.mkdir(exist_ok=True)
-    page = SvgPage(SvgCardBack.BASE_WIDTH, SvgCardBack.BASE_HEIGHT)
+    page = SvgPage(output_width, output_height)
+    page.append(ET.Element('rect', dict(fill='white',
+                                        width=str(output_width),
+                                        height=str(output_height))))
     card_back = SvgCardBack()
-    y_margin = output_height * bleed
-    x_margin = output_width * bleed
-    card_back.scale = (page.height - 2*y_margin) / card_back.rect_height
-    card_back.x = x_margin
-    card_back.y = y_margin
+    card_back.scale = page.height / card_back.rect_height
     page.append(card_back.to_element())
     diagram = SvgDiagram(page.to_svg())
     diagram.to_cairo(image_folder / 'back.png',
                      output_width=output_width,
                      output_height=output_height)
-    for symbol in 'KQRBNPkqrbnp':
+    for symbol in 'K Q R B N P k q r b n p C4 C7 C8 C9 c4 c7 c8 c9'.split():
         filename = image_folder / f'card-{symbol}.png'
-        page = SvgPage(SvgCard.BASE_WIDTH, SvgCard.BASE_HEIGHT)
+        page = SvgPage(output_width, output_height)
+        page.append(ET.Element('rect', dict(fill='white',
+                                            width=str(output_width),
+                                            height=str(output_height))))
         card = SvgCard(symbol, has_border=False)
-        card.scale = card_back.scale
-        card.x = card_back.x
-        card.y = card_back.y
+        bleed = 0.05
+        y_margin = page.height * bleed
+        card.scale = (page.height - 2 * y_margin) / card.rect_height
+        card.x = (page.width - card.rect_width * card.scale) / 2
+        card.y = (page.height - card.rect_height * card.scale) / 2
         page.append(card.to_element())
         diagram = SvgDiagram(page.to_svg())
         diagram.to_cairo(filename,
@@ -314,6 +333,7 @@ def main() -> None:
                     ['kbnr', 'pppp'],
                     ['PPPP', 'RNBQ'],
                     ['PPPP', 'KBNR']]
+    # [['C4', 'C7', 'C8', 'C9'], ['c4', 'c7', 'c8', 'c9']]]
     for symbol_page in symbol_pages:
         svg_page = SvgPage(7.5 * inch, 9 * inch)
         grid = SvgGrid(symbol_page)

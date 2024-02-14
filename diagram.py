@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET  # noqa
 from pathlib import Path
 
 import chess.svg
+import numpy as np
 from svgwrite import Drawing
 
 from board_parser import parse_board
@@ -335,6 +336,8 @@ class SvgSymbol(SvgGroup):
         self.symbol = symbol
 
     def to_element(self) -> ET.Element:
+        if self.symbol.upper() == 'C':
+            return self.checker_element()
         piece_svg = chess.svg.piece(chess.Piece.from_symbol(self.symbol))
         Diagram.register_svg()
         piece_tree = ET.XML(piece_svg)
@@ -350,3 +353,39 @@ class SvgSymbol(SvgGroup):
         parent_group = super().to_element()
         parent_group.append(piece_group)
         return parent_group
+
+    def checker_element(self) -> ET.Element:
+        group = super().to_element()
+        r1 = 13.5
+        r2 = 15.5
+        if self.symbol == 'C':
+            fill = 'transparent'
+            stroke = 'black'
+        else:
+            fill = 'black'
+            stroke = 'white'
+            r2 += 1.5
+        group.append(ET.Element('circle',
+                                {'r': '17',
+                                 'fill': fill,
+                                 'stroke': 'black',
+                                 'stroke-width': '1.5'}))
+        group.append(ET.Element('circle',
+                                {'r': '12',
+                                 'fill': 'transparent',
+                                 'stroke': stroke,
+                                 'stroke-width': '1.5'}))
+        ridge_count = 48
+        for i in range(ridge_count):
+            theta = i / ridge_count * 2 * np.pi
+            z1 = r1 * np.exp(1j * theta)
+            z2 = r2 * np.exp(1j * theta)
+            group.append(ET.Element('line',
+                                    {'x1': str(np.real(z1)),
+                                     'y1': str(np.imag(z1)),
+                                     'x2': str(np.real(z2)),
+                                     'y2': str(np.imag(z2)),
+                                     'stroke': stroke,
+                                     'stroke-width': '1'}))
+
+        return group
