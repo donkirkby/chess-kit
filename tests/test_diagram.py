@@ -609,7 +609,7 @@ def test_symbol_black_checker(diagram_differ: DiagramDiffer):
                                      'stroke-width': '3'}))
     z0 = 65 + 85j
     r1 = 27
-    r2 = 33
+    r2 = 34
     ridge_count = 48
     for i in range(ridge_count):
         theta = i / ridge_count * 2 * np.pi
