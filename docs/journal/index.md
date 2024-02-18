@@ -69,3 +69,36 @@ neighbouring pairs of a colour.
 
 Breadth-first search could only handle the easy problems, so investigated Monte
 Carlo tree search.
+
+### Feb 2024 - Chess Cards
+Playtesters consistently complained about having to map regular playing cards
+to chess pieces, so I designed a deck of chess cards. The fronts were easy, I
+just used the chess symbols from the `python-chess` library, and added pips for
+the gaps used in Chess Golf and Parade Chess Solitaire.
+
+[![card-front]][card-front]
+
+The backs, though, went through several ideas. My main idea was to have a
+checkerboard pattern with some kind of distortion. I thought that twisting the
+pattern more and more as it approached the edge would make the card edge
+tolerant to drift when the cards are printed and cut out, and I also made the
+black and white both fade to grey. I didn't really like the plain corners, and
+I noticed that most card back patterns have a solid border with a plain white
+bleed, so I switched to that, and moved the twist to the middle of the pattern.
+
+[![back-fade]][back-fade]
+[![back-trimmed]][back-trimmed]
+
+The twist itself used some interesting math. I chose a sigmoid curve that I
+came across while studying machine learning. Here's how the checkerboard pattern
+is rotated as you move away from the centre of the image. That gives you a
+stable region in the centre, a rotation phase, and then another stable region
+at the edges. To me, it looks like someone grabbed the centre and twisted it.
+
+[![twist-plot]][twist-plot]
+
+[card-front]: images/card-K.png
+[back-fade]: images/back-fade.png
+[back-trimmed]: images/back-trimmed.png
+[twist-plot]: images/twist-plot.png
+
