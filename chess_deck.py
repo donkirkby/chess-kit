@@ -333,7 +333,9 @@ def main() -> None:
                     ['kbnr', 'pppp'],
                     ['PPPP', 'RNBQ'],
                     ['PPPP', 'KBNR']]
-    # [['C4', 'C7', 'C8', 'C9'], ['c4', 'c7', 'c8', 'c9']]]
+    are_checkers_included = False
+    if are_checkers_included:
+        symbol_pages.append([['C4', 'C7', 'C8', 'C9'], ['c4', 'c7', 'c8', 'c9']])
     for symbol_page in symbol_pages:
         svg_page = SvgPage(7.5 * inch, 9 * inch)
         grid = SvgGrid(symbol_page)
