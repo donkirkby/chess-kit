@@ -9,7 +9,9 @@ import pytest
 from svgwrite import Drawing
 
 from board_parser import parse_board
-from diagram import Diagram, SUIT_PATHS, SvgPage, SvgSymbol
+from chess_deck import SvgCardBack, SvgSymbol, SvgCard
+from diagram import Diagram, SUIT_PATHS
+from svg_page import SvgPage
 from diagram_differ import DiagramDiffer
 from svg_diagram import SvgDiagram
 
@@ -98,7 +100,7 @@ def test_margin_arrows(diagram_differ: DiagramDiffer):
         expected_board,
         arrows=[chess.svg.Arrow(-4, 3, color='grey')],
         size=250)
-    Diagram.register_svg()
+    SvgPage.register_svg()
     expected_tree = ET.fromstring(expected_svg)
     expected_tree.set('width', '250')
     expected_tree.set('height', '278')
@@ -134,7 +136,7 @@ def test_text(diagram_differ: DiagramDiffer):
     expected_board_svg = chess.svg.board(
         expected_board,
         size=195)
-    Diagram.register_svg()
+    SvgPage.register_svg()
     expected_tree = ET.fromstring(expected_board_svg)
     extra = Drawing(size=(300, 240))
     extra.add(extra.text('A2', (37.5, 320), **text_args))
@@ -173,7 +175,7 @@ def test_corner_text(diagram_differ: DiagramDiffer):
         expected_board,
         arrows=(chess.svg.Arrow(chess.D1, chess.D1, color='gray'),),
         size=195)
-    Diagram.register_svg()
+    SvgPage.register_svg()
     expected_tree = ET.fromstring(expected_board_svg)
     extra = Drawing(size=(300, 240))
     extra.add(extra.text('X', (157, 345), **text_args))
@@ -199,7 +201,7 @@ def test_card(diagram_differ: DiagramDiffer):
         . . . . . p . .
         . . . . . . . .
         . . . . . . . .
-        card: QH, 0, 0
+        card: Q, 0, 0
         card: back, 6, 5
         """)
     expected_text = diagram_text.split('card')[0]
@@ -207,8 +209,20 @@ def test_card(diagram_differ: DiagramDiffer):
     expected_board_svg = chess.svg.board(
         expected_board,
         size=195)
-    Diagram.register_svg()
+    page = SvgPage(195, 195)
+    SvgPage.register_svg()
     expected_tree = ET.fromstring(expected_board_svg)
+    page.append(expected_tree)
+    queen_card = SvgCard('Q', has_border=False, has_outline=True)
+    queen_card.x = 8
+    queen_card.y = 8
+    queen_card.scale = 0.25
+    page.append(queen_card.to_element())
+    card_back = SvgCardBack()
+    card_back.x = 143
+    card_back.y = 120.5
+    card_back.scale = 0.295
+    page.append(card_back.to_element())
     card_map: typing.Dict[str, ET.Element]
     _, card_map = ET.XMLID(Diagram.CARDS_PATH.read_text())
     queen_svg = card_map['card-QH']
@@ -216,9 +230,7 @@ def test_card(diagram_differ: DiagramDiffer):
     back_svg = card_map['card-back']
     queen_svg.attrib['transform'] = f'scale(0.25), translate(60, -453)'
     back_svg.attrib['transform'] = f'scale(0.25), translate(1140, 447)'
-    expected_tree.extend([queen_svg, back_svg])
-    expected_diagram = SvgDiagram(ET.tostring(expected_tree,
-                                              encoding='unicode'))
+    expected_diagram = SvgDiagram(page.to_svg())
     ET.register_namespace('', '')  # Force registration again.
 
     diagram = Diagram(390, 195, diagram_text)
@@ -250,7 +262,7 @@ def test_margins(diagram_differ: DiagramDiffer):
     expected_board_svg = chess.svg.board(
         expected_board,
         size=195)
-    Diagram.register_svg()
+    SvgPage.register_svg()
     expected_tree = ET.fromstring(expected_board_svg)
     expected_tree.set('width', '285')
     expected_tree.set('height', '240')
@@ -291,7 +303,7 @@ def test_different_margins(diagram_differ: DiagramDiffer):
     expected_board_svg = chess.svg.board(
         expected_board,
         size=195)
-    Diagram.register_svg()
+    SvgPage.register_svg()
     expected_tree = ET.fromstring(expected_board_svg)
     expected_tree.set('width', '285')
     expected_tree.set('height', '240')
@@ -327,7 +339,7 @@ def test_rect(diagram_differ: DiagramDiffer):
     expected_board_svg = chess.svg.board(
         expected_board,
         size=195)
-    Diagram.register_svg()
+    SvgPage.register_svg()
     expected_tree = ET.fromstring(expected_board_svg)
     extra = Drawing(size=(300, 240))
     extra.add(extra.rect((60, 60),

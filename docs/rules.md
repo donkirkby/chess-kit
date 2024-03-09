@@ -283,8 +283,8 @@ to h8. The table in appendix A shows how big a gap to leave before each piece.
 That is, how many empty squares to leave before placing each piece.
 
 Here's an example with all the cards laid out in the order they were drawn, from
-the 9 and 10 of hearts to the queen of hearts. Check to make sure you agree with
-where the pieces were placed.
+the white bishop to the white queen. Check to make sure you agree with where the
+pieces were placed.
 
 ![Diagram](images/rules/chess-golf4.png)
 
@@ -612,25 +612,36 @@ strongly advantage one player:
 With those restrictions, there are 960 possible starting positions. You can
 generate a random number and look up the position in a table, or use a website
 like [mark-weeks.com][weeks] to generate a position. You can also generate a
-random starting position with a standard deck of playing cards. Create three
-piles of cards with the following ranks, ignoring suit:
+random starting position with a standard deck of playing cards or with the deck
+of chess cards. If you have a standard deck, create three piles of cards with
+the following ranks, ignoring suit:
 
 * A, 3, 5, 7
 * 2, 4, 6, 8
 * 8, 8, 10, 10, 10, Q
 
-Shuffle each of the piles separately, then turn over one card from each of the
-first two piles. Using the ace through 8 to represent the squares a1 through h1,
-place the two white bishops on the squares that match the two cards. Confirm
-that they are on opposite-coloured squares. Now turn over one card at a time
-from the last pile, and use the identified white pieces to fill in the empty
-squares from left to right. Place a knight for an 8, a queen for a queen, and a
-rook or king for a 10. Place a rook for the first and third 10, and a king for
-the middle 10. Finally, place the pawns in their regular positions and place the
-black pieces to mirror the white pieces.
+If you have chess cards, use black pieces for the first two piles. One with
+odd numbers of pips and the other with even numbers. You'll need to use the
+black checkers cards, as well. The third pile is white pieces, minus the king
+and bishops, plus one black rook.
 
-As an example, imagine you turned over an ace and a 6 from the first two piles,
-then 8, 10, Q, 10, 8, 10 from the third pile. The starting position would look
+* Black, odd pips: 1, 3, 5, 7
+* Black, even pips: 2, 4, 6, 8
+* White pieces: N, N, Q, R, R, plus black R
+
+Shuffle each of the piles separately, then turn over one card from each of the
+first two piles. Using the ace through 8 or the pips to represent the squares a1
+through h1, place the two white bishops on the squares that match the two cards.
+Confirm that they are on opposite-coloured squares. Now turn over one card at a
+time from the last pile, and use the identified white pieces to fill in the
+empty squares from left to right. If you have a standard deck, place a knight
+for an 8, a queen for a queen, and a rook for a 10. For the three rook cards,
+place the king in the middle and the rooks on the outside. Finally, place the
+pawns in their regular positions and place the black pieces to mirror the white
+pieces.
+
+As an example, imagine you turned over a 1 and a 6 from the first two piles,
+then N, R, Q, R, N, R from the third pile. The starting position would look
 like this:
 
 ![Diagram](images/rules/chess9601.png)

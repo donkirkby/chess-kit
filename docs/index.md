@@ -1,6 +1,6 @@
 ---
 title: Chess Kit
-subtitle: Lighthearted New Games for Your Chess Set
+subtitle: Chess Variants With a Twist
 callouts: index_callouts
 ---
 I am not a strong chess player - it's always seemed to me more like study than

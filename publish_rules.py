@@ -298,10 +298,14 @@ def main():
             continue
         elif state.style == Styles.Diagram:
             half_width_diagrams = not args.booklet
-            flowable = Diagram(doc.width,
-                               doc.height,
-                               state.text,
-                               half_width_diagrams).build().to_reportlab()
+            try:
+                flowable = Diagram(doc.width,
+                                   doc.height,
+                                   state.text,
+                                   half_width_diagrams).build().to_reportlab()
+            except Exception as e:
+                message = f'Bad diagram text:\n{state.text}'
+                raise ValueError(message) from e
             if len(headings) < 2:
                 prefix = 'diagram'
             else:

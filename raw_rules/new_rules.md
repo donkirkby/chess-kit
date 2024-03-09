@@ -234,14 +234,14 @@ where the pieces were placed.
     . . . . . k . .
     . . B . . . R .
     margins: 0, 0, 4, 0
-    card: 9H, 8.5, 0
-    card: 10H, 9, 0
-    card: KS, 9.5, 0
-    card: 10C, 10, 0
-    card: 8S, 8.5, 1
-    card: 8H, 9, 1
-    card: 10S, 9.5, 1
-    card: 9S, 10, 1
+    card: B, 8.5, 0
+    card: R, 9, 0
+    card: k, 9.5, 0
+    card: r, 10, 0
+    card: n, 8.5, 1
+    card: N, 9, 1
+    card: r, 9.5, 1
+    card: b, 10, 1
 
 ### Play
 Take the remaining stack of eight cards, and spend them on actions to bring the

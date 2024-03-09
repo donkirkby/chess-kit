@@ -236,8 +236,8 @@ start with an example:
     b . . . . . . K
     . . . . . Q . .
     margins: 0, 0, 4, 0
-    card: KH, 10, 0.5
-    card: 9S, 10, 4.5
+    card: K, 10, 0.5
+    card: b, 10, 4.5
     arrow: g3, e5, grey
     arrow: f4, h2, grey
     arrow: b2, h2, grey
@@ -268,8 +268,8 @@ Now that you know how the pieces move, here's one possible solution:
     b . . . . . . b
     . . . . . Q . .
     margins: 0, 0, 4, 0
-    card: KH, 10, 0.5
-    card: 9S, 10, 4.5
+    card: K, 10, 0.5
+    card: b, 10, 4.5
     arrow: e5, g6, black
     arrow: g6, h5, black
     arrow: h5, h2, black
@@ -289,8 +289,8 @@ solution where a chosen piece type only makes the final capture move:
     . . . . . . . b
     . . . . . Q . .
     margins: 0, 0, 4, 0
-    card: KH, 10, 0.5
-    card: 9S, 10, 4.5
+    card: K, 10, 0.5
+    card: b, 10, 4.5
     arrow: b3, c3, white
     arrow: b5, b3, black
     arrow: a2, h2, black
@@ -326,8 +326,8 @@ to h8. The table in appendix A shows how big a gap to leave before each piece.
 That is, how many empty squares to leave before placing each piece.
 
 Here's an example with all the cards laid out in the order they were drawn, from
-the 9 and 10 of hearts to the queen of hearts. Check to make sure you agree with
-where the pieces were placed.
+the white bishop to the white queen. Check to make sure you agree with where the
+pieces were placed.
 
     . . . . . Q . .
     b . . . . . . K
@@ -338,22 +338,22 @@ where the pieces were placed.
     . . . . . k . .
     . . B . . . R .
     margins: 0, 0, 4, 0
-    card: 9H, 8.5, 0
-    card: 10H, 9, 0
-    card: KS, 9.5, 0
-    card: 10C, 10, 0
-    card: 8S, 8.5, 1
-    card: 8H, 9, 1
-    card: 10S, 9.5, 1
-    card: 9S, 10, 1
-    card: 10D, 8.5, 2
-    card: QS, 9, 2
-    card: 9D, 9.5, 2
-    card: 8C, 10, 2
-    card: 8D, 8.5, 3
-    card: 9C, 9, 3
-    card: KH, 9.5, 3
-    card: QH, 10, 3
+    card: B, 8.5, 0
+    card: R, 9.1, 0
+    card: k, 9.7, 0
+    card: r, 10.3, 0
+    card: n, 8.5, 1
+    card: N, 9.1, 1
+    card: r, 9.7, 1
+    card: b, 10.3, 1
+    card: R, 8.5, 2
+    card: q, 9.1, 2
+    card: B, 9.7, 2
+    card: n, 10.3, 2
+    card: N, 8.5, 3
+    card: b, 9.1, 3
+    card: K, 9.7, 3
+    card: Q, 10.3, 3
 
 When all 16 pieces are on the board, randomly choose a dealer to shuffle the
 cards again.
@@ -426,8 +426,8 @@ bringing in other pieces to borrow moves from. However, there's an easier way.
     . . . . . k . .
     . . B . . . R .
     margins: 0, 0, 4, 0
-    card: QS, 10, 0.5
-    card: 8H, 10, 4.5
+    card: q, 10, 0.5
+    card: N, 10, 4.5
 
 Moving the bishop breaks the last pair of neighbouring white pieces, so the
 white knight at f6 can now use a king's move to capture the black queen.
@@ -441,8 +441,8 @@ white knight at f6 can now use a king's move to capture the black queen.
     . . . . . k . .
     . . B . . . R .
     margins: 0, 0, 4, 0
-    card: QS, 10, 0.5
-    card: 8H, 10, 4.5
+    card: q, 10, 0.5
+    card: N, 10, 4.5
     arrow: b6, c6, white
     arrow: f6, g5, white
 
@@ -475,8 +475,8 @@ solutions are as short.
     . B . . q . . r
     . r . . . . . .
     margins: 0, 0, 4, 0
-    card: 9S, 9, 2.5
-    card: 9C, 9.5, 2.5
+    card: b, 9, 2.5
+    card: b, 9.5, 2.5
     arrow: a5, a5, black
     arrow: g8, g8, black
 
@@ -490,9 +490,9 @@ solutions are as short.
     R r . K R . B .
     N . . . . q b .
     margins: 0, 0, 4, 0
-    card: 8S, 9, 2.5
-    card: 8C, 9.5, 2.5
-    card: 10S, 10, 2.5
+    card: n, 9, 2.5
+    card: n, 9.5, 2.5
+    card: r, 10, 2.5
     arrow: g4, g4, black
     arrow: c7, c7, black
     arrow: f8, f8, black
@@ -508,9 +508,9 @@ solutions are as short.
     . . r . . . R .
     . . . . . K . .
     margins: 0, 0, 4, 0
-    card: 8H, 9, 2.5
-    card: 8D, 9.5, 2.5
-    card: 9H, 10, 2.5
+    card: N, 9, 2.5
+    card: N, 9.5, 2.5
+    card: B, 10, 2.5
     arrow: a4, a4, white
     arrow: b8, b8, white
     arrow: d6, d6, white
@@ -663,9 +663,9 @@ card in hand with the following position:
     R N B Q K B N R
     margins: 0, 1, 6, 1
     card: back, 8.5, 2.5
-    card: 2D, 11, 2.5
-    card: 3D, 8.5, 6
-    card: 3S, 9, 6
+    card: P, 11, 2.5
+    card: P, 8.5, 6
+    card: p, 9, 6
 
 They can move the bishop to e6, play their bishop card, and then capture both
 pawns.
@@ -680,10 +680,10 @@ pawns.
     R N B Q K B N R
     margins: 0, 1, 6, 1
     card: back, 8.5, 2.5
-    card: 2D, 11, 2.5
-    card: 3S, 11.5, 2.5
-    card: 3D, 12, 2.5
-    card: 9S, 8.5, -1
+    card: P, 11, 2.5
+    card: p, 11.5, 2.5
+    card: P, 12, 2.5
+    card: b, 8.5, -1
     arrow: c8, e6, black
     arrow: e6, d5, black
     arrow: d5, e4, black
@@ -701,10 +701,10 @@ might be an even better option:
     R N B Q K B N R
     margins: 0, 1, 6, 1
     card: back, 8.5, 2.5
-    card: 2D, 11, 2.5
-    card: 3S, 11.5, 2.5
-    card: 3D, 12, 2.5
-    card: 8C, 8.5, -1
+    card: P, 11, 2.5
+    card: p, 11.5, 2.5
+    card: P, 12, 2.5
+    card: n, 8.5, -1
     arrow: g8, f6, black
     arrow: f6, e4, black
     arrow: e4, d2, black
@@ -737,9 +737,9 @@ only capture one pawn.
     R N B Q K B N R
     margins: 0, 1, 6, 1
     card: back, 8.5, 2.5
-    card: 2D, 11, 2.5
-    card: 10C, 8.5, 6
-    card: 3D, 9, 6
+    card: P, 11, 2.5
+    card: r, 8.5, 6
+    card: P, 9, 6
 
 However, since white's pawn card matches colour, black can make the rook card
 wild by using a black card to capture a white pawn. Black could do either of the
@@ -755,10 +755,10 @@ moves shown before, or even capture something bigger than a pawn:
     R b B Q K B N R
     margins: 0, 1, 6, 1
     card: back, 8.5, 2.5
-    card: 2D, 11, 2.5
-    card: 3D, 11.5, 2.5
-    card: 10C, 12, 2.5
-    card: 9S, 8.5, -1
+    card: P, 11, 2.5
+    card: P, 11.5, 2.5
+    card: r, 12, 2.5
+    card: b, 8.5, -1
     arrow: c8, f5, black
     arrow: f5, e4, black
     arrow: e4, b1, black
@@ -874,25 +874,36 @@ strongly advantage one player:
 With those restrictions, there are 960 possible starting positions. You can
 generate a random number and look up the position in a table, or use a website
 like [mark-weeks.com][weeks] to generate a position. You can also generate a
-random starting position with a standard deck of playing cards. Create three
-piles of cards with the following ranks, ignoring suit:
+random starting position with a standard deck of playing cards or with the deck
+of chess cards. If you have a standard deck, create three piles of cards with
+the following ranks, ignoring suit:
 
 * A, 3, 5, 7
 * 2, 4, 6, 8
 * 8, 8, 10, 10, 10, Q
 
-Shuffle each of the piles separately, then turn over one card from each of the
-first two piles. Using the ace through 8 to represent the squares a1 through h1,
-place the two white bishops on the squares that match the two cards. Confirm
-that they are on opposite-coloured squares. Now turn over one card at a time
-from the last pile, and use the identified white pieces to fill in the empty
-squares from left to right. Place a knight for an 8, a queen for a queen, and a
-rook or king for a 10. Place a rook for the first and third 10, and a king for
-the middle 10. Finally, place the pawns in their regular positions and place the
-black pieces to mirror the white pieces.
+If you have chess cards, use black pieces for the first two piles. One with
+odd numbers of pips and the other with even numbers. You'll need to use the
+black checkers cards, as well. The third pile is white pieces, minus the king
+and bishops, plus one black rook.
 
-As an example, imagine you turned over an ace and a 6 from the first two piles,
-then 8, 10, Q, 10, 8, 10 from the third pile. The starting position would look
+* Black, odd pips: 1, 3, 5, 7
+* Black, even pips: 2, 4, 6, 8
+* White pieces: N, N, Q, R, R, plus black R
+
+Shuffle each of the piles separately, then turn over one card from each of the
+first two piles. Using the ace through 8 or the pips to represent the squares a1
+through h1, place the two white bishops on the squares that match the two cards.
+Confirm that they are on opposite-coloured squares. Now turn over one card at a
+time from the last pile, and use the identified white pieces to fill in the
+empty squares from left to right. If you have a standard deck, place a knight
+for an 8, a queen for a queen, and a rook for a 10. For the three rook cards,
+place the king in the middle and the rooks on the outside. Finally, place the
+pawns in their regular positions and place the black pieces to mirror the white
+pieces.
+
+As an example, imagine you turned over a 1 and a 6 from the first two piles,
+then N, R, Q, R, N, R from the third pile. The starting position would look
 like this:
 
     b n r q k b n r
@@ -903,14 +914,14 @@ like this:
     . . . . . . . .
     P P P P P P P P
     B N R Q K B N R
-    card: AS, 8.5, 0
-    card: 6S, 11, 0
-    card: 8H, 8.5, 5
-    card: 10H, 9, 5
-    card: QH, 9.5, 5
-    card: 10C, 10, 5
-    card: 8D, 10.5, 5
-    card: 10D, 11, 5
+    card: n, 8.5, 0
+    card: k, 11, 0
+    card: N, 8.5, 5
+    card: R, 9, 5
+    card: Q, 9.5, 5
+    card: r, 10, 5
+    card: N, 10.5, 5
+    card: R, 11, 5
     margins: 0, 0, 5, 0
 
 ### Castling

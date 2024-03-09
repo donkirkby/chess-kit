@@ -1,13 +1,13 @@
-import copy
 import xml.etree.ElementTree as ET  # noqa
 from pathlib import Path
 
 import chess.svg
-import numpy as np
 from svgwrite import Drawing
 
 from board_parser import parse_board
+from chess_deck import SvgCardBack, SvgCard, SvgSymbol
 from svg_diagram import SvgDiagram
+from svg_page import SvgPage
 
 SUIT_PATHS = dict(
     c="""m 9.2604166,14.816667 c 0.529167,1.058333 1.8520834,2.645832
@@ -72,11 +72,6 @@ class Diagram:
     CARDS_PATH = Path(__file__).parent / 'English_pattern_playing_cards_deck.svg'
     CARD_BACK_PATH = Path(__file__).parent / 'Atlas_deck_card_back_blue_and_brown.svg'
 
-    @staticmethod
-    def register_svg():
-        ET.register_namespace('', 'http://www.w3.org/2000/svg')
-        ET.register_namespace('xlink', 'http://www.w3.org/1999/xlink')
-
     def __init__(self,
                  page_width: float,
                  page_height: float,
@@ -90,7 +85,7 @@ class Diagram:
     def build(self) -> SvgDiagram:
         if self.board_state.startswith('type: '):
             return self.build_grid()
-        self.register_svg()
+        SvgPage.register_svg()
         lines = self.board_state.splitlines()
         board = parse_board('\n'.join(lines[:8]))
         arrows = []
@@ -107,7 +102,6 @@ class Diagram:
                                 font_size=round(0.375*square_size))
         _, card_map = ET.XMLID(self.CARDS_PATH.read_text())
         _, card_backs = ET.XMLID(self.CARD_BACK_PATH.read_text())
-        card_back_svg = card_backs['card-back']
         margins = [0, 0, 0, 0]
         for line in lines[8:]:
             command, body = line.split(':', maxsplit=1)
@@ -150,15 +144,14 @@ class Diagram:
                 x = float(x)
                 y = float(y)
                 if card == 'back':
-                    card_svg = card_back_svg
+                    card_svg = SvgCardBack(has_outline=True)
+                    card_svg.scale = 0.59
                 else:
-                    card_svg = card_map[f'card-{card}']
-                # copy, then modify
-                card_svg = copy.deepcopy(card_svg)
-                x = 180*x + 60
-                y = 180*y - 453
-                card_svg.attrib['transform'] = f'scale(0.25), translate({x}, {y})'
-                extra_svg.append(card_svg)
+                    card_svg = SvgCard(card, has_border=False, has_outline=True)
+                    card_svg.scale = 0.5
+                card_svg.x = 45*x + 16
+                card_svg.y = 45*y + 16
+                extra_svg.append(card_svg.to_element())
             else:
                 raise ValueError(f'Unknown diagram command: {command}.')
         original_view_size = 390  # chess library always uses this size
@@ -297,95 +290,3 @@ def parse_square(text: str) -> int:
     file = ord(text[0].upper()) - 65
     rank = int(text[1:]) - 1
     return rank*8 + file
-
-
-class SvgPage:
-    def __init__(self, width: float, height: float) -> None:
-        self.root = ET.XML(f'<svg xmlns="http://www.w3.org/2000/svg" '
-                           f'viewBox="0 0 {width} {height}" '
-                           f'width="{width}" height="{height}"/>')
-        self.width = width
-        self.height = height
-
-    def append(self, element: ET.Element) -> None:
-        self.root.append(element)
-
-    def to_svg(self) -> str:
-        return ET.tostring(self.root, encoding='unicode')
-
-
-class SvgGroup:
-    def __init__(self) -> None:
-        self.scale = 1
-        self.rotation = 0
-        self.x = self.y = 0
-
-    def to_element(self) -> ET.Element:
-        group = ET.Element('g')
-        group.set('transform',
-                  f'translate({self.x} {self.y}) scale({self.scale}) '
-                  f'rotate({self.rotation})')
-        return group
-
-
-class SvgSymbol(SvgGroup):
-    BASE_SIZE = 45
-
-    def __init__(self, symbol: str) -> None:
-        super().__init__()
-        self.symbol = symbol
-
-    def to_element(self) -> ET.Element:
-        if self.symbol.upper() == 'C':
-            return self.checker_element()
-        piece_svg = chess.svg.piece(chess.Piece.from_symbol(self.symbol))
-        Diagram.register_svg()
-        piece_tree = ET.XML(piece_svg)
-        ns = {'': 'http://www.w3.org/2000/svg'}
-        piece_group = piece_tree.find('g', ns)
-        x_offset = -self.BASE_SIZE / 2
-        if self.symbol.upper() == 'Q':
-            x_offset += 0.2
-        elif self.symbol.upper() == 'K':
-            x_offset += 0.5
-        piece_group.set('transform',
-                        f'translate({x_offset} {-self.BASE_SIZE / 2})')
-        parent_group = super().to_element()
-        parent_group.append(piece_group)
-        return parent_group
-
-    def checker_element(self) -> ET.Element:
-        group = super().to_element()
-        r1 = 13.5
-        r2 = 15.5
-        if self.symbol == 'C':
-            fill = 'transparent'
-            stroke = 'black'
-        else:
-            fill = 'black'
-            stroke = 'white'
-            r2 += 1.5
-        group.append(ET.Element('circle',
-                                {'r': '17',
-                                 'fill': fill,
-                                 'stroke': 'black',
-                                 'stroke-width': '1.5'}))
-        group.append(ET.Element('circle',
-                                {'r': '12',
-                                 'fill': 'transparent',
-                                 'stroke': stroke,
-                                 'stroke-width': '1.5'}))
-        ridge_count = 48
-        for i in range(ridge_count):
-            theta = i / ridge_count * 2 * np.pi
-            z1 = r1 * np.exp(1j * theta)
-            z2 = r2 * np.exp(1j * theta)
-            group.append(ET.Element('line',
-                                    {'x1': str(np.real(z1)),
-                                     'y1': str(np.imag(z1)),
-                                     'x2': str(np.real(z2)),
-                                     'y2': str(np.imag(z2)),
-                                     'stroke': stroke,
-                                     'stroke-width': '1'}))
-
-        return group

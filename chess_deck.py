@@ -1,23 +1,13 @@
 import math
 import typing
 # noinspection PyPep8Naming
-import xml.etree.ElementTree as ET
 from copy import deepcopy
-from pathlib import Path
-from subprocess import run, Popen
+from xml.etree import ElementTree as ET  # noqa
 
+import chess.svg
 import numpy as np
-from reportlab.lib import pagesizes
-from reportlab.lib.enums import TA_CENTER
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.units import inch
-from reportlab.pdfbase.pdfdoc import PDFInfo
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 
-from diagram import SvgPage, SvgSymbol, SvgGroup
-from font_set import register_fonts
-from publish_rules import create_cc_section
-from svg_diagram import SvgDiagram
+from svg_page import SvgPage, SvgGroup
 
 PIP_PATTERNS = """\
 ---+
@@ -90,7 +80,10 @@ class SvgCard(SvgGroup):
     BASE_HEIGHT = 266
     PIPS = dict(p=0, n=1, b=2, r=3, q=5, k=6)
 
-    def __init__(self, symbol: str, has_border: bool = True) -> None:
+    def __init__(self,
+                 symbol: str,
+                 has_border: bool = True,
+                 has_outline: bool = False) -> None:
         super().__init__()
         if len(symbol) == 1:
             self.symbol = symbol
@@ -101,6 +94,7 @@ class SvgCard(SvgGroup):
         self.rect_width = self.BASE_WIDTH
         self.rect_height = self.BASE_HEIGHT
         self.has_border = has_border
+        self.has_outline = has_outline
 
     def to_element(self) -> ET.Element:
         symbol_size = SvgSymbol.BASE_SIZE / 2
@@ -108,7 +102,24 @@ class SvgCard(SvgGroup):
         x = y = 0
         rect_width = self.rect_width
         rect_height = self.rect_height
-        if self.has_border:
+        if self.has_outline:
+            group.append(ET.Element('rect',
+                                    attrib={'x': str(x),
+                                            'y': str(y),
+                                            'rx': str(rect_width*0.045),
+                                            'width': str(rect_width),
+                                            'height': str(rect_height),
+                                            'stroke': 'black',
+                                            'stroke-width': str(rect_width*0.01),
+                                            'fill': 'white'}))
+        elif not self.has_border:
+            group.append(ET.Element('rect',
+                                    attrib={'x': str(x),
+                                            'y': str(y),
+                                            'width': str(rect_width),
+                                            'height': str(rect_height),
+                                            'fill': 'white'}))
+        else:
             for layer in range(4):
                 stroke_width = '4' if layer == 0 else '2'
                 stroke = '#' + ('bcde'[layer]) * 6
@@ -158,20 +169,29 @@ class SvgCardBack(SvgCard):
     BASE_WIDTH = 150
     BASE_HEIGHT = 225
 
-    def __init__(self):
+    def __init__(self, has_outline: bool = False):
         super().__init__('p')
+        self.has_outline = has_outline
 
     def to_element(self) -> ET.Element:
         group = super().to_element()
         group.clear()
         board = ET.Element('g')
+        body_attribs = dict(width=str(self.rect_width),
+                            height=str(self.rect_height),
+                            fill='white')
+        if self.has_outline:
+            body_attribs['rx'] = str(self.rect_width * 0.045)
+            body_attribs['stroke'] = 'black'
+            body_attribs['stroke-width'] = str(self.rect_width * 0.01)
+        board.append(ET.Element('rect', attrib=body_attribs))
         group.append(board)
         board.set('transform',
                   f'translate({self.x} {self.y}) '
                   f'scale({self.scale}) ')
 
         columns, rows = 8, 13
-        gutter = self.rect_width * 0.1
+        gutter = self.rect_width * 0.07
         size = (self.rect_width - 2*gutter) / columns
         xc = (self.rect_width + (columns % 2) * size) / 2
         yc = (self.rect_height + (rows % 2) * size) / 2
@@ -256,107 +276,64 @@ class SvgGrid(SvgGroup):
         return group
 
 
-def generate_images():
-    output_width = 750
-    output_height = 1125
-    image_folder = Path(__file__).parent / 'deck'
-    image_folder.mkdir(exist_ok=True)
-    page = SvgPage(output_width, output_height)
-    page.append(ET.Element('rect', dict(fill='white',
-                                        width=str(output_width),
-                                        height=str(output_height))))
-    card_back = SvgCardBack()
-    card_back.scale = page.height / card_back.rect_height
-    page.append(card_back.to_element())
-    diagram = SvgDiagram(page.to_svg())
-    diagram.to_cairo(image_folder / 'back.png',
-                     output_width=output_width,
-                     output_height=output_height)
-    for symbol in 'K Q R B N P k q r b n p C4 C7 C8 C9 c4 c7 c8 c9'.split():
-        filename = image_folder / f'card-{symbol}.png'
-        page = SvgPage(output_width, output_height)
-        page.append(ET.Element('rect', dict(fill='white',
-                                            width=str(output_width),
-                                            height=str(output_height))))
-        card = SvgCard(symbol, has_border=False)
-        bleed = 0.05
-        y_margin = page.height * bleed
-        card.scale = (page.height - 2 * y_margin) / card.rect_height
-        card.x = (page.width - card.rect_width * card.scale) / 2
-        card.y = (page.height - card.rect_height * card.scale) / 2
-        page.append(card.to_element())
-        diagram = SvgDiagram(page.to_svg())
-        diagram.to_cairo(filename,
-                         output_width=output_width,
-                         output_height=output_height)
+class SvgSymbol(SvgGroup):
+    BASE_SIZE = 45
 
+    def __init__(self, symbol: str) -> None:
+        super().__init__()
+        self.symbol = symbol
 
-def main() -> None:
-    generate_images()
-    page_size = pagesizes.letter
-    top_margin = 0.85 * inch
-    bottom_margin = 0.1 * inch
-    side_margin = 0.6 * inch
-    register_fonts()
-    styles = getSampleStyleSheet()
+    def to_element(self) -> ET.Element:
+        if self.symbol.upper() == 'C':
+            return self.checker_element()
+        piece_svg = chess.svg.piece(chess.Piece.from_symbol(self.symbol))
+        SvgPage.register_svg()
+        piece_tree = ET.XML(piece_svg)
+        ns = {'': 'http://www.w3.org/2000/svg'}
+        piece_group = piece_tree.find('g', ns)
+        x_offset = -self.BASE_SIZE / 2
+        if self.symbol.upper() == 'Q':
+            x_offset += 0.2
+        elif self.symbol.upper() == 'K':
+            x_offset += 0.5
+        piece_group.set('transform',
+                        f'translate({x_offset} {-self.BASE_SIZE / 2})')
+        parent_group = super().to_element()
+        parent_group.append(piece_group)
+        return parent_group
 
-    pdf_path = Path(__file__).parent / 'docs' / 'chess-deck.pdf'
-    doc = SimpleDocTemplate(str(pdf_path),
-                            title='Chess Deck',
-                            author='Don Kirkby',
-                            subject='Playing cards to match the 32 chess pieces',
-                            keywords=['chess',
-                                      'games',
-                                      'card-games',
-                                      'board-games',
-                                      'puzzles'],
-                            creator=PDFInfo.creator,
-                            pagesize=page_size,
-                            leftMargin=side_margin,
-                            rightMargin=side_margin,
-                            topMargin=top_margin,
-                            bottomMargin=bottom_margin)
-    title_style = styles['Title']
-    title_style.fontName = 'Heading'
-    body_style = styles['Normal']
-    body_style.fontName = 'Body'
-    centred_style = ParagraphStyle('Centred',
-                                   parent=body_style,
-                                   alignment=TA_CENTER)
-    flowables = [
-        Paragraph('Chess Deck', title_style),
-        Paragraph('Designed by Don Kirkby. Find game rules at '
-                  '<a href="https://donkirkby.github.io/chess-kit/">donkirkby.github.io/chess-kit</a>.',
-                  body_style),
-        Spacer(0, 0.125*inch)]
-    symbol_pages = [['rnbq', 'pppp'],
-                    ['kbnr', 'pppp'],
-                    ['PPPP', 'RNBQ'],
-                    ['PPPP', 'KBNR']]
-    are_checkers_included = False
-    if are_checkers_included:
-        symbol_pages.append([['C4', 'C7', 'C8', 'C9'], ['c4', 'c7', 'c8', 'c9']])
-    for symbol_page in symbol_pages:
-        svg_page = SvgPage(7.5 * inch, 9 * inch)
-        grid = SvgGrid(symbol_page)
-        grid.rotation = 90
-        grid.x = 7*inch
-        grid.scale = 7*inch / grid.base_height
-        svg_page.append(grid.to_element())
-        diagram = SvgDiagram(svg_page.to_svg()).to_reportlab()
-        flowables.append(diagram)
-    flowables.extend(create_cc_section(doc, centred_style))
-    doc.build(flowables)
-    try:
-        run(['pdfsizeopt', '--v=30', pdf_path, pdf_path])
-    except FileNotFoundError:
-        print('pdfsizeopt not installed, so PDF is not optimized.')
-    try:
-        Popen(["evince", pdf_path])
-    except FileNotFoundError:
-        print('PDF viewer evince is not installed.')
-    print('Done.')
+    def checker_element(self) -> ET.Element:
+        group = super().to_element()
+        r1 = 13.5
+        r2 = 15.5
+        if self.symbol == 'C':
+            fill = 'transparent'
+            stroke = 'black'
+        else:
+            fill = 'black'
+            stroke = 'white'
+            r2 += 1.5
+        group.append(ET.Element('circle',
+                                {'r': '17',
+                                 'fill': fill,
+                                 'stroke': 'black',
+                                 'stroke-width': '1.5'}))
+        group.append(ET.Element('circle',
+                                {'r': '12',
+                                 'fill': 'transparent',
+                                 'stroke': stroke,
+                                 'stroke-width': '1.5'}))
+        ridge_count = 48
+        for i in range(ridge_count):
+            theta = i / ridge_count * 2 * np.pi
+            z1 = r1 * np.exp(1j * theta)
+            z2 = r2 * np.exp(1j * theta)
+            group.append(ET.Element('line',
+                                    {'x1': str(np.real(z1)),
+                                     'y1': str(np.imag(z1)),
+                                     'x2': str(np.real(z2)),
+                                     'y2': str(np.imag(z2)),
+                                     'stroke': stroke,
+                                     'stroke-width': '1'}))
 
-
-if __name__ == '__main__':
-    main()
+        return group

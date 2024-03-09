@@ -1,4 +1,4 @@
-# Chess Kit: Lighthearted New Games for Your Chess Set
+# Chess Kit: Chess Variants With a Twist
 
 I am not a strong chess player - it's always seemed to me more like study than
 play. However, I do like the ideas in chess: a ragtag army of pieces with

@@ -4,8 +4,8 @@ from copy import deepcopy
 
 import chess.svg
 
-from chess_deck import SvgCard, SvgGrid, SvgPips, SvgCardBack
-from diagram import Diagram, SvgPage, SvgSymbol
+from chess_deck import SvgCard, SvgGrid, SvgPips, SvgCardBack, SvgSymbol
+from svg_page import SvgPage
 from diagram_differ import DiagramDiffer
 from svg_diagram import SvgDiagram
 
@@ -44,7 +44,7 @@ def test_piece_translate(diagram_differ: DiagramDiffer):
                                      'height': '100'}))
     card_symbol = 'N'
     piece_svg = chess.svg.piece(chess.Piece.from_symbol(card_symbol))
-    Diagram.register_svg()
+    SvgPage.register_svg()
     piece_tree = ET.XML(piece_svg)
     ns = {'': 'http://www.w3.org/2000/svg'}
     piece_group = piece_tree.find('g', ns)
@@ -230,8 +230,99 @@ def test_card_transform(diagram_differ: DiagramDiffer):
 
 
 # noinspection DuplicatedCode
+def test_card_no_border(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(171, 266)
+    expected_page.append(ET.Element('rect',
+                                    attrib={'fill': 'white',
+                                            'width': '171',
+                                            'height': '266'}))
+    expected_pips = SvgPips(5)
+    expected_pips.x = 85.5
+    expected_pips.y = 133
+    expected_pips.scale = 0.75
+    expected_page.append(expected_pips.to_element())
+    card_symbol = 'Q'
+    expected_piece = SvgSymbol(card_symbol)
+    expected_piece.scale = 0.75
+    expected_piece.x = 22.5
+    expected_piece.y = 22.5
+    expected_page.append(expected_piece.to_element())
+    expected_piece2 = deepcopy(expected_piece)
+    expected_piece2.rotation = 180
+    expected_piece2.x = 171 - expected_piece.x
+    expected_piece2.y = 266 - expected_piece.y
+    expected_page.append(expected_piece2.to_element())
+    expected_piece3 = deepcopy(expected_piece)
+    expected_piece3.x = 85.5
+    expected_piece3.y = 133 - 45
+    expected_piece3.scale = 1.75
+    expected_page.append(expected_piece3.to_element())
+    expected_piece4 = deepcopy(expected_piece3)
+    expected_piece4.rotation = 180
+    expected_piece4.y = 133 + 45
+    expected_page.append(expected_piece4.to_element())
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(171, 266)
+    card = SvgCard(card_symbol, has_border=False)
+    page.append(card.to_element())
+    svg_diagram = SvgDiagram(page.to_svg())
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_card_outline(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(171, 266)
+    expected_page.append(ET.Element('rect',
+                                    attrib={'fill': 'white',
+                                            'width': '171',
+                                            'height': '266',
+                                            'rx': '7.7',
+                                            'stroke': 'black',
+                                            'stroke-width': '1.7'}))
+    expected_pips = SvgPips(5)
+    expected_pips.x = 85.5
+    expected_pips.y = 133
+    expected_pips.scale = 0.75
+    expected_page.append(expected_pips.to_element())
+    card_symbol = 'Q'
+    expected_piece = SvgSymbol(card_symbol)
+    expected_piece.scale = 0.75
+    expected_piece.x = 22.5
+    expected_piece.y = 22.5
+    expected_page.append(expected_piece.to_element())
+    expected_piece2 = deepcopy(expected_piece)
+    expected_piece2.rotation = 180
+    expected_piece2.x = 171 - expected_piece.x
+    expected_piece2.y = 266 - expected_piece.y
+    expected_page.append(expected_piece2.to_element())
+    expected_piece3 = deepcopy(expected_piece)
+    expected_piece3.x = 85.5
+    expected_piece3.y = 133 - 45
+    expected_piece3.scale = 1.75
+    expected_page.append(expected_piece3.to_element())
+    expected_piece4 = deepcopy(expected_piece3)
+    expected_piece4.rotation = 180
+    expected_piece4.y = 133 + 45
+    expected_page.append(expected_piece4.to_element())
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(171, 266)
+    card = SvgCard(card_symbol, has_border=False, has_outline=True)
+    page.append(card.to_element())
+    svg_diagram = SvgDiagram(page.to_svg())
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
 def test_card_checker(diagram_differ: DiagramDiffer):
     expected_page = SvgPage(171, 266)
+    expected_page.append(ET.Element('rect',
+                                    attrib={'width': '171',
+                                            'height': '266',
+                                            'fill': 'white'}))
     expected_pips = SvgPips(9)
     expected_pips.x = 85.5
     expected_pips.y = 133
@@ -270,12 +361,26 @@ def test_card_checker(diagram_differ: DiagramDiffer):
 def test_card_back(diagram_differ: DiagramDiffer):
     expected_page = SvgPage(150, 225)
     expected_back = SvgCardBack()
-    expected_element = expected_back.to_element()
-    expected_page.append(expected_element)
+    expected_page.append(expected_back.to_element())
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(150, 225)
     card = SvgCardBack()
+    page.append(card.to_element())
+    svg_diagram = SvgDiagram(page.to_svg())
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_card_back_outline(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(150, 225)
+    expected_back = SvgCardBack(has_outline=True)
+    expected_page.append(expected_back.to_element())
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(150, 225)
+    card = SvgCardBack(has_outline=True)
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
