@@ -143,25 +143,28 @@ class SvgCard(SvgGroup):
             pips.y = self.BASE_HEIGHT / 2
             pips.scale = 0.75
             group.append(pips.to_element())
+        text_args = {'text-anchor': 'middle',
+                     'font-family': 'FredokaOne',
+                     'font-size': '35',
+                     'y': '17.5'}
+        text = ET.Element('text', attrib=text_args)
+        text.text = self.symbol.upper()
+        text.attrib['transform'] = 'translate(22.5 17.5)'
+        group.append(text)
+        text = deepcopy(text)
+        text.attrib['transform'] = (
+            f'translate({self.rect_width - 22.5} {self.rect_height - 17.5}) '
+            f'rotate(180)')
+        group.append(text)
         symbol1 = SvgSymbol(self.symbol)
-        symbol1.scale = 0.75
-        symbol1.x = symbol_size
-        symbol1.y = symbol_size
+        symbol1.scale = 1.75
+        symbol1.x = self.BASE_WIDTH / 2
+        symbol1.y = self.BASE_HEIGHT / 2 - symbol_size * 2
         group.append(symbol1.to_element())
         symbol2 = deepcopy(symbol1)
+        symbol2.y = self.BASE_HEIGHT / 2 + symbol_size * 2
         symbol2.rotation = 180
-        symbol2.x = self.BASE_WIDTH - symbol_size
-        symbol2.y = self.BASE_HEIGHT - symbol_size
         group.append(symbol2.to_element())
-        symbol3 = deepcopy(symbol1)
-        symbol3.scale = 1.75
-        symbol3.x = self.BASE_WIDTH / 2
-        symbol3.y = self.BASE_HEIGHT / 2 - symbol_size*2
-        group.append(symbol3.to_element())
-        symbol4 = deepcopy(symbol3)
-        symbol4.y = self.BASE_HEIGHT / 2 + symbol_size*2
-        symbol4.rotation = 180
-        group.append(symbol4.to_element())
         return group
 
 

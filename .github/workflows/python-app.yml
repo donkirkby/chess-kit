@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: 3.11
     - name: Install dependencies
@@ -24,7 +24,16 @@ jobs:
         pip install pipenv
         pipenv install --dev
     - name: Test with pytest
+      id: test
       env:
         PYTHONPATH: .
       run: |
         pipenv run pytest
+    - name: Upload image diffs
+      uses: actions/upload-artifact@v2
+      if: ${{ always() && steps.test.outcome == 'failure' }}
+      with:
+        name: image-diffs
+        path: |
+          tests/image_diffs/*.png
+          tests/image_diffs/*.svg

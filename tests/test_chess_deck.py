@@ -173,25 +173,28 @@ def test_card(diagram_differ: DiagramDiffer):
     expected_pips.scale = 0.75
     expected_page.append(expected_pips.to_element())
     card_symbol = 'Q'
-    expected_piece = SvgSymbol(card_symbol)
-    expected_piece.scale = 0.75
-    expected_piece.x = 22.5
-    expected_piece.y = 22.5
-    expected_page.append(expected_piece.to_element())
-    expected_piece2 = deepcopy(expected_piece)
+    expected_piece1 = SvgSymbol(card_symbol)
+    expected_piece1.x = 85.5
+    expected_piece1.y = 133 - 45
+    expected_piece1.scale = 1.75
+    expected_page.append(expected_piece1.to_element())
+    expected_piece2 = deepcopy(expected_piece1)
     expected_piece2.rotation = 180
-    expected_piece2.x = 171 - expected_piece.x
-    expected_piece2.y = 266 - expected_piece.y
+    expected_piece2.y = 133 + 45
     expected_page.append(expected_piece2.to_element())
-    expected_piece3 = deepcopy(expected_piece)
-    expected_piece3.x = 85.5
-    expected_piece3.y = 133 - 45
-    expected_piece3.scale = 1.75
-    expected_page.append(expected_piece3.to_element())
-    expected_piece4 = deepcopy(expected_piece3)
-    expected_piece4.rotation = 180
-    expected_piece4.y = 133 + 45
-    expected_page.append(expected_piece4.to_element())
+
+    text_args = {'text-anchor': 'middle',
+                 'font-family': 'FredokaOne',
+                 'font-size': '35',
+                 'y': '17.5'}
+    text = ET.Element('text', attrib=text_args)
+    text.text = 'Q'
+    text.attrib['transform'] = 'translate(22.5 17.5)'
+    expected_page.append(text)
+    text = deepcopy(text)
+    text.attrib['transform'] = f'translate({171-22.5} {266-17.5}) rotate(180)'
+    expected_page.append(text)
+
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(171, 266)
@@ -242,25 +245,28 @@ def test_card_no_border(diagram_differ: DiagramDiffer):
     expected_pips.scale = 0.75
     expected_page.append(expected_pips.to_element())
     card_symbol = 'Q'
-    expected_piece = SvgSymbol(card_symbol)
-    expected_piece.scale = 0.75
-    expected_piece.x = 22.5
-    expected_piece.y = 22.5
-    expected_page.append(expected_piece.to_element())
-    expected_piece2 = deepcopy(expected_piece)
+    expected_piece1 = SvgSymbol(card_symbol)
+    expected_piece1.x = 85.5
+    expected_piece1.y = 133 - 45
+    expected_piece1.scale = 1.75
+    expected_page.append(expected_piece1.to_element())
+    expected_piece2 = deepcopy(expected_piece1)
     expected_piece2.rotation = 180
-    expected_piece2.x = 171 - expected_piece.x
-    expected_piece2.y = 266 - expected_piece.y
+    expected_piece2.y = 133 + 45
     expected_page.append(expected_piece2.to_element())
-    expected_piece3 = deepcopy(expected_piece)
-    expected_piece3.x = 85.5
-    expected_piece3.y = 133 - 45
-    expected_piece3.scale = 1.75
-    expected_page.append(expected_piece3.to_element())
-    expected_piece4 = deepcopy(expected_piece3)
-    expected_piece4.rotation = 180
-    expected_piece4.y = 133 + 45
-    expected_page.append(expected_piece4.to_element())
+
+    text_args = {'text-anchor': 'middle',
+                 'font-family': 'FredokaOne',
+                 'font-size': '35',
+                 'y': '17.5'}
+    text = ET.Element('text', attrib=text_args)
+    text.text = 'Q'
+    text.attrib['transform'] = 'translate(22.5 17.5)'
+    expected_page.append(text)
+    text = deepcopy(text)
+    text.attrib['transform'] = f'translate({171-22.5} {266-17.5}) rotate(180)'
+    expected_page.append(text)
+
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(171, 266)
@@ -287,25 +293,28 @@ def test_card_outline(diagram_differ: DiagramDiffer):
     expected_pips.scale = 0.75
     expected_page.append(expected_pips.to_element())
     card_symbol = 'Q'
-    expected_piece = SvgSymbol(card_symbol)
-    expected_piece.scale = 0.75
-    expected_piece.x = 22.5
-    expected_piece.y = 22.5
-    expected_page.append(expected_piece.to_element())
-    expected_piece2 = deepcopy(expected_piece)
+    expected_piece1 = SvgSymbol(card_symbol)
+    expected_piece1.x = 85.5
+    expected_piece1.y = 133 - 45
+    expected_piece1.scale = 1.75
+    expected_page.append(expected_piece1.to_element())
+    expected_piece2 = deepcopy(expected_piece1)
     expected_piece2.rotation = 180
-    expected_piece2.x = 171 - expected_piece.x
-    expected_piece2.y = 266 - expected_piece.y
+    expected_piece2.y = 133 + 45
     expected_page.append(expected_piece2.to_element())
-    expected_piece3 = deepcopy(expected_piece)
-    expected_piece3.x = 85.5
-    expected_piece3.y = 133 - 45
-    expected_piece3.scale = 1.75
-    expected_page.append(expected_piece3.to_element())
-    expected_piece4 = deepcopy(expected_piece3)
-    expected_piece4.rotation = 180
-    expected_piece4.y = 133 + 45
-    expected_page.append(expected_piece4.to_element())
+
+    text_args = {'text-anchor': 'middle',
+                 'font-family': 'FredokaOne',
+                 'font-size': '35',
+                 'y': '17.5'}
+    text = ET.Element('text', attrib=text_args)
+    text.text = 'Q'
+    text.attrib['transform'] = 'translate(22.5 17.5)'
+    expected_page.append(text)
+    text = deepcopy(text)
+    text.attrib['transform'] = f'translate({171-22.5} {266-17.5}) rotate(180)'
+    expected_page.append(text)
+
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(171, 266)
@@ -328,25 +337,28 @@ def test_card_checker(diagram_differ: DiagramDiffer):
     expected_pips.y = 133
     expected_pips.scale = 0.75
     expected_page.append(expected_pips.to_element())
-    expected_piece = SvgSymbol('C')
-    expected_piece.scale = 0.75
-    expected_piece.x = 22.5
-    expected_piece.y = 22.5
-    expected_page.append(expected_piece.to_element())
-    expected_piece2 = deepcopy(expected_piece)
+    expected_piece1 = SvgSymbol('C')
+    expected_piece1.x = 85.5
+    expected_piece1.y = 133 - 45
+    expected_piece1.scale = 1.75
+    expected_page.append(expected_piece1.to_element())
+    expected_piece2 = deepcopy(expected_piece1)
     expected_piece2.rotation = 180
-    expected_piece2.x = 171 - expected_piece.x
-    expected_piece2.y = 266 - expected_piece.y
+    expected_piece2.y = 133 + 45
     expected_page.append(expected_piece2.to_element())
-    expected_piece3 = deepcopy(expected_piece)
-    expected_piece3.x = 85.5
-    expected_piece3.y = 133 - 45
-    expected_piece3.scale = 1.75
-    expected_page.append(expected_piece3.to_element())
-    expected_piece4 = deepcopy(expected_piece3)
-    expected_piece4.rotation = 180
-    expected_piece4.y = 133 + 45
-    expected_page.append(expected_piece4.to_element())
+
+    text_args = {'text-anchor': 'middle',
+                 'font-family': 'FredokaOne',
+                 'font-size': '35',
+                 'y': '17.5'}
+    text = ET.Element('text', attrib=text_args)
+    text.text = 'C'
+    text.attrib['transform'] = 'translate(22.5 17.5)'
+    expected_page.append(text)
+    text = deepcopy(text)
+    text.attrib['transform'] = f'translate({171-22.5} {266-17.5}) rotate(180)'
+    expected_page.append(text)
+
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(171, 266)

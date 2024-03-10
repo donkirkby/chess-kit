@@ -218,20 +218,12 @@ def test_card(diagram_differ: DiagramDiffer):
     queen_card.y = 8
     queen_card.scale = 0.25
     page.append(queen_card.to_element())
-    card_back = SvgCardBack()
+    card_back = SvgCardBack(has_outline=True)
     card_back.x = 143
     card_back.y = 120.5
     card_back.scale = 0.295
     page.append(card_back.to_element())
-    card_map: typing.Dict[str, ET.Element]
-    _, card_map = ET.XMLID(Diagram.CARDS_PATH.read_text())
-    queen_svg = card_map['card-QH']
-    _, card_map = ET.XMLID(Diagram.CARD_BACK_PATH.read_text())
-    back_svg = card_map['card-back']
-    queen_svg.attrib['transform'] = f'scale(0.25), translate(60, -453)'
-    back_svg.attrib['transform'] = f'scale(0.25), translate(1140, 447)'
     expected_diagram = SvgDiagram(page.to_svg())
-    ET.register_namespace('', '')  # Force registration again.
 
     diagram = Diagram(390, 195, diagram_text)
     svg_diagram = diagram.build()
