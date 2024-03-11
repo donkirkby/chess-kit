@@ -18,6 +18,9 @@ the remaining pieces to get an adrenaline rush, and adrenaline can make any
 piece a king. This game adds a little chaos to chess, and accelerates the end
 game.
 
+If you want to add a little more chaos, Booster Chess uses playing cards to
+choose which pieces get a boost.
+
 ### Equipment
 A standard chess set and a standard set of 24 checkers. The checkers
 must be stackable, and you must be able to stack a chess piece on top of the
@@ -107,12 +110,14 @@ the king.
 Start every game with a booster pack of cards to make your pieces better or
 hobble your opponent's pieces.
 
+If you want to start simpler, Adrenaline Chess removes the cards and hobbling.
+
 ### Equipment
 A standard chess set, a standard checkers set, and a standard deck of cards.
 
 The checkers must be stackable, and you must be able to stack a chess piece on
 top of the checkers. Coins or poker chips would also work, as long as they fit
-inside the chess board squares. You only need 6 of each colour.
+inside the chess board squares. You need 6 each of 2 colours.
 
 From the deck of cards, use one card to represent each piece, as shown in
 appendix A. You also need two cards of each colour to represent checkers, so add
@@ -125,52 +130,59 @@ will play white. Place 6 light checkers in front of White and 6 dark checkers in
 front of Black. You won't need the rest of the checkers, so put them aside.
 
 Shuffle the deck and deal 6 cards to each player. Look at your cards, but don't
-show them to your opponent.
+show them to your opponent. Place the rest of the cards in a draw stack.
 
 ### Play
+Your turn has up to four parts:
+
+* You must **move** a chess piece.
+* If you moved a boosted piece, you may **spend** checkers to also move it like a
+  king.
+* You may **add** a checker, by playing a card.
+* Finally, **draw** cards until you have one card for every checker in front of
+  you.
+
 Chess pieces move normally, unless they are stacked on checkers. Pieces on
 checkers are modified as follows:
 
-* Your piece on your checker is boosted: after making a normal move, you may
-  make an extra move like a king, one space in any direction. If you make the
-  king's move, remove the checker, and place it in front of you.
+* Your piece on your checker is boosted: after moving it normally, you may move
+  it like a king, one space in any direction. If you make the king's move,
+  remove the checker and place it in front of you. If the piece is on more than
+  one checker, you may continue spending checkers to make more king's moves on
+  the same turn.
 * Your piece on your opponent's checker is hobbled: pawns cannot move at all,
-  and other pieces move like pawns.
+  and other pieces move like pawns. If it is on more than one checker, it's
+  still hobbled, but no worse.
 
-Pieces may be modified by more than one checker as follows:
-
-* If your piece has more than one boost, you may spend as many of the booster
-  checkers as you wish, and make one king's move for each one, all in one turn.
-* One piece may not have more than one hobble.
-* A hobbled piece with boosters must make a legal move before spending any
-  boosters. That means that a hobbled pawn usually can't spend a booster, and
-  other hobbled pieces must move like a pawn before spending a booster.
+If one of your pieces is on a black and a white checker, immediately remove one
+checker of each colour and return them to their owners. Keep removing pairs of
+black and white checkers, if there are more.
 
 When you move a piece, it brings any checkers along with it, except a spent
 booster.
 
-#### Adding and Transferring Checkers
+#### Adding and Capturing Checkers
 After you finish moving, you may play one of your cards to add a checker. You
 may only add checkers of your own colour, and you may add one to a piece that
-matches the card. Checkers cards match any piece of that colour, so you may use
-a black checker card to add one of your checkers to any black piece or use a
-white checker card to add one of your checkers to any white piece.
+matches the card.
+
+Checkers cards match any piece of that colour, so you may use a black checker
+card to add one of your checkers to any black piece or use a white checker card
+to add one of your checkers to any white piece. If there are no pieces left on
+the board to match a card, you may use it to add one of your checkers to any
+piece of the card's colour, just like a checkers card.
+
+Play your card to a discard pile next to the draw pile, and shuffle the discard
+pile to make a new draw pile if it runs out.
 
 When you capture a piece, your piece keeps any checkers that the captured piece
 was stacked on. Capturing a boosted piece leaves you hobbled, but capturing a
-hobbled piece leaves you boosted! A newly boosted piece may immediately spend
-that booster. This is the one case where a hobbled pawn may spend a booster,
-because it made a legal move just before getting hobbled.
+hobbled piece leaves you boosted! Don't forget that opposite colour checkers
+immediately get returned to their owners.
 
-You may, instead of moving a piece, transfer a hobble checker from one of your
-pieces to one of your neighbouring pieces. For example, you might want to move
-a hobble from your queen to one of your pawns, so you can use your queen
-normally.
-
-There is one other way to remove a hobble checker: get to the back rank of the
-board. If you do, just remove the hobble checker and return it to your opponent.
-Hobbled pawns that reach the back rank remove the hobble checker and then
-promote.
+Besides neutralizing a hobble checker by adding one of your own, there is
+another way to remove it: get it to the back rank of the board. If you do, just
+remove the hobble checker and return it to your opponent.
 
 #### Drawing Cards
 After moving a piece and possibly playing a card, draw cards until you have the
@@ -181,13 +193,16 @@ your opponent.
 #### Special Cases
 After castling, you may use both the king and the rook for booster moves, if
 they are both boosted. During castling, you may not move your king through
-squares that could be attacked by booster moves. You may capture a pawn en
-passant at the usual square after a regular move of two squares. You may not
-capture en passant if the pawn used a booster move, and you may not use a
+squares that could be attacked by booster moves. You may not move a piece to
+reveal a check on your king, even if you then use a booster move to block the
+check again.
+
+Hobbled pieces do not move two spaces on their first move. You may capture a
+pawn en passant at the usual square after a regular move of two squares. You may
+not capture en passant if the pawn used a booster move, and you may not use a
 booster move to capture en passant. A pawn that moves to the back rank
 immediately promotes, and may continue making booster moves if it is still
-boosted. You may not move a piece to reveal a check on your king, even if you
-then use a booster move to block the check again.
+boosted. 
 
 ### Winning
 Win by checkmate, as in regular chess, but you may use booster moves to threaten
