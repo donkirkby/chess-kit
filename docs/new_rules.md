@@ -37,7 +37,7 @@ the remaining pieces to get an adrenaline rush, and adrenaline can make any
 piece a king. This game adds a little chaos to chess, and accelerates the end
 game.
 
-If you want to add a little more chaos, Booster Chess uses playing cards to
+If you want to add even more chaos, Booster Chess uses playing cards to
 choose which pieces get a boost.
 
 ### Equipment
@@ -88,15 +88,14 @@ pawn at h5 has a checker. It is checkmate.
 
 ![Diagram](images/new_rules/adrenaline-chess2.png)
 
-After castling, you may use both the king and the rook for extra moves, if they
-both have checkers. During castling, you may not move your king through squares
-that could be attacked by extra moves. You may capture a pawn en passant on the
-at the usual square after a regular move of two squares. You may not capture en
-passant if the pawn used an extra move, and you may not use an extra move to
-capture en passant. A pawn that moves to the back rank immediately promotes, and
-may continue making king moves if it still has checkers. You may not move a
-piece to reveal a check on your king, even if you then use an extra move to
-block the check again.
+You may not castle, if either the king or the rook has checkers. During
+castling, you may not move your king through squares that could be attacked by
+extra moves. You may capture a pawn en passant at the usual square after a
+regular move of two squares. You may not capture en passant if the pawn used an
+extra move, and you may not use an extra move to capture en passant. A pawn that
+moves to the back rank immediately promotes, and may continue making king moves,
+if it still has checkers. You may not move a piece to reveal a check on your
+king, even if you then use an extra move to block the check again.
 
 ### Winning
 Win by checkmate, as in regular chess, but you may use extra moves to threaten
@@ -174,7 +173,7 @@ pile to make a new draw pile if it runs out.
 When you capture a piece, your piece keeps any checkers that the captured piece
 was stacked on. Capturing a boosted piece leaves you hobbled, but capturing a
 hobbled piece leaves you boosted! Don't forget that opposite colour checkers
-immediately get returned to their owners.
+immediately cancel each other and get returned to their owners.
 
 Besides neutralizing a hobble checker by adding one of your own, there is
 another way to remove it: get it to the back rank of the board. If you do, just
@@ -187,11 +186,10 @@ you only draw if you spent a booster checker or received a hobble checker from
 your opponent.
 
 #### Special Cases
-After castling, you may use both the king and the rook for booster moves, if
-they are both boosted. During castling, you may not move your king through
-squares that could be attacked by booster moves. You may not move a piece to
-reveal a check on your king, even if you then use a booster move to block the
-check again.
+You may not castle, if either the king or the rook is boosted. During castling,
+you may not move your king through squares that could be attacked by booster
+moves. You may not move a piece to reveal a check on your king, even if you then
+use a booster move to block the check again.
 
 Hobbled pieces do not move two spaces on their first move. You may capture a
 pawn en passant at the usual square after a regular move of two squares. You may

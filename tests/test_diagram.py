@@ -1,4 +1,3 @@
-import typing
 from pathlib import Path
 from textwrap import dedent
 import xml.etree.ElementTree as ET  # noqa
