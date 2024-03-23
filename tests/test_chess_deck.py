@@ -4,7 +4,8 @@ from copy import deepcopy
 
 import chess.svg
 
-from chess_deck import SvgCard, SvgGrid, SvgPips, SvgCardBack, SvgSymbol
+from chess_deck import (SvgCard, SvgGrid, SvgPips, SvgCardBack, SvgSymbol,
+                        LETTER_PATHS)
 from svg_page import SvgPage
 from diagram_differ import DiagramDiffer
 from svg_diagram import SvgDiagram
@@ -183,17 +184,13 @@ def test_card(diagram_differ: DiagramDiffer):
     expected_piece2.y = 133 + 45
     expected_page.append(expected_piece2.to_element())
 
-    text_args = {'text-anchor': 'middle',
-                 'font-family': 'FredokaOne',
-                 'font-size': '35',
-                 'y': '17.5'}
-    text = ET.Element('text', attrib=text_args)
-    text.text = 'Q'
-    text.attrib['transform'] = 'translate(22.5 17.5)'
-    expected_page.append(text)
-    text = deepcopy(text)
-    text.attrib['transform'] = f'translate({171-22.5} {266-17.5}) rotate(180)'
-    expected_page.append(text)
+    letter_path = ET.Element('path',
+                             attrib=dict(d=LETTER_PATHS['q'],
+                                         transform='scale(0.85)'))
+    expected_page.append(letter_path)
+    letter_path = deepcopy(letter_path)
+    letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
+    expected_page.append(letter_path)
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
@@ -255,17 +252,13 @@ def test_card_no_border(diagram_differ: DiagramDiffer):
     expected_piece2.y = 133 + 45
     expected_page.append(expected_piece2.to_element())
 
-    text_args = {'text-anchor': 'middle',
-                 'font-family': 'FredokaOne',
-                 'font-size': '35',
-                 'y': '17.5'}
-    text = ET.Element('text', attrib=text_args)
-    text.text = 'Q'
-    text.attrib['transform'] = 'translate(22.5 17.5)'
-    expected_page.append(text)
-    text = deepcopy(text)
-    text.attrib['transform'] = f'translate({171-22.5} {266-17.5}) rotate(180)'
-    expected_page.append(text)
+    letter_path = ET.Element('path',
+                             attrib=dict(d=LETTER_PATHS['q'],
+                                         transform='scale(0.85)'))
+    expected_page.append(letter_path)
+    letter_path = deepcopy(letter_path)
+    letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
+    expected_page.append(letter_path)
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
@@ -303,17 +296,13 @@ def test_card_outline(diagram_differ: DiagramDiffer):
     expected_piece2.y = 133 + 45
     expected_page.append(expected_piece2.to_element())
 
-    text_args = {'text-anchor': 'middle',
-                 'font-family': 'FredokaOne',
-                 'font-size': '35',
-                 'y': '17.5'}
-    text = ET.Element('text', attrib=text_args)
-    text.text = 'Q'
-    text.attrib['transform'] = 'translate(22.5 17.5)'
-    expected_page.append(text)
-    text = deepcopy(text)
-    text.attrib['transform'] = f'translate({171-22.5} {266-17.5}) rotate(180)'
-    expected_page.append(text)
+    letter_path = ET.Element('path',
+                             attrib=dict(d=LETTER_PATHS['q'],
+                                         transform='scale(0.85)'))
+    expected_page.append(letter_path)
+    letter_path = deepcopy(letter_path)
+    letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
+    expected_page.append(letter_path)
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
@@ -347,17 +336,13 @@ def test_card_checker(diagram_differ: DiagramDiffer):
     expected_piece2.y = 133 + 45
     expected_page.append(expected_piece2.to_element())
 
-    text_args = {'text-anchor': 'middle',
-                 'font-family': 'FredokaOne',
-                 'font-size': '35',
-                 'y': '17.5'}
-    text = ET.Element('text', attrib=text_args)
-    text.text = 'C'
-    text.attrib['transform'] = 'translate(22.5 17.5)'
-    expected_page.append(text)
-    text = deepcopy(text)
-    text.attrib['transform'] = f'translate({171-22.5} {266-17.5}) rotate(180)'
-    expected_page.append(text)
+    letter_path = ET.Element('path',
+                             attrib=dict(d=LETTER_PATHS['c'],
+                                         transform='scale(0.85)'))
+    expected_page.append(letter_path)
+    letter_path = deepcopy(letter_path)
+    letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
+    expected_page.append(letter_path)
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
