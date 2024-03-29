@@ -25,6 +25,10 @@ together.
     they capture. Start the game by choosing which capture moves each of
     your opponent's pieces will use, then try to deduce how each of your
     pieces can capture. (2 players, chess set, pencils, and paper)
+* [Adrenaline Chess][adrenaline-chess] adds power ups to chess. (2
+    players, chess set, and checkers set)
+* [Booster Chess][booster-chess] use cards to boost your chess army.
+    (2 players, chess set, checkers set, and deck of cards)
 * [Chess Golf][chess-golf] makes players race to plan the best route,
     as the pieces caddy each other around the board. (1 or more players,
     chess set, deck of cards, timer, coins, pencil and paper)
@@ -41,6 +45,8 @@ together.
 
 [zombie-chess]: https://donkirkby.github.io/chess-kit/rules.html#zombie-chess
 [masquerade-chess]: https://donkirkby.github.io/chess-kit/rules.html#masquerade-chess
+[adrenaline-chess]: https://donkirkby.github.io/chess-kit/rules.html#adrenaline-chess
+[booster-chess]: https://donkirkby.github.io/chess-kit/rules.html#booster-chess
 [chess-golf]: https://donkirkby.github.io/chess-kit/rules.html#chess-golf
 [crowded-house]: https://donkirkby.github.io/chess-kit/rules.html#crowded-house
 [cooperative-chess]: https://donkirkby.github.io/chess-kit/rules.html#cooperative-chess

@@ -406,12 +406,12 @@ you may not move your king through squares that could be attacked by booster
 moves. You may not move a piece to reveal a check on your king, even if you then
 use a booster move to block the check again.
 
-Hobbled pieces do not move two spaces on their first move. You may capture a
-pawn en passant at the usual square after a regular move of two squares. You may
-not capture en passant if the pawn used a booster move, and you may not use a
-booster move to capture en passant. A pawn that moves to the back rank
-immediately promotes, and may continue making booster moves if it is still
-boosted. 
+Hobbled pieces move like pawns, but do not move two spaces on their first move.
+You may capture a pawn en passant at the usual square after a regular move of
+two squares. You may not capture en passant if the pawn used a booster move, and
+you may not use a booster move to capture en passant. A pawn that moves to the
+back rank immediately promotes, and may continue making booster moves if it is
+still boosted.
 
 ### Winning
 Win by checkmate, as in regular chess, but you may use booster moves to threaten

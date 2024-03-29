@@ -54,7 +54,7 @@ OOO|
 """
 LETTER_SCALE = 0.85
 
-# Converted in Inkscape from Fredoka One font to path objects.
+# Converted in Inkscape from 111pt Fredoka One font to path objects.
 LETTER_PATHS = dict(
     k='m 27.3,26.1 q 5.99227,5.757284 8.49885,8.655509 1.29245,1.449112 '
       '1.29245,2.467407 0,0.97913 -1.56661,2.349912 -1.56661,1.331617 '
@@ -154,6 +154,13 @@ LETTER_PATHS = dict(
       '0,1.95826 0.783301,3.52487 0.78331,1.5666 1.99743,2.4674 '
       '2.38908,1.72327 4.97398,1.72327 1.21412,0 2.27158,-0.31332 '
       '1.09663,-0.31332 1.56661,-0.62664 z')
+BAR_PATH = ('m 12.5,50 q -1.879598,0 -2.192865,-1.13559 '
+            '-0.195791,-0.587375 -0.195791,-1.566332 0,-0.978958 '
+            '0.156633,-1.566332 0.195792,-0.587375 0.587375,-0.822324 '
+            '0.665691,-0.313267 1.683806,-0.313267 h 26.353535 '
+            'q 1.879599,0 2.192865,1.174749 0.19579,0.587375 0.19579,1.527174 '
+            '0,0.978957 -0.19579,1.566332 -0.156633,0.587374 '
+            '-0.548216,0.822324 -0.587375,0.313266 -1.683807,0.313266 z')
 
 
 class SvgPips(SvgGroup):
@@ -245,16 +252,27 @@ class SvgCard(SvgGroup):
             pips.y = self.BASE_HEIGHT / 2
             pips.scale = 0.75
             group.append(pips.to_element())
-        path_points = LETTER_PATHS[self.symbol.lower()]
+        lower_symbol = self.symbol.lower()
+        path_points = LETTER_PATHS[lower_symbol]
         letter_path = ET.Element('path', dict(d=path_points))
         letter_path.attrib['transform'] = f'scale({LETTER_SCALE})'
         group.append(letter_path)
+        bar_path = deepcopy(letter_path)
+        bar_path.attrib['d'] = BAR_PATH
+        if lower_symbol != self.symbol:
+            bar_path.attrib['fill'] = 'transparent'
+        bar_path.attrib['stroke'] = 'black'
+        bar_path.attrib['stroke-width'] = str(self.rect_width * 0.0117)
+        group.append(bar_path)
         letter_path = deepcopy(letter_path)
         letter_path.attrib['transform'] = (
             f'translate({self.rect_width} {self.rect_height}) '
             f'rotate(180) '
             f'scale({LETTER_SCALE}) ')
         group.append(letter_path)
+        bar_path = deepcopy(bar_path)
+        bar_path.attrib['transform'] = letter_path.attrib['transform']
+        group.append(bar_path)
         symbol1 = SvgSymbol(self.symbol)
         symbol1.scale = 1.75
         symbol1.x = self.BASE_WIDTH / 2

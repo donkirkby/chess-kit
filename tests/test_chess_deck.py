@@ -5,13 +5,10 @@ from copy import deepcopy
 import chess.svg
 
 from chess_deck import (SvgCard, SvgGrid, SvgPips, SvgCardBack, SvgSymbol,
-                        LETTER_PATHS)
+                        LETTER_PATHS, BAR_PATH)
 from svg_page import SvgPage
 from diagram_differ import DiagramDiffer
 from svg_diagram import SvgDiagram
-
-# noinspection PyUnresolvedReferences
-from test_diagram import diagram_differ, session_diagram_differ
 
 
 # noinspection DuplicatedCode
@@ -192,6 +189,18 @@ def test_card(diagram_differ: DiagramDiffer):
     letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
     expected_page.append(letter_path)
 
+    bar_path = deepcopy(letter_path)
+    bar_path.attrib['transform'] = 'scale(0.85)'
+    bar_path.attrib['d'] = BAR_PATH
+    bar_path.attrib['fill'] = 'transparent'
+    bar_path.attrib['stroke'] = 'black'
+    bar_path.attrib['stroke-width'] = '2'
+    expected_page.append(bar_path)
+
+    bar_path = deepcopy(bar_path)
+    bar_path.attrib['transform'] = letter_path.attrib['transform']
+    expected_page.append(bar_path)
+
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(171, 266)
@@ -260,6 +269,18 @@ def test_card_no_border(diagram_differ: DiagramDiffer):
     letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
     expected_page.append(letter_path)
 
+    bar_path = deepcopy(letter_path)
+    bar_path.attrib['transform'] = 'scale(0.85)'
+    bar_path.attrib['d'] = BAR_PATH
+    bar_path.attrib['fill'] = 'transparent'
+    bar_path.attrib['stroke'] = 'black'
+    bar_path.attrib['stroke-width'] = '2'
+    expected_page.append(bar_path)
+
+    bar_path = deepcopy(bar_path)
+    bar_path.attrib['transform'] = letter_path.attrib['transform']
+    expected_page.append(bar_path)
+
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(171, 266)
@@ -304,6 +325,18 @@ def test_card_outline(diagram_differ: DiagramDiffer):
     letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
     expected_page.append(letter_path)
 
+    bar_path = deepcopy(letter_path)
+    bar_path.attrib['transform'] = 'scale(0.85)'
+    bar_path.attrib['d'] = BAR_PATH
+    bar_path.attrib['fill'] = 'transparent'
+    bar_path.attrib['stroke'] = 'black'
+    bar_path.attrib['stroke-width'] = '2'
+    expected_page.append(bar_path)
+
+    bar_path = deepcopy(bar_path)
+    bar_path.attrib['transform'] = letter_path.attrib['transform']
+    expected_page.append(bar_path)
+
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(171, 266)
@@ -343,6 +376,18 @@ def test_card_checker(diagram_differ: DiagramDiffer):
     letter_path = deepcopy(letter_path)
     letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
     expected_page.append(letter_path)
+
+    bar_path = deepcopy(letter_path)
+    bar_path.attrib['transform'] = 'scale(0.85)'
+    bar_path.attrib['d'] = BAR_PATH
+    bar_path.attrib['fill'] = 'transparent'
+    bar_path.attrib['stroke'] = 'black'
+    bar_path.attrib['stroke-width'] = '2'
+    expected_page.append(bar_path)
+
+    bar_path = deepcopy(bar_path)
+    bar_path.attrib['transform'] = letter_path.attrib['transform']
+    expected_page.append(bar_path)
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
 

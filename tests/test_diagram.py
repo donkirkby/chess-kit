@@ -1,4 +1,3 @@
-from pathlib import Path
 from textwrap import dedent
 import xml.etree.ElementTree as ET  # noqa
 
@@ -13,22 +12,6 @@ from diagram import Diagram, SUIT_PATHS
 from svg_page import SvgPage
 from diagram_differ import DiagramDiffer
 from svg_diagram import SvgDiagram
-
-
-@pytest.fixture(scope='session')
-def session_diagram_differ():
-    """ Track all images compared in a session. """
-    diffs_path = Path(__file__).parent / 'image_diffs'
-    differ = DiagramDiffer(diffs_path)
-    yield differ
-    differ.remove_common_prefix()
-
-
-@pytest.fixture
-def diagram_differ(request, session_diagram_differ):
-    """ Pass the current request to the session image differ. """
-    session_diagram_differ.request = request
-    yield session_diagram_differ
 
 
 def test_basic(diagram_differ: DiagramDiffer):
