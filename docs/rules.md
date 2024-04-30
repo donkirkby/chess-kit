@@ -32,8 +32,9 @@ together.
     pieces can capture. (2 players, chess set, pencils, and paper)
 * [Adrenaline Chess][adrenaline-chess] adds power ups to chess. (2
     players, chess set, and checkers set)
-* [Booster Chess][booster-chess] use cards to boost your chess army.
-    (2 players, chess set, checkers set, and deck of cards)
+* [Tar Pit Chess][tar-pit-chess] use cards and checkers to trap your
+    opponent in tar. (2 players, chess set, checkers set, and deck of
+    cards)
 * [Chess Golf][chess-golf] makes players race to plan the best route,
     as the pieces caddy each other around the board. (1 or more players,
     chess set, deck of cards, timer, coins, pencil and paper)
@@ -53,7 +54,7 @@ together.
 [zombie-chess]: #zombie-chess
 [masquerade-chess]: #masquerade-chess
 [adrenaline-chess]: #adrenaline-chess
-[booster-chess]: #booster-chess
+[tar-pit-chess]: #tar-pit-chess
 [chess-golf]: #chess-golf
 [crowded-house]: #crowded-house
 [cooperative-chess]: #cooperative-chess
@@ -232,9 +233,6 @@ the remaining pieces to get an adrenaline rush, and adrenaline can make any
 piece a king. This game adds a little chaos to chess, and accelerates the end
 game.
 
-If you want to add even more chaos, Booster Chess uses playing cards to
-choose which pieces get a boost.
-
 ### Equipment
 A standard chess set and a standard set of 24 checkers. The checkers
 must be stackable, and you must be able to stack a chess piece on top of the
@@ -296,11 +294,9 @@ king, even if you then use an extra move to block the check again.
 Win by checkmate, as in regular chess, but you may use extra moves to threaten
 the king.
 
-## Booster Chess
-Start every game with a booster pack of cards to make your pieces better or
-hobble your opponent's pieces.
-
-If you want to start simpler, Adrenaline Chess removes the cards and hobbling.
+## Tar Pit Chess
+Your checkers can cover your opponent's pieces in tar to slow them down, and
+your cards limit where you can play those checkers.
 
 ### Equipment
 A standard chess set, a standard checkers set, and a standard deck of cards.
@@ -326,8 +322,8 @@ show them to your opponent. Place the rest of the cards in a draw stack.
 Your turn has up to four parts:
 
 * You must **move** a chess piece.
-* If you moved a boosted piece, you may **spend** checkers to also move it like a
-  king.
+* If you moved a piece with your own checker under it, you may **throw** the
+  checker under a neighbouring piece.
 * You may **add** a checker, by playing a card.
 * Finally, **draw** cards until you have one card for every checker in front of
   you.
@@ -335,21 +331,27 @@ Your turn has up to four parts:
 Chess pieces move normally, unless they are stacked on checkers. Pieces on
 checkers are modified as follows:
 
-* Your piece on your checker is boosted: after moving it normally, you may move
-  it like a king, one space in any direction. If you make the king's move,
-  remove the checker and place it in front of you. If the piece is on more than
-  one checker, you may continue spending checkers to make more king's moves on
-  the same turn.
-* Your piece on your opponent's checker is hobbled: pawns cannot move at all,
+* Your piece on your checker is carrying a bucket of tar: after moving your
+  piece normally, you may throw the tar at one of your opponent's pieces or pass
+  it to one of your own. Move the checker like a king, one space in any
+  direction, to place it under another piece of either colour. Leave your piece
+  where it ended its move. You can only move a checker under another piece, it
+  can't sit alone on a square. If you move a piece stacked on more than one of
+  your checkers, you may move all its checkers together as a stack. The stack
+  may make up to one king move per checker in a single turn, but you have to
+  remove one checker from the board for each move after the first one. The stack
+  must end up under a chess piece. As an example, you move your pawn stacked on
+  three of your checkers, then you move all three checkers two squares. You must
+  remove one of the checkers from the stack.
+* Your piece on your opponent's checker is tarred: pawns cannot move at all,
   and other pieces move like pawns. If it is on more than one checker, it's
-  still hobbled, but no worse.
+  still tarred, but no worse.
 
 If one of your pieces is on a black and a white checker, immediately remove one
 checker of each colour and return them to their owners. Keep removing pairs of
 black and white checkers, if there are more.
 
-When you move a piece, it brings any checkers along with it, except a spent
-booster.
+When you move a piece, it brings any checkers along with it.
 
 #### Adding and Capturing Checkers
 After you finish moving, you may play one of your cards to add a checker. You
@@ -366,36 +368,28 @@ Play your card to a discard pile next to the draw pile, and shuffle the discard
 pile to make a new draw pile if it runs out.
 
 When you capture a piece, your piece keeps any checkers that the captured piece
-was stacked on. Capturing a boosted piece leaves you hobbled, but capturing a
-hobbled piece leaves you boosted! Don't forget that opposite colour checkers
+was stacked on. Capturing a carrying piece leaves you tarred, and capturing a
+tarred piece leaves you carrying. Don't forget that opposite colour checkers
 immediately cancel each other and get returned to their owners.
 
-Besides neutralizing a hobble checker by adding one of your own, there is
+Besides neutralizing a tarring checker by adding one of your own, there is
 another way to remove it: get it to the back rank of the board. If you do, just
-remove the hobble checker and return it to your opponent.
+remove the tarring checker and return it to your opponent.
 
 #### Drawing Cards
 After moving a piece and possibly playing a card, draw cards until you have the
 same number of cards as checkers off the board. In practice, this means that
-you only draw if you spent a booster checker or received a hobble checker from
-your opponent.
+you draw when you or your opponent cancel a pair of checkers or when you throw a
+stack of checkers more than one square.
 
 #### Special Cases
-You may not castle, if either the king or the rook is boosted. During castling,
-you may not move your king through squares that could be attacked by booster
-moves. You may not move a piece to reveal a check on your king, even if you then
-use a booster move to block the check again.
+You may not castle, if either the king or the rook have checkers.
 
-Hobbled pieces move like pawns, but do not move two spaces on their first move.
-You may capture a pawn en passant at the usual square after a regular move of
-two squares. You may not capture en passant if the pawn used a booster move, and
-you may not use a booster move to capture en passant. A pawn that moves to the
-back rank immediately promotes, and may continue making booster moves if it is
-still boosted.
+Tarred pieces move like pawns, but do not move two spaces on their first move. A 
+tarred piece may capture an enemy pawn en passant.
 
 ### Winning
-Win by checkmate, as in regular chess, but you may use booster moves to threaten
-the king.
+Win by checkmate, as in regular chess.
 
 ### Variants
 Make the game more predictable by using fewer checkers cards in the deck or

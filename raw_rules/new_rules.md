@@ -104,6 +104,117 @@ These ideas seemed promising, but didn't work at the table. Maybe I'll come back
 to them, if I get inspired. Masquerade Chess seemed broken for 15 years, before
 I had the idea to hide only the capture moves.
 
+## Booster Chess
+Start every game with a booster pack of cards to make your pieces better or
+hobble your opponent's pieces.
+
+This was an attempt to add the chaos of cards to Adrenaline Chess, but players
+would often get good enough cards that they could stomp their opponent in under
+ten moves. It also ended up feeling too similar to Adrenaline Chess. I solved
+both problems by dropping the boost and keeping only the hobble to make Tar Pit
+Chess.
+
+### Equipment
+A standard chess set, a standard checkers set, and a standard deck of cards.
+
+The checkers must be stackable, and you must be able to stack a chess piece on
+top of the checkers. Coins or poker chips would also work, as long as they fit
+inside the chess board squares. You need 6 each of 2 colours.
+
+From the deck of cards, use one card to represent each piece, as shown in
+appendix A. You also need two cards of each colour to represent checkers, so add
+the sixes to the deck. That should make 36 cards in total, put the rest of the
+deck aside.
+
+### Setup
+Set up the chess pieces in the standard start position, and randomly choose who
+will play white. Place 6 light checkers in front of White and 6 dark checkers in
+front of Black. You won't need the rest of the checkers, so put them aside.
+
+Shuffle the deck and deal 6 cards to each player. Look at your cards, but don't
+show them to your opponent. Place the rest of the cards in a draw stack.
+
+### Play
+Your turn has up to four parts:
+
+* You must **move** a chess piece.
+* If you moved a boosted piece, you may **spend** checkers to also move it like a
+  king.
+* You may **add** a checker, by playing a card.
+* Finally, **draw** cards until you have one card for every checker in front of
+  you.
+
+Chess pieces move normally, unless they are stacked on checkers. Pieces on
+checkers are modified as follows:
+
+* Your piece on your checker is boosted: after moving it normally, you may move
+  it like a king, one space in any direction. If you make the king's move,
+  remove the checker and place it in front of you. If the piece is on more than
+  one checker, you may continue spending checkers to make more king's moves on
+  the same turn.
+* Your piece on your opponent's checker is hobbled: pawns cannot move at all,
+  and other pieces move like pawns. If it is on more than one checker, it's
+  still hobbled, but no worse.
+
+If one of your pieces is on a black and a white checker, immediately remove one
+checker of each colour and return them to their owners. Keep removing pairs of
+black and white checkers, if there are more.
+
+When you move a piece, it brings any checkers along with it, except a spent
+booster.
+
+#### Adding and Capturing Checkers
+After you finish moving, you may play one of your cards to add a checker. You
+may only add checkers of your own colour, and you may add one to a piece that
+matches the card.
+
+Checkers cards match any piece of that colour, so you may use a black checker
+card to add one of your checkers to any black piece or use a white checker card
+to add one of your checkers to any white piece. If there are no pieces left on
+the board to match a card, you may use it to add one of your checkers to any
+piece of the card's colour, just like a checkers card.
+
+Play your card to a discard pile next to the draw pile, and shuffle the discard
+pile to make a new draw pile if it runs out.
+
+When you capture a piece, your piece keeps any checkers that the captured piece
+was stacked on. Capturing a boosted piece leaves you hobbled, but capturing a
+hobbled piece leaves you boosted! Don't forget that opposite colour checkers
+immediately cancel each other and get returned to their owners.
+
+Besides neutralizing a hobble checker by adding one of your own, there is
+another way to remove it: get it to the back rank of the board. If you do, just
+remove the hobble checker and return it to your opponent.
+
+#### Drawing Cards
+After moving a piece and possibly playing a card, draw cards until you have the
+same number of cards as checkers off the board. In practice, this means that
+you only draw if you spent a booster checker or received a hobble checker from
+your opponent.
+
+#### Special Cases
+You may not castle, if either the king or the rook is boosted. During castling,
+you may not move your king through squares that could be attacked by booster
+moves. You may not move a piece to reveal a check on your king, even if you then
+use a booster move to block the check again.
+
+Hobbled pieces move like pawns, but do not move two spaces on their first move.
+You may capture a pawn en passant at the usual square after a regular move of
+two squares. You may not capture en passant if the pawn used a booster move, and
+you may not use a booster move to capture en passant. A pawn that moves to the
+back rank immediately promotes, and may continue making booster moves if it is
+still boosted.
+
+### Winning
+Win by checkmate, as in regular chess, but you may use booster moves to threaten
+the king.
+
+### Variants
+Make the game more predictable by using fewer checkers cards in the deck or
+fewer checkers during setup. Make it less predictable by using more. Handicap a
+player by giving them fewer checkers than their opponent. During setup, always
+deal one card for each checker.
+
 ## Neighbour Chess Solitaire
 Pairs of chess pieces help each other across the board until you gather them all
 into one connected group. Keep adding pieces until you have enough to start, but
