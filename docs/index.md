@@ -30,8 +30,9 @@ together.
     pieces can capture. (2 players, chess set, pencils, and paper)
 * [Adrenaline Chess][adrenaline-chess] adds power ups to chess. (2
     players, chess set, and checkers set)
-* [Booster Chess][booster-chess] use cards to boost your chess army.
-    (2 players, chess set, checkers set, and deck of cards)
+* [Tar Pit Chess][tar-pit-chess] use cards and checkers to trap your
+    opponent in tar. (2 players, chess set, checkers set, and deck of
+    cards)
 * [Chess Golf][chess-golf] makes players race to plan the best route,
     as the pieces caddy each other around the board. (1 or more players,
     chess set, deck of cards, timer, coins, pencil and paper)
@@ -49,7 +50,7 @@ together.
 [zombie-chess]: rules.md#zombie-chess
 [masquerade-chess]: rules.md#masquerade-chess
 [adrenaline-chess]: rules.md#adrenaline-chess
-[booster-chess]: rules.md#booster-chess
+[tar-pit-chess]: rules.md#tar-pit-chess
 [chess-golf]: rules.md#chess-golf
 [crowded-house]: rules.md#crowded-house
 [cooperative-chess]: rules.md#cooperative-chess
