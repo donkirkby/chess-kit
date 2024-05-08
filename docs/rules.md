@@ -343,7 +343,10 @@ checkers are modified as follows:
 
 When you move a piece, it brings any checkers along with it. If you move a
 tarred piece all the way to your back rank, remove the checker and return it to
-your opponent, a bit like promoting a pawn.
+your opponent, a bit like promoting a pawn. If your opponent adds a checker to
+your piece that's already on your back rank, the opponent's checker is
+immediately removed. If your piece had one of your own checkers, that's also
+removed.
 
 #### Adding and Capturing Checkers
 After you finish moving and throwing, you may play one of your cards to add a
