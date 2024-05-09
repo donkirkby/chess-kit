@@ -69,9 +69,6 @@ SUIT_PATHS = dict(
 
 
 class Diagram:
-    CARDS_PATH = Path(__file__).parent / 'English_pattern_playing_cards_deck.svg'
-    CARD_BACK_PATH = Path(__file__).parent / 'Atlas_deck_card_back_blue_and_brown.svg'
-
     def __init__(self,
                  page_width: float,
                  page_height: float,
@@ -100,8 +97,6 @@ class Diagram:
         corner_text_args = dict(text_anchor='middle',
                                 font_family='Raleway',
                                 font_size=round(0.375*square_size))
-        _, card_map = ET.XMLID(self.CARDS_PATH.read_text())
-        _, card_backs = ET.XMLID(self.CARD_BACK_PATH.read_text())
         margins = [0, 0, 0, 0]
         for line in lines[8:]:
             command, body = line.split(':', maxsplit=1)

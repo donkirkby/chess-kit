@@ -30,7 +30,7 @@ jobs:
       run: |
         pipenv run pytest
     - name: Upload image diffs
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       if: ${{ always() && steps.test.outcome == 'failure' }}
       with:
         name: image-diffs

@@ -102,11 +102,13 @@ def test_checkers(diagram_differ: DiagramDiffer):
                            fill='none',
                            stroke='white',
                            stroke_width=4.5))
+    text_group = extra.g(transform='scale(0.5)')  # Avoids font difference.
+    extra.add(text_group)
     text_args = dict(text_anchor='middle',
                      font_family='Raleway',
-                     font_size=25)
-    extra.add(extra.text('5', (37.5+9*45, 313-3*45), **text_args))
-    extra.add(extra.text('4', (37.5+9*45, 313-2*45), **text_args))
+                     font_size=50)
+    text_group.add(extra.text('5', (75+9*90, 626-3*90), **text_args))
+    text_group.add(extra.text('4', (75+9*90, 626-2*90), **text_args))
 
     expected_tree.extend(extra.get_xml())
     expected_diagram = SvgDiagram(ET.tostring(expected_tree,
