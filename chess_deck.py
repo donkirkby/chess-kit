@@ -404,8 +404,9 @@ class SvgCheckers(SvgCard):
         group.append(circle2)
         count = ET.SubElement(group,
                               'text',
-                              attrib={'x': '75',
+                              attrib={'x': '88',
                                       'y': '190',
+                                      'text-anchor': 'middle',
                                       'font-family': 'Raleway',
                                       'font-size': '50'})
         count.text = self.white_count
