@@ -204,9 +204,9 @@ class SvgCard(SvgGroup):
         self.rect_height = self.BASE_HEIGHT
         self.has_border = has_border
         self.has_outline = has_outline
+        self.fill = 'white'
 
     def to_element(self) -> ET.Element:
-        symbol_size = SvgSymbol.BASE_SIZE / 2
         group = super().to_element()
         x = y = 0
         rect_width = self.rect_width
@@ -220,21 +220,21 @@ class SvgCard(SvgGroup):
                                             'height': str(rect_height),
                                             'stroke': 'black',
                                             'stroke-width': str(rect_width*0.01),
-                                            'fill': 'white'}))
+                                            'fill': self.fill}))
         elif not self.has_border:
             group.append(ET.Element('rect',
                                     attrib={'x': str(x),
                                             'y': str(y),
                                             'width': str(rect_width),
                                             'height': str(rect_height),
-                                            'fill': 'white'}))
+                                            'fill': self.fill}))
         else:
             for layer in range(4):
                 stroke_width = '4' if layer == 0 else '2'
                 stroke = '#' + ('bcde'[layer]) * 6
                 group.append(ET.Element(
                     'rect',
-                    {'fill': 'white',
+                    {'fill': self.fill,
                      'x': str(x),
                      'y': str(y),
                      'width': str(rect_width),
@@ -246,6 +246,10 @@ class SvgCard(SvgGroup):
                 y += diff
                 rect_width -= 2*diff
                 rect_height -= 2*diff
+        self.add_symbols(group)
+        return group
+
+    def add_symbols(self, group: ET.Element) -> None:
         if self.pips:
             pips = SvgPips(self.pips)
             pips.x = self.BASE_WIDTH / 2
@@ -273,6 +277,7 @@ class SvgCard(SvgGroup):
         bar_path = deepcopy(bar_path)
         bar_path.attrib['transform'] = letter_path.attrib['transform']
         group.append(bar_path)
+        symbol_size = SvgSymbol.BASE_SIZE / 2
         symbol1 = SvgSymbol(self.symbol)
         symbol1.scale = 1.75
         symbol1.x = self.BASE_WIDTH / 2
@@ -282,7 +287,6 @@ class SvgCard(SvgGroup):
         symbol2.y = self.BASE_HEIGHT / 2 + symbol_size * 2
         symbol2.rotation = 180
         group.append(symbol2.to_element())
-        return group
 
 
 class SvgCardBack(SvgCard):
@@ -376,6 +380,39 @@ class SvgCardBack(SvgCard):
     @staticmethod
     def sigmoid(x: float):
         return 1 / (1 + math.exp(-x))
+
+
+class SvgCheckers(SvgCard):
+    def __init__(self, white_count: str, black_count: str) -> None:
+        super().__init__(symbol='p', has_border=False, has_outline=True)
+        self.white_count = white_count
+        self.black_count = black_count
+        self.fill = '#ffce9e'
+    
+    def add_symbols(self, group: ET.Element) -> None:
+        circle = ET.SubElement(group,
+                               'circle',
+                               attrib={'cx': '88',
+                                       'cy': '88',
+                                       'r': '40.5',
+                                       'fill': 'none',
+                                       'stroke': 'black',
+                                       'stroke-width': '9'})
+        circle2 = deepcopy(circle)
+        circle2.set('cy', '178')
+        circle2.set('stroke', 'white')
+        group.append(circle2)
+        count = ET.SubElement(group,
+                              'text',
+                              attrib={'x': '75',
+                                      'y': '190',
+                                      'font-family': 'Raleway',
+                                      'font-size': '50'})
+        count.text = self.white_count
+        count2 = deepcopy(count)
+        count2.set('y', '100')
+        count2.text = self.black_count
+        group.append(count2)
 
 
 class SvgGrid(SvgGroup):

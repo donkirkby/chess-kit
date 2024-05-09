@@ -322,7 +322,7 @@ show them to your opponent. Place the rest of the cards in a draw stack.
 Your turn has up to four parts:
 
 * You must **move** a chess piece.
-* If you moved a piece with your own checker under it, you may **throw** the
+* If the piece you moved has your own checker under it, you may **throw** the
   checker under a neighbouring piece.
 * You may **add** a checker, by playing a card.
 * Finally, **draw** cards until you have one card for every checker in front of
@@ -368,6 +368,30 @@ When you capture a piece, your piece keeps any checker that the captured piece
 was stacked on. Capturing a carrying piece leaves you tarred, and capturing a
 tarred piece leaves you carrying.
 
+Here's an example that shows all four parts of a turn:
+
+![Diagram](images/rules/tar-pit-chess1.png)
+
+It's Black's turn, and the diagram shows Black's hand, as well as the card that
+White discarded on the previous turn. It also shows the back of White's hand and
+each player's stack of available checkers.
+
+Black **moves** the knight to e4, and captures a black checker. The knight is
+now carrying a bucket of tar.
+
+![Diagram](images/rules/tar-pit-chess2.png)
+
+Black **throws** the tar that was just captured onto the pawn at f3.
+
+![Diagram](images/rules/tar-pit-chess3.png)
+
+Black **adds** a checker at e4, by playing a black knight card.
+
+![Diagram](images/rules/tar-pit-chess4.png)
+
+Finally, Black has three cards and four checkers off the board, so **draws** one
+card.
+
 #### Multiple Checkers
 Chess pieces may never have more than one checker under them. When you capture
 or add a checker, it may have to combine with a checker that was already there:
@@ -379,6 +403,17 @@ or add a checker, it may have to combine with a checker that was already there:
 You may play a card to add a checker to a piece that already has your checker
 under it, but you immediately get the checker back. That can be a way to cycle
 through the cards, if you're hoping to draw something better.
+
+Here's a different way to play a card in the example above. Instead of adding a
+checker to the knight at e4, Black plays the black pawn card to add a checker to
+the pawn at f5. The black checker immediately cancels out the white checker that
+was there, and both are returned to their owners.
+
+![Diagram](images/rules/tar-pit-chess5.png)
+
+Now, White can still capture the pawn at f5, but can't also throw tar at the
+knight. Black still has the black knight card to add a checker on a later turn
+that might be in a good position to tar the white king.
 
 #### Removing Tar
 As a reminder, there are four ways to remove the checker from one of your tarred

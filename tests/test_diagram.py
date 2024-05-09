@@ -63,6 +63,62 @@ def test_arrows(diagram_differ: DiagramDiffer):
     diagram_differ.assert_equal(svg_diagram, expected_diagram)
 
 
+def test_checkers(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        . . . k q . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . Q . . .
+        . . . P . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . K . . . .
+        margins: 0, 0, 4, 0
+        checkers: 4, 5
+        """)
+    expected_text = diagram_text.split('margins')[0]
+    expected_board = parse_board(expected_text)
+    expected_svg = chess.svg.board(
+        expected_board,
+        size=250)
+    SvgPage.register_svg()
+    expected_tree = ET.fromstring(expected_svg)
+    expected_tree.set('width', '285')
+    expected_tree.set('height', '195')
+    expected_tree.set('viewBox', '0 -0 570 390')
+    extra = Drawing(size=(300, 240))
+    extra.add(extra.rect((398.5, 128.5), (85.5, 133),
+                         rx=3.8475,
+                         stroke='black',
+                         stroke_width=0.855,
+                         fill='#ffce9e'))
+    extra.add(extra.circle((37.5+9*45, 37.5+3*45),
+                           20.25,
+                           fill='none',
+                           stroke='black',
+                           stroke_width=4.5))
+    extra.add(extra.circle((82.5+8*45, 82.5+3*45),
+                           20.25,
+                           fill='none',
+                           stroke='white',
+                           stroke_width=4.5))
+    text_args = dict(text_anchor='middle',
+                     font_family='Raleway',
+                     font_size=25)
+    extra.add(extra.text('5', (37.5+9*45, 313-3*45), **text_args))
+    extra.add(extra.text('4', (37.5+9*45, 313-2*45), **text_args))
+
+    expected_tree.extend(extra.get_xml())
+    expected_diagram = SvgDiagram(ET.tostring(expected_tree,
+                                              encoding='unicode'))
+    ET.register_namespace('', '')  # Force registration again.
+
+    diagram = Diagram(570, 240, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
 def test_margin_arrows(diagram_differ: DiagramDiffer):
     diagram_text = dedent("""\
         . . . k q . . .

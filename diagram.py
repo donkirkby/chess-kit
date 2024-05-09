@@ -5,7 +5,7 @@ import chess.svg
 from svgwrite import Drawing
 
 from board_parser import parse_board
-from chess_deck import SvgCardBack, SvgCard, SvgSymbol
+from chess_deck import SvgCardBack, SvgCard, SvgSymbol, SvgCheckers
 from svg_diagram import SvgDiagram
 from svg_page import SvgPage
 
@@ -152,6 +152,13 @@ class Diagram:
                 card_svg.x = 45*x + 16
                 card_svg.y = 45*y + 16
                 extra_svg.append(card_svg.to_element())
+            elif command == 'checkers':
+                white_count, black_count = fields
+                checkers_svg = SvgCheckers(white_count, black_count)
+                checkers_svg.scale = 0.5
+                checkers_svg.x = 45*8.5 + 16
+                checkers_svg.y = 45*2.5 + 16
+                extra_svg.append(checkers_svg.to_element())
             else:
                 raise ValueError(f'Unknown diagram command: {command}.')
         original_view_size = 390  # chess library always uses this size
