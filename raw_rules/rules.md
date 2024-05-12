@@ -320,9 +320,9 @@ your cards limit where you can play those checkers.
 ### Equipment
 A standard chess set, a standard checkers set, and a standard deck of cards.
 
-The checkers must be stackable, and you must be able to stack a chess piece on
-top of the checkers. Coins or poker chips would also work, as long as they fit
-inside the chess board squares. You need 6 each of 2 colours.
+You must be able to stack a chess piece on top of a checker. Coins or poker
+chips would also work, as long as they fit inside the chess board squares. You
+need 12 each of two colours.
 
 From the deck of cards, use one card to represent each piece, as shown in
 appendix A. You also need two cards of each colour to represent checkers, so add
@@ -332,7 +332,7 @@ deck aside.
 ### Setup
 Set up the chess pieces in the standard start position, and randomly choose who
 will play white. Place 6 light checkers in front of White and 6 dark checkers in
-front of Black. You won't need the rest of the checkers, so put them aside.
+front of Black. Keep the extra checkers in a separate pile, but within reach.
 
 Shuffle the deck and deal 6 cards to each player. Look at your cards, but don't
 show them to your opponent. Place the rest of the cards in a draw stack.
@@ -343,7 +343,7 @@ Your turn has up to four parts:
 * You must **move** a chess piece.
 * If the piece you moved has your own checker under it, you may **throw** the
   checker under a neighbouring piece.
-* You may **add** a checker, by playing a card.
+* You may play a card to **add** a checker.
 * Finally, **draw** cards until you have one card for every checker in front of
   you.
 
@@ -360,23 +360,29 @@ checkers are modified as follows:
 * Your piece on your opponent's checker is tarred: pawns cannot move at all,
   and other pieces move like pawns.
 
-When you move a piece, it brings any checkers along with it. If you move a
-tarred piece all the way to your back rank, remove the checker and return it to
-your opponent, a bit like promoting a pawn. If your opponent adds a checker to
-your piece that's already on your back rank, the opponent's checker is
-immediately removed. If your piece had one of your own checkers, that's also
-removed.
+When you move a piece on a checker, it brings its checker along with it. If you
+move a tarred piece all the way to your back rank, remove the checker and return
+it to your opponent, a bit like promoting a pawn.
+
+If your opponent adds a checker to your piece that's already on your back rank,
+the opponent's checker is immediately removed. If your piece had one of your own
+checkers, that's also removed.
 
 #### Adding and Capturing Checkers
 After you finish moving and throwing, you may play one of your cards to add a
 checker. You may only add checkers of your own colour, and you may only add
 one to a piece that matches the card.
 
-Checkers cards match any piece of that colour, so you may use a black checker
-card to add one of your checkers to any black piece or use a white checker card
-to add one of your checkers to any white piece. If there are no pieces left on
-the board to match a card, you may use it to add one of your checkers to any
-piece of the card's colour, just like a checkers card.
+Checkers cards change how many cards and checkers you have. If you play your own
+colour checker card, place one of your extra checkers in front of you. Then draw
+cards until you have the same number of cards as you have checkers in front of
+you. If you play your opponent's colour checker card, they have to return one
+of their checkers to the extra pile. It can come from in front of them or on the
+board. If they now have more cards than checkers in front of them, they must
+discard a card of their choice.
+
+If there are no pieces left on the board to match a card, play it just like a
+checkers card of that colour.
 
 Play your card to a discard pile next to the draw pile, and shuffle the discard
 pile to make a new draw pile if it runs out.
@@ -386,6 +392,12 @@ Say "No card," if you choose not to play a card.
 When you capture a piece, your piece keeps any checker that the captured piece
 was stacked on. Capturing a carrying piece leaves you tarred, and capturing a
 tarred piece leaves you carrying.
+
+#### Drawing Cards
+After moving a piece and possibly playing a card, draw cards until you have the
+same number of cards as checkers in front of you. In practice, this means that
+you only draw after checkers combine and get returned or after playing a
+checkers card.
 
 Here's an example that shows all four parts of a turn:
 
@@ -416,8 +428,8 @@ It's Black's turn, and the diagram shows Black's hand, as well as the card that
 White discarded on the previous turn. It also shows the back of White's hand and
 each player's stack of available checkers.
 
-Black **moves** the knight to e4, and captures a black checker. The knight is
-now carrying a bucket of tar.
+Black **moves** the knight to e4, and captures a pawn plus a black checker. The
+knight is now carrying a bucket of tar.
 
     r n b q k b . r
     p p p p p . p p
@@ -443,7 +455,8 @@ now carrying a bucket of tar.
     card: back, 10, 6
     card: P, 10.5, 2.5
 
-Black **throws** the tar that was just captured onto the pawn at f3.
+Black **throws** the tar that was just captured onto the pawn at f3. Now the
+pawn can't capture the knight.
 
     r n b q k b . r
     p p p p p . p p
@@ -494,16 +507,16 @@ Black **adds** a checker at e4, by playing a black knight card.
     card: back, 10, 6
     card: n, 10.5, 2.5
 
-Finally, Black has three cards and four checkers off the board, so **draws** one
-card.
+Finally, Black has three cards and four checkers in front of them, so **draws**
+one card.
 
 #### Multiple Checkers
 Chess pieces may never have more than one checker under them. When you capture
 or add a checker, it may have to combine with a checker that was already there:
 
 * Checkers of opposite colours cancel out. Return both to their owners.
-* Checkers of the same colour repel each other. Keep one under the piece and
-  return the other to its owner.
+* Checkers of the same colour repel each other. Return one to its owner, and
+  keep one under the piece.
 
 You may play a card to add a checker to a piece that already has your checker
 under it, but you immediately get the checker back. That can be a way to cycle
@@ -543,23 +556,18 @@ that might be in a good position to tar the white king.
 As a reminder, there are four ways to remove the checker from one of your tarred
 pieces:
 
-1. Play a card that matches the piece or is wild. Your added checker will 
-   cancel out the tar checker.
+1. Play a card that matches the piece. Your added checker will cancel out the
+   tar checker.
 2. Move one of your carrying pieces next to your tarred piece, and pass your
    checker to it. Your passed checker will cancel out the tar checker.
-3. Capture your opponent's piece that is tarred with one of your checkers.
-   Remember that a tarred piece can only capture like a pawn: one space
-   diagonally. The captured checker will cancel out the tar checker.
+3. Capture one of your opponent's pieces that is tarred with one of your
+   checkers. Remember that a tarred piece can only capture like a pawn: one
+   space diagonally. The captured checker will cancel out the tar checker.
 4. Move the tarred piece like a pawn, all the way to your back rank, and then
    remove the checker.
 
 Only the first two are possible for tarred pawns, because they can't move at
 all.
-
-#### Drawing Cards
-After moving a piece and possibly playing a card, draw cards until you have the
-same number of cards as checkers off the board. In practice, this means that
-you only draw after checkers combine and get returned.
 
 #### Special Cases
 You may not castle, if either the king or the rook have a checker.
