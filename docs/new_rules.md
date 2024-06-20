@@ -7,6 +7,9 @@ These are new games that aren't ready yet. You can try them out and let me
 know what you think.
 
 ## Table of Contents
+* [Gravity Chess][gravity-chess] both players move in the same
+    direction, trying to stack pieces higher. (2 players, chess set, and
+    deck of cards)
 * [Parade Chess Solitaire][parade-chess-solitaire] pieces move each
     other into a connected group. (1 player, chess set, and deck of cards)
 * [Booster Chess][booster-chess] use cards to boost your chess army.
@@ -18,6 +21,7 @@ know what you think.
     disguise your chess pieces as checkers, then try to identify your
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
 
+[gravity-chess]: #gravity-chess
 [parade-chess-solitaire]: #parade-chess-solitaire
 [booster-chess]: #booster-chess
 [neighbour-chess-solitaire]: #neighbour-chess-solitaire
@@ -26,6 +30,80 @@ know what you think.
 # New Games
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
+
+## Gravity Chess
+This game was inspired by several video games that have pieces dropping down a
+well and stacking on the bottom. Its most unusual mechanics are that both
+players start on the same side of the board, and you move all your active pieces
+every turn.
+
+Design questions:
+
+1. Can the end game be improved?
+2. Can we make it easier to keep track of which pieces moved? Go from the bottom
+   up?
+
+### Equipment
+A standard chess set and a standard deck of 52 cards.
+
+### Setup
+Place all the chess pieces beside the board. Put away four pawns of each colour,
+you won't need them. One player takes a pawn of each colour and hides one in
+each hand. The other player picks a hand and then plays that colour.
+
+From the deck of cards, use one card to represent each piece, as shown in
+appendix A. To match the pieces, you'll only need four pawns of each colour, so
+you should end up with 24 cards.
+
+Put the rest of the cards away, you won't need them. Separate the cards by
+colour, give the black cards and pieces to the white player and the white cards
+and pieces to the black player. Each player should shuffle their cards face
+down without looking at them.
+
+### Goal
+Get more of your pieces stacked at the bottom of the board, and stack them in
+higher rows for more points.
+
+### Play
+Each turn has three phases:
+
+1. **Flip** a card for your opponent.
+2. **Move** all your active pieces, so they end up at least one row closer to
+   the bottom. However, you may capture a piece in the same row.
+3. **Add** your opponent's piece that matches the card to the top row in any
+   column.
+
+#### Moving Pieces
+Each turn, you must move all your active pieces, unless they are blocked by
+another piece or stacked on the bottom. Stacked pieces are explained below. When
+you move a piece, gravity pulls it down, so that the only legal moves are ones
+that end up at least one row closer to the bottom. There's an exception for
+captures: you may capture an opponent's piece with a legal move that ends on the
+same row or any row closer to the bottom. You may not capture stacked pieces, as
+explained below.
+
+Pawns may either capture one space diagonally downward or move one space
+downward to an empty square. On their first move, they may move two spaces
+downward if both squares are empty.
+
+White has no active pieces on the first turn, so has nothing to move.
+
+#### Stacked Pieces
+If a piece reaches the bottom row, it becomes stacked, and can't be moved or
+captured. If all possible downward moves for a piece are blocked by stacked
+pieces, then that piece is also stacked, and can't be moved or captured.
+
+### Game End
+Turns continue until Black adds the last white piece, then White gets one last
+turn without flipping a card or adding a piece.
+
+Count points for each player's stacked pieces. A stacked piece on the bottom row
+is worth one point, on the second row is worth two points, and so on. The player
+with the most points wins. In case of a tie, look at the highest row with
+stacked pieces. The player with the most stacked pieces in that row wins. If
+still tied, continue looking at the next row down until you find a difference.
+If all rows are tied, the game is tied.
+
 
 ## Parade Chess Solitaire
 Half the chess pieces are on parade, giving each other orders, and they have to
