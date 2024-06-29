@@ -88,22 +88,56 @@ downward if both squares are empty.
 
 White has no active pieces on the first turn, so has nothing to move.
 
+In this example, White has just flipped a black rook card, and has to choose
+which order to move their pieces.
+
+![Diagram](images/new_rules/gravity-chess1.png)
+
+If they move their bishop first, then the top pawn can also move.
+
+![Diagram](images/new_rules/gravity-chess2.png)
+
+If they move the top pawn first, they would say "This pawn can't move," and then
+move the bishop. Either way, the lower pawn can't move.
+
 #### Stacked Pieces
 If a piece reaches the bottom row, it becomes stacked, and can't be moved or
 captured. If all possible downward moves for a piece are blocked by stacked
 pieces, then that piece is also stacked, and can't be moved or captured.
 
+In this example, the two pieces on the bottom row are obviously stacked, but
+the only one stacked in the second row is the rook. The bishop can move down to
+h1, and the queen can move down to any of the three squares below it. If the
+rook weren't between them, the queen could capture the bishop, because it's not
+stacked. However, it can't capture the stacked rook.
+
+![Diagram](images/new_rules/gravity-chess3.png)
+
 ### Game End
 Turns continue until Black adds the last white piece, then White gets one last
 turn without flipping a card or adding a piece.
 
-Count points for each player's stacked pieces. A stacked piece on the bottom row
-is worth one point, on the second row is worth two points, and so on. The player
-with the most points wins. In case of a tie, look at the highest row with
-stacked pieces. The player with the most stacked pieces in that row wins. If
-still tied, continue looking at the next row down until you find a difference.
-If all rows are tied, the game is tied.
+Count points for each player's stacked and captured pieces. A captured piece
+is worth one point. A stacked piece on the bottom row is worth one point, on the
+second row is worth two points, and so on. The player with the most points wins.
+In case of a tie, look at the highest row with stacked pieces. The player with
+the most stacked pieces in that row wins. If still tied, continue looking at the
+next row down until you find a difference. If all rows are tied, the game is
+tied.
 
+In this example, the unstacked pieces have arrows showing all possible downward
+moves.
+
+![Diagram](images/new_rules/gravity-chess4.png)
+
+To calculate the score, count the pieces. White has 2 captured pieces for 2
+points, 1 stacked piece on the bottom row for 1 point, 3 stacked pieces on the
+second row for 6 points, 1 stacked piece on the third row for 3 points, and 1
+stacked piece on the fourth row for 4 points. Black has 4 captured pieces for 4
+points, 6 stacked pieces on the bottom row for 6 points, 1 stacked piece on the
+second row for 2 points, 1 stacked piece on the third row for 3 points, and 1
+stacked piece on the fourth row for 4 points. That makes a total of 16 for White
+and 19 for Black, so Black wins.
 
 ## Parade Chess Solitaire
 Half the chess pieces are on parade, giving each other orders, and they have to
