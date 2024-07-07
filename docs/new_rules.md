@@ -56,13 +56,13 @@ player picks a hand and then plays that colour. Don't worry, though, the
 simultaneous play means that White has less advantage.
 
 From the deck of cards, use one card to represent each piece type, as shown in
-appendix A. You should end up with 12 cards: 6 of each colour.
+appendix A. Exclude the pawns, so you should end up with 10 cards: 5 of each
+colour.
 
 Put the rest of the cards away, you won't need them. Separate the cards by
 colour, and give the black cards and pieces to the Black player and the white
-cards and pieces to the White player. Place all the chess pieces in the standard
-starting position, then move three of each player's pawns one square forward:
-the two rook pawns and the king pawn.
+cards and pieces to the White player. Place the chess pieces in the standard
+starting position.
 
 Finally, White picks two cards and places them face up in front of them. For
 your first game, pick king and rook.
@@ -76,21 +76,24 @@ start with two cards face up, and cannot choose those. Once all four cards are
 played, reveal them.
 
 Now players move the pieces that match their cards, in order from least to most
-valuable: pawn, then knight, then bishop, then rook, then queen, then king. If
-players chose the same two cards, then both cards are eliminated and no pieces
-move. If each player chose one matching card and one different card, then the
-matching card is eliminated and the piece for the other card makes two moves.
+valuable: knight, then bishop, then rook, then queen, then king. Any of the
+cards may be used to move a pawn, but they are still played in the order of the
+cards. If players chose the same two cards, then both cards are eliminated and
+no pieces move. If each player chose one matching card and one different card,
+then the matching card is eliminated and the other card makes two moves. You may
+make any combination of moves that match the card and pawn moves, but you may
+never move the same pawn twice in one turn.
 
 If you play a card, and it's not eliminated, you must make a move with that
-piece type. If you have no legal move with that piece type, you don't make a
-move for that card.
+piece type or with a pawn. If you have no legal move with that piece type or a
+pawn, you don't make a move for that card.
 
 Chess pieces move as in normal chess. Pawns can move two squares from the
 second rank. Castling is allowed with a king card, if neither the king nor the
-rook have moved, the squares between them are empty, and no opponent's pieces
-are threatening the king's square or any of the squares it will move through.
-Pawns do not capture en passant, but they do promote when they reach the back
-rank.
+rook have moved and the squares between them are empty. It doesn't matter if an
+opponent's piece is threatening the king's square or any of the squares it will
+move through. Pawns do not capture en passant, but they do promote when they
+reach the back rank.
 
 Once all the moves are finished, the player with four cards face up puts them
 all back in their hand. The other player leaves the two cards face up.

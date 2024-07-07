@@ -146,6 +146,39 @@ class RulesDocTemplate(SimpleDocTemplate):
                     (heading_level - 1, heading_text, self.page, key))
 
 
+def human_format_size(num: int) -> str:
+    """
+    Human-readable formatting of bytes, using binary (powers of 1024)
+    """
+
+    assert isinstance(num, int), "num must be an int"
+    assert num > 0, "num must be positive"
+
+    unit_labels: list[str] = ["B", "kB", "MB", "GB"]
+    last_label = unit_labels[-1]
+    unit_step = 1024
+    unit_step_thresh = unit_step - 0.5
+
+    for unit in unit_labels:
+        if num < unit_step_thresh:
+            # VERY IMPORTANT:
+            # Only accepts the CURRENT unit if we're BELOW the threshold where
+            # float rounding behavior would place us into the NEXT unit: F.ex.
+            # when rounding a float to 1 decimal, any number ">= 1023.95" will
+            # be rounded to "1024.0". Obviously we don't want ugly output such
+            # as "1024.0 KiB", since the proper term for that is "1.0 MiB".
+            break
+        if unit != last_label:
+            # We only shrink the number if we HAVEN'T reached the last unit.
+            # NOTE: These looped divisions accumulate floating point rounding
+            # errors, but each new division pushes the rounding errors further
+            # and further down in the decimals, so it doesn't matter at all.
+            num /= unit_step
+
+    # noinspection PyUnboundLocalVariable
+    return f"{num:.0f}{unit}"
+
+
 def load_contents_descriptions(contents_path: Path) -> typing.Dict[str, str]:
     if not contents_path.exists():
         return {}
@@ -407,10 +440,18 @@ def main():
                 [cc-by-sa]: https://creativecommons.org/licenses/by-sa/4.0/
                 '''))
 
+    old_size = pdf_path.lstat().st_size
     try:
-        run(['pdfsizeopt', '--v=30', pdf_path, pdf_path])
+        run(['pdfsizeopt', '--v=30', pdf_path, pdf_path], check=True)
     except FileNotFoundError:
         logger.warning('pdfsizeopt not installed, so PDF is not optimized.')
+    new_size = pdf_path.lstat().st_size
+    if new_size != old_size:
+        formatted_old_size = human_format_size(old_size)
+        formatted_new_size = human_format_size(new_size)
+        logger.info(f'Optimized from {formatted_old_size} to '
+                    f'{formatted_new_size}.')
+
     try:
         Popen(["evince", pdf_path])
     except FileNotFoundError:
