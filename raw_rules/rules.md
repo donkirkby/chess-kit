@@ -222,6 +222,126 @@ it for 15 years. Masquerade Chess returns to the standard Chess moves, and
 players only learn about their pieces during capture, which slows the pace of
 the game.
 
+## Two Move Chess
+Players simultaneously choose two piece types to move, then move their chosen
+pieces from least to most valuable. It was inspired by Richard Vickery's
+[Nibelungenlied][Nibelungenlied].
+
+[Nibelungenlied]: https://boardgamegeek.com/boardgame/7555/nibelungenlied
+
+### Equipment
+A standard chess set and a standard deck of 52 cards.
+
+### Goal
+Capture your opponent's king. There's no check or checkmate, because the cards
+and simultaneous choices mean that a piece threatening the king might not be
+allowed to make the capture.
+
+### Setup
+One player takes a pawn of each colour and hides one in each hand. The other
+player picks a hand and then plays that colour. Don't worry, though, the
+simultaneous play means that White has less advantage.
+
+From the deck of cards, use one card to represent each piece type, as shown in
+appendix A. Exclude the pawns, so you should end up with 10 cards: 5 of each
+colour.
+
+Put the rest of the cards away, you won't need them. Separate the cards by
+colour, and give the black cards and pieces to the Black player and the white
+cards and pieces to the White player. Place the chess pieces in the standard
+starting position.
+
+Finally, White picks two cards and places them face up in front of them. For
+your first game, pick king and rook.
+
+### Play
+Each turn has two phases, played by both players at the same time: **choose**
+cards, then **move** pieces from least to most valuable.
+
+Both players secretly choose two cards and play them face down. One player will
+start with two cards face up, and cannot choose those. Once all four cards are
+played, reveal them.
+
+Now players use their cards to move pieces, ordering the cards from least to
+most valuable: knight, then bishop, then rook, then queen, then king. Cards can
+be used to move either a piece of matching type, or one of the player's least
+valuable pieces (usually a pawn). If all of a player's pawns are captured or
+blocked, they could use any card to move a knight or whatever their least
+valuable, movable piece is. If cards are used to move a different type of piece,
+they are still played in the order of the cards.
+
+If both players chose the same two cards, then both cards are eliminated and no
+pieces move. If each player chose one matching card and one different card, then
+the matching card is eliminated and the other card makes two moves. You may move
+any combination of pieces that match the cards and pawns, but you may never
+move the same pawn twice in one turn.
+
+If you play a card, and it's not eliminated by matching your opponent's card,
+you must make a move with that piece type or with your least valuable, movable
+piece type.
+
+Chess pieces move as in normal chess. Pawns can move two squares from the
+second rank. Castling is allowed with a king card, if neither the king nor the
+rook have moved and the squares between them are empty. It doesn't matter if an
+opponent's piece is threatening the king's square or any of the squares it will
+move through. Pawns do not capture en passant, but they do promote when they
+reach the back rank.
+
+Once all the moves are finished, the player with four cards face up puts them
+all back in their hand. The other player leaves the two cards face up.
+
+Here's an example turn, starting with White's Knight and Rook cards left on the
+table from the previous turn.
+
+    r n . . k b n r
+    p b p p . p p p
+    . p . . . q . .
+    . . . N p . . .
+    . . B . P . . .
+    . . . . . . . .
+    P P P P . P P P
+    R . B Q K . N R
+    margins: 0, 0, 3, 0
+    card: N, 8.5, 5
+    card: R, 9, 5
+
+Black is threatening to capture the king with two queen moves, so White should
+probably play a queen card to block. Black is also threatening White's knight
+and bishop with two bishop moves, so White decides to play bishop and queen
+cards.
+
+Black decides to save the queen for next turn, so they won't have to leave it on
+the table. Instead, they play the bishop to stop White from threatening the
+king or bishop. White's only two-move threat on the king is the knight, which
+they can't play this turn, so White plays a rook to avoid any chance of both
+cards matching and skipping a turn where they have more information.
+
+When the cards are revealed, the bishops cancel each other, leaving Black with
+two rook moves, then White with two queen moves. Black moves the h pawn forward
+two, then follows it with the rook. White decides not to capture the black
+queen or the black rook, because the queen would almost certainly be captured
+next turn. Instead, they move the c pawn and bring the queen out that way.
+
+    r n . . k b n .
+    p b p p . p p .
+    . p . . . q . r
+    . . . N p . . p
+    . . B . P . . .
+    . Q P . . . . .
+    P P . P . P P P
+    R . B . K . N R
+    margins: 0, 0, 3, 0
+    card: N, 8.5, 5
+    card: R, 9, 5
+    card: B, 8.5, 4
+    card: Q, 9, 4
+    card: b, 8.5, 0
+    card: r, 9, 0
+    arrow: h7, h5, black
+    arrow: h8, h6, black
+    arrow: c2, c3, white
+    arrow: d1, b3, white
+
 ## Adrenaline Chess
 What if taking your opponent's piece frightened the others so much that they
 became more aggressive? Every time you take a piece, you have to choose one of

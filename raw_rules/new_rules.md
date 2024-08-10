@@ -11,69 +11,6 @@ know what you think.
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
 
-## Two Move Chess
-Players simultaneously choose two piece types to move, then move their chosen
-pieces from least to most valuable. It was inspired by Richard Vickery's
-[Nibelungenlied][Nibelungenlied].
-
-[Nibelungenlied]: https://boardgamegeek.com/boardgame/7555/nibelungenlied
-
-### Equipment
-A standard chess set and a standard deck of 52 cards.
-
-### Goal
-Capture your opponent's king. There's no check or checkmate, because the cards
-and simultaneous choices mean that a piece threatening the king might not be
-allowed to make the capture.
-
-### Setup
-One player takes a pawn of each colour and hides one in each hand. The other
-player picks a hand and then plays that colour. Don't worry, though, the
-simultaneous play means that White has less advantage.
-
-From the deck of cards, use one card to represent each piece type, as shown in
-appendix A. Exclude the pawns, so you should end up with 10 cards: 5 of each
-colour.
-
-Put the rest of the cards away, you won't need them. Separate the cards by
-colour, and give the black cards and pieces to the Black player and the white
-cards and pieces to the White player. Place the chess pieces in the standard
-starting position.
-
-Finally, White picks two cards and places them face up in front of them. For
-your first game, pick king and rook.
-
-### Play
-Each turn has two phases, played by both players at the same time: **choose**
-cards, then **move** pieces from least to most valuable.
-
-Both players secretly choose two cards and play them face down. One player will
-start with two cards face up, and cannot choose those. Once all four cards are
-played, reveal them.
-
-Now players move the pieces that match their cards, in order from least to most
-valuable: knight, then bishop, then rook, then queen, then king. Any of the
-cards may be used to move a pawn, but they are still played in the order of the
-cards. If players chose the same two cards, then both cards are eliminated and
-no pieces move. If each player chose one matching card and one different card,
-then the matching card is eliminated and the other card makes two moves. You may
-make any combination of moves that match the card and pawn moves, but you may
-never move the same pawn twice in one turn.
-
-If you play a card, and it's not eliminated, you must make a move with that
-piece type or with a pawn. If you have no legal move with that piece type or a
-pawn, you don't make a move for that card.
-
-Chess pieces move as in normal chess. Pawns can move two squares from the
-second rank. Castling is allowed with a king card, if neither the king nor the
-rook have moved and the squares between them are empty. It doesn't matter if an
-opponent's piece is threatening the king's square or any of the squares it will
-move through. Pawns do not capture en passant, but they do promote when they
-reach the back rank.
-
-Once all the moves are finished, the player with four cards face up puts them
-all back in their hand. The other player leaves the two cards face up.
-
 ## Gravity Chess
 This game was inspired by several video games that have pieces dropping down a
 well and stacking on the bottom. Its most unusual mechanics are that both
