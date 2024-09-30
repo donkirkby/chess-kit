@@ -7,12 +7,16 @@ These are new games that aren't ready yet. You can try them out and let me
 know what you think.
 
 ## Table of Contents
-* [Gravity Chess][gravity-chess] both players move in the same
+* [Synchronous Chess][synchronous-chess] makes both players write down
+    a move, then move at the same time. (2 players, chess set, paper and
+    pencil)
+* [Gravity Chess][gravity-chess] has both players move in the same
     direction, trying to stack pieces higher. (2 players, chess set, and
     deck of cards)
-* [Parade Chess Solitaire][parade-chess-solitaire] pieces move each
-    other into a connected group. (1 player, chess set, and deck of cards)
-* [Booster Chess][booster-chess] use cards to boost your chess army.
+* [Parade Chess Solitaire][parade-chess-solitaire] requires pieces to
+    move each other into a connected group. (1 player, chess set, and deck
+    of cards)
+* [Booster Chess][booster-chess] uses cards to boost your chess army.
     (2 players, chess set, checkers set, and deck of cards)
 * [Neighbour Chess Solitaire][neighbour-chess-solitaire] moves pieces
     using their neighbours' moves to form one connected group. (1 player,
@@ -21,6 +25,7 @@ know what you think.
     disguise your chess pieces as checkers, then try to identify your
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
 
+[synchronous-chess]: #synchronous-chess
 [gravity-chess]: #gravity-chess
 [parade-chess-solitaire]: #parade-chess-solitaire
 [booster-chess]: #booster-chess
@@ -30,6 +35,72 @@ know what you think.
 # New Games
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
+
+## Synchronous Chess
+There have been a few attempts to remove the first player's advantage by making
+moves simultaneously, and this is my favourite. Its history is a bit murky, but
+my best guess is that it was designed in 1991 by Vitaly Korolev. Then Ralf
+Hansmann, Arnold J. Krasowsky, and Andrey Krasowsky removed some special cases
+and added an exchange of blows after the simultaneous moves.
+
+Two Move Chess also has simultaneous choice of which pieces to move, but then
+moves are made in a defined order.
+
+### Equipment
+A standard chess set, plus paper and pencil for each player.
+
+### Setup
+Start with the regular opening position.
+
+### Goal
+Capture the opponent's king, or checkmate it so it is under attack and has no
+safe move.
+
+### Play
+The same moves are legal as in regular chess, but both players write down a move
+at the same time, then reveal them. Feel free to use any chess notation familiar
+to both players. The moves are resolved in one of three ways:
+
+1. If a move ends on a square that was occupied by a piece of the opposite
+   colour, and that piece didn't make a move at the same time, then it is
+   captured as normal.
+2. If a move ends on a square that was occupied by a piece of the opposite
+   colour, and that piece made a move at the same time, then it is not captured.
+   This means that two pieces may swap positions, if they try to capture each
+   other, and pieces sometimes move through each other.
+3. If both moves end on the same empty square, then both pieces are captured.
+
+Remember that a move must be legal in regular chess, before the opponent's piece
+moves.
+
+After resolving the synchronous moves, check to see if an exchange of blows is
+possible. This happens if either piece has moved to a square that was attacked
+by an opponent's piece before the move and is still attacked by the same piece.
+The opponent has the option to capture the piece that just moved. If they do so,
+check to see if the original player can now capture on the same square. This
+continues until no more captures are possible on that square, or a player
+decides not to capture. Each piece may only move once during an exchange of
+blows. The pieces that made simultaneous moves may participate in an exchange of
+blows, if they have a legal attack.
+
+If both players have the option to exchange blows, they should write down their
+moves at the same time, then reveal them. To pass, just write an X.
+
+If a king is under attack, it must move to a square that is not under attack
+before the move. Moving a piece to block the attack isn't legal, because the
+attacker could move at the same time. If a king has no safe squares to move to,
+then it is checkmate. Castling out of check is not legal, because all moves must
+be legal in regular chess.
+
+There is no "en passant" capture.
+
+If both kings are checkmated at the same time, it is a draw.
+
+If a king and any other piece move to the same square, both are captured and
+capturing the king is a win.
+
+All the regular causes of draws are still in effect: repeated positions or many
+moves without any pawn progress.
 
 ## Gravity Chess
 This game was inspired by several video games that have pieces dropping down a
@@ -143,6 +214,8 @@ and 19 for Black, so Black wins.
 Half the chess pieces are on parade, giving each other orders, and they have to
 form up into one connected group. Keep adding pieces until you have enough to
 start, but you get more points for fewer pieces making fewer moves.
+
+This is another game with a similar mechanic to Chess Golf, and it's a bit dry.
 
 ### Equipment
 A standard chess set and a standard deck of 52 cards.
