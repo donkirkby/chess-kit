@@ -298,6 +298,8 @@ class SvgCardBack(SvgCard):
         self.has_outline = has_outline
 
     def to_element(self) -> ET.Element:
+        light_fill = 'transparent'  # transparent or #ffce9e
+        dark_fill = 'black'  # black or #d18b47
         group = super().to_element()
         group.clear()
         board = ET.Element('g')
@@ -325,7 +327,7 @@ class SvgCardBack(SvgCard):
                                  width=str(columns * size),
                                  height=str(rows * size),
                                  rx=str(size / 3),
-                                 fill='transparent',
+                                 fill=light_fill,
                                  stroke='black'))
         clip_id = 'border-clip'
         clip_path = ET.Element('clipPath',
@@ -359,7 +361,7 @@ class SvgCardBack(SvgCard):
                     points.append(f'{x1},{y1}')
                 board.append(ET.Element('polygon',
                                         {'points': ' '.join(points),
-                                         'fill': 'black',
+                                         'fill': dark_fill,
                                          'clip-path': f'url(#{clip_id})'}))
         return group
 

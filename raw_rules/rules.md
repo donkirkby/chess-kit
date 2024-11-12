@@ -247,9 +247,9 @@ appendix A. Exclude the pawns, so you should end up with 10 cards: 5 of each
 colour.
 
 Put the rest of the cards away, you won't need them. Separate the cards by
-colour, and give the black cards and pieces to the Black player and the white
-cards and pieces to the White player. Place the chess pieces in the standard
-starting position.
+colour, and give the five black cards and 16 black pieces to the Black player
+and the white cards and pieces to the White player. Place the chess pieces in
+the standard starting position.
 
 Finally, White picks two cards and places them face up in front of them. For
 your first game, pick king and rook.
@@ -272,24 +272,31 @@ they are still played in the order of the cards.
 
 If both players chose the same two cards, then both cards are eliminated and no
 pieces move. If each player chose one matching card and one different card, then
-the matching card is eliminated and the other card makes two moves. You may move
-any combination of pieces that match the cards and pawns, but you may never
-move the same pawn twice in one turn.
+the matching card is eliminated and the other card makes two moves. When one
+card makes two moves, the two moves may be with the same piece or different
+pieces, even with different piece types, so long as each move matches the rules
+described above. Whether you're using one card or two, you may not move the same
+pawn twice in one turn.
 
 If you play a card, and it's not eliminated by matching your opponent's card,
 you must make a move with that piece type or with your least valuable, movable
-piece type.
-
-Chess pieces move as in normal chess. Pawns can move two squares from the
-second rank. Castling is allowed with a king card, if neither the king nor the
-rook have moved and the squares between them are empty. It doesn't matter if an
-opponent's piece is threatening the king's square or any of the squares it will
-move through. Pawns do not capture en passant, but they do promote when they
-reach the back rank.
+piece type. For example, if you play a rook card, have no rooks left, but do
+have at least one pawn that can move, you must move a pawn.
 
 Once all the moves are finished, the player with four cards face up puts them
 all back in their hand. The other player leaves the two cards face up.
 
+### Rare cases
+Chess pieces move as in normal chess. If you only remember the basic rules, you
+can probably skip this section and come back to it if you have questions.
+
+Pawns can move two squares from the second rank. Castling is allowed with a king
+card, if neither the king nor the rook have moved and the squares between them
+are empty. It doesn't matter if an opponent's piece is threatening the king's
+square or any of the squares it will move through. Pawns do not capture en
+passant, but they do promote when they reach the back rank.
+
+### Example
 Here's an example turn, starting with White's Knight and Rook cards left on the
 table from the previous turn.
 
@@ -1266,6 +1273,7 @@ everything. They should feel free to ask each other yes or no questions about
 their hands and to discuss general strategy, but shouldn't just reveal their
 hands.
 
+# By Other Designers
 ## Half Alice Chess
 Alice Chess is a popular variant invented by Vernon Parton in 1953, usually
 played with one set on two boards. Since I wanted all the games in this
@@ -1439,6 +1447,73 @@ before you can castle:
 The rest of the standard chess rules apply unchanged.
 
 [weeks]: https://www.mark-weeks.com/cfaa/chess960/c960strt.htm
+
+## Synchronous Chess
+There have been a few attempts to remove the first player's advantage by making
+moves simultaneously, and this is my favourite. Its history is a bit murky, but
+my best guess is that it was designed in 1991 by Vitaly Korolev. Then Ralf
+Hansmann, Arnold J. Krasowsky, and Andrey Krasowsky removed some special cases
+and added an exchange of blows after the simultaneous moves.
+
+Two Move Chess also has simultaneous choice of which pieces to move, but then
+moves are made in a defined order.
+
+### Equipment
+A standard chess set, plus paper and pencil for each player.
+
+### Setup
+Start with the regular opening position.
+
+### Goal
+Capture the opponent's king, or checkmate it so it is under attack and has no
+safe move.
+
+### Play
+The same moves are legal as in regular chess, but both players write down a move
+at the same time, then reveal them. Feel free to use any chess notation familiar
+to both players. The moves are resolved in one of three ways:
+
+1. If a move ends on a square that was occupied by a piece of the opposite
+   colour, and that piece didn't make a move at the same time, then it is
+   captured as normal.
+2. If a move ends on a square that was occupied by a piece of the opposite
+   colour, and that piece made a move at the same time, then it is not captured.
+   This means that two pieces may swap positions, if they try to capture each
+   other, and pieces sometimes move through each other.
+3. If both moves end on the same empty square, then both pieces are captured.
+
+Remember that a move must be legal in regular chess, before the opponent's piece
+moves.
+
+After resolving the synchronous moves, check to see if an exchange of blows is
+possible. This happens if either piece has moved to a square that was attacked
+by an opponent's piece before the move and is still attacked by the same piece.
+The opponent has the option to capture the piece that just moved. If they do so,
+check to see if the original player can now capture on the same square. This
+continues until no more captures are possible on that square, or a player
+decides not to capture. Each piece may only move once during an exchange of
+blows. The pieces that made simultaneous moves may participate in an exchange of
+blows, if they have a legal attack.
+
+If both players have the option to exchange blows, they should write down their
+moves at the same time, then reveal them. To pass, just write an X.
+
+If a king is under attack, it must move to a square that is not under attack
+before the move. Moving a piece to block the attack isn't legal, because the
+attacker could move at the same time. If a king has no safe squares to move to,
+then it is checkmate. Castling out of check is not legal, because all moves must
+be legal in regular chess.
+
+There is no "en passant" capture.
+
+If both kings are checkmated at the same time or captured at the same time, it
+is a draw.
+
+If a king and any other piece move to the same square, both are captured and
+capturing the king is a win.
+
+All the regular causes of draws are still in effect: repeated positions or many
+moves without any pawn progress.
 
 ## Appendix A
 Several of the games require a deck of cards to match each chess piece. There
