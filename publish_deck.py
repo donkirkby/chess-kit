@@ -10,7 +10,7 @@ from reportlab.pdfbase.pdfdoc import PDFInfo
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 
 import publish_rules
-from chess_deck import SvgCardBack, SvgCard, SvgGrid
+from chess_deck import SvgCardBack, SvgCard, SvgGrid, parse_player_aids, SvgAid
 from font_set import register_fonts
 from svg_diagram import SvgDiagram
 from svg_page import SvgPage
@@ -94,6 +94,20 @@ def main() -> None:
                     ['PPPP', 'RNBQ'],
                     ['PPPP', 'KBNR'],
                     [['C4', 'C7', 'C8', 'C9'], ['c4', 'c7', 'c8', 'c9']]]
+    page_grids = []
+    for symbol_page in symbol_pages:
+        grid = SvgGrid(symbol_page)
+        page_grids.append(grid)
+
+    player_aid_path = Path(__file__).parent / 'raw_rules' / 'player_aids.md'
+    player_aid_markdown = player_aid_path.read_text()
+    player_aid_groups = parse_player_aids(player_aid_markdown)
+    player_aid_cards = []
+    for game_name, markdown_states in player_aid_groups:
+        player_aid_cards.append(SvgAid(game_name, markdown_states))
+    while player_aid_cards:
+        symbol_pages.append([player_aid_cards[:4], player_aid_cards[4:8]])
+        player_aid_cards = player_aid_cards[8:]
     for symbol_page in symbol_pages:
         svg_page = SvgPage(7.5 * inch, 9 * inch)
         grid = SvgGrid(symbol_page)

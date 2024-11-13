@@ -7,6 +7,7 @@ from xml.etree import ElementTree as ET  # noqa
 import chess.svg
 import numpy as np
 
+from book_parser import parse, ParsingState
 from svg_page import SvgPage, SvgGroup
 
 PIP_PATTERNS = """\
@@ -418,8 +419,45 @@ class SvgCheckers(SvgCard):
         group.append(count2)
 
 
+class SvgAid(SvgCard):
+    def __init__(self,
+                 game_name: str,
+                 markdown_states: list[ParsingState],
+                 has_border: bool = True) -> None:
+        super().__init__(symbol='p', has_border=has_border, has_outline=False)
+        self.game_name = game_name
+        self.markdown_states = markdown_states
+
+    def add_symbols(self, group: ET.Element) -> None:
+        title = ET.Element('text',
+                           attrib={'x': '85.5',
+                                   'y': '32',
+                                   'text-anchor': 'middle',
+                                   'font-family': 'FredokaOne',
+                                   'font-size': '16'})
+        title.text = self.game_name
+        group.append(title)
+
+        y = 55
+        x = 15
+        text_attrib = {'font-family': 'Raleway',
+                       'font-size': '11'}
+        for state in self.markdown_states:
+            lines = state.raw_text.split('\n')
+            for line_text in lines:
+                stripped_line = line_text.lstrip(' ')
+                indent = (len(line_text) - len(stripped_line)) * 3
+                text_attrib['x'] = str(x + indent)
+                text_attrib['y'] = str(y)
+                line = ET.Element('text',
+                                  attrib=text_attrib)
+                line.text = stripped_line
+                group.append(line)
+                y += 12
+
+
 class SvgGrid(SvgGroup):
-    def __init__(self, symbols: typing.List[str]) -> None:
+    def __init__(self, symbols: list[str] | list[SvgCard]) -> None:
         super().__init__()
         self.symbols = symbols
         self.base_width = SvgCard.BASE_WIDTH * len(symbols[0])
@@ -429,7 +467,10 @@ class SvgGrid(SvgGroup):
         group = super().to_element()
         for i, row in enumerate(self.symbols):
             for j, symbol in enumerate(row):
-                card = SvgCard(symbol)
+                if isinstance(symbol, SvgCard):
+                    card = symbol
+                else:
+                    card = SvgCard(symbol)
                 card.x = j * card.BASE_WIDTH
                 card.y = i * card.BASE_HEIGHT
                 group.append(card.to_element())
@@ -497,3 +538,17 @@ class SvgSymbol(SvgGroup):
                                      'stroke-width': '1'}))
 
         return group
+
+
+def parse_player_aids(markdown):
+    states = parse(markdown)
+    player_aids = []
+    end = len(states)
+    for start, state in reversed(list(enumerate(states))):
+        if state.style.startswith('Heading'):
+            game_name = state.text
+            aid_states = states[start+1:end]
+            player_aids.append((game_name, aid_states))
+            end = start
+    player_aids.reverse()
+    return player_aids

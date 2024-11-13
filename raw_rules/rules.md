@@ -1574,8 +1574,9 @@ Here are the solutions to the Chess Golf problems.
 Know some other lighthearted chess variants? Ideas to share? Get in touch at
 [https://donkirkby.github.io/chess-kit][github].
 
-Zombie Chess, Masquerade Chess, Chess Golf, Crowded House, and Cooperative Chess
-are original games designed by [Don Kirkby][don].
+Zombie Chess, Masquerade Chess, Two Move Chess, Adrenaline Chess, Tar Pit Chess,
+Chess Golf, Crowded House, and Cooperative Chess are original games designed by
+[Don Kirkby][don].
 
 [github]: https://donkirkby.github.io/chess-kit
 [don]: https://donkirkby.github.io/

@@ -28,9 +28,12 @@ together.
     they capture. Start the game by choosing which capture moves each of
     your opponent's pieces will use, then try to deduce how each of your
     pieces can capture. (2 players, chess set, pencils, and paper)
+* [Two Move Chess][two-move-chess] makes both players simultaneously
+    choose two pieces to move each turn, but choosing the same piece
+    cancels out. (2 players, chess set, and deck of cards)
 * [Adrenaline Chess][adrenaline-chess] adds power ups to chess. (2
     players, chess set, and checkers set)
-* [Tar Pit Chess][tar-pit-chess] use cards and checkers to trap your
+* [Tar Pit Chess][tar-pit-chess] uses cards and checkers to trap your
     opponent in tar. (2 players, chess set, checkers set, and deck of
     cards)
 * [Chess Golf][chess-golf] makes players race to plan the best route,
@@ -46,9 +49,13 @@ together.
 * [Chess960][chess960] is a game designed by Bobby Fischer to mix up
     the game opening by randomly choosing your starting position. (2
     players, chess set, and deck of cards)
+* [Synchronous Chess][synchronous-chess] makes both players write down
+    a move, then move at the same time. (2 players, chess set, paper and
+    pencil)
 
 [zombie-chess]: rules.md#zombie-chess
 [masquerade-chess]: rules.md#masquerade-chess
+[two-move-chess]: rules.md#two-move-chess
 [adrenaline-chess]: rules.md#adrenaline-chess
 [tar-pit-chess]: rules.md#tar-pit-chess
 [chess-golf]: rules.md#chess-golf
@@ -56,6 +63,7 @@ together.
 [cooperative-chess]: rules.md#cooperative-chess
 [half-alice-chess]: rules.md#half-alice-chess
 [chess960]: rules.md#chess960
+[synchronous-chess]: rules.md#synchronous-chess
 
 If you're interested, you can read my [design journal]. If you're brave, you can
 read about [experiments] in progress ([PDF]).

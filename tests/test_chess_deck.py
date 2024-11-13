@@ -1,11 +1,12 @@
 # noinspection PyPep8Naming
 import xml.etree.ElementTree as ET
 from copy import deepcopy
+from textwrap import dedent
 
 import chess.svg
 
 from chess_deck import (SvgCard, SvgGrid, SvgPips, SvgCardBack, SvgSymbol,
-                        LETTER_PATHS, BAR_PATH)
+                        LETTER_PATHS, BAR_PATH, SvgAid, parse_player_aids)
 from svg_page import SvgPage
 from diagram_differ import DiagramDiffer
 from svg_diagram import SvgDiagram
@@ -506,6 +507,119 @@ def test_grid_transform(diagram_differ: DiagramDiffer):
     grid.x = 133
     grid.scale = 171 / grid.base_width
     page.append(grid.to_element())
+    svg_diagram = SvgDiagram(page.to_svg())
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+def test_parse_player_aids():
+    markdown = dedent("""\
+        ## Game 1
+        Some text.
+        
+        Some more text.
+        
+        ## Game 2
+        Other text
+        on multiple lines.
+        
+        Last text.
+        """)
+
+    parsed_aids = parse_player_aids(markdown)
+
+    assert len(parsed_aids) == 2
+    game2_name, game2_states = parsed_aids[1]
+    assert game2_name == 'Game 2'
+    assert len(game2_states) == 2
+    assert game2_states[0].text == 'Other text on multiple lines.'
+    assert game2_states[1].text == 'Last text.'
+
+
+# noinspection DuplicatedCode
+def test_player_aid(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(171, 266)
+    expected_page.append(ET.Element('rect',
+                                    {'fill': 'white',
+                                     'width': '171',
+                                     'height': '266',
+                                     'stroke': '#bbbbbb',
+                                     'stroke-width': '4'}))
+    expected_page.append(ET.Element('rect',
+                                    {'fill': 'white',
+                                     'width': '171',
+                                     'height': '266',
+                                     'stroke': '#bbbbbb',
+                                     'stroke-width': '4'}))
+    expected_page.append(ET.Element('rect',
+                                    {'fill': 'white',
+                                     'x': '3',
+                                     'y': '3',
+                                     'width': '165',
+                                     'height': '260',
+                                     'stroke': '#cccccc',
+                                     'stroke-width': '2'}))
+    expected_page.append(ET.Element('rect',
+                                    {'fill': 'white',
+                                     'x': '5',
+                                     'y': '5',
+                                     'width': '161',
+                                     'height': '256',
+                                     'stroke': '#dddddd',
+                                     'stroke-width': '2'}))
+    expected_page.append(ET.Element('rect',
+                                    {'fill': 'white',
+                                     'x': '7',
+                                     'y': '7',
+                                     'width': '157',
+                                     'height': '252',
+                                     'stroke': '#eeeeee',
+                                     'stroke-width': '2'}))
+    expected_page.append_text('Two Move Chess',
+                              {
+                                  'x': '85.5',
+                                  'y': '32',
+                                  'text-anchor': 'middle',
+                                  'font-family': 'FredokaOne',
+                                  'font-size': '16'})
+    expected_page.append_text('1. Both choose 2 cards.',
+                              {
+                                  'x': '15',
+                                  'y': '55',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_page.append_text('2. Reveal, drop duplicates.',
+                              {
+                                  'x': '15',
+                                  'y': '79',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_page.append_text('3. Play cards, in order:',
+                              {
+                                  'x': '15',
+                                  'y': '103',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_page.append_text('N, B, R, Q, K.',
+                              {
+                                  'x': '27',
+                                  'y': '115',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    markdown = dedent("""\
+        ## Two Move Chess
+        1. Both choose 2 cards.
+        2. Reveal, drop duplicates.
+        3. Play cards, in order:
+            N, B, R, Q, K.
+        """)
+    parsed_aids = parse_player_aids(markdown)
+    game_name, markdown_states = parsed_aids[0]
+    page = SvgPage(171, 266)
+    card = SvgAid(game_name, markdown_states)
+    page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
     diagram_differ.assert_equal(svg_diagram, expected_diagram)

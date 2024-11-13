@@ -17,6 +17,16 @@ class SvgPage:
     def append(self, element: ET.Element) -> None:
         self.root.append(element)
 
+    def append_text(self,
+                    text: str,
+                    attrib: dict[str, str] = None) -> ET.Element:
+        if attrib is None:
+            attrib = {}
+        element = ET.Element('text', attrib=attrib)
+        element.text = text
+        self.append(element)
+        return element
+
     def to_svg(self) -> str:
         return ET.tostring(self.root, encoding='unicode')
 
