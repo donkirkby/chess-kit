@@ -1,20 +1,113 @@
 ## Zombie Chess
-Capture -> Secretly bury.
+2 players
+Chess set
+Coins (about 5)
+Pencil and paper
 
-Move -> Any zombies?
+Standard starting position
 
-Many zombies -> All move.
-
-Unmoved zombies ->
-    Permanently destroyed.
+Draw board to record
+where you bury pieces.
 
 ## Masquerade Chess
-Start:
-    Choose how opponent
-    captures.
+2 players
+Chess set
+Pencil and paper
 
-Play:
-    Ask if captures are legal.
+Standard starting position
+
+Fill one grid to choose how
+opponent captures.
+
+Write other grid to record
+what you learn.
+
+## Two Move Chess
+2 players
+Chess set
+Chess cards (5 each)
+
+Standard starting position
+
+White plays 2 cards face
+up.
+
+## Adrenaline Chess
+2 players
+Chess set
+Checkers set
+
+Standard starting position
+
+## Tar Pit Chess
+2 players
+Chess set
+Checkers set
+Chess cards
+    (include 2 checkers each)
+
+Standard starting position
+
+Shuffle and deal 6 cards
+plus 6 checkers each.
+
+## Chess Golf
+1+ players
+Chess set
+Chess cards (no pawns)
+
+Random starting position
+with shuffled cards and
+these gaps:
+    N: 1
+    B: 2
+    R: 3
+    Q: 5
+    K: 6
+
+## Cooperative Chess
+2 players
+Chess set
+Chess cards
+
+Standard starting position
+
+## Half Alice Chess
+2 players
+Chess set
+Checkers set
+
+Standard starting position
+
+## Adrenaline Chess
+1. Make a legal move.
+
+2. Stack on captured
+    checkers.
+
+3. May spend checkers to
+    make king moves.
+
+4. Add a checker to any
+    opponent after capture.
+
+## Two Move Chess
+1. Both choose 2 cards.
+2. Reveal, skip duplicates.
+3. Play cards, in order:
+    N, B, R, Q, K.
+4. Player with 4 cards
+    picks up.
+
+One card? Play it twice.
+Move a piece that matches
+the card or least valuable,
+movable piece (usually a
+pawn).
+Pawns move once per turn.
+
+## Masquerade Chess
+Ask if captures are legal.
 
 If Yes:
     Make capture.
@@ -22,47 +115,41 @@ If Yes:
 If No:
     Don't move.
 
-## Two Move Chess
-1. Both choose 2 cards.
-2. Reveal, drop duplicates.
-3. Play cards, in order:
-    N, B, R, Q, K.
-4. Player with 4 picks up.
+## Zombie Chess
+After capture, secretly bury.
 
-One card? Play twice.
-Card moves matching piece
-or least valuable, movable
-piece (usually a pawn).
+After move, "No zombie,"
+or place zombie on a coin.
 
-## Adrenaline Chess
-1. Make a legal move.
+Many zombies, all move.
 
-2. Take over checkers if
-    captured.
+Unmoved zombies are
+permanently destroyed.
 
-3. Spend checkers to make
-    king moves?
+## Half Alice Chess
+1. Make a legal move,
+    ignoring pieces on the
+    other side of the mirror.
+2. Add or remove a checker.
 
-4. Add a checker after a
-    capture.
+## Cooperative Chess
+1. May make a non-capture
+    chess move.
+2. Must play a card.
+3. Multiple capture chess
+    moves, if cards match.
+4. Must draw a card.
 
-## Tar Pit Chess
-1. Move chess piece.
-2. Take over checkers from
-    capture.
-3. Cancel opposites.
-4. Play card to add checker?
-5. Cancel opposites.
-6. Draw cards to match
-    checkers.
-
-Tarred pieces -> pawns.
-Tarred pawns don't move.
+Wild cards:
+1. When you have no
+    matching pieces.
+2. After both pieces match
+    colour.
 
 ## Chess Golf
 1. Turn up 2 or 3 cards.
 2. Everyone solve, no touch!
-3. Use neighbour's move
+3. Move like neighbour
     (same colour).
 4. Colour without
     neighbours? All kings!
@@ -72,36 +159,31 @@ Tarred pawns don't move.
     demonstrates.
 7. Replace captures.
 
-## Cooperative Chess
-1. Non-capture chess move?
-2. Play a card.
-3. Multiple capture chess
-    moves, if cards match.
-4. Draw a card.
-
-Wild cards:
-1. When you have no
-    matching pieces.
-2. After both pieces match
-    colour.
-
-## Half Alice Chess
-1. Make a legal move,
-    ignoring pieces on the
-    other side of the mirror.
-2. Add or remove a checker.
+## Tar Pit Chess
+1. Move chess piece.
+2. Stack on captured
+    checker.
+3. May throw your checker.
+4. May add your checker
+    with a card.
+5. Draw cards to match
+    checkers count.
+Tarred pieces are pawns.
+Tarred pawns don't move.
+Combine pairs of checkers.
+Remove tar on back rank.
 
 ## Crowded House
-4 q k 2
-3 Q K 1
+4 players
+Chess set
 
-Can only make a move that
-starts or ends on your side.
+Standard starting position
 
 ## Chess960
-Choose setup with three
+2 players
+Chess set
+Chess cards in three
 shuffled piles:
-
 1. Black, odd pips: 1, 3, 5, 7
     to place a bishop.
 2. Black, even pips 2, 4, 6, 8
@@ -111,7 +193,22 @@ shuffled piles:
 Place white pieces on
 empty squares, with king
 on middle rook.
-Castle to standard squares.
+Black pieces mirror white
+pieces.
+
+## Synchronous Chess
+2 players
+Chess set
+Pencil and paper
+
+Standard starting position
+
+## Blank
+## Blank
+## Blank
+## Blank
+## Blank
+## Blank
 
 ## Synchronous Chess
 1. Write down moves.
@@ -125,3 +222,26 @@ Castle to standard squares.
         square? Both captured.
 4. Moved to an attacked
     square? Exchange blows.
+
+## Chess960
+After start, use standard
+rules, except castling.
+Castle to standard
+destination squares from
+chosen start squares.
+Rook and king must not
+have moved, and must only
+move through empty
+squares.
+King must not be attacked
+on any square he moves
+through.
+
+## Crowded House
+Turn order:
+
+4 q k 2
+3 Q K 1
+
+Can only make a move that
+starts or ends on your side.

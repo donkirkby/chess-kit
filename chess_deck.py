@@ -330,11 +330,6 @@ class SvgCardBack(SvgCard):
                                  rx=str(size / 3),
                                  fill=light_fill,
                                  stroke='black'))
-        clip_id = 'border-clip'
-        clip_path = ET.Element('clipPath',
-                               dict(id=clip_id))
-        clip_path.append(deepcopy(border))
-        board.append(clip_path)
         board.append(border)
         steps = 50
         for i in range(-rows//2, -rows//2 + rows):
@@ -343,6 +338,30 @@ class SvgCardBack(SvgCard):
                     continue
                 x0 = j * size + xc
                 y0 = i * size + yc
+                if j == columns//2 - 1 and i == -rows//2:
+                    x1, y1 = self.convert_coordinates(x0, y0)
+                    board.append(ET.Element(
+                        'path',
+                        {
+                            'd': f'M {x1},{y1} '
+                                 f'l {-size*2/3},0 '
+                                 f'a {size/3} {size/3} 0 0 1 {-size/3},{-size/3} '
+                                 f'l 0,{-size*2/3}, '
+                                 f'l {size},0',
+                            'fill': dark_fill}))
+                    continue
+                if j == columns//2 - 1 and i == -rows//2 + rows - 1:
+                    x1, y1 = self.convert_coordinates(x0, y0)
+                    board.append(ET.Element(
+                        'path',
+                        {
+                            'd': f'M {x1},{y1} '
+                                 f'l {-size},0 '
+                                 f'l 0,{-size*2/3}, '
+                                 f'a {size/3} {size/3} 0 0 1 {size/3},{-size/3} '
+                                 f'l {size*2/3},0',
+                            'fill': dark_fill}))
+                    continue
                 points = []
                 for k in range(steps):
                     x1, y1 = self.convert_coordinates(x0 + k * size / steps,
@@ -362,8 +381,7 @@ class SvgCardBack(SvgCard):
                     points.append(f'{x1},{y1}')
                 board.append(ET.Element('polygon',
                                         {'points': ' '.join(points),
-                                         'fill': dark_fill,
-                                         'clip-path': f'url(#{clip_id})'}))
+                                         'fill': dark_fill}))
         return group
 
     def convert_coordinates(self,
@@ -428,6 +446,11 @@ class SvgAid(SvgCard):
         self.game_name = game_name
         self.markdown_states = markdown_states
 
+    def to_element(self) -> ET.Element:
+        if self.game_name == 'Blank':
+            return ET.Element('g')
+        return super().to_element()
+
     def add_symbols(self, group: ET.Element) -> None:
         title = ET.Element('text',
                            attrib={'x': '85.5',
@@ -440,9 +463,14 @@ class SvgAid(SvgCard):
 
         y = 55
         x = 15
+        line_height = 12
         text_attrib = {'font-family': 'Raleway',
                        'font-size': '11'}
         for state in self.markdown_states:
+            if state.raw_text == '4 q k 2\n3 Q K 1\n\n':
+                self.add_diagram(group, y-line_height*2.583)
+                y += line_height*4
+                continue
             lines = state.raw_text.split('\n')
             for line_text in lines:
                 stripped_line = line_text.lstrip(' ')
@@ -453,11 +481,56 @@ class SvgAid(SvgCard):
                                   attrib=text_attrib)
                 line.text = stripped_line
                 group.append(line)
-                y += 12
+                y += line_height
+
+    @staticmethod
+    def add_diagram(group: ET.Element, y: float) -> None:
+        square_dark = chess.svg.DEFAULT_COLORS['square dark']
+        square_light = chess.svg.DEFAULT_COLORS['square light']
+        group.append(ET.Element('rect',
+                                {
+                                    'x': '55.5',
+                                    'y': str(y),
+                                    'width': '60',
+                                    'height': '60',
+                                    'fill': square_light}))
+        group.append(ET.Element('rect',
+                                {
+                                    'x': '85.5',
+                                    'y': str(y),
+                                    'width': '30',
+                                    'height': '30',
+                                    'fill': square_dark}))
+        group.append(ET.Element('rect',
+                                {
+                                    'x': '55.5',
+                                    'y': str(y+30),
+                                    'width': '30',
+                                    'height': '30',
+                                    'fill': square_dark}))
+        for i, letter in enumerate('qkQK'):
+            symbol = SvgSymbol(letter)
+            symbol.x = 70.5 + 30 * (i % 2)
+            symbol.y = 75 + 30 * (i // 2)
+            symbol.scale = 0.65
+            group.append(symbol.to_element())
+        for i, turn_str in enumerate('4231'):
+            turn_text = ET.Element('text',
+                                   {
+                                       'x': str(40.5 + 90 * (i % 2)),
+                                       'y': str(75 + 30 * (i // 2)),
+                                       'dominant-baseline': 'middle',
+                                       'text-anchor': 'middle',
+                                       'font-family': 'Raleway',
+                                       'font-size': '11'})
+            turn_text.text = turn_str
+            group.append(turn_text)
 
 
 class SvgGrid(SvgGroup):
-    def __init__(self, symbols: list[str] | list[SvgCard]) -> None:
+    def __init__(
+            self,
+            symbols: list[str] | list[list[str]] | list[list[SvgCard]]) -> None:
         super().__init__()
         self.symbols = symbols
         self.base_width = SvgCard.BASE_WIDTH * len(symbols[0])

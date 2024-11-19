@@ -54,9 +54,11 @@ def generate_images():
 def main() -> None:
     generate_images()
     page_size = pagesizes.letter
-    top_margin = 0.85 * inch
+    top_margin = 0.25 * inch
     bottom_margin = 0.1 * inch
-    side_margin = 0.6 * inch
+    side_margin = 0.675 * inch
+    page_width, page_height = page_size
+    content_width = page_width - side_margin*2
     register_fonts()
     styles = getSampleStyleSheet()
 
@@ -83,12 +85,25 @@ def main() -> None:
     centred_style = ParagraphStyle('Centred',
                                    parent=body_style,
                                    alignment=TA_CENTER)
-    flowables = [
-        Paragraph('Chess Deck', title_style),
-        Paragraph('Designed by Don Kirkby. Find game rules at '
-                  '<a href="https://donkirkby.github.io/chess-kit/">donkirkby.github.io/chess-kit</a>.',
-                  body_style),
-        Spacer(0, 0.125*inch)]
+    title_paragraph = Paragraph('Chess Deck', title_style)
+    subtitle_paragraph = Paragraph(
+        'Designed by Don Kirkby. Find game rules at '
+        '<a href="https://donkirkby.github.io/chess-kit/">'
+        'donkirkby.github.io/chess-kit</a>.',
+        body_style)
+    title_paragraph.wrap(content_width, page_height)
+    subtitle_paragraph.wrap(content_width, page_height)
+    first_header_space = 0.125 * inch
+    other_header_space = (title_paragraph.height +
+                          title_paragraph.getSpaceAfter() +
+                          subtitle_paragraph.height +
+                          subtitle_paragraph.getSpaceAfter() +
+                          first_header_space)
+    cc_section = publish_rules.create_cc_section(doc, centred_style)
+    footer_height = other_header_space / 2
+    flowables = [title_paragraph,
+                 subtitle_paragraph,
+                 Spacer(0, first_header_space)]
     symbol_pages = [['rnbq', 'pppp'],
                     ['kbnr', 'pppp'],
                     ['PPPP', 'RNBQ'],
@@ -108,16 +123,25 @@ def main() -> None:
     while player_aid_cards:
         symbol_pages.append([player_aid_cards[:4], player_aid_cards[4:8]])
         player_aid_cards = player_aid_cards[8:]
-    for symbol_page in symbol_pages:
+    for i, symbol_page in enumerate(symbol_pages):
         svg_page = SvgPage(7.5 * inch, 9 * inch)
         grid = SvgGrid(symbol_page)
-        grid.rotation = 90
-        grid.x = 7*inch
         grid.scale = 7*inch / grid.base_height
+        if i in (len(symbol_pages) - 3, len(symbol_pages) - 1):
+            grid.rotation = 270
+            grid.x = -0.075 * inch
+            grid.y = grid.base_width * grid.scale
+        else:
+            grid.rotation = 90
+            grid.x = 7*inch
         svg_page.append(grid.to_element())
         diagram = SvgDiagram(svg_page.to_svg()).to_reportlab()
+        if i > 0:
+            flowables.append(Spacer(0, other_header_space))
         flowables.append(diagram)
-    flowables.extend(publish_rules.create_cc_section(doc, centred_style))
+        if i < len(symbol_pages) - 1:
+            flowables.append(Spacer(0, footer_height))
+    flowables.extend(cc_section)
     doc.build(flowables)
     try:
         run(['pdfsizeopt', '--v=30', pdf_path, pdf_path])

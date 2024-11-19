@@ -623,3 +623,113 @@ def test_player_aid(diagram_differ: DiagramDiffer):
     svg_diagram = SvgDiagram(page.to_svg())
 
     diagram_differ.assert_equal(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_player_aid_diagram(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(171, 266)
+    expected_page.append(
+        SvgAid('Example', []).to_element())
+    expected_page.append_text('Some text before.',
+                              {
+                                  'x': '15',
+                                  'y': '55',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    square_dark = chess.svg.DEFAULT_COLORS['square dark']
+    square_light = chess.svg.DEFAULT_COLORS['square light']
+    expected_page.append(ET.Element('rect',
+                                    {'x': '55.5',
+                                     'y': '60',
+                                     'width': '60',
+                                     'height': '60',
+                                     'fill': square_light}))
+    expected_page.append(ET.Element('rect',
+                                    {'x': '85.5',
+                                     'y': '60',
+                                     'width': '30',
+                                     'height': '30',
+                                     'fill': square_dark}))
+    expected_page.append(ET.Element('rect',
+                                    {'x': '55.5',
+                                     'y': '90',
+                                     'width': '30',
+                                     'height': '30',
+                                     'fill': square_dark}))
+    black_queen = SvgSymbol('q')
+    black_queen.x = 70.5
+    black_queen.y = 75
+    black_queen.scale = 0.65
+    expected_page.append(black_queen.to_element())
+    white_queen = SvgSymbol('Q')
+    white_queen.x = 70.5
+    white_queen.y = 105
+    white_queen.scale = 0.65
+    expected_page.append(white_queen.to_element())
+    black_king = SvgSymbol('k')
+    black_king.x = 100.5
+    black_king.y = 75
+    black_king.scale = 0.65
+    expected_page.append(black_king.to_element())
+    white_king = SvgSymbol('K')
+    white_king.x = 100.5
+    white_king.y = 105
+    white_king.scale = 0.65
+    expected_page.append(white_king.to_element())
+    expected_page.append_text('1',
+                              {
+                                  'x': '130.5',
+                                  'y': '105',
+                                  'dominant-baseline': 'middle',
+                                  'text-anchor': 'middle',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_page.append_text('2',
+                              {
+                                  'x': '130.5',
+                                  'y': '75',
+                                  'dominant-baseline': 'middle',
+                                  'text-anchor': 'middle',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_page.append_text('3',
+                              {
+                                  'x': '40.5',
+                                  'y': '105',
+                                  'dominant-baseline': 'middle',
+                                  'text-anchor': 'middle',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_page.append_text('4',
+                              {
+                                  'x': '40.5',
+                                  'y': '75',
+                                  'dominant-baseline': 'middle',
+                                  'text-anchor': 'middle',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_page.append_text('Some text after.',
+                              {
+                                  'x': '15',
+                                  'y': '139',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    markdown = dedent("""\
+        ## Example
+        Some text before.
+
+        4 q k 2
+        3 Q K 1
+        
+        Some text after.
+        """)
+    parsed_aids = parse_player_aids(markdown)
+    game_name, markdown_states = parsed_aids[0]
+    page = SvgPage(171, 266)
+    card = SvgAid(game_name, markdown_states)
+    page.append(card.to_element())
+    svg_diagram = SvgDiagram(page.to_svg())
+
+    diagram_differ.assert_equal(svg_diagram, expected_diagram)

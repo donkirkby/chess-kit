@@ -508,8 +508,8 @@ of their checkers to the extra pile. It can come from in front of them or on the
 board. If they now have more cards than checkers in front of them, they must
 discard a card of their choice.
 
-If there are no pieces left on the board to match a card, play it just like a
-checkers card of that colour.
+If there are no pieces left on the board to match a card, it can match any of
+your pieces.
 
 Play your card to a discard pile next to the draw pile, and shuffle the discard
 pile to make a new draw pile if it runs out.
