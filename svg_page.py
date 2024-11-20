@@ -1,5 +1,8 @@
 from xml.etree import ElementTree as ET  # noqa
 
+LIGHT_SQUARE = 'transparent'  # transparent or cornsilk
+DARK_SQUARE = 'black'  # black or #85440F (dark maple) or #C46316 (light maple)
+
 
 class SvgPage:
     @staticmethod

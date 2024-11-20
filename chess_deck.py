@@ -8,7 +8,7 @@ import chess.svg
 import numpy as np
 
 from book_parser import parse, ParsingState
-from svg_page import SvgPage, SvgGroup
+from svg_page import SvgPage, SvgGroup, LIGHT_SQUARE, DARK_SQUARE
 
 PIP_PATTERNS = """\
 ---+
@@ -299,8 +299,6 @@ class SvgCardBack(SvgCard):
         self.has_outline = has_outline
 
     def to_element(self) -> ET.Element:
-        light_fill = 'transparent'  # transparent or #ffce9e
-        dark_fill = 'black'  # black or #d18b47
         group = super().to_element()
         group.clear()
         board = ET.Element('g')
@@ -328,7 +326,7 @@ class SvgCardBack(SvgCard):
                                  width=str(columns * size),
                                  height=str(rows * size),
                                  rx=str(size / 3),
-                                 fill=light_fill,
+                                 fill=LIGHT_SQUARE,
                                  stroke='black'))
         board.append(border)
         steps = 50
@@ -344,11 +342,12 @@ class SvgCardBack(SvgCard):
                         'path',
                         {
                             'd': f'M {x1},{y1} '
-                                 f'l {-size*2/3},0 '
-                                 f'a {size/3} {size/3} 0 0 1 {-size/3},{-size/3} '
-                                 f'l 0,{-size*2/3}, '
+                                 f'l {-size * 2 / 3},0 '
+                                 f'a {size / 3} {size / 3} 0 0 1 '
+                                 f'{-size / 3},{-size / 3} '
+                                 f'l 0,{-size * 2 / 3}, '
                                  f'l {size},0',
-                            'fill': dark_fill}))
+                            'fill': DARK_SQUARE}))
                     continue
                 if j == columns//2 - 1 and i == -rows//2 + rows - 1:
                     x1, y1 = self.convert_coordinates(x0, y0)
@@ -357,10 +356,11 @@ class SvgCardBack(SvgCard):
                         {
                             'd': f'M {x1},{y1} '
                                  f'l {-size},0 '
-                                 f'l 0,{-size*2/3}, '
-                                 f'a {size/3} {size/3} 0 0 1 {size/3},{-size/3} '
-                                 f'l {size*2/3},0',
-                            'fill': dark_fill}))
+                                 f'l 0,{-size * 2 / 3}, '
+                                 f'a {size / 3} {size / 3} 0 0 1 '
+                                 f'{size / 3},{-size / 3} '
+                                 f'l {size * 2 / 3},0',
+                            'fill': DARK_SQUARE}))
                     continue
                 points = []
                 for k in range(steps):
@@ -381,7 +381,7 @@ class SvgCardBack(SvgCard):
                     points.append(f'{x1},{y1}')
                 board.append(ET.Element('polygon',
                                         {'points': ' '.join(points),
-                                         'fill': dark_fill}))
+                                         'fill': DARK_SQUARE}))
         return group
 
     def convert_coordinates(self,

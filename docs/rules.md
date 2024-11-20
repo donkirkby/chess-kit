@@ -302,15 +302,18 @@ all back in their hand. The other player leaves the two cards face up.
 Chess pieces move as in normal chess. If you only remember the basic rules, you
 can probably skip this section and come back to it if you have questions.
 
-Pawns can move two squares from the second rank. Castling is allowed with a king
-card, if neither the king nor the rook have moved and the squares between them
-are empty. It doesn't matter if an opponent's piece is threatening the king's
-square or any of the squares it will move through. Pawns do not capture en
-passant, but they do promote when they reach the back rank.
+As in regular chess, pawns can move two squares from their starting square.
+Castling is allowed with a king card, if neither the king nor the rook have
+moved and the squares between them are empty.
+
+If you're not familiar with the details of chess rules, just ignore this
+paragraph. When you castle, it doesn't matter if an opponent's piece is
+threatening the king's square or any of the squares it will move through. Pawns
+do not capture en passant, but they do promote when they reach the back rank.
 
 ### Example
 Here's an example turn, starting with White's Knight and Rook cards left on the
-table from the previous turn.
+table from the previous turn:
 
 ![Diagram](images/rules/two-move-chess1.png)
 
@@ -326,12 +329,59 @@ they can't play this turn, so White plays a rook to avoid any chance of both
 cards matching and skipping a turn where they have more information.
 
 When the cards are revealed, the bishops cancel each other, leaving Black with
-two rook moves, then White with two queen moves. Black moves the h pawn forward
-two, then follows it with the rook. White decides not to capture the black
+two rook moves, then White with two queen moves. Black uses the rook card to
+move a pawn and then a rook: moving the h7 pawn forward two, then following it
+with the rook. White decides not to capture the black
 queen or the black rook, because the queen would almost certainly be captured
-next turn. Instead, they move the c pawn and bring the queen out that way.
+next turn. Instead, they move the c2 pawn and bring the queen out that way:
 
 ![Diagram](images/rules/two-move-chess2.png)
+
+### Rules Quiz
+Here are some examples that you can use to check if you understand the rules.
+
+With these cards revealed, Black should be careful. There's a move that seems to
+protect their queen and threaten the white king, but actually lets White capture
+the black king. See if you can find the move to avoid and a better option:
+
+![Diagram](images/rules/two-move-chess3.png)
+
+Here's the move that might look good, but gives the game to White:
+
+![Diagram](images/rules/two-move-chess4.png)
+
+Because Black takes both of White's movable pawns, the bishops are now White's
+least valuable, movable piece type, and White can use any card to move them.
+Note that if the black king were where the queen is, White could not capture it.
+As soon as the bishop at c4 moves, it unblocks the pawn at c3, so that pawn has
+to be the second move.
+
+Here's a better move that will probably lead to a win for Black in the next turn
+or two:
+
+![Diagram](images/rules/two-move-chess5.png)
+
+As tempting as it is to capture a pawn or two, blocking your own last pawn can
+make all your cards more powerful. Here, it lets Black move the knight next turn
+with any card. As long as they can avoid giving White a double bishop move, they
+should be able to capture the black king with any two cards.
+
+Most games will end with a double move to capture the king, but if you can
+survive until most of the pawns are captured or blocked, be very careful of the
+last pawn or two and the transition to moving more valuable pieces.
+
+The challenge in the next example is to find a winning turn for White:
+
+![Diagram](images/rules/two-move-chess6.png)
+
+The solution is to remember that a pawn can be promoted to any other piece when
+it reaches the back rank. There are two ways that black can try to stop White:
+move the bishop to block at h8 or play a queen card to block the queen that the
+pawn will get promoted into. To avoid the blocking bishop, White can play a
+bishop card. To avoid getting the new queen blocked, White can play a rook card
+and promote to a rook instead:
+
+![Diagram](images/rules/two-move-chess7.png)
 
 ## Adrenaline Chess
 What if taking your opponent's piece frightened the others so much that they
@@ -469,8 +519,8 @@ of their checkers to the extra pile. It can come from in front of them or on the
 board. If they now have more cards than checkers in front of them, they must
 discard a card of their choice.
 
-If there are no pieces left on the board to match a card, play it just like a
-checkers card of that colour.
+If there are no pieces left on the board to match a card, it can match any of
+your pieces.
 
 Play your card to a discard pile next to the draw pile, and shuffle the discard
 pile to make a new draw pile if it runs out.
@@ -1075,10 +1125,11 @@ attacker could move at the same time. If a king has no safe squares to move to,
 then it is checkmate. Castling out of check is not legal, because all moves must
 be legal in regular chess.
 
-There is no "en passant" capture.
+There is no "en passant" capture. If you don't know what that is, you can safely
+ignore it.
 
-If both kings are checkmated at the same time or captured at the same time, it
-is a draw.
+If both kings are checkmated at the same time or captured at the same time, the
+game is a draw.
 
 If a king and any other piece move to the same square, both are captured and
 capturing the king is a win.
