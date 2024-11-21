@@ -8,7 +8,7 @@ import chess.svg
 import numpy as np
 
 from book_parser import parse, ParsingState
-from svg_page import SvgPage, SvgGroup, LIGHT_SQUARE, DARK_SQUARE
+from svg_page import SvgPage, SvgGroup, SQUARE_LIGHT, SQUARE_DARK
 
 PIP_PATTERNS = """\
 ---+
@@ -326,7 +326,7 @@ class SvgCardBack(SvgCard):
                                  width=str(columns * size),
                                  height=str(rows * size),
                                  rx=str(size / 3),
-                                 fill=LIGHT_SQUARE,
+                                 fill=SQUARE_LIGHT,
                                  stroke='black'))
         board.append(border)
         steps = 50
@@ -347,7 +347,7 @@ class SvgCardBack(SvgCard):
                                  f'{-size / 3},{-size / 3} '
                                  f'l 0,{-size * 2 / 3}, '
                                  f'l {size},0',
-                            'fill': DARK_SQUARE}))
+                            'fill': SQUARE_DARK}))
                     continue
                 if j == columns//2 - 1 and i == -rows//2 + rows - 1:
                     x1, y1 = self.convert_coordinates(x0, y0)
@@ -360,7 +360,7 @@ class SvgCardBack(SvgCard):
                                  f'a {size / 3} {size / 3} 0 0 1 '
                                  f'{size / 3},{-size / 3} '
                                  f'l {size * 2 / 3},0',
-                            'fill': DARK_SQUARE}))
+                            'fill': SQUARE_DARK}))
                     continue
                 points = []
                 for k in range(steps):
@@ -381,7 +381,7 @@ class SvgCardBack(SvgCard):
                     points.append(f'{x1},{y1}')
                 board.append(ET.Element('polygon',
                                         {'points': ' '.join(points),
-                                         'fill': DARK_SQUARE}))
+                                         'fill': SQUARE_DARK}))
         return group
 
     def convert_coordinates(self,
@@ -508,6 +508,15 @@ class SvgAid(SvgCard):
                                     'width': '30',
                                     'height': '30',
                                     'fill': square_dark}))
+        group.append(ET.Element('rect',
+                                {
+                                    'x': '55.5',
+                                    'y': str(y),
+                                    'width': '60',
+                                    'height': '60',
+                                    'fill': 'transparent',
+                                    'stroke': 'black',
+                                    'stroke-width': '2'}))
         for i, letter in enumerate('qkQK'):
             symbol = SvgSymbol(letter)
             symbol.x = 70.5 + 30 * (i % 2)

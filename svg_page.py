@@ -1,7 +1,7 @@
 from xml.etree import ElementTree as ET  # noqa
 
-LIGHT_SQUARE = 'transparent'  # transparent or cornsilk
-DARK_SQUARE = 'black'  # black or #85440F (dark maple) or #C46316 (light maple)
+SQUARE_LIGHT = '#fdd7aa'  # transparent or #fdd7aa or cornsilk
+SQUARE_DARK = '#85440f'  # black or #85440f (dark maple) or #c46316 (light maple)
 
 
 class SvgPage:

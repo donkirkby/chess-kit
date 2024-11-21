@@ -1,3 +1,4 @@
+from copy import deepcopy
 from pathlib import Path
 from subprocess import run, Popen
 from xml.etree import ElementTree as ET  # noqa
@@ -40,7 +41,7 @@ def generate_card_images(card: SvgCard, base_filename: Path) -> None:
                              output_height=output_height)
 
 
-def generate_images():
+def generate_images(aid_cards: dict[str, SvgCard]):
     image_folder = Path(__file__).parent / 'deck'
     image_folder.mkdir(exist_ok=True)
     card_back = SvgCardBack()
@@ -49,10 +50,14 @@ def generate_images():
         filename = image_folder / f'card-{symbol}'
         card = SvgCard(symbol, has_border=False)
         generate_card_images(card, filename)
+    for game_name, aid_card in aid_cards.items():
+        filename = (image_folder /
+                    f'aid-{game_name.lower().replace(" ", "-")}')
+        aid_card.has_border = False
+        generate_card_images(aid_card, filename)
 
 
 def main() -> None:
-    generate_images()
     page_size = pagesizes.letter
     top_margin = 0.25 * inch
     bottom_margin = 0.1 * inch
@@ -61,6 +66,7 @@ def main() -> None:
     content_width = page_width - side_margin*2
     register_fonts()
     styles = getSampleStyleSheet()
+    image_cards = {}  # {name: SvgCard}
 
     pdf_path = Path(__file__).parent / 'docs' / 'chess-deck.pdf'
     doc = SimpleDocTemplate(str(pdf_path),
@@ -119,7 +125,11 @@ def main() -> None:
     player_aid_groups = parse_player_aids(player_aid_markdown)
     player_aid_cards = []
     for game_name, markdown_states in player_aid_groups:
-        player_aid_cards.append(SvgAid(game_name, markdown_states))
+        aid = SvgAid(game_name, markdown_states)
+        if game_name in image_cards:
+            game_name += ' back'
+        image_cards[game_name] = deepcopy(aid)
+        player_aid_cards.append(aid)
     while player_aid_cards:
         symbol_pages.append([player_aid_cards[:4], player_aid_cards[4:8]])
         player_aid_cards = player_aid_cards[8:]
@@ -143,6 +153,7 @@ def main() -> None:
             flowables.append(Spacer(0, footer_height))
     flowables.extend(cc_section)
     doc.build(flowables)
+    generate_images(image_cards)
     try:
         run(['pdfsizeopt', '--v=30', pdf_path, pdf_path])
     except FileNotFoundError:

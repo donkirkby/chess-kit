@@ -656,6 +656,14 @@ def test_player_aid_diagram(diagram_differ: DiagramDiffer):
                                      'width': '30',
                                      'height': '30',
                                      'fill': square_dark}))
+    expected_page.append(ET.Element('rect',
+                                    {'x': '55.5',
+                                     'y': '60',
+                                     'width': '60',
+                                     'height': '60',
+                                     'fill': 'transparent',
+                                     'stroke': 'black',
+                                     'stroke-width': '2'}))
     black_queen = SvgSymbol('q')
     black_queen.x = 70.5
     black_queen.y = 75
