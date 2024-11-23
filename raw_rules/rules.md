@@ -300,8 +300,8 @@ threatening the king's square or any of the squares it will move through. Pawns
 do not capture en passant, but they do promote when they reach the back rank.
 
 ### Example
-Here's an example turn, starting with White's Knight and Rook cards left on the
-table from the previous turn:
+Here's an example turn, starting with White's old knight and rook cards left on
+the table from the previous turn:
 
     r n . . k b n r
     p b p p . p p p
@@ -312,8 +312,9 @@ table from the previous turn:
     P P P P . P P P
     R . B Q K . N R
     margins: 0, 0, 3, 0
-    card: N, 8.5, 5
-    card: R, 9, 5
+    card: N, 8.5, 4.75
+    card: R, 9, 4.75
+    text: old white, 10.25, 0.5
 
 Black is threatening to capture the king with two queen moves, so White should
 probably play a queen card to block. Black is also threatening White's knight
@@ -341,17 +342,20 @@ next turn. Instead, they move the c2 pawn and bring the queen out that way:
     . Q P . . . . .
     P P . P . P P P
     R . B . K . N R
-    margins: 0, 0, 3, 0
-    card: N, 8.5, 5
-    card: R, 9, 5
+    card: N, 8.5, 4.75
+    card: R, 9, 4.75
     card: B, 8.5, 4
     card: Q, 9, 4
-    card: b, 8.5, 0
-    card: r, 9, 0
+    card: b, 8.5, 0.2
+    card: r, 9, 0.2
     arrow: h7, h5, black
     arrow: h8, h6, black
     arrow: c2, c3, white
     arrow: d1, b3, white
+    text: old white, 10.25, 0.5
+    text: new white, 10.25, 5
+    text: new black, 10.25, 8.7
+    margins: 0, 0, 3, 0
 
 ### Rules Quiz
 Here are some examples that you can use to check if you understand the rules.
@@ -369,12 +373,15 @@ the black king. See if you can find the move to avoid and a better option:
     . . . . . . . .
     . . . n . . . K
     margins: 0, 0, 3, 0
-    card: K, 9, 5
-    card: N, 8.5, 5
-    card: Q, 8.5, 4.5
-    card: R, 9, 4.5
-    card: q, 8.5, 0
-    card: b, 9, 0
+    card: K, 9, 4.75
+    card: N, 8.5, 4.75
+    card: Q, 8.5, 4
+    card: R, 9, 4
+    card: q, 8.5, 0.2
+    card: b, 9, 0.2
+    text: old white, 10.25, 0.5
+    text: new white, 10.25, 5
+    text: new black, 10.25, 8.7
 
 Here's the move that might look good, but gives the game to White:
 
@@ -387,22 +394,26 @@ Here's the move that might look good, but gives the game to White:
     . . . . . . . .
     . . . n . . . K
     margins: 0, 0, 3, 0
-    card: K, 9, 5
-    card: N, 8.5, 5
-    card: Q, 8.5, 4.5
-    card: R, 9, 4.5
-    card: q, 8.5, 0
-    card: b, 9, 0
+    card: K, 9, 4.75
+    card: N, 8.5, 4.75
+    card: Q, 8.5, 4
+    card: R, 9, 4
+    card: q, 8.5, 0.2
+    card: b, 9, 0.2
+    text: old white, 10.25, 0.5
+    text: new white, 10.25, 5
+    text: new black, 10.25, 8.7
     arrow: b7, e4, black
     arrow: e4, f3, black
     arrow: b4, e7, white
     arrow: e7, f8, white
 
-Because Black takes both of White's movable pawns, the bishops are now White's
-least valuable, movable piece type, and White can use any card to move them.
-Note that if the black king were where the queen is, White could not capture it.
-As soon as the bishop at c4 moves, it unblocks the pawn at c3, so that pawn has
-to be the second move.
+Because Black takes both of White's movable pawns at e4 and f3, the bishops are
+now White's least valuable, movable piece type, and White can use any card to
+move them. White can capture the pawn at e7, and the king at f8. Note the
+difference between the black king and queen, White cannot capture the black
+queen at g4. As soon as the bishop at c4 moves, it unblocks the pawn at c3, so
+that pawn has to be the second move.
 
 Here's a better move that will probably lead to a win for Black in the next turn
 or two:
@@ -416,12 +427,15 @@ or two:
     . . . . . . . .
     . . . n . . . K
     margins: 0, 0, 3, 0
-    card: K, 9, 5
-    card: N, 8.5, 5
-    card: Q, 8.5, 4.5
-    card: R, 9, 4.5
-    card: q, 8.5, 0
-    card: b, 9, 0
+    card: K, 9, 4.75
+    card: N, 8.5, 4.75
+    card: Q, 8.5, 4
+    card: R, 9, 4
+    card: q, 8.5, 0.2
+    card: b, 9, 0.2
+    text: old white, 10.25, 0.5
+    text: new white, 10.25, 5
+    text: new black, 10.25, 8.7
     arrow: b7, d5, black
     arrow: d5, e6, black
 
@@ -432,7 +446,7 @@ should be able to capture the black king with any two cards.
 
 Most games will end with a double move to capture the king, but if you can
 survive until most of the pawns are captured or blocked, be very careful of the
-last pawn or two and the transition to moving more valuable pieces.
+last pawn or two and the transition to freely moving more valuable pieces.
 
 The challenge in the next example is to find a winning turn for White:
 
@@ -445,8 +459,9 @@ The challenge in the next example is to find a winning turn for White:
     . . . . . . . .
     . . . . . . . K
     margins: 0, 0, 3, 0
-    card: k, 8.5, 0
-    card: r, 9, 0
+    card: k, 8.5, 0.2
+    card: r, 9, 0.2
+    text: old black, 10.25, 8.7
 
 The solution is to remember that a pawn can be promoted to any other piece when
 it reaches the back rank. There are two ways that black can try to stop White:
@@ -464,12 +479,15 @@ and promote to a rook instead:
     . . . . . . . .
     . . . . . . . K
     margins: 0, 0, 3, 0
-    card: B, 8.5, 5
-    card: R, 9, 5
-    card: k, 8.5, 0
-    card: r, 9, 0
-    card: q, 8.5, 0.5
-    card: b, 9, 0.5
+    card: B, 8.5, 4.75
+    card: R, 9, 4.75
+    card: k, 8.5, 0.2
+    card: r, 9, 0.2
+    card: q, 8.5, 0.95
+    card: b, 9, 0.95
+    text: old black, 10.25, 8.7
+    text: new black, 10.25, 4.35
+    text: new white, 10.25, 0.5
     arrow: h7, h8, white
     arrow: h8, f8, white
 

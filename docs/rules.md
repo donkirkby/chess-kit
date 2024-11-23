@@ -312,8 +312,8 @@ threatening the king's square or any of the squares it will move through. Pawns
 do not capture en passant, but they do promote when they reach the back rank.
 
 ### Example
-Here's an example turn, starting with White's Knight and Rook cards left on the
-table from the previous turn:
+Here's an example turn, starting with White's old knight and rook cards left on
+the table from the previous turn:
 
 ![Diagram](images/rules/two-move-chess1.png)
 
@@ -350,11 +350,12 @@ Here's the move that might look good, but gives the game to White:
 
 ![Diagram](images/rules/two-move-chess4.png)
 
-Because Black takes both of White's movable pawns, the bishops are now White's
-least valuable, movable piece type, and White can use any card to move them.
-Note that if the black king were where the queen is, White could not capture it.
-As soon as the bishop at c4 moves, it unblocks the pawn at c3, so that pawn has
-to be the second move.
+Because Black takes both of White's movable pawns at e4 and f3, the bishops are
+now White's least valuable, movable piece type, and White can use any card to
+move them. White can capture the pawn at e7, and the king at f8. Note the
+difference between the black king and queen, White cannot capture the black
+queen at g4. As soon as the bishop at c4 moves, it unblocks the pawn at c3, so
+that pawn has to be the second move.
 
 Here's a better move that will probably lead to a win for Black in the next turn
 or two:
@@ -368,7 +369,7 @@ should be able to capture the black king with any two cards.
 
 Most games will end with a double move to capture the king, but if you can
 survive until most of the pawns are captured or blocked, be very careful of the
-last pawn or two and the transition to moving more valuable pieces.
+last pawn or two and the transition to freely moving more valuable pieces.
 
 The challenge in the next example is to find a winning turn for White:
 

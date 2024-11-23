@@ -348,6 +348,8 @@ def main():
                 image_height,
                 state.text),
                 prefix)
+            if isinstance(story[-2], Paragraph) and not group:
+                flowable = KeepTogether([story.pop(-2), story.pop(-1), flowable])
         else:
             flowable = Paragraph(state.text,
                                  styles[state.style])
