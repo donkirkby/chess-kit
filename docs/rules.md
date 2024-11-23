@@ -350,6 +350,9 @@ Here's the move that might look good, but gives the game to White:
 
 ![Diagram](images/rules/two-move-chess4.png)
 
+Because the two queen cards cancel each other out, Black gets to play the bishop
+card twice, then White gets to play the rook card twice.
+
 Because Black takes both of White's movable pawns at e4 and f3, the bishops are
 now White's least valuable, movable piece type, and White can use any card to
 move them. White can capture the pawn at e7, and the king at f8. Note the
