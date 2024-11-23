@@ -65,17 +65,16 @@ these gaps:
     Q: 5
     K: 6
 
+## Crowded House
+4 players
+Chess set
+
+Standard starting position
+
 ## Cooperative Chess
 2 players
 Chess set
 Chess cards
-
-Standard starting position
-
-## Half Alice Chess
-2 players
-Chess set
-Checkers set
 
 Standard starting position
 
@@ -126,12 +125,6 @@ Many zombies, all move.
 Unmoved zombies are
 permanently destroyed.
 
-## Half Alice Chess
-1. Make a legal move,
-    ignoring pieces on the
-    other side of the mirror.
-2. Add or remove a checker.
-
 ## Cooperative Chess
 1. May make a non-capture
     chess move.
@@ -146,6 +139,15 @@ Wild cards:
 2. After both pieces match
     colour.
 
+## Crowded House
+Turn order:
+
+4 q k 2
+3 Q K 1
+
+Can only make a move that
+starts or ends on your side.
+
 ## Chess Golf
 1. Turn up 2 or 3 cards.
 2. Everyone solve, no touch!
@@ -153,8 +155,8 @@ Wild cards:
     (same colour).
 4. Colour without
     neighbours? All kings!
-5. Say move count, start
-    timer.
+5. Solved? Run timer, then
+    reveal move count.
 6. Record scores, lowest
     demonstrates.
 7. Replace captures.
@@ -173,9 +175,10 @@ Tarred pawns don't move.
 Combine pairs of checkers.
 Remove tar on back rank.
 
-## Crowded House
-4 players
+## Half Alice Chess
+2 players
 Chess set
+Checkers set
 
 Standard starting position
 
@@ -237,11 +240,8 @@ King must not be attacked
 on any square he moves
 through.
 
-## Crowded House
-Turn order:
-
-4 q k 2
-3 Q K 1
-
-Can only make a move that
-starts or ends on your side.
+## Half Alice Chess
+1. Make a legal move,
+    ignoring pieces on the
+    other side of the mirror.
+2. Add or remove a checker.

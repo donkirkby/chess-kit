@@ -859,10 +859,10 @@ start with an example:
     arrow: g2, a2, grey
 
 Every puzzle starts with the pieces spread around the board, and some cards
-choosing types of pieces according to the table in appendix A. The goal is
-to make one piece type capture the others in as few moves as possible. In this
-example, you have to make the white king capture one of the black bishops or
-make one of the black bishops capture the white king.
+choosing types of pieces. The goal is to make one chosen piece type capture the
+others in as few moves as possible. In this example, you have to make the white
+king capture one of the black bishops or make one of the black bishops capture
+the white king.
 
 You might think that the bishop at e5 could directly capture the king, but in
 this game, the piece's original movement is irrelevant. Pieces can only
@@ -938,7 +938,8 @@ Put the rest of the cards away, you won't need them. Then shuffle the cards and
 place them next to the board. Draw one card at a time, placing the matching
 piece on the board. Starting at a1 through h1, then a2 through h2, all the way
 to h8. The table in appendix A shows how big a gap to leave before each piece.
-That is, how many empty squares to leave before placing each piece.
+That is, how many empty squares to leave before placing each piece. If you have
+the custom chess cards, the pips in the centre show the gap size.
 
 Here's an example with all the cards laid out in the order they were drawn, from
 the white bishop to the white queen. Check to make sure you agree with where the
@@ -993,11 +994,11 @@ the table or when the timer runs out, the solving phase ends.
 Now, everyone **reveals** their move count at the same time. Bang your fist on
 the table as you count "one, two, three." As you say "three," everyone puts out
 a number of fingers to show how many moves they need. The scorekeeper writes
-down everyone's numbers. If you think it's impossible, keep your hand in a fist
-as a zero.
+down everyone's number as their score for this hole. If you think it's
+impossible, keep your hand in a fist as a zero.
 
 The player with the fewest moves must now **demonstrate** the path. If some
-players are tied for fewest, start with the dealer and go around to the
+players are tied for fewest, start to the dealer's left and go around to the
 left until you reach one of the tied players. That player must demonstrate. It
 can be helpful to start by placing coins under all the pieces that you're going
 to move, so you can reset if you get confused.
@@ -1016,8 +1017,12 @@ the maximum number plus a one-point penalty.
 
 After a successful demonstration, leave the pieces in their final positions, and
 add any captured pieces back to the board in any empty squares. Remove the
-coins, if you used them. **Pass** the deck one player to the left to choose a
-new dealer.
+coins, if you used them. The scorekeeper adds any penalty points for players
+who failed to demonstrate or thought it was impossible when it wasn't. **Pass**
+the deck to the player who demonstrated, and they become the new dealer.
+
+If everyone thought it was impossible, everyone gets zero points, and the same
+dealer deals again.
 
 ### Special Move
 The basic moves are to borrow a move from a neighbouring piece of the same
@@ -1062,10 +1067,10 @@ white knight at f6 can now use a king's move to capture the black queen.
     arrow: f6, g5, white
 
 ### Difficulty Level
-Once all players pick the same number of moves on a turn, the dealer may choose
-to increase the difficulty level by dealing one more card on later turns. If
-all players pick the same number of moves on a turn with three cards, the dealer
-may increase to four cards, and so on.
+Once you've played a few holes, and all players understand the rules, the dealer
+may choose to increase the difficulty level on any hole by dealing three cards
+instead of two. One of the chosen piece types must capture **both** of the
+others.
 
 ### Game End
 Continue dealing new cards each turn until you have played 9 turns. If you

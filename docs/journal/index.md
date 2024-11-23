@@ -102,3 +102,33 @@ at the edges. To me, it looks like someone grabbed the centre and twisted it.
 [back-trimmed]: images/back-trimmed.png
 [twist-plot]: images/twist-plot.png
 
+### Mar 2024 - Booster Chess
+This was an attempt to add the chaos of cards to Adrenaline Chess, but players
+would often get good enough cards that they could stomp their opponent in under
+ten moves. It also ended up feeling too similar to Adrenaline Chess. I solved
+both problems by dropping the boost and keeping only the hobble to make Tar Pit
+Chess.
+
+### Apr 2024 - Tar Pit Chess
+After extracting it from Booster Chess, I simplified it to only allow one
+checker at a time under a piece. I also softened the checkers cards to adjust
+hand size.
+
+### Jun 2024 - Two Move Chess
+I adapted the same movement mechanic that I previously used in [Blind Hex]. I
+think it's a much better fit for Chess than for Hex.
+
+[Blind Hex]: https://donkirkby.github.io/blind-hex/
+
+### Sep 2024 - Synchronous Chess
+This was the best simultaneous movement variant that I found, and I didn't
+change the rules at all. Hopefully, my rewrite is easier to understand, but the
+rules themselves haven't changed. It might appear similar to Two Move Chess,
+but that game is simultaneous choice, followed by moves in a defined order. I
+think Two Move Chess is less chaotic and more tactical, as you puzzle out which
+cards to play.
+
+### Nov 2024 - Player Aid Cards
+I think the game rules are stable, so I'm getting playtesters to read the rules
+cold and try to play from them. A player aid card for each game makes it easier
+to remember the key points while playing.
