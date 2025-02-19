@@ -355,10 +355,7 @@ card twice, then White gets to play the rook card twice.
 
 Because Black takes both of White's movable pawns at e4 and f3, the bishops are
 now White's least valuable, movable piece type, and White can use any card to
-move them. White can capture the pawn at e7, and the king at f8. Note the
-difference between the black king and queen, White cannot capture the black
-queen at g4. As soon as the bishop at c4 moves, it unblocks the pawn at c3, so
-that pawn has to be the second move.
+move them. White can capture the pawn at e7, and the king at f8.
 
 Here's a better move that will probably lead to a win for Black in the next turn
 or two:
@@ -676,15 +673,16 @@ although anything from 30 seconds to two minutes would be fine.
 Place all the chess pieces except the pawns beside the board. Put the pawns
 away, you won't need them.
 
-From the deck of cards, use one card to represent each piece, as shown in
-appendix A. You don't need the pawn cards, so you should end up with 16 cards.
+Use the custom deck of chess cards, or see appendix A for how to use a deck of
+standard playing cards. Use one card to represent each piece, but you don't need
+the pawn cards, so you should end up with 16 cards.
 
 Put the rest of the cards away, you won't need them. Then shuffle the cards and
 place them next to the board. Draw one card at a time, placing the matching
-piece on the board. Starting at a1 through h1, then a2 through h2, all the way
-to h8. The table in appendix A shows how big a gap to leave before each piece.
-That is, how many empty squares to leave before placing each piece. If you have
-the custom chess cards, the pips in the centre show the gap size.
+piece on the board. Start at a1 through h1, then wrap around to a2 through h2,
+all the way to h8. The pips in the centre of the chess cards or the table in
+appendix A show how big a gap to leave before each piece. That is, how many
+empty squares to leave before placing each piece.
 
 Here's an example with all the cards laid out in the order they were drawn, from
 the white bishop to the white queen. Check to make sure you agree with where the
@@ -716,13 +714,14 @@ Now, everyone **reveals** their move count at the same time. Bang your fist on
 the table as you count "one, two, three." As you say "three," everyone puts out
 a number of fingers to show how many moves they need. The scorekeeper writes
 down everyone's number as their score for this hole. If you think it's
-impossible, keep your hand in a fist as a zero.
+impossible, or you just couldn't find a solution, keep your hand in a fist as a
+zero.
 
-The player with the fewest moves must now **demonstrate** the path. If some
-players are tied for fewest, start to the dealer's left and go around to the
-left until you reach one of the tied players. That player must demonstrate. It
-can be helpful to start by placing coins under all the pieces that you're going
-to move, so you can reset if you get confused.
+The player with the fewest moves, but not zero, must now **demonstrate** the
+path. If some players are tied for fewest, start to the dealer's left and go
+around to the left until you reach one of the tied players. That player must
+demonstrate. It can be helpful to start by placing coins under all the pieces
+that you're going to move, so you can reset if you get confused.
 
 Players should not be allowed to hesitate more than a few seconds while
 demonstrating. Be kind, especially to younger players, but they can't sit and
@@ -752,7 +751,10 @@ No other captures are allowed.
 
 In addition, there is one special move to help when you get stuck: if one of the
 colours has no pairs of pieces next to each other, then any piece of that colour
-may make a king's move.
+may make a king's move. Just because one piece has no neighbours of the same
+colour, it doesn't necessarily get to make a king's move. Only if a colour has
+no pairs of pieces next to each other, then all the pieces of that colour may
+make a king's move.
 
 For example, in the position below, neither the white knights nor the black
 queen has any neighbours of the matching colour. One way to move them is
