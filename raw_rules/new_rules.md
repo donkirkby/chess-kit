@@ -11,6 +11,91 @@ know what you think.
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
 
+## Split-Brain Chess
+This is another chess game for four players, this time more chaotic than Crowded
+House. The players each have to contribute half the move, but it gets messy when
+they don't agree.
+
+Because chaos is frustrating in a long game, I wanted to base it on a simplified
+version of chess that plays more quickly. I chose Los Alamos chess, which is a
+simplified set of rules used by the first computer chess program, when computers
+weren't powerful enough to play regular chess.
+
+### Design Questions
+1. Los Alamos chess, or Tic Tac Chec?
+2. Is it more fun for the mover to draw a movement vector, instead of circling a
+   target? It's definitely simpler to circle a target.
+
+### Equipment
+A standard chess set, a checker or a coin, plus a piece of paper, a pen, and a
+pencil for each player.
+
+### Setup
+Los Alamos chess is played on a 6x6 board, without bishops, so put the bishops
+aside, along with two pawns of each colour. You can use a regular chess board,
+just don't use the squares along all four edges. Place the checker or coin in
+the black king's corner. The checker reminds players to ignore the outer
+squares, and also reminds players about the movement rules, described later.
+That leaves you with this starting position:
+
+    . . . . . . . .
+    . r n q k n r .
+    . p p p p p p .
+    . . . . . . . .
+    . . . . . . . .
+    . P P P P P P .
+    . R N Q K N R .
+    . . . . . . . .
+    arrow: h8, h8, black
+
+Put the two extra pawns of each colour in a bag or box, and let each player take
+a pawn without looking to choose the colour they will play.
+
+Each player should take a piece of paper, and write a 6x6 grid on it in pen.
+
+### Play
+The rules of standard chess apply, with these changes:
+
+* Partners make a move together, as described in the next section.
+* Pawns cannot move two squares on their first move.
+* No castling.
+* Pawns cannot promote to bishops.
+
+### Making a Move
+To make a move, one partner is the **chooser**, who chooses which piece to move.
+The other is the **mover**, who decides where to move it. Each team has one
+partner on the king side of the board and one on the queen side of the board.
+The partner on the same side as the **ch**ecker is the **ch**ooser.
+
+Starting with the two white players, they both shield their paper grids from
+each other with a hand or a book, and circle a square in pencil. The chooser is
+circling the piece they choose to move, and the mover is circling the square
+they want to move it to. Once they've both circled a square, they reveal their
+grids.
+
+The mover takes the chosen piece and makes a legal chess move that places it as
+close as possible to the square they circled. If more than one square is the
+same distance, the mover may choose which one they want to move to. Use
+"Manhattan distance", or the number of steps between the squares without making
+any diagonal steps.
+
+While writing down their moves, players must follow these rules:
+
+* They may not say anything or look at their partner's paper.
+* The chooser must circle a square that has one of their pieces on it, and that
+  piece must have a legal move.
+* If the chooser circles an invalid square, they must circle the nearest valid
+  square instead. If more than one valid square is the same distance, the
+  opponents may choose which one to use.
+
+After the white team finishes their move, the black team uses the same steps to
+make a move. After the black team finishes their move, they slide the checker
+from the king's corner to the queen's corner, or vice versa. Then the steps
+repeat.
+
+### Winning the Game
+As in regular chess, put the opponent's king in checkmate to win the game.
+
 ## Gravity Chess
 This game was inspired by several video games that have pieces dropping down a
 well and stacking on the bottom. Its most unusual mechanics are that both

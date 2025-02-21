@@ -57,6 +57,11 @@ features:
 
       checkers: 4, 5
 
+  Remember that you can put a checker on the board with an arrow that starts and
+  ends in the same square, so it's drawn as a circle:
+
+      arrow: h5, h5, black
+
 * Set the margins. Two numbers set the left/right and the top/bottom margins.
   Four numbers set the left, top, right, and bottom margins.
 

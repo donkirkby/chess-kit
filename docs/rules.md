@@ -1022,38 +1022,33 @@ With those restrictions, there are 960 possible starting positions. You can
 generate a random number and look up the position in a table, or use a website
 like [mark-weeks.com][weeks] to generate a position. You can also generate a
 random starting position with a standard deck of playing cards or with the deck
-of chess cards. If you have a standard deck, create three piles of cards with
-the following ranks, ignoring suit:
+of chess cards. If you have a standard deck, create a deck with the following
+ranks:
 
-* A, 3, 5, 7
-* 2, 4, 6, 8
-* 8, 8, 10, 10, 10, Q
+* 8, 8, 9, 9, 10, 10, Q, K
 
-If you have chess cards, use black pieces for the first two piles. One with
-odd numbers of pips and the other with even numbers. You'll need to use the
-black checkers cards, as well. The third pile is white pieces, minus the king
-and bishops, plus one black rook.
+If you have chess cards, create a deck with all the white pieces:
 
-* Black, odd pips: 1, 3, 5, 7
-* Black, even pips: 2, 4, 6, 8
-* White pieces: N, N, Q, R, R, plus black R
+* N, N, B, B, R, R, Q, K
 
-Shuffle each of the piles separately, then turn over one card from each of the
-first two piles. Using the ace through 8 or the pips to represent the squares a1
-through h1, place the two white bishops on the squares that match the two cards.
-Confirm that they are on opposite-coloured squares. Now turn over one card at a
-time from the last pile, and use the identified white pieces to fill in the
-empty squares from left to right. If you have a standard deck, place a knight
-for an 8, a queen for a queen, and a rook for a 10. For the three rook cards,
-place the king in the middle and the rooks on the outside. Finally, place the
-pawns in their regular positions and place the black pieces to mirror the white
-pieces.
+Either way, you should now have a deck of eight cards. Use that deck to set up
+the chess pieces by following these steps:
 
-As an example, imagine you turned over a 1 and a 6 from the first two piles,
-then N, R, Q, R, N, R from the third pile. The starting position would look
-like this:
-
-![Diagram](images/rules/chess9601.png)
+1. Take the two bishop cards or the two 9s out of the deck and set them aside.
+2. Shuffle the remaining six cards and deal them face down into two piles of
+   three.
+3. Add one bishop or 9 card face down into each of the two piles. That should
+   leave you with two decks of four cards each, call them deck 1 and deck 2.
+4. Shuffle deck 1 and deck 2, but keep them separate.
+5. Deal eight cards face up along the bottom of the board, alternating cards
+   from the two decks, so the cards come from deck 1, 2, 1, 2, 1, 2, 1, 2.
+6. In the same order as those cards, place the white pieces along the first
+   rank. If you used regular cards, place a knight for an 8, a bishop for a 9,
+   a rook for a 10, and the queen and king for the queen and king cards.
+7. If both rooks are on the same side of the king, swap the king with the
+   nearest rook.
+8. Place the pawns in their regular starting position, and make the black pieces
+   mirror the white pieces.
 
 ### Castling
 The other change that Bobby Fischer made was to the castling rules. As usual,
@@ -1063,7 +1058,7 @@ castle with the a-side rook, white's king would end on c1 and the rook on d1, no
 matter where they started. In the example above, white's third move could be to
 castle.
 
-![Diagram](images/rules/chess9602.png)
+![Diagram](images/rules/chess9601.png)
 
 As in regular chess, there are several restrictions
 before you can castle:
