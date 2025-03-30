@@ -11,6 +11,72 @@ know what you think.
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
 
+## Telepathy Chess
+I like the idea of two players working together, and trying to predict what
+their partner will do. You can decide how much talking to allow. Definitely none
+before your move, but it can be more fun to discuss what you thought your
+partner would do after they move and before your opponents move.
+
+### Equipment
+A standard chess set, plus the following for each team:
+
+* 3 checkers or coins
+* a piece of paper
+* a pencil
+
+### Setup
+Place two white pawns and two black pawns in a bag, box, or cupped hands so the
+other players can't see them. Have each player draw a pawn without looking to
+decide which two will play white and which two will play black. Teams can then
+decide which player will predict first and which will move first.
+
+Set up the chess pieces in the standard start position, and place 6 checkers or
+coins next to the board.
+
+On each team's piece of paper, write three boxes, then write "P" in one box and
+"N" in another. Leave the third box empty for now.
+
+### Play
+Players take turns being the mover and the predictor, handing the paper back and
+forth to keep track of who will write down a prediction next turn.
+
+On your team's turn, the predictor will fill in an empty box by writing a letter
+that identifies a type of chess piece:
+
+* (P)awn
+* k(N)ight
+* (B)ishop
+* (R)ook
+* (Q)ueen
+* (K)ing
+
+Keep the paper hidden so the mover can't see what you've written. Before you
+write down your prediction, you may show them what letters were still written
+from previous turns. You can't have the same letter in two boxes.
+
+As well as writing a letter, write a dot next to one of the letters to mark
+which piece type you think your partner is most likely to move. It doesn't have
+to be the letter you just wrote.
+
+When you're finished place the paper face down to show that you're ready.
+
+Then the mover makes any legal chess move.
+
+The predictor flips the paper to show what they predicted. If the mover moved
+one of the written piece types, erase that letter. If it was the letter with a
+dot, take one of the checkers and place it in front of your team. Otherwise,
+erase the dot.
+
+If your team ever has three checkers, you may place them next to the board and
+erase an extra letter from your paper.
+
+If you end your turn with no empty boxes, you must remove one of your pieces
+from the board. You may discuss with your partner which piece to remove. Then
+erase a letter from one of the boxes.
+
+### Winning the Game
+As in regular chess, put the opponent's king in checkmate to win the game.
+
 ## Split-Brain Chess
 This is another chess game for four players, this time more chaotic than Crowded
 House. The players each have to contribute half the move, but it gets messy when
@@ -25,6 +91,8 @@ weren't powerful enough to play regular chess.
 1. Los Alamos chess, or Tic Tac Chec?
 2. Is it more fun for the mover to draw a movement vector, instead of circling a
    target? It's definitely simpler to circle a target.
+3. Is it more fun to let the opponents choose whether piece or target is
+   flexible?
 
 ### Equipment
 A standard chess set, a checker or a coin, plus a piece of paper, a pen, and a
@@ -52,6 +120,7 @@ Put the two extra pawns of each colour in a bag or box, and let each player take
 a pawn without looking to choose the colour they will play.
 
 Each player should take a piece of paper, and write a 6x6 grid on it in pen.
+Label one side with a W for White and the opposite with a B for Black.
 
 ### Play
 The rules of standard chess apply, with these changes:
@@ -69,24 +138,34 @@ The partner on the same side as the **ch**ecker is the **ch**ooser.
 
 Starting with the two white players, they both shield their paper grids from
 each other with a hand or a book, and circle a square in pencil. The chooser is
-circling the piece they choose to move, and the mover is circling the square
-they want to move it to. Once they've both circled a square, they reveal their
-grids.
+circling the piece they choose to move, and the mover is circling the target
+square they want to move it to. Once they've both circled a square, they reveal
+their grids.
 
-The mover takes the chosen piece and makes a legal chess move that places it as
-close as possible to the square they circled. If more than one square is the
-same distance, the mover may choose which one they want to move to. Use
-"Manhattan distance", or the number of steps between the squares without making
-any diagonal steps.
+If the chosen piece can legally move to the target square, the white mover makes
+that move. If not, the black chooser chooses whether white must use the chosen
+piece or the target square. If they choose the piece, then the white mover must
+make a legal move with that piece. If that piece has more than one legal move,
+they must make the one that ends closest to the target square. If the black
+chooser chooses the target square, then the white chooser must choose a piece
+that can legally move to that square and move it there. If more than one piece
+can legally move to that square, they must choose the one that is closest to the
+one they originally chose.
+
+When choosing the closest square or the closest piece, use "Manhattan distance",
+or the number of steps between squares without making any diagonal steps. If
+more than one choice is the same distance, players may use whichever they
+prefer.
 
 While writing down their moves, players must follow these rules:
 
 * They may not say anything or look at their partner's paper.
 * The chooser must circle a square that has one of their pieces on it, and that
   piece must have a legal move.
-* If the chooser circles an invalid square, they must circle the nearest valid
+* The mover must circle a square that at least one piece can legally move to.
+* If either player circles an invalid square, they must circle the nearest valid
   square instead. If more than one valid square is the same distance, the
-  opponents may choose which one to use.
+  opponents' chooser may choose which one to use.
 
 After the white team finishes their move, the black team uses the same steps to
 make a move. After the black team finishes their move, they slide the checker

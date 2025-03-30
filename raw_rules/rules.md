@@ -1183,6 +1183,14 @@ play order would be Walter, Betty, Winnie, Bob, Walter, Betty, and so on.
     text: 3: Winnie, -1.5, 1
     text: 4: Bob, -1.5, 8
 
+### Setup
+Place two white pawns and two black pawns in a bag, box, or cupped hands so the
+other players can't see them. Have each player draw a pawn without looking to
+decide which two will play white and which two will play black. Teams can then
+decide which player will play king side and move first.
+
+Set up the chess pieces in the standard start position.
+
 ### Rule changes
 The key rule is that you may only move a piece that either
 
