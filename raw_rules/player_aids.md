@@ -185,19 +185,21 @@ Standard starting position
 ## Chess960
 2 players
 Chess set
-Chess cards in three
-shuffled piles:
-1. Black, odd pips: 1, 3, 5, 7
-    to place a bishop.
-2. Black, even pips 2, 4, 6, 8
-    to place other bishop.
-3. White pieces N, N, Q, R, R,
-    plus black R.
-Place white pieces on
-empty squares, with king
-on middle rook.
-Black pieces mirror white
-pieces.
+White piece chess cards
+1. Set 2 bishop cards aside.
+2. Shuffle other six cards
+   and deal 2 piles of 3.
+3. Add one bishop to each.
+4. Shuffle each pile.
+5. Deal 8 cards into a row
+   from decks 1, 2, 1, 2, 1, 2...
+6. Place the white pieces in
+   the same order as cards.
+7. If the king isn't between
+   rooks, swap with rook.
+8. Place the pawns normally,
+   and make black mirror
+   white.
 
 ## Synchronous Chess
 2 players
