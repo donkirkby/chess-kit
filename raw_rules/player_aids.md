@@ -78,6 +78,17 @@ Chess cards
 
 Standard starting position
 
+End by capturing a king or
+running out of cards.
+
+Score 1 point for each
+captured piece.
+If you captured a king,
+score 10 points for each
+eliminated piece type.
+
+30 is good, 60 is great!
+
 ## Adrenaline Chess
 1. Make a legal move.
 
@@ -97,13 +108,14 @@ Standard starting position
     N, B, R, Q, K.
 4. Player with 4 cards
     picks up.
-
-One card? Play it twice.
 Move a piece that matches
 the card or least valuable,
 movable piece (usually a
 pawn).
-Pawns move once per turn.
+
+One card? Play it twice.
+Can't move the same pawn
+twice in one turn.
 
 ## Masquerade Chess
 Ask if captures are legal.

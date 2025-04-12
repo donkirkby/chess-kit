@@ -468,13 +468,16 @@ class SvgAid(SvgCard):
                        'font-size': '11'}
         for state in self.markdown_states:
             if state.raw_text == '4 q k 2\n3 Q K 1\n\n':
-                self.add_diagram(group, y-line_height*2.583)
-                y += line_height*4
+                self.add_diagram(group, y-line_height*1.583)
+                y += line_height*5
                 continue
             lines = state.raw_text.split('\n')
             for line_text in lines:
+                if not line_text:
+                    y += line_height // 2
+                    continue
                 stripped_line = line_text.lstrip(' ')
-                indent = (len(line_text) - len(stripped_line)) * 3
+                indent = (len(line_text) - len(stripped_line)) * 2.65
                 text_attrib['x'] = str(x + indent)
                 text_attrib['y'] = str(y)
                 line = ET.Element('text',

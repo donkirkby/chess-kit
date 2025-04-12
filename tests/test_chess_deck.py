@@ -591,19 +591,31 @@ def test_player_aid(diagram_differ: DiagramDiffer):
     expected_page.append_text('2. Reveal, drop duplicates.',
                               {
                                   'x': '15',
-                                  'y': '79',
+                                  'y': '73',
                                   'font-family': 'Raleway',
                                   'font-size': '11'})
     expected_page.append_text('3. Play cards, in order:',
                               {
                                   'x': '15',
-                                  'y': '103',
+                                  'y': '91',
                                   'font-family': 'Raleway',
                                   'font-size': '11'})
     expected_page.append_text('N, B, R, Q, K.',
                               {
-                                  'x': '27',
-                                  'y': '115',
+                                  'x': '26',
+                                  'y': '103',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_page.append_text('One card? Play it twice.',
+                              {
+                                  'x': '15',
+                                  'y': '127',
+                                  'font-family': 'Raleway',
+                                  'font-size': '11'})
+    expected_page.append_text('Pawns move once.',
+                              {
+                                  'x': '15',
+                                  'y': '151',
                                   'font-family': 'Raleway',
                                   'font-size': '11'})
     expected_diagram = SvgDiagram(expected_page.to_svg())
@@ -614,6 +626,10 @@ def test_player_aid(diagram_differ: DiagramDiffer):
         2. Reveal, drop duplicates.
         3. Play cards, in order:
             N, B, R, Q, K.
+        
+        One card? Play it twice.
+        
+        Pawns move once.
         """)
     parsed_aids = parse_player_aids(markdown)
     game_name, markdown_states = parsed_aids[0]
