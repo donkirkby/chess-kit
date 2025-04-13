@@ -602,7 +602,7 @@ def test_player_aid(diagram_differ: DiagramDiffer):
                                   'font-size': '11'})
     expected_page.append_text('N, B, R, Q, K.',
                               {
-                                  'x': '26',
+                                  'x': '25.6',
                                   'y': '103',
                                   'font-family': 'Raleway',
                                   'font-size': '11'})
