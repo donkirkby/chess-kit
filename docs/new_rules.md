@@ -48,11 +48,9 @@ before your move, but it can be more fun to discuss what you thought your
 partner would do after they move and before your opponents move.
 
 ### Equipment
-A standard chess set, plus the following for each team:
-
-* 3 checkers or coins
-* a piece of paper
-* a pencil
+* a standard chess set
+* a standard deck of 52 cards, or a deck of chess cards
+* a coin or checker
 
 ### Setup
 Place two white pawns and two black pawns in a bag, box, or cupped hands so the
@@ -60,52 +58,66 @@ other players can't see them. Have each player draw a pawn without looking to
 decide which two will play white and which two will play black. Teams can then
 decide which player will predict first and which will move first.
 
-Set up the chess pieces in the standard start position, and place 6 checkers or
-coins next to the board.
+Set up the chess pieces in the standard start position. Both members of the
+white team sit on the side of the board with the white pieces, opposite both
+members of the black team. Place the coin or checker beside the board, halfway
+between the two teams.
 
-On each team's piece of paper, write three boxes, then write "P" in one box and
-"N" in another. Leave the third box empty for now.
+If you don't have a deck of chess cards, see Appendix A for how a standard deck
+of cards can represent the chess pieces. Give each team a set of seven cards:
+pawn, knight, bishop, rook, queen, king, and checker. The predictor for each
+team should take the cards in their hand, and play the pawn face up on their
+side of the board.
 
 ### Play
-Players take turns being the mover and the predictor, handing the paper back and
-forth to keep track of who will write down a prediction next turn.
+Players take turns being the mover and the predictor, handing the cards back and
+forth to keep track of who will play a prediction card next turn.
 
-On your team's turn, the predictor will fill in an empty box by writing a letter
-that identifies a type of chess piece:
-
-* (P)awn
-* k(N)ight
-* (B)ishop
-* (R)ook
-* (Q)ueen
-* (K)ing
-
-Keep the paper hidden so the mover can't see what you've written. Before you
-write down your prediction, you may show them what letters were still written
-from previous turns. You can't have the same letter in two boxes.
-
-As well as writing a letter, write a dot next to one of the letters to mark
-which piece type you think your partner is most likely to move. It doesn't have
-to be the letter you just wrote.
-
-When you're finished place the paper face down to show that you're ready.
+On your team's turn, the predictor will play a card face down, next to the
+face-up card. The piece cards predict that their partner will play the matching
+piece, and the checker card is like a copy of the face-up card. (Think of C for
+checker and C for copy.)
 
 Then the mover makes any legal chess move.
 
-The predictor flips the paper to show what they predicted. If the mover moved
-one of the written piece types, erase that letter. If it was the letter with a
-dot, take one of the checkers and place it in front of your team. Otherwise,
-erase the dot.
+The predictor flips the face-down card to show what they predicted. If the mover
+moved a piece type to match the card that was face down, push the coin or
+checker toward your opponents. If they moved a piece type to match the card that
+was face up, do nothing. If they didn't match either piece type, pull the coin
+or checker towards you.
 
-If your team ever has three checkers, you may place them next to the board and
-erase an extra letter from your paper.
+The coin or checker can be in three positions: beside the middle of the board,
+the white side, or the black side. If you have to push or pull it beyond those
+positions, the losing team has to remove one of their pieces, and then place it
+back in the middle position. For example, if it was beside the black side of the
+board and the black mover didn't match either card, the black team would have to
+remove one of their pieces from the board and put coin or checker back beside
+the middle of the board.
 
-If you end your turn with no empty boxes, you must remove one of your pieces
-from the board. You may discuss with your partner which piece to remove. Then
-erase a letter from one of the boxes.
+After moving a piece, and resolving the prediction, the mover takes the hand of
+cards and picks up one of the cards from the table. If one of them is a checker
+card, pick it up. Otherwise, pick up the card that started the turn face up.
 
 ### Winning the Game
-As in regular chess, put the opponent's king in checkmate to win the game.
+Capture the opponent's king to win the game. Because a piece is sometimes
+removed after the regular move, it may be possible to capture a king when they
+weren't in check. You should still say "check," when a piece is threatening the
+king.
+
+### Design Questions
+Is the catch-up mechanism too strong? Does it become too easy to predict when
+you only have pawns and a king?
+
+Alternate end when you have forced six removals? Captured all major pieces?
+
+Make predictions harder when you only have two or three types of pieces? (No
+face-up card.)
+
+Would strategy advice be helpful? Forcing king moves is usually good in regular
+chess, but here it makes your opponents' prediction much easier. Playing to a
+slightly weaker position that has three good responses can be better than the
+stronger position with one obvious response. You might sometimes want to predict
+incorrectly to remove a piece that frees up a stronger piece, like a rook.
 
 ## Split-Brain Chess
 This is another chess game for four players, this time more chaotic than Crowded
