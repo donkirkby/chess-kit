@@ -132,3 +132,14 @@ cards to play.
 I think the game rules are stable, so I'm getting playtesters to read the rules
 cold and try to play from them. A player aid card for each game makes it easier
 to remember the key points while playing.
+
+### Feb 2025 - Split-Brain Chess
+I'm trying to come up with another four-player variant, and predicting your
+partner's move seems fun, particularly when partners have different skill
+levels.
+
+### Mar 2025 - Telepathy Chess
+Still working on predicting your partner's move, but combining two half moves
+was fiddly. This just predicts which piece type your partner will move. As in
+Adrenaline Chess, it's interesting when the penalty can sometimes be an
+advantage.

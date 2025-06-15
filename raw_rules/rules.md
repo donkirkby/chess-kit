@@ -9,9 +9,10 @@ different moves, battling to protect their king. I wondered if I could take
 those ideas that many players are already familiar with, and mix them together
 with some newer game mechanics from the last 500 years of board game design.
 This collection contains chess games I've designed with hidden information,
-bluffing, deduction, role selection, and yes, zombies. They can all be played
-with a standard chess set and common items like pencil and paper, coins, and
-playing cards.
+bluffing, deduction, role selection, and yes, zombies. It also contains my
+favourite chess games by other designers that add a twist to the classic. They
+can all be played with a standard chess set and common items like pencil and
+paper, coins, and playing cards.
 
 Hopefully, serious chess players can enjoy these as a light break between
 regular chess games, and new chess players can use them as a gentler
@@ -1239,7 +1240,8 @@ players should also feel free to ignore their partner's advice.
 ## Cooperative Chess
 If you don't like battling your friend across the board, you can team up against
 the game itself. A hand of cards limits what you can capture, and you work
-together to eliminate as many *types* of pieces as you can.
+together to capture as many pieces as you can, with bonus points for each *type*
+of piece you eliminate.
 
 ### Equipment
 A standard chess set and 32 cards from a standard deck of 52 cards. You will use
@@ -1420,10 +1422,11 @@ last pawn. You may move a king into check or leave it in check.
 
 ### Winning
 The game ends immediately when you capture a king. You then get a point for each
-piece type that was completely removed from the board, both colours. For
-example, if you captured both queens, all four bishops, and a king, but still
-had at least one pawn, one knight, one rook, and the other king still on the
-board, then you would score 2 points.
+piece that you captured, plus ten points for each piece type that was completely
+removed from the board, both colours. For example, if you captured 23 pieces,
+including both queens, all four bishops, and a king, but still had at least one
+pawn, one knight, one rook, and the other king still on the board, then you
+would score 43 points.
 
 If the draw pile is empty, continue playing until you run out of cards in your
 hands. If you run out of cards without capturing a king, you lose.
@@ -1504,17 +1507,17 @@ The only legal move is to a7.
     arrow: a7,a7,black
 
 ## Chess960
-This is probably the least silly game in the collection; people organize
-Chess960 tournaments! It's still a bit silly, because it takes away the standard
-"opening book". One of the challenges to learning chess is that strong players
-have spent a lot of time studying standard openings. That can also make the
-early game feel like you're following a script. Randomizing the starting
-position should make the standard openings much less important and make the play
-feel more creative.
+This is probably the game in the collection that's closest to standard chess;
+people organize Chess960 tournaments! It still reduces the need to study,
+because it takes away the standard "opening book". One of the challenges to
+learning chess is that strong players have spent a lot of time studying standard
+openings. That can also make the early game feel like you're following a script.
+Shuffling the starting position should make the standard openings much less
+important and make the play feel more creative.
 
 ### Starting Position
-The idea of randomizing the starting position has been around since the 1790s,
-but Bobby Fischer added some restrictions in the 1990s to avoid positions that
+The idea of shuffling the starting position has been around since the 1790s, but
+Bobby Fischer added some restrictions in the 1990s to avoid positions that
 strongly advantage one player:
 
 * Pawns start in their regular position.
@@ -1595,7 +1598,7 @@ my best guess is that it was designed in 1991 by Vitaly Korolev. Then Ralf
 Hansmann, Arnold J. Krasowsky, and Andrey Krasowsky removed some special cases
 and added an exchange of blows after the simultaneous moves.
 
-Two Move Chess also has simultaneous choice of which pieces to move, but then
+Two Move Chess also has a simultaneous choice of which pieces to move, but then
 moves are made in a defined order.
 
 ### Equipment

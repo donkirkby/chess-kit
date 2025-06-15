@@ -304,7 +304,7 @@ def main():
             subtitle_text = state.subtitle
             if title_text == 'The Rules of Chess Kit':
                 title_text = 'Chess Kit'
-                subtitle_text = 'Chess Variants With a Twist'
+                subtitle_text = "Chess Games You Don't Have to Study"
             doc.title = title_text
             doc.subject = subtitle_text
             if args.booklet:

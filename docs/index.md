@@ -1,6 +1,6 @@
 ---
 title: Chess Kit
-subtitle: Chess Variants With a Twist
+subtitle: Chess Games You Don't Have to Study
 callouts: index_callouts
 ---
 I am not a strong chess player - it's always seemed to me more like study than
@@ -68,6 +68,6 @@ together.
 If you're interested, you can read my [design journal]. If you're brave, you can
 read about [experiments] in progress ([PDF]).
 
-[design journal]: journal/
+[design journal]: journal/index.md
 [experiments]: new_rules.md
 [PDF]: new_rules.pdf
