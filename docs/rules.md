@@ -243,7 +243,8 @@ pieces from least to most valuable. It was inspired by Richard Vickery's
 [Nibelungenlied]: https://boardgamegeek.com/boardgame/7555/nibelungenlied
 
 ### Equipment
-A standard chess set and a standard deck of 52 cards.
+A standard chess set and a deck of chess cards. (See how to turn standard
+playing cards into chess cards in appendix A.)
 
 ### Goal
 Capture your opponent's king. There's no check or checkmate, because the cards
@@ -255,9 +256,8 @@ One player takes a pawn of each colour and hides one in each hand. The other
 player picks a hand and then plays that colour. Don't worry, though, the
 simultaneous play means that White has less advantage.
 
-From the deck of cards, use one card to represent each piece type, as shown in
-appendix A. Exclude the pawns, so you should end up with 10 cards: 5 of each
-colour.
+From the deck of cards, use one card of each piece type. Exclude the pawns, so
+you should end up with 10 cards: 5 of each colour.
 
 Put the rest of the cards away, you won't need them. Separate the cards by
 colour, and give the five black cards and 16 black pieces to the Black player
@@ -458,16 +458,16 @@ Your checkers can cover your opponent's pieces in tar to slow them down, and
 your cards limit where you can play those checkers.
 
 ### Equipment
-A standard chess set, a standard checkers set, and a standard deck of cards.
+A standard chess set, a standard checkers set, and a deck of chess cards. (See
+how to turn standard playing cards into chess cards in appendix A.)
 
 You must be able to stack a chess piece on top of a checker. Coins or poker
 chips would also work, as long as they fit inside the chess board squares. You
 need 12 each of two colours.
 
-From the deck of cards, use one card to represent each piece, as shown in
-appendix A. You also need two cards of each colour to represent checkers, so add
-the sixes to the deck. That should make 36 cards in total, put the rest of the
-deck aside.
+From the deck of cards, use one card to represent each piece, plus you also need
+two cards of each colour to represent checkers. That should make 36 cards in
+total, put the rest of the deck aside.
 
 ### Setup
 Set up the chess pieces in the standard start position, and randomly choose who
@@ -665,7 +665,8 @@ explain how to solve a series of these puzzles with a group of players, keeping
 score like a round of golf.
 
 ### Equipment
-A standard chess set and a standard deck of 52 cards. You'll also need a pencil
+A standard chess set and a deck of chess cards. (See how to turn standard
+playing cards into chess cards in appendix A.) You'll also need a pencil
 and paper for keeping score, a timer, and some coins. 4 coins are probably
 enough, and you can even play without them. A one-minute timer works well,
 although anything from 30 seconds to two minutes would be fine.
@@ -674,9 +675,7 @@ although anything from 30 seconds to two minutes would be fine.
 Place all the chess pieces except the pawns beside the board. Put the pawns
 away, you won't need them.
 
-Use the custom deck of chess cards, or see appendix A for how to use a deck of
-standard playing cards. Use one card to represent each piece, but you don't need
-the pawn cards, so you should end up with 16 cards.
+Use the chess cards without the pawn cards, so you should end up with 16 cards.
 
 Put the rest of the cards away, you won't need them. Then shuffle the cards and
 place them next to the board. Draw one card at a time, placing the matching
@@ -854,8 +853,8 @@ together to capture as many pieces as you can, with bonus points for each *type*
 of piece you eliminate.
 
 ### Equipment
-A standard chess set and 32 cards from a standard deck of 52 cards. You will use
-cards to match the chess pieces, as shown in appendix A.
+A standard chess set and a deck of chess cards. (See how to turn standard
+playing cards into chess cards in appendix A.)
 
 ### Setup
 * One player **stands** the chess pieces in the standard start position.
