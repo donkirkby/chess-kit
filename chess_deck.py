@@ -326,8 +326,7 @@ class SvgCardBack(SvgCard):
                                  width=str(columns * size),
                                  height=str(rows * size),
                                  rx=str(size / 3),
-                                 fill=SQUARE_LIGHT,
-                                 stroke='black'))
+                                 fill=SQUARE_LIGHT))
         board.append(border)
         steps = 50
         for i in range(-rows//2, -rows//2 + rows):
@@ -336,6 +335,32 @@ class SvgCardBack(SvgCard):
                     continue
                 x0 = j * size + xc
                 y0 = i * size + yc
+                if j == -columns//2 and i == -rows//2:
+                    x1, y1 = self.convert_coordinates(x0, y0)
+                    board.append(ET.Element(
+                        'path',
+                        {
+                            'd': f'M {x1-size},{y1} '
+                                 f'l {size * 2 / 3},0 '
+                                 f'a {size / 3} {size / 3} 0 0 0 '
+                                 f'{size / 3},{-size / 3} '
+                                 f'l 0,{-size * 2 / 3}, '
+                                 f'l {-size},0',
+                            'fill': SQUARE_DARK}))
+                    continue
+                if j == -columns//2 and i == rows//2 - 1:
+                    x1, y1 = self.convert_coordinates(x0, y0)
+                    board.append(ET.Element(
+                        'path',
+                        {
+                            'd': f'M {x1},{y1} '
+                                 f'l {-size},0 '
+                                 f'l 0,{-size},0'
+                                 f'l {size * 2 / 3},0, '
+                                 f'a {size / 3} {size / 3} 0 0 1 '
+                                 f'{size / 3},{size / 3} ',
+                            'fill': SQUARE_DARK}))
+                    continue
                 if j == columns//2 - 1 and i == -rows//2:
                     x1, y1 = self.convert_coordinates(x0, y0)
                     board.append(ET.Element(
@@ -349,7 +374,7 @@ class SvgCardBack(SvgCard):
                                  f'l {size},0',
                             'fill': SQUARE_DARK}))
                     continue
-                if j == columns//2 - 1 and i == -rows//2 + rows - 1:
+                if j == columns//2 - 1 and i == rows//2 - 1:
                     x1, y1 = self.convert_coordinates(x0, y0)
                     board.append(ET.Element(
                         'path',
@@ -382,6 +407,15 @@ class SvgCardBack(SvgCard):
                 board.append(ET.Element('polygon',
                                         {'points': ' '.join(points),
                                          'fill': SQUARE_DARK}))
+        border2 = ET.Element('rect',
+                            dict(x=str(xc - columns // 2 * size),
+                                 y=str(yc - (rows + 1) // 2 * size),
+                                 width=str(columns * size),
+                                 height=str(rows * size),
+                                 rx=str(size / 3),
+                                 fill='transparent',
+                                 stroke='black'))
+        board.append(border2)
         return group
 
     def convert_coordinates(self,
