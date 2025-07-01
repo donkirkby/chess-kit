@@ -11,15 +11,16 @@ know what you think.
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
 
-## Telepathy Chess
-I like the idea of two players working together, and trying to predict what
+## Telepathic Chess
+I like the idea of two players working together and trying to predict what
 their partner will do. You can decide how much talking to allow. Definitely none
 before your move, but it can be more fun to discuss what you thought your
 partner would do after they move and before your opponents move.
 
 ### Equipment
 * a standard chess set
-* a standard deck of 52 cards, or a deck of chess cards
+* a deck of chess cards (See how to turn standard playing cards into chess cards
+  in appendix A.)
 * a coin or checker
 
 ### Setup
@@ -33,11 +34,9 @@ white team sit on the side of the board with the white pieces, opposite both
 members of the black team. Place the coin or checker beside the board, halfway
 between the two teams.
 
-If you don't have a deck of chess cards, see Appendix A for how a standard deck
-of cards can represent the chess pieces. Give each team a set of seven cards:
-pawn, knight, bishop, rook, queen, king, and checker. The predictor for each
-team should take the cards in their hand, and play the pawn face up on their
-side of the board.
+Give each team a set of seven cards: pawn, knight, bishop, rook, queen, king,
+and checker. The predictor for each team should take the cards in their hand,
+and play the pawn face up on their side of the board.
 
 ### Play
 Players take turns being the mover and the predictor, handing the cards back and
@@ -58,15 +57,21 @@ or checker towards you.
 
 The coin or checker can be in three positions: beside the middle of the board,
 the white side, or the black side. If you have to push or pull it beyond those
-positions, the losing team has to remove one of their pieces, and then place it
-back in the middle position. For example, if it was beside the black side of the
-board and the black mover didn't match either card, the black team would have to
-remove one of their pieces from the board. After removing a piece, put the coin
-or checker back beside the middle of the board.
+positions, the losing team has to remove one of their pieces, and then place the
+coin or checker back in the middle position. For example, if it was beside the
+black side of the board and the black mover didn't match either card, the black
+team would have to remove one of their pieces from the board. After removing a
+piece, put the coin or checker back beside the middle of the board.
 
 After moving a piece, and resolving the prediction, the mover takes the hand of
 cards and picks up one of the cards from the table. If one of them is a checker
 card, pick it up. Otherwise, pick up the card that started the turn face up.
+
+### Losing Eight Pieces
+When you lose pieces through capture or missed predictions, place them beside
+the board, along one side. When you have lost eight pieces, one next to each
+square of the board, stop leaving a prediction card face up on the table. From
+that point on, your team only plays one prediction card face down.
 
 ### Winning the Game
 Capture the opponent's king to win the game. Because a piece is sometimes
@@ -186,173 +191,6 @@ repeat.
 
 ### Winning the Game
 As in regular chess, put the opponent's king in checkmate to win the game.
-
-## Cooperative Chess 2
-If you don't like battling your friend across the board, you can team up against
-the game itself. A line of cards limits what you can capture, and you work
-together to capture as many pieces as you can, with bonus points for each *type*
-of piece you eliminate.
-
-### Equipment
-A standard chess set and a deck of chess cards. (See how to turn standard
-playing cards into chess cards in appendix A.)
-
-### Setup
-* One player **stands** the chess pieces in the standard start position.
-* Meanwhile, the other player **shuffles** the 32 cards,
-* **deals** 2 to each player, and
-* **places** the rest of the cards next to the board as a draw pile.
-* When the chess pieces are set up, the first player secretly places a white
-  pawn in one hand and a black pawn in the other. The other player then
-  **chooses** a hand to decide their colour.
-
-    r n b q k b n r
-    p p p p p p p p
-    . . . . . . . .
-    . . . . . . . .
-    . . . . . . . .
-    . . . . . . . .
-    P P P P P P P P
-    R N B Q K B N R
-    margins: 0, 0, 6, 0
-    card: back, 11.5, 0
-    card: back, 12, .25
-    card: back, 8.5, 2.5
-    card: back, 11.5, 5
-    card: back, 12, 4.75
-
-### Play
-White plays the first turn, and then players alternate. Each turn has four
-possible steps, in this order:
-
-1. You must **play a card** from your hand to a face-up line beside the draw
-   pile. Add to the end away from the draw pile.
-2. You may make a **non-capturing** chess move.
-3. You may make multiple **capturing** chess moves, if the cards allow.
-4. You must **draw a card** to bring your hand back to 2, unless the draw pile
-   is empty.
-
-If you ever draw or deal a **king** card, immediately add it to the face-up line
-and draw a replacement card.
-
-The chess pieces make the same moves as in regular chess, but you can only
-make a capturing move if a card like the **capturing** piece is beside a card
-like the **captured** piece in the face-up line.
-
-When you capture a piece, remove the piece from the board, and move the captured
-piece's card from the face-up line to the discard pile. If you can make another
-capturing move that also follows the rule above, you may continue, even by
-moving a different piece.
-
-As an example, imagine that Black has a black knight card and a white pawn card
-in hand with the following position:
-
-    r n b q k b n r
-    p p p . p p p p
-    . . . . . . . .
-    . . . P . . . .
-    . . . . P . . .
-    . . . . . . . .
-    P P . P . P P P
-    R N B Q K B N R
-    margins: 0, 0, 6, 0
-    card: back, 8.5, 2.5
-    card: p, 11, 2.5
-    card: P, 11.5, 2.5
-    card: b, 12, 2.5
-
-They can play their pawn card, move the bishop to e6, and then capture both
-pawns. The bishop card is able to capture using the pawn card to its left and
-the pawn card to its right. It could not continue to capture the pawn at g2,
-because the remaining pawn card is black.
-
-    r n . q k b n r
-    p p p . p p p p
-    . . . . . . . .
-    . . . . . . . .
-    . . . . b . . .
-    . . . . . . . .
-    P P . P . P P P
-    R N B Q K B N R
-    margins: 0, 0, 6, 0
-    card: back, 8.5, 2.5
-    card: p, 11, 2.5
-    card: P, 11.5, 2.5
-    card: b, 12, 2.5
-    card: P, 12.5, 2.5
-    arrow: c8, e6, black
-    arrow: e6, d5, black
-    arrow: d5, e4, black
-
-After the captured cards are removed, only the black pawn and bishop cards are
-left in the face-up line.
-
-    r n . q k b n r
-    p p p . p p p p
-    . . . . . . . .
-    . . . . . . . .
-    . . . . b . . .
-    . . . . . . . .
-    P P . P . P P P
-    R N B Q K B N R
-    margins: 0, 0, 6, 0
-    card: back, 8.5, 2.5
-    card: p, 11, 2.5
-    card: b, 12, 2.5
-
-If White now has a white pawn, knight, bishop, or queen card, they can play that
-and capture the black bishop. Otherwise, they can try to set up a future
-capture.
-
-You may only move a pawn to the last rank if it has a matching card in the
-face-up line. Promote the pawn to any other piece type that has already been
-captured. Move the pawn's card from the face-up line to the discard pile, then
-find the promoted piece's card in the discard pile, and place it anywhere in the
-face-up line. That can be an effective way to capture cards that are stuck
-behind a king's card. If a pawn captures a piece as it moves to the back rank,
-discard the captured piece's card as normal, then deal with the promotion.
-
-Castling is allowed. En passant capture is allowed. All individual moves must
-be legal chess moves, so you may not move a king into check or leave it in
-check.
-
-### Winning
-The game ends immediately when you capture a king. You then get a point for each
-piece that you captured, plus ten points for each piece type that was completely
-removed from the board, both colours. For example, if you captured 23 pieces,
-including both queens, all four bishops, and a king, but still had at least one
-pawn, one knight, one rook, and the other king still on the board, then you
-would score 43 points.
-
-Anything lower than 32 points is a loss, anything higher than 50 points is
-great!
-
-If the draw pile is empty, continue playing until you run out of cards in your
-hands. If you run out of cards without capturing a king, you lose.
-
-### Talking
-The game works best if players know something about each other's cards, but not
-everything. They should feel free to ask each other yes or no questions about
-their hands and to discuss general strategy, but shouldn't just reveal their
-hands.
-
-### Solitaire
-To play solitaire, don't have any cards in your hand. At the beginning of each
-turn, draw a card and add it to the face-up line.
-
-### Design Questions
-Should you have to play the kings immediately? Too fiddly and hard to remember?
-Does the rule add tension?
-
-Should you be allowed to move into check and leave a king in check? Is it easier
-to just say all moves must be legal chess moves? Is it too easy to set up a king
-capture and just work on capturing as many pieces as you can before you run out
-of cards?
-
-Should you be forced to capture a king if you can? Too fiddly and hard to
-remember? Definitely don't want to force a noncapturing move that sets up a
-capturing move, so is it easier to not force captures at all?
-
 
 ## Gravity Chess
 This game was inspired by several video games that have pieces dropping down a

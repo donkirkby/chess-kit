@@ -172,15 +172,14 @@ def test_card(diagram_differ: DiagramDiffer):
     expected_pips.scale = 0.75
     expected_page.append(expected_pips.to_element())
     card_symbol = 'Q'
-    expected_piece1 = SvgSymbol(card_symbol)
-    expected_piece1.x = 85.5
-    expected_piece1.y = 133 - 45
-    expected_piece1.scale = 1.75
-    expected_page.append(expected_piece1.to_element())
-    expected_piece2 = deepcopy(expected_piece1)
-    expected_piece2.rotation = 180
-    expected_piece2.y = 133 + 45
-    expected_page.append(expected_piece2.to_element())
+    expected_piece = SvgSymbol(card_symbol)
+    expected_piece.x = 85.5
+    expected_piece.y = 133 - 45
+    expected_piece.scale = 1.75
+    expected_page.append(expected_piece.to_element())
+    expected_piece.rotation = 180
+    expected_piece.y += 90
+    expected_page.append(expected_piece.to_element())
 
     letter_path = ET.Element('path',
                              attrib=dict(d=LETTER_PATHS['q'],

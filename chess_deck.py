@@ -251,6 +251,12 @@ class SvgCard(SvgGroup):
         return group
 
     def add_symbols(self, group: ET.Element) -> None:
+        """ Add the big symbols at the centre of the card.
+
+        I tried using small symbols in the corners, but they were hard to read
+        in diagrams. The black bishop looked white, and the white bishop looked
+        black. The rook was also bad.
+        """
         if self.pips:
             pips = SvgPips(self.pips)
             pips.x = self.BASE_WIDTH / 2
@@ -279,15 +285,14 @@ class SvgCard(SvgGroup):
         bar_path.attrib['transform'] = letter_path.attrib['transform']
         group.append(bar_path)
         symbol_size = SvgSymbol.BASE_SIZE / 2
-        symbol1 = SvgSymbol(self.symbol)
-        symbol1.scale = 1.75
-        symbol1.x = self.BASE_WIDTH / 2
-        symbol1.y = self.BASE_HEIGHT / 2 - symbol_size * 2
-        group.append(symbol1.to_element())
-        symbol2 = deepcopy(symbol1)
-        symbol2.y = self.BASE_HEIGHT / 2 + symbol_size * 2
-        symbol2.rotation = 180
-        group.append(symbol2.to_element())
+        symbol = SvgSymbol(self.symbol)
+        symbol.scale = 1.75
+        symbol.x = self.BASE_WIDTH / 2
+        symbol.y = self.BASE_HEIGHT / 2 - symbol_size * 2
+        group.append(symbol.to_element())
+        symbol.y = self.BASE_HEIGHT / 2 + symbol_size * 2
+        symbol.rotation = 180
+        group.append(symbol.to_element())
 
 
 class SvgCardBack(SvgCard):
@@ -427,7 +432,7 @@ class SvgCardBack(SvgCard):
         theta = np.angle(z)
         r = np.abs(z)
         theta += self.sigmoid((r-self.rect_width/4)*0.25) * np.pi
-        z2 = r * np.exp(1j*theta)
+        z2 = r * np.exp(1j*theta)  # noqa
         x2 = np.real(z2) + x0
         y2 = np.imag(z2) + y0
         return x2, y2

@@ -87,7 +87,7 @@ If you captured a king,
 score 10 points for each
 eliminated piece type.
 
-30 is good, 60 is great!
+32 is good, 50 is great!
 
 ## Adrenaline Chess
 1. Make a legal move.
@@ -138,18 +138,18 @@ Unmoved zombies are
 permanently destroyed.
 
 ## Cooperative Chess
-1. May make a non-capture
+1. Must play a card.
+2. May make a non-capture
     chess move.
-2. Must play a card.
 3. Multiple capture chess
     moves, if cards match.
 4. Must draw a card.
 
-Wild cards:
-1. When you have no
-    matching pieces.
-2. After both pieces match
-    colour.
+Immediate actions:
+1. Draw a king, play a king.
+2. Recycle 4-in-a-row.
+3. Promote a pawn with its
+    card.
 
 ## Crowded House
 Turn order:
@@ -220,12 +220,42 @@ Pencil and paper
 
 Standard starting position
 
+## Telepathic Chess
+4 players
+Chess set
+Chess cards
+Coin or checker
+
+Standard starting position
+
+Coin in middle position.
+
+7 cards for each team:
+pawn, knight, bishop, rook,
+queen, king, and checker.
+
+Start with pawn card face
+up.
+
 ## Blank
 ## Blank
 ## Blank
 ## Blank
-## Blank
-## Blank
+
+## Telepathic Chess
+1. Predict face down.
+2. Make chess move.
+3. Check prediction.
+4. Push if match face down.
+5. Pull if no match.
+6. Remove your piece, if
+    coin comes off your side.
+7. Coin in centre, if it came
+    off.
+8. Take back face-up card.
+
+After losing 8 pieces, only
+use one prediction card.
 
 ## Synchronous Chess
 1. Write down moves.

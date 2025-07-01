@@ -1238,7 +1238,7 @@ players should also feel free to ignore their partner's advice.
 
 ## Cooperative Chess
 If you don't like battling your friend across the board, you can team up against
-the game itself. A hand of cards limits what you can capture, and you work
+the game itself. A line of cards limits what you can capture, and you work
 together to capture as many pieces as you can, with bonus points for each *type*
 of piece you eliminate.
 
@@ -1249,7 +1249,7 @@ playing cards into chess cards in appendix A.)
 ### Setup
 * One player **stands** the chess pieces in the standard start position.
 * Meanwhile, the other player **shuffles** the 32 cards,
-* **deals** 3 to each player, and
+* **deals** 2 to each player, and
 * **places** the rest of the cards next to the board as a draw pile.
 * When the chess pieces are set up, the first player secretly places a white
   pawn in one hand and a black pawn in the other. The other player then
@@ -1263,47 +1263,42 @@ playing cards into chess cards in appendix A.)
     . . . . . . . .
     P P P P P P P P
     R N B Q K B N R
-    margins: 0, 1, 6, 1
-    card: back, 11, -1
-    card: back, 11.5, -0.75
-    card: back, 12, -0.5
+    margins: 0, 0, 6, 0
+    card: back, 11.5, 0
+    card: back, 12, .25
     card: back, 8.5, 2.5
-    card: back, 11, 6
-    card: back, 11.5, 5.75
-    card: back, 12, 5.5
+    card: back, 11.5, 5
+    card: back, 12, 4.75
 
 ### Play
 White plays the first turn, and then players alternate. Each turn has four
 possible steps, in this order:
 
-1. You may make a **non-capturing** chess move.
-2. You must **play a card** from your hand to your discard stack.
+1. You must **play a card** from your hand to a face-up line beside the draw
+   pile. Add to the end away from the draw pile.
+2. You may make a **non-capturing** chess move.
 3. You may make multiple **capturing** chess moves, if the cards allow.
-4. You must **draw a card** to bring your hand back to 3.
+4. You must **draw a card** to bring your hand back to 2, unless the draw pile
+   is empty.
 
-As the game progresses, you will move the cards between three face-up,
-spread-out stacks of cards: White's discards, Black's discards, and the captured
-cards. It's best to spread the cards enough that you can see which cards have
-already been played.
+Three things can also happen to the cards immediately during your turn:
+* If you ever draw or deal a **king** card, immediately add it to the face-up
+  line and draw a replacement card.
+* If there are ever **4 cards in a row** of the same colour in the face-up line,
+  they get recycled, as described below.
+* A pawn and its card can get **promoted**, as described below.
 
 The chess pieces make the same moves as in regular chess, but you can only
-make a capture if the cards match:
-
-1. The **capturing** piece must be the same piece type as the card that the
-   capturing player just played, and
-2. the **captured** piece must be the same piece type as the top card on the
-   other player's discard stack.
-
-Pieces may match cards of either colour. On each turn, all moves must be made
-with one piece.
+make a capturing move if a card like the **capturing** piece is beside a card
+like the **captured** piece in the face-up line.
 
 When you capture a piece, remove the piece from the board, and move the captured
-piece's card from your partner's discard stack to the captured cards stack. If
-you can make another capture move that matches the next card in your partner's
-stack, you may continue.
+piece's card from the face-up line to the discard pile. If you can make another
+capturing move that also follows the rule above, you may continue, even by
+moving a different piece.
 
-As an example, imagine that black has a knight card, a bishop card, and a king
-card in hand with the following position:
+As an example, imagine that Black has a black knight card and a white pawn card
+in hand with the following position:
 
     r n b q k b n r
     p p p . p p p p
@@ -1313,14 +1308,16 @@ card in hand with the following position:
     . . . . . . . .
     P P . P . P P P
     R N B Q K B N R
-    margins: 0, 1, 6, 1
+    margins: 0, 0, 6, 0
     card: back, 8.5, 2.5
-    card: P, 11, 2.5
-    card: P, 8.5, 6
-    card: p, 9, 6
+    card: p, 11, 2.5
+    card: P, 11.5, 2.5
+    card: b, 12, 2.5
 
-They can move the bishop to e6, play their bishop card, and then capture both
-pawns.
+They can play their pawn card, move the bishop to e6, and then capture both
+pawns. The bishop card is able to capture using the pawn card to its left and
+the pawn card to its right. It could not continue to capture the pawn at g2,
+because the remaining pawn card is black.
 
     r n . q k b n r
     p p p . p p p p
@@ -1330,111 +1327,83 @@ pawns.
     . . . . . . . .
     P P . P . P P P
     R N B Q K B N R
-    margins: 0, 1, 6, 1
+    margins: 0, 0, 6, 0
     card: back, 8.5, 2.5
-    card: P, 11, 2.5
-    card: p, 11.5, 2.5
-    card: P, 12, 2.5
-    card: b, 8.5, -1
+    card: p, 11, 2.5
+    card: P, 11.5, 2.5
+    card: b, 12, 2.5
+    card: P, 12.5, 2.5
     arrow: c8, e6, black
     arrow: e6, d5, black
     arrow: d5, e4, black
 
-The king can't get close enough to attack this turn, but the knight card
-might be an even better option:
-
-    r n b q k b . r
-    p p p . p p p p
-    . . . . . . . .
-    . . . P . . . .
-    . . . . . . . .
-    . . . . . . . .
-    P P . n . P P P
-    R N B Q K B N R
-    margins: 0, 1, 6, 1
-    card: back, 8.5, 2.5
-    card: P, 11, 2.5
-    card: p, 11.5, 2.5
-    card: P, 12, 2.5
-    card: n, 8.5, -1
-    arrow: g8, f6, black
-    arrow: f6, e4, black
-    arrow: e4, d2, black
-
-Now the knight can be attacked by anything except a pawn or a rook, and it can
-attack anything except a queen.
-
-There are two types of **wild** cards that can match any piece type. They may
-match different piece types when they capture and when they are captured.
-
-1. If you no longer have any pieces of a certain type, then that type of card is
-   wild on your discard stack. For example, if you have no queen, then a queen
-   card on your stack lets you capture with any piece and lets your partner
-   capture any of your pieces.
-2. A double colour match makes the next capture wild. If both the capturing
-   piece and the captured piece match the colour of their cards, then the next
-   captured card becomes wild, as long as you can capture it in the same turn.
-   White pieces match red cards.
-
-In this slight change from the previous example, you might think that black can
-only capture one pawn.
-
-    r n b q k b n r
-    p p p . p p p p
-    . . . . . . . .
-    . . . P . . . .
-    . . . . P . . .
-    . . . . . . . .
-    P P . P . P P P
-    R N B Q K B N R
-    margins: 0, 1, 6, 1
-    card: back, 8.5, 2.5
-    card: P, 11, 2.5
-    card: r, 8.5, 6
-    card: P, 9, 6
-
-However, since white's pawn card matches colour, black can make the rook card
-wild by using a black card to capture a white pawn. Black could do either of the
-moves shown before, or even capture something bigger than a pawn:
+After the captured cards are removed, only the black pawn and bishop cards are
+left in the face-up line.
 
     r n . q k b n r
     p p p . p p p p
     . . . . . . . .
-    . . . P . . . .
     . . . . . . . .
+    . . . . b . . .
     . . . . . . . .
     P P . P . P P P
-    R b B Q K B N R
-    margins: 0, 1, 6, 1
+    R N B Q K B N R
+    margins: 0, 0, 6, 0
     card: back, 8.5, 2.5
-    card: P, 11, 2.5
-    card: P, 11.5, 2.5
-    card: r, 12, 2.5
-    card: b, 8.5, -1
-    arrow: c8, f5, black
-    arrow: f5, e4, black
-    arrow: e4, b1, black
+    card: p, 11, 2.5
+    card: b, 12, 2.5
 
-Castling is allowed. En passant capture is allowed. You may promote a pawn on
-the last rank to any other piece. It can be an effective way to get rid of your
-last pawn. You may move a king into check or leave it in check.
+If White now has a white pawn, knight, bishop, or queen card, they can play that
+and capture the black bishop. Otherwise, they can try to set up a future
+capture.
+
+If you ever make a **four-in-a-row** group of cards (or more) all the same
+colour, you must recycle them. You can make the group by playing a card to the
+end of the face-up line, or by capturing a card in the middle of the group. To
+recycle the group, take all cards in the group out of the face-up line, and
+shuffle them face down. Take one card out of the group, and place it to the
+side, out of the game. Shuffle the rest of the group back into the draw pile. Do
+the recycling without looking at the card faces, so you don't know which card
+got removed. Recycling can be helpful to extend the game and unclog the face-up
+line, particularly when there's a king in the way, but be careful you don't lose
+both king cards, which would lose the game.
+
+You may only move a pawn to the last rank if it has a matching card in the
+face-up line. **Promote** the pawn to any other piece type that has already been
+captured. Move the pawn's card from the face-up line to the discard pile, then
+find the promoted piece's card in the discard pile, and place it anywhere in the
+face-up line. That can be an effective way to capture cards that are stuck
+behind a king's card. If a pawn captures a piece as it moves to the back rank,
+discard the captured piece's card as normal, then deal with the promotion.
+
+Castling is allowed. En passant capture is allowed. All individual moves must
+be legal chess moves, with this exception: you may move a king into check or
+leave it in check.
 
 ### Winning
 The game ends immediately when you capture a king. You then get a point for each
-piece that you captured, plus ten points for each piece type that was completely
-removed from the board, both colours. For example, if you captured 23 pieces,
-including both queens, all four bishops, and a king, but still had at least one
-pawn, one knight, one rook, and the other king still on the board, then you
-would score 43 points.
+piece that you captured, plus ten bonus points for each piece type that was
+completely removed from the board, both colours. For example, if you captured 23
+pieces, including both queens, all four bishops, and a king, but still had at
+least one pawn, one knight, one rook, and the other king still on the board,
+then you would score 43 points.
+
+Anything lower than 32 points is a loss, anything higher than 50 points is
+great! Keep track of your best score.
 
 If the draw pile is empty, continue playing until you run out of cards in your
-hands. If you run out of cards without capturing a king, you lose.
+hands. If you run out of cards without capturing a king, you get no bonus
+points.
 
 ### Talking
 The game works best if players know something about each other's cards, but not
 everything. They should feel free to ask each other yes or no questions about
 their hands and to discuss general strategy, but shouldn't just reveal their
 hands.
+
+### Solitaire
+To play solitaire, don't have any cards in your hand. At the beginning of each
+turn, draw a card and add it to the face-up line.
 
 # By Other Designers
 ## Half Alice Chess
