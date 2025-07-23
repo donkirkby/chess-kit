@@ -7,13 +7,10 @@ These are new games that aren't ready yet. You can try them out and let me
 know what you think.
 
 ## Table of Contents
-* [Telepathic Chess][telepathic-chess] asks you to predict what your
-    partner will do. (4 players, a standard chess set, a set of checkers
-    or coins, plus paper and pencils)
 * [Split-Brain Chess][split-brain-chess] is a battle between
-    partnerships, if they can cooperate well. (4 players, a standard chess
-    set, a checker or a coin, plus a piece of paper, a pen, and a pencil
-    for each player)
+    partnerships, if they can cooperate well. (4 players, chess set, a
+    coin or checker, plus a piece of paper, a pen, and a pencil for each
+    player)
 * [Gravity Chess][gravity-chess] has both players move in the same
     direction, trying to stack pieces higher. (2 players, chess set, and
     deck of cards)
@@ -29,7 +26,6 @@ know what you think.
     disguise your chess pieces as checkers, then try to identify your
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
 
-[telepathic-chess]: #telepathic-chess
 [split-brain-chess]: #split-brain-chess
 [gravity-chess]: #gravity-chess
 [parade-chess-solitaire]: #parade-chess-solitaire
@@ -40,89 +36,6 @@ know what you think.
 # New Games
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
-
-## Telepathic Chess
-I like the idea of two players working together and trying to predict what
-their partner will do. You can decide how much talking to allow. Definitely none
-before your move, but it can be more fun to discuss what you thought your
-partner would do after they move and before your opponents move.
-
-### Equipment
-* a standard chess set
-* a deck of chess cards (See how to turn standard playing cards into chess cards
-  in appendix A.)
-* a coin or checker
-
-### Setup
-Place two white pawns and two black pawns in a bag, box, or cupped hands so the
-other players can't see them. Have each player draw a pawn without looking to
-decide which two will play white and which two will play black. Teams can then
-decide which player will predict first and which will move first.
-
-Set up the chess pieces in the standard start position. Both members of the
-white team sit on the side of the board with the white pieces, opposite both
-members of the black team. Place the coin or checker beside the board, halfway
-between the two teams.
-
-Give each team a set of seven cards: pawn, knight, bishop, rook, queen, king,
-and checker. The predictor for each team should take the cards in their hand,
-and play the pawn face up on their side of the board.
-
-### Play
-Players take turns being the mover and the predictor, handing the cards back and
-forth to keep track of who will play a prediction card next turn.
-
-On your team's turn, the predictor will play a card face down, next to the
-face-up card. The piece cards predict that their partner will play the matching
-piece, and the checker card is like a copy of the face-up card. (Think of C for
-checker and C for copy.)
-
-Then the mover makes any legal chess move.
-
-The predictor flips the face-down card to show what they predicted. If the mover
-moved a piece type to match the card that was face down, push the coin or
-checker toward your opponents. If they moved a piece type to match the card that
-was face up, do nothing. If they didn't match either piece type, pull the coin
-or checker towards you.
-
-The coin or checker can be in three positions: beside the middle of the board,
-the white side, or the black side. If you have to push or pull it beyond those
-positions, the losing team has to remove one of their pieces, and then place the
-coin or checker back in the middle position. For example, if it was beside the
-black side of the board and the black mover didn't match either card, the black
-team would have to remove one of their pieces from the board. After removing a
-piece, put the coin or checker back beside the middle of the board.
-
-After moving a piece, and resolving the prediction, the mover takes the hand of
-cards and picks up one of the cards from the table. If one of them is a checker
-card, pick it up. Otherwise, pick up the card that started the turn face up.
-
-### Losing Eight Pieces
-When you lose pieces through capture or missed predictions, place them beside
-the board, along one side. When you have lost eight pieces, one next to each
-square of the board, stop leaving a prediction card face up on the table. From
-that point on, your team only plays one prediction card face down.
-
-### Winning the Game
-Capture the opponent's king to win the game. Because a piece is sometimes
-removed after the regular move, it may be possible to capture a king when they
-weren't in check. You should still say "check," when a piece is threatening the
-king.
-
-### Design Questions
-Is the catch-up mechanism too strong? Does it become too easy to predict when
-you only have pawns and a king?
-
-Alternate end when you have forced six removals? Captured all major pieces?
-
-Make predictions harder when you only have two or three types of pieces? (No
-face-up card.)
-
-Would strategy advice be helpful? Forcing king moves is usually good in regular
-chess, but here it makes your opponents' prediction much easier. Playing to a
-slightly weaker position that has three good responses can be better than the
-stronger position with one obvious response. You might sometimes want to predict
-incorrectly to remove a piece that frees up a stronger piece, like a rook.
 
 ## Split-Brain Chess
 This is another chess game for four players, this time more chaotic than Crowded

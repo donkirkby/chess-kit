@@ -223,6 +223,84 @@ it for 15 years. Masquerade Chess returns to the standard Chess moves, and
 players only learn about their pieces during capture, which slows the pace of
 the game.
 
+## Telepathic Chess
+I like the idea of two players working together and trying to predict what
+their partner will do. You can decide how much talking to allow. Definitely none
+before your move, but it can be more fun to discuss what you thought your
+partner would do after they move and before your opponents move. Just don't
+explain a move by talking about future moves it sets up.
+
+### Equipment
+* a standard chess set
+* a deck of chess cards (See how to turn standard playing cards into chess cards
+  in appendix A.)
+* a coin or checker
+
+### Setup
+Place two white pawns and two black **pawns** in a bag, box, or cupped hands so
+the other players can't see them. Have each player draw a pawn without looking
+to decide which two will play white and which two will play black. Teams can
+then decide which player will predict first and which will move first.
+
+Set up the chess **pieces** in the standard start position. Both members of the
+white team sit on the side of the board with the white pieces, opposite both
+members of the black team. Place the coin or checker beside the board, as a
+**trophy**, halfway between the two teams.
+
+Give each team a set of seven **cards**: pawn, knight, bishop, rook, queen,
+king, and checker. The predictor for each team should take the cards in their
+hand, and play the pawn card face up on their side of the board.
+
+### Play
+Players take turns being the mover and the predictor, handing the cards back and
+forth to keep track of who will play a prediction card next turn.
+
+On your team's turn, the predictor will play a card face down, next to the
+face-up card. The piece cards predict that their partner will play the matching
+piece, and the checker card is like a copy of the face-up card. (Think of C for
+checker and C for copy.)
+
+Then the mover makes any legal chess move.
+
+The predictor flips the face-down card to show what they predicted. If the mover
+moved a piece type to match the card that was face down, pull the trophy towards
+your side of the board. If they moved a piece type to match the card that was
+face up, do nothing. If they didn't match either piece type, push the trophy
+away.
+
+The trophy can be in three positions: beside the middle of the board,
+the white side, or the black side. If you have to push or pull it beyond those
+positions, the losing team has to remove one of their pieces, and then place the
+trophy back in the middle position. For example, if it was beside the white side
+of the board and the black mover didn't match either card, the black team would
+have to remove one of their pieces from the board. After removing a piece, put
+the trophy back beside the middle of the board.
+
+After moving a piece and resolving the prediction, the mover takes the hand of
+cards and picks up one of the cards from the table. If one of them is a checker
+card, pick it up. Otherwise, pick up the card that started the turn face up.
+
+### Losing Eight Pieces
+When you lose pieces through capture or missed predictions, place them beside
+the board, along one side. When you have lost eight pieces, one next to each
+square of the board, stop leaving a prediction card face up on the table. From
+that point on, your team only plays one prediction card face down.
+
+### Winning the Game
+Capture the opponent's king to win the game. Because a piece is sometimes
+removed after the regular move, it may be possible to capture a king when they
+weren't in check. You should still say "check," when a piece is threatening the
+king.
+
+### Tactics
+Forcing king moves is usually good in regular chess, but here it makes your
+opponents' prediction much easier. Playing to a slightly weaker position that
+has three good responses can be better than the stronger position with one
+obvious response. You might sometimes want to predict incorrectly to remove a
+piece that frees up a stronger piece, like a rook. If your opponents predict
+correctly, you may have to remove a piece *before* your turn. That can let you
+remove a pawn and immediately attack with a piece that it was blocking.
+
 ## Two Move Chess
 Players simultaneously choose two piece types to move, then move their chosen
 pieces from least to most valuable. It was inspired by Richard Vickery's

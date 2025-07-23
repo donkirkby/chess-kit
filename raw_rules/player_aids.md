@@ -224,11 +224,11 @@ Standard starting position
 4 players
 Chess set
 Chess cards
-Coin or checker
+Coin or checker trophy
 
 Standard starting position
 
-Coin in middle position.
+Trophy in middle position.
 
 7 cards for each team:
 pawn, knight, bishop, rook,
@@ -246,8 +246,8 @@ up.
 1. Predict face down.
 2. Make chess move.
 3. Check prediction.
-4. Push if match face down.
-5. Pull if no match.
+4. Pull if match face down.
+5. Push if no match.
 6. Remove your piece, if
     coin comes off your side.
 7. Coin in centre, if it came
