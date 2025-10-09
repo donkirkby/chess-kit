@@ -12,9 +12,10 @@ This collection contains chess games I've designed with hidden information,
 bluffing, deduction, role selection, and yes, zombies. It also contains my
 favourite chess games by other designers that add a twist to the classic. They
 can all be played with a standard chess set and common items like pencil and
-paper, coins, and playing cards.
+paper, coins, and playing cards. For a more deluxe experience, I offer custom
+chess cards and player screens.
 
-Hopefully, serious chess players can enjoy these as a light break between
+Hopefully, serious chess players can enjoy these games as a light break between
 regular chess games, and new chess players can use them as a gentler
 introduction to the classic game. Players of different chess abilities that
 might find a game of regular chess frustrating may enjoy exploring these games
@@ -253,19 +254,18 @@ explain a move by talking about future moves it sets up.
 * a coin or checker
 
 ### Setup
-Place two white pawns and two black **pawns** in a bag, box, or cupped hands so
-the other players can't see them. Have each player draw a pawn without looking
-to decide which two will play white and which two will play black. Teams can
-then decide which player will predict first and which will move first.
+Shuffle together the two queen cards and two king cards, then deal them to the
+four players to choose **colours** and **partners**. The players with the queen
+cards will predict first, and the players with the king cards will move first.
+
+Give each team a set of seven **cards**: pawn, knight, bishop, rook, queen,
+king, and checker. The predictor for each team should take the cards in their
+hand, and play the pawn card face up on their side of the board.
 
 Set up the chess **pieces** in the standard start position. Both members of the
 white team sit on the side of the board with the white pieces, opposite both
 members of the black team. Place the coin or checker beside the board, as a
 **trophy**, halfway between the two teams.
-
-Give each team a set of seven **cards**: pawn, knight, bishop, rook, queen,
-king, and checker. The predictor for each team should take the cards in their
-hand, and play the pawn card face up on their side of the board.
 
 ### Play
 Players take turns being the mover and the predictor, handing the cards back and

@@ -11,6 +11,80 @@ know what you think.
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
 
+## Chess Words
+A cooperative game for two, where you each need your partner to make certain
+captures. You can't just tell your partner where to move, though. You have to
+give a clue to a word that starts and ends with the same letters that the move
+starts and ends on.
+
+### Design Questions
+* How long can a clue be?
+* Can you tell your partner whether they made the move you wanted?
+* Would it be fun to require that the middle letters are somewhere on the board?
+  As an advanced variant?
+* If I want you to capture one of my pieces, how can I move it out to be more
+  vulnerable? Find an answer to one of your clues that does what I want?
+* Switch to Los Alamos or another small variant to reduce search and make it
+  easier to print a lettered board on paper?
+* Since letter tiles are fiddly, print full boards or rows of squares with
+  printed letters. Rows could be double-sided and shuffled. Need to rotate some
+  rows to make checkerboard pattern work. Need to clip rows together with bag
+  clips or a frame? Rods in sleeves at the ends of each row?
+
+### Equipment
+* a standard chess set
+* letter tiles from any word game that will fit in the chess board's squares
+* a deck of chess cards (See how to turn standard playing cards into chess cards
+  in appendix A.)
+
+### Setup
+Take a pawn of each colour, and hide one in each hand. Let the other player
+choose a hand to decide their colour.
+
+Shuffle the letter tiles and place one on each square of the board, face up.
+Place the chess pieces in the standard opening position, beside or on top of the
+letter tiles. If you can't read the letter tiles with a piece on them, lean them
+against the chess pieces. You might need to move the board sideways, and lean
+the letter tiles against the side of the pieces so that both players can see
+them.
+
+Deal five cards to each player.
+
+### Goal
+The cards tell you what your secret goal is to win the game, and both players
+must discard all their cards to win. If a card is your colour, discard it when
+your partner captures one of your pieces that match that card. If a card is your
+partner's colour, discard it when your partner captures any of your pieces with
+one of their pieces that match that card. If your partner makes a capture that
+lets you discard one card of your colour and one card of their colour, choose
+one to discard.
+
+There's no such thing as check or checkmate, and the game doesn't end when you
+capture a king. It ends with a win when both players discard all their cards,
+or it ends with a loss when there are no legal moves.
+
+### Play
+Black gives the first clue and White makes the first move. To give a clue, look
+at your cards and decide on a move that you'd like your partner to make. Read
+the letter on the piece's current square and the letter on the square that move
+will end on. Think of a word that starts with the move's starting letter and
+ends with the move's ending letter. Then give a clue for that word without
+saying any form of the word itself. The clue may be one word or a short phrase.
+
+To make a move, think about the clue and say what you think the secret word is.
+Find a legal chess move that starts and ends with the first and last letter of
+the secret word, then make that move. The clue giver cannot tell you whether you
+made the move they wanted.
+
+Remove the starting letter from the board, unless it's next to one of the kings.
+If the move was a capture, the clue giver should discard a matching card as
+described above.
+
+### When Words Fail You
+If you can't find a word that starts and ends with the right letters, or you
+can't think of a clue, or your partner can't solve your clue, you may just say
+the letters. However, you must draw a penalty card if you do this.
+
 ## Split-Brain Chess
 This is another chess game for four players, this time more chaotic than Crowded
 House. The players each have to contribute half the move, but it gets messy when

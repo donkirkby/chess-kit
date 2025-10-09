@@ -9,11 +9,13 @@ different moves, battling to protect their king. I wondered if I could take
 those ideas that many players are already familiar with, and mix them together
 with some newer game mechanics from the last 500 years of board game design.
 This collection contains chess games I've designed with hidden information,
-bluffing, deduction, role selection, and yes, zombies. They can all be played
-with a standard chess set and common items like pencil and paper, coins, and
-playing cards.
+bluffing, deduction, role selection, and yes, zombies. It also contains my
+favourite chess games by other designers that add a twist to the classic. They
+can all be played with a standard chess set and common items like pencil and
+paper, coins, and playing cards. For a more deluxe experience, I offer custom
+chess cards and player screens.
 
-Hopefully, serious chess players can enjoy these as a light break between
+Hopefully, serious chess players can enjoy these games as a light break between
 regular chess games, and new chess players can use them as a gentler
 introduction to the classic game. Players of different chess abilities that
 might find a game of regular chess frustrating may enjoy exploring these games
@@ -28,6 +30,9 @@ together.
     they capture. Start the game by choosing which capture moves each of
     your opponent's pieces will use, then try to deduce how each of your
     pieces can capture. (2 players, chess set, pencils, and paper)
+* [Telepathic Chess][telepathic-chess] asks you to predict what your
+    partner will do. (4 players, chess set, deck of cards, and a coin or
+    checker)
 * [Two Move Chess][two-move-chess] makes both players simultaneously
     choose two pieces to move each turn, but choosing the same piece
     cancels out. (2 players, chess set, and deck of cards)
@@ -55,6 +60,7 @@ together.
 
 [zombie-chess]: rules.md#zombie-chess
 [masquerade-chess]: rules.md#masquerade-chess
+[telepathic-chess]: rules.md#telepathic-chess
 [two-move-chess]: rules.md#two-move-chess
 [adrenaline-chess]: rules.md#adrenaline-chess
 [tar-pit-chess]: rules.md#tar-pit-chess
