@@ -30,7 +30,7 @@ def test_svg_page(diagram_differ: DiagramDiffer):
                             'height': '100'}))
 
     svg_diagram = SvgDiagram(page.to_svg())
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -64,7 +64,7 @@ def test_piece_translate(diagram_differ: DiagramDiffer):
     page.append(piece.to_element())
 
     svg_diagram = SvgDiagram(page.to_svg())
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -92,7 +92,7 @@ def test_pips(diagram_differ: DiagramDiffer):
     page.append(pips.to_element())
 
     svg_diagram = SvgDiagram(page.to_svg())
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -130,7 +130,7 @@ def test_pips_transform(diagram_differ: DiagramDiffer):
     page.append(pips.to_element())
 
     svg_diagram = SvgDiagram(page.to_svg())
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -208,7 +208,7 @@ def test_card(diagram_differ: DiagramDiffer):
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -235,7 +235,7 @@ def test_card_transform(diagram_differ: DiagramDiffer):
     page.append(card2.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -288,7 +288,7 @@ def test_card_no_border(diagram_differ: DiagramDiffer):
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -344,7 +344,7 @@ def test_card_outline(diagram_differ: DiagramDiffer):
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -396,7 +396,7 @@ def test_card_checker(diagram_differ: DiagramDiffer):
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -411,7 +411,7 @@ def test_card_back(diagram_differ: DiagramDiffer):
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -426,7 +426,7 @@ def test_card_back_outline(diagram_differ: DiagramDiffer):
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -473,7 +473,7 @@ def test_grid(diagram_differ: DiagramDiffer):
     page.append(grid.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -508,7 +508,7 @@ def test_grid_transform(diagram_differ: DiagramDiffer):
     page.append(grid.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 def test_parse_player_aids():
@@ -637,7 +637,7 @@ def test_player_aid(diagram_differ: DiagramDiffer):
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -755,4 +755,4 @@ def test_player_aid_diagram(diagram_differ: DiagramDiffer):
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)

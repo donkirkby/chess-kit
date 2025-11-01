@@ -4,14 +4,18 @@ import xml.etree.ElementTree as ET  # noqa
 import chess.svg
 import numpy as np
 import pytest
+from reportlab.lib import pagesizes
+from reportlab.platypus import Paragraph
 from svgwrite import Drawing
 
 from board_parser import parse_board
 from chess_deck import SvgCardBack, SvgSymbol, SvgCard
 from diagram import Diagram, SUIT_PATHS
+from publish_rules import RulesDocTemplate
 from svg_page import SvgPage
 from diagram_differ import DiagramDiffer
 from svg_diagram import SvgDiagram
+from tests.live_pdf import LivePdf
 
 
 def test_basic(diagram_differ: DiagramDiffer):
@@ -32,7 +36,7 @@ def test_basic(diagram_differ: DiagramDiffer):
     diagram = Diagram(500, 500, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 def test_arrows(diagram_differ: DiagramDiffer):
@@ -60,7 +64,7 @@ def test_arrows(diagram_differ: DiagramDiffer):
     diagram = Diagram(500, 500, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 def test_checkers(diagram_differ: DiagramDiffer):
@@ -118,7 +122,7 @@ def test_checkers(diagram_differ: DiagramDiffer):
     diagram = Diagram(570, 240, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 def test_margin_arrows(diagram_differ: DiagramDiffer):
@@ -151,7 +155,7 @@ def test_margin_arrows(diagram_differ: DiagramDiffer):
     diagram = Diagram(500, 500, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -189,7 +193,7 @@ def test_text(diagram_differ: DiagramDiffer):
     diagram = Diagram(390, 195, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -227,7 +231,7 @@ def test_corner_text(diagram_differ: DiagramDiffer):
     diagram = Diagram(390, 195, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -268,7 +272,7 @@ def test_card(diagram_differ: DiagramDiffer):
     diagram = Diagram(390, 195, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -309,7 +313,45 @@ def test_margins(diagram_differ: DiagramDiffer):
     diagram = Diagram(570, 240, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_pdf_margins(diagram_differ: DiagramDiffer, tmp_path):
+    pdf_path = tmp_path / 'test_pdf.pdf'
+    doc = RulesDocTemplate(str(pdf_path),
+                           pagesize=pagesizes.letter,
+                           # leftMargin=side_margin,
+                           # rightMargin=side_margin,
+                           # topMargin=vertical_margin,
+                           # bottomMargin=vertical_margin
+                           )
+
+    paragraph1 = Paragraph('This paragraph comes before the diagram.' * 10)
+    paragraph2 = Paragraph('This paragraph comes after the diagram.' * 10)
+
+    diagram_text = dedent("""\
+        . . . . . . . .
+        . r n q k n r .
+        . p p p p p p .
+        . . . . . . . .
+        . . . . . . . .
+        . P P P P P P .
+        . R N Q K N R .
+        . . . . . . . .
+        margins: -1.333, -1.333
+        """)
+    diagram = Diagram(doc.width,
+                      doc.height,
+                      diagram_text).build().to_reportlab()
+    doc.multiBuild([paragraph1, diagram, paragraph2])
+    live_pdf = LivePdf(pdf_path)
+
+    expected = live_pdf.convert_to_painter()
+    for x in range(20):
+        for y in range(live_pdf.converted_size[1]):
+            expected.set_pixel((x, y), (255, 255, 255, 255))
+    diagram_differ.assert_equal(live_pdf, expected)
 
 
 # noinspection DuplicatedCode
@@ -350,7 +392,7 @@ def test_different_margins(diagram_differ: DiagramDiffer):
     diagram = Diagram(570, 240, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -387,7 +429,7 @@ def test_rect(diagram_differ: DiagramDiffer):
     diagram = Diagram(390, 195, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -452,7 +494,7 @@ def test_masquerade(diagram_differ: DiagramDiffer):
     diagram = Diagram(600, 600, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 def test_cloak(diagram_differ: DiagramDiffer):
@@ -490,7 +532,7 @@ def test_cloak(diagram_differ: DiagramDiffer):
     diagram = Diagram(600, 270, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 def test_cards(diagram_differ: DiagramDiffer):
@@ -547,7 +589,7 @@ def test_cards(diagram_differ: DiagramDiffer):
     diagram = Diagram(960, 270, diagram_text)
     svg_diagram = diagram.build()
 
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 def test_symbol_rotation(diagram_differ: DiagramDiffer):
@@ -567,7 +609,7 @@ def test_symbol_rotation(diagram_differ: DiagramDiffer):
     page.append(piece.to_element())
 
     svg_diagram = SvgDiagram(page.to_svg())
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 def test_symbol_scale(diagram_differ: DiagramDiffer):
@@ -587,7 +629,7 @@ def test_symbol_scale(diagram_differ: DiagramDiffer):
     page.append(piece.to_element())
 
     svg_diagram = SvgDiagram(page.to_svg())
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 def test_symbol_white_checker(diagram_differ: DiagramDiffer):
@@ -631,7 +673,7 @@ def test_symbol_white_checker(diagram_differ: DiagramDiffer):
     page.append(piece.to_element())
 
     svg_diagram = SvgDiagram(page.to_svg())
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
 
 
 # noinspection DuplicatedCode
@@ -676,4 +718,4 @@ def test_symbol_black_checker(diagram_differ: DiagramDiffer):
     page.append(piece.to_element())
 
     svg_diagram = SvgDiagram(page.to_svg())
-    diagram_differ.assert_equal(svg_diagram, expected_diagram)
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)

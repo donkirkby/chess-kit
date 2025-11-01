@@ -2,8 +2,6 @@ import typing
 from io import BytesIO
 from pathlib import Path
 
-from PIL import Image
-from reportlab.graphics.renderPM import drawToString
 from space_tracer import LiveImage, LiveImageDiffer
 
 from svg_diagram import SvgDiagram
@@ -34,10 +32,10 @@ class LiveSvg(LiveImage):
 
 
 class DiagramDiffer(LiveImageDiffer):
-    def assert_equal(self,
-                     actual: SvgDiagram,
-                     expected: SvgDiagram,
-                     file_prefix: str = None):
+    def assert_equal_diagrams(self,
+                              actual: SvgDiagram,
+                              expected: SvgDiagram,
+                              file_prefix: str = None):
         """ Raise an AssertionError if this image doesn't match the expected.
 
         Also display this image as the Actual image, the other image as the
@@ -50,4 +48,4 @@ class DiagramDiffer(LiveImageDiffer):
             file_prefix is passed to this method.
         """
         __tracebackhide__ = True
-        super().assert_equal(LiveSvg(actual), LiveSvg(expected), file_prefix)
+        self.assert_equal(LiveSvg(actual), LiveSvg(expected), file_prefix)

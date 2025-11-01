@@ -69,8 +69,10 @@ together.
 [synchronous-chess]: https://donkirkby.github.io/chess-kit/rules.html#synchronous-chess
 
 If you're interested, you can read my [design journal]. If you're brave, you can
-read about [experiments] in progress ([PDF]).
+read about [experiments] in progress ([PDF]). Want to hear news about my games
+and puzzles? Sign up for my [newsletter].
 
 [design journal]: https://donkirkby.github.io/chess-kit/journal/
 [experiments]: https://donkirkby.github.io/chess-kit/new_rules.html
 [PDF]: https://donkirkby.github.io/chess-kit/new_rules.pdf
+[newsletter]: https://groups.google.com/g/don-kirkby-games

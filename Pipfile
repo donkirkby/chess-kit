@@ -15,6 +15,7 @@ svgwrite = "*"
 networkx = "*"
 coverage = "*"
 numpy = "*"
+pymupdf = "*"
 
 [dev-packages]
 pytest = "*"

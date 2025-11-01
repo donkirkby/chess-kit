@@ -7,9 +7,9 @@ These are new games that aren't ready yet. You can try them out and let me
 know what you think.
 
 ## Table of Contents
-* [Chess Words][chess-words] is a cooperative game where you use clue
-    words to guide the other player's moves. (2 players, chess set, letter
-    tiles, and deck of cards)
+* [Secret Chesswords][secret-chesswords] is a cooperative game where
+    you use clue words to guide the other player's moves. (2 players,
+    chess set, letter tiles, and deck of cards)
 * [Split-Brain Chess][split-brain-chess] is a battle between
     partnerships, if they can cooperate well. (4 players, chess set, a
     coin or checker, plus a piece of paper, a pen, and a pencil for each
@@ -29,7 +29,7 @@ know what you think.
     disguise your chess pieces as checkers, then try to identify your
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
 
-[chess-words]: #chess-words
+[secret-chesswords]: #secret-chesswords
 [split-brain-chess]: #split-brain-chess
 [gravity-chess]: #gravity-chess
 [parade-chess-solitaire]: #parade-chess-solitaire
@@ -41,11 +41,16 @@ know what you think.
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
 
-## Chess Words
+## Secret Chesswords
 A cooperative game for two, where you each need your partner to make certain
-captures. You can't just tell your partner where to move, though, you have to
+moves. You can't just tell your partner where to move, though. You have to
 give a clue to a word that starts and ends with the same letters that the move
 starts and ends on.
+
+To reduce the number of possible moves, I wanted to base it on a simplified
+version of chess. I chose Los Alamos chess, which is a set of rules used by the
+first computer chess program, when computers weren't powerful enough to play
+regular chess.
 
 ### Design Questions
 * How long can a clue be?
@@ -56,38 +61,55 @@ starts and ends on.
   vulnerable? Find an answer to one of your clues that does what I want?
 * Switch to Los Alamos or another small variant to reduce search and make it
   easier to print a lettered board on paper?
+* Since letter tiles are fiddly, print full boards or rows of squares with
+  printed letters. Rows could be double-sided and shuffled. Need to rotate some
+  rows to make checkerboard pattern work. Need to clip rows together with bag
+  clips or a frame? Rods in sleeves at the ends of each row?
+* Some penalty for needing extra clue words?
+* Alternative goal: look at letters before shuffling the board, and each write
+  down a secret word. Goal is to cover all the letters of your word. Score
+  points if you use your partner's pieces. 
+* Score is the number of your partner's pieces on your word times the number of
+  your pieces on your partner's word times the number of your captured pieces
+  times the number of your partner's captured pieces.
+* Pass to let partner do what they want, or if you have all the letters you
+  need.
+* Partner always has the option to ignore your clue and do what they want.
 
 ### Equipment
 * a standard chess set
-* letter tiles from any word game that will fit in the chess board's squares
 * a deck of chess cards (See how to turn standard playing cards into chess cards
   in appendix A.)
+* letter planks (See how to make them in appendix B.)
+* 14 checkers (two colours are fine)
+* A timer (choose one between one and five minutes long)
 
 ### Setup
 Take a pawn of each colour, and hide one in each hand. Let the other player
 choose a hand to decide their colour.
 
-Shuffle the letter tiles and place one on each square of the board, face up.
-Place the chess pieces in the standard opening position, beside or on top of the
-letter tiles. If you can't read the letter tiles with a piece on them, lean them
-against the chess pieces. You might need to move the board sideways, and lean
-the letter tiles against the side of the pieces so that both players can see
-them.
+Shuffle the six letter planks, mixing up their order, and which side is face up.
+Then lay the planks out to form a six-by-six grid. To make the light and dark
+checkerboard pattern work, you'll probably have to turn some planks 180°.
 
-Deal five cards to each player.
+Los Alamos chess is played on a 6x6 board, without bishops, so put the bishops
+aside, along with two pawns of each colour. That leaves you with this starting
+position, ignoring the outer rows and columns:
+
+![Diagram](images/new_rules/secret-chesswords1.png)
+
+Remove the bishop cards from the deck, as well as two pawn cards of each colour,
+they won't be used. Shuffle the other 24 cards, and deal four cards face down to
+each player, plus a face-down draw stack of six cards. The remaining cards are
+not used.
 
 ### Goal
-The cards tell you what your secret goal is to win the game, and both players
-must discard all their cards to win. If a card is your colour, discard it when
-your partner captures one of your pieces that match that card. If a card is your
-partner's colour, discard it when your partner captures any of your pieces with
-one of their pieces that match that card. If your partner makes a capture that
-lets you discard one card of your colour and one card of their colour, choose
-one to discard.
+You're working with your partner to score points in two stages:
 
-There's no such thing as check or checkmate, and the game doesn't end when you
-capture a king. It ends with a win when both players discard all their cards,
-or it ends with a loss when there are no legal moves.
+1. Collect letters by guiding your partner to make captures that match your
+   cards.
+2. Make a pair of words using as many of those letters as you can, then get
+   your partner to say one of your words.
 
 ### Play
 Black gives the first clue and White makes the first move. To give a clue, look
@@ -102,14 +124,58 @@ Find a legal chess move that starts and ends with the first and last letter of
 the secret word, then make that move. The clue giver cannot tell you whether you
 made the move they wanted.
 
-Remove the starting letter from the board, unless it's next to one of the kings.
-If the move was a capture, the clue giver should discard a matching card as
-described above.
+If one of your cards is your colour, you can discard it when your partner
+captures one of your pieces that match that card. If a card is your partner's
+colour, you can discard it when your partner captures any of your pieces with
+one of their pieces that match that card. If your partner makes a capture that
+lets you discard more than one card, choose one to discard.
+
+When you discard a card, place a checker on the square the capturing piece
+started on. Checkers do two things:
+
+1. At the end of the game, you will use the letters with checkers on them to
+   make two words.
+2. During the game, pieces cannot move onto squares with checkers on them. They
+   may cross over those squares.
+
+When you discard a card, draw a new card unless the draw pile is empty.
+
+All moves must be legal chess moves, with these changes for Los Alamos Chess:
+
+* Pawns cannot move two squares on their first move.
+* No castling.
+* Pawns cannot promote to bishops.
+
+In addition to the Los Alamos changes, there's no such thing as check or
+checkmate, since you're working as partners.
+
+If you don't think care what move your partner makes, you can pass, and they
+can then make any move they want.
+
+### Game End
+The game either ends when one of you captures a king, or when both players pass.
+
+After the game, start the timer. Then both players should write down all the
+letters with checkers on them and secretly try to make two words out of those
+letters.
+
+When the timer ends, White should choose one of their secret words and give a
+clue to Black. If Black successfully guesses the word, then multiply the lengths
+of the two words together to calculate the score. Gain an extra point if a king
+was captured, and lose one point for each unused letter.
+
+Then, Black gives a clue to White. Add the two scores together for your final
+score. A perfect game ends with a king's capture, both players find two
+seven-letter words and successfully give clues. Then they would each get 49
+points plus a bonus point for the king, giving a total of 100 points.
+
+Imperfect games get a letter grade based on the score: 85 for an A, 75 for a B,
+60 for a C, or 50 for a D. Below 50 is a loss.
 
 ### When Words Fail You
 If you can't find a word that starts and ends with the right letters, or you
 can't think of a clue, or your partner can't solve your clue, you may just say
-the letters. However, you must draw a penalty card if you do this.
+the letters. However, it costs you one penalty point.
 
 ## Split-Brain Chess
 This is another chess game for four players, this time more chaotic than Crowded
