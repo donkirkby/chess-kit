@@ -16,6 +16,7 @@ networkx = "*"
 coverage = "*"
 numpy = "*"
 pymupdf = "*"
+qrcode = {extras = ["pil"], version = "*"}
 
 [dev-packages]
 pytest = "*"

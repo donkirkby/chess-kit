@@ -64,7 +64,7 @@ checkerboard pattern work, you'll probably have to turn some planks 180°.
 
 Los Alamos chess is played on a 6x6 board, without bishops, so put the bishops
 aside, along with two pawns of each colour. That leaves you with this starting
-position, ignoring the outer rows and columns:
+position:
 
     . . . . . . . .
     . r n q k n r .
@@ -74,6 +74,7 @@ position, ignoring the outer rows and columns:
     . P P P P P P .
     . R N Q K N R .
     . . . . . . . .
+    margins: -1.333, -1.333
 
 Remove the bishop cards from the deck, as well as two pawn cards of each colour,
 they won't be used. Shuffle the other 24 cards, and deal four cards face down to
@@ -126,7 +127,7 @@ All moves must be legal chess moves, with these changes for Los Alamos Chess:
 In addition to the Los Alamos changes, there's no such thing as check or
 checkmate, since you're working as partners.
 
-If you don't think care what move your partner makes, you can pass, and they
+If you don't really care what move your partner makes, you can pass, and they
 can then make any move they want.
 
 ### Game End

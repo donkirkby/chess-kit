@@ -176,12 +176,30 @@ class Diagram:
         board_tree.set('viewBox', view_box)
         board_tree.set('width', str(image_width))
         board_tree.set('height', str(image_height))
+        defs = board_tree.find('.//{http://www.w3.org/2000/svg}defs')
+        clip_path = ET.Element('clipPath', {'id': 'border_clip'})
+        defs.append(clip_path)
+        clip_rect = ET.Element('rect',
+                               {'x': str(-square_size*margins[0]),
+                                'y': str(-square_size*margins[1]),
+                                'width': str(view_width),
+                                'height': str(view_height)})
+        clip_path.append(clip_rect)
+        outer_group = ET.Element('g',
+                                 {'clip-path': 'url(#border_clip)'})
+        while True:
+            child = board_tree.find('*[1]')
+            if child is None:
+                break
+            board_tree.remove(child)
+            outer_group.append(child)
+        board_tree.append(outer_group)
         extra_elements = []
         for extra in extra_svg:
             if not isinstance(extra, ET.Element):
                 extra = extra.get_xml()
             extra_elements.append(extra)
-        board_tree.extend(extra_elements)
+        outer_group.extend(extra_elements)
 
         diagram = SvgDiagram(ET.tostring(board_tree, encoding='unicode'))
         return diagram
