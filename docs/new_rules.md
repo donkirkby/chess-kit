@@ -53,36 +53,20 @@ first computer chess program, when computers weren't powerful enough to play
 regular chess.
 
 ### Design Questions
-* How long can a clue be?
+* How long can a clue be? (3 words are pretty easy, 2 words are pretty hard.)
 * Can you tell your partner whether they made the move you wanted?
-* Would it be fun to require that the middle letters are somewhere on the board?
-  As an advanced variant?
-* If I want you to capture one of my pieces, how can I move it out to be more
-  vulnerable? Find an answer to one of your clues that does what I want?
-* Switch to Los Alamos or another small variant to reduce search and make it
-  easier to print a lettered board on paper?
 * Since letter tiles are fiddly, print full boards or rows of squares with
   printed letters. Rows could be double-sided and shuffled. Need to rotate some
   rows to make checkerboard pattern work. Need to clip rows together with bag
   clips or a frame? Rods in sleeves at the ends of each row?
-* Some penalty for needing extra clue words?
-* Alternative goal: look at letters before shuffling the board, and each write
-  down a secret word. Goal is to cover all the letters of your word. Score
-  points if you use your partner's pieces. 
-* Score is the number of your partner's pieces on your word times the number of
-  your pieces on your partner's word times the number of your captured pieces
-  times the number of your partner's captured pieces.
-* Pass to let partner do what they want, or if you have all the letters you
-  need.
-* Partner always has the option to ignore your clue and do what they want.
+* Increase difficulty with checkers cards? Discard together with another card
+  when the capture was made by your partner's king.
 
 ### Equipment
 * a standard chess set
 * a deck of chess cards (See how to turn standard playing cards into chess cards
   in appendix A.)
 * letter planks (See how to make them in appendix B.)
-* 14 checkers (two colours are fine)
-* A timer (choose one between one and five minutes long)
 
 ### Setup
 Take a pawn of each colour, and hide one in each hand. Let the other player
@@ -99,47 +83,57 @@ position:
 ![Diagram](images/new_rules/secret-chesswords1.png)
 
 Remove the bishop cards from the deck, as well as two pawn cards of each colour,
-they won't be used. Shuffle the other 24 cards, and deal four cards face down to
-each player, plus a face-down draw stack of six cards. The remaining cards are
-not used.
+they won't be used. Separate the remaining cards by colour, so each player has
+12 cards of their colour.
+
+Each player puts their king card aside and shuffles the other 11 cards. Then
+they deal three cards face down and shuffle them together with the king. Put the
+other eight cards on top, so the king is somewhere in the bottom four cards.
+
+Finally, each player draws the top card from their deck, before their first
+turn.
 
 ### Goal
-You're working with your partner to score points in two stages:
-
-1. Collect letters by guiding your partner to make captures that match your
-   cards.
-2. Make a pair of words using as many of those letters as you can, then get
-   your partner to say one of your words.
+You're working with your partner to capture one of the two kings, without
+letting too many cards build up in your hand.
 
 ### Play
-Black gives the first clue and White makes the first move. To give a clue, look
-at your cards and decide on a move that you'd like your partner to make. Read
-the letter on the piece's current square and the letter on the square that move
-will end on. Think of a word that starts with the move's starting letter and
-ends with the move's ending letter. Then give a clue for that word without
-saying any form of the word itself. The clue may be one word or a short phrase.
+White plays first, then Black, and so on. In each turn:
 
-To make a move, think about the clue and say what you think the secret word is.
-Find a legal chess move that starts and ends with the first and last letter of
-the secret word, then make that move. The clue giver cannot tell you whether you
-made the move they wanted.
+* The active player draws a card.
+* The active player asks *their partner* to make a move.
+* The active player makes a move.
+* The active player must have fewer than four cards, or both players lose.
 
-If one of your cards is your colour, you can discard it when your partner
-captures one of your pieces that match that card. If a card is your partner's
-colour, you can discard it when your partner captures any of your pieces with
-one of their pieces that match that card. If your partner makes a capture that
-lets you discard more than one card, choose one to discard.
+To keep your hand fewer than four cards, you can discard a card when your
+partner captures a piece that matches the card. That's why you ask your partner
+to make a move that either captures one of your pieces to match one of your
+cards or set up a capture on a later turn.
 
-When you discard a card, place a checker on the square the capturing piece
-started on. Checkers do two things:
+However, you can't just tell your partner what move you want. You can only give
+a clue to the move you want. Look at your cards and decide on a move that you'd
+like your partner to make. Read the letter on the piece's current square and the
+letter on the square that move will end on. Think of a word that starts with the
+move's starting letter and ends with the move's ending letter. Then give a clue
+for that word without saying any form of the word itself. The clue may be one
+word or a short phrase of up to three words.
 
-1. At the end of the game, you will use the letters with checkers on them to
-   make two words.
-2. During the game, pieces cannot move onto squares with checkers on them. They
-   may cross over those squares.
+When your partner asks you to make a move, think about the clue and say what you
+think the secret word is. Find a legal chess move that starts and ends with the
+first and last letter of the secret word, then make that move. The clue giver
+then tells you whether you made the move they wanted. If you didn't, they can't
+tell you what they wanted instead. Either way, they can't tell you anything
+about future moves.
 
-When you discard a card, draw a new card unless the draw pile is empty.
+If you don't know what move your partner is asking you to make, or you don't
+want to make the move they're asking for, you can choose your own move.
 
+### Captures
+When one of your pieces is captured on either player's turn, discard one of your
+cards that matches the piece, if you have one. If you have no matching cards,
+then your **partner must draw** a card.
+
+### Legal Moves
 All moves must be legal chess moves, with these changes for Los Alamos Chess:
 
 * Pawns cannot move two squares on their first move.
@@ -149,33 +143,15 @@ All moves must be legal chess moves, with these changes for Los Alamos Chess:
 In addition to the Los Alamos changes, there's no such thing as check or
 checkmate, since you're working as partners.
 
-If you don't really care what move your partner makes, you can pass, and they
-can then make any move they want.
-
 ### Game End
-The game either ends when one of you captures a king, or when both players pass.
+The game either ends as a win when one of you captures a king, or as a loss when
+one player has four or more cards at the end of their turn.
 
-After the game, start the timer. Then both players should write down all the
-letters with checkers on them and secretly try to make two words out of those
-letters.
+### Increasing Difficulty
+If you want more of a challenge, here are some changes you can make:
 
-When the timer ends, White should choose one of their secret words and give a
-clue to Black. If Black successfully guesses the word, then multiply the lengths
-of the two words together to calculate the score. Gain an extra point if a king
-was captured, and lose one point for each unused letter.
-
-Then, Black gives a clue to White. Add the two scores together for your final
-score. A perfect game ends with a king's capture, both players find two
-seven-letter words and successfully give clues. Then they would each get 49
-points plus a bonus point for the king, giving a total of 100 points.
-
-Imperfect games get a letter grade based on the score: 85 for an A, 75 for a B,
-60 for a C, or 50 for a D. Below 50 is a loss.
-
-### When Words Fail You
-If you can't find a word that starts and ends with the right letters, or you
-can't think of a clue, or your partner can't solve your clue, you may just say
-the letters. However, it costs you one penalty point.
+* Give two-word clues.
+* Draw more cards during setup.
 
 ## Split-Brain Chess
 This is another chess game for four players, this time more chaotic than Crowded
