@@ -746,11 +746,11 @@
         },
         "svg-turtle": {
             "hashes": [
-                "sha256:064b06a4ed210c31454ebf40d757e4b73a3543e960c5e75e1ebfa4c5a72f4c52",
-                "sha256:6a5a36d7f1b7d2b12ec6a6029d08c81c11ab6385eb8f14d9765b1acf84501640"
+                "sha256:21caebfa176e2cb2fe8e25d7c459d7672933c60e91133c2e4d97798f0412aa0a",
+                "sha256:912b3032383b8a5020b63a1930523d912d0142a3526e579418ca27dbead1c7d6"
             ],
             "index": "pypi",
-            "version": "==1.0.0"
+            "version": "==1.1.0"
         },
         "svglib": {
             "hashes": [
