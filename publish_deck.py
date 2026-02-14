@@ -8,7 +8,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.pdfbase.pdfdoc import PDFInfo
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Flowable
 
 import publish_rules
 from chess_deck import SvgCardBack, SvgCard, SvgGrid, parse_player_aids, SvgAid
@@ -88,6 +88,7 @@ def main() -> None:
     title_style.fontName = 'Heading'
     body_style = styles['Normal']
     body_style.fontName = 'Body'
+    # noinspection PyTypeChecker
     centred_style = ParagraphStyle('Centred',
                                    parent=body_style,
                                    alignment=TA_CENTER)
@@ -107,18 +108,14 @@ def main() -> None:
                           first_header_space)
     cc_section = publish_rules.create_cc_section(doc, centred_style)
     footer_height = other_header_space / 2
-    flowables = [title_paragraph,
-                 subtitle_paragraph,
-                 Spacer(0, first_header_space)]
+    flowables: list[Flowable] = [title_paragraph,
+                                 subtitle_paragraph,
+                                 Spacer(0, first_header_space)]
     symbol_pages = [['rnbq', 'pppp'],
                     ['kbnr', 'pppp'],
                     ['PPPP', 'RNBQ'],
                     ['PPPP', 'KBNR'],
                     [['C4', 'C7', 'C8', 'C9'], ['c4', 'c7', 'c8', 'c9']]]
-    page_grids = []
-    for symbol_page in symbol_pages:
-        grid = SvgGrid(symbol_page)
-        page_grids.append(grid)
 
     player_aid_path = Path(__file__).parent / 'raw_rules' / 'player_aids.md'
     player_aid_markdown = player_aid_path.read_text()
