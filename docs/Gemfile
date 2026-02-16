@@ -1,4 +1,11 @@
+# bash -l
+# rvm use 3.4.1
+# bundle install
+# bundler exec jekyll serve
+
 source 'https://rubygems.org'
-gem 'jekyll'
-gem 'github-pages', group: :jekyll_plugins
-gem 'webrick'
+gem "jekyll", "~> 4.3.3"
+gem "jekyll-paginate", "~> 1.1.0"
+gem "bulma-clean-theme", "~> 1.0"
+gem "csv", "~> 3.3.5"
+gem "base64", "~> 0.3.0"

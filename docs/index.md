@@ -58,24 +58,24 @@ together.
     a move, then move at the same time. (2 players, chess set, paper and
     pencil)
 
-[zombie-chess]: rules.md#zombie-chess
-[masquerade-chess]: rules.md#masquerade-chess
-[telepathic-chess]: rules.md#telepathic-chess
-[two-move-chess]: rules.md#two-move-chess
-[adrenaline-chess]: rules.md#adrenaline-chess
-[tar-pit-chess]: rules.md#tar-pit-chess
-[chess-golf]: rules.md#chess-golf
-[crowded-house]: rules.md#crowded-house
-[cooperative-chess]: rules.md#cooperative-chess
-[half-alice-chess]: rules.md#half-alice-chess
-[chess960]: rules.md#chess960
-[synchronous-chess]: rules.md#synchronous-chess
+[zombie-chess]: rules#zombie-chess
+[masquerade-chess]: rules#masquerade-chess
+[telepathic-chess]: rules#telepathic-chess
+[two-move-chess]: rules#two-move-chess
+[adrenaline-chess]: rules#adrenaline-chess
+[tar-pit-chess]: rules#tar-pit-chess
+[chess-golf]: rules#chess-golf
+[crowded-house]: rules#crowded-house
+[cooperative-chess]: rules#cooperative-chess
+[half-alice-chess]: rules#half-alice-chess
+[chess960]: rules#chess960
+[synchronous-chess]: rules#synchronous-chess
 
 If you're interested, you can read my [design journal]. If you're brave, you can
 read about [experiments] in progress ([PDF]). Want to hear news about my games
 and puzzles? Sign up for my [newsletter].
 
-[design journal]: journal/index.md
-[experiments]: new_rules.md
+[design journal]: journal/index
+[experiments]: new_rules
 [PDF]: new_rules.pdf
 [newsletter]: https://groups.google.com/g/don-kirkby-games

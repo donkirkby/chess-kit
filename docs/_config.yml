@@ -1,4 +1,4 @@
-remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
+theme: bulma-clean-theme
 title: Chess Kit
 google_analytics: UA-4644630-2
 
@@ -6,6 +6,7 @@ defaults:
   - scope:
       path: ""
     values:
+      layout: page
       hero_image: images/index_hero.jpg
       hero_darken: true
       twitter:
