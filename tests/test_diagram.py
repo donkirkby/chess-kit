@@ -147,8 +147,8 @@ def test_margin_arrows(diagram_differ: DiagramDiffer):
     SvgPage.register_svg()
     expected_tree = ET.fromstring(expected_svg)
     expected_tree.set('width', '250')
-    expected_tree.set('height', '278')
-    expected_tree.set('viewBox', '0 0 390 433.68')
+    expected_tree.set('height', '278.8462')
+    expected_tree.set('viewBox', '0 0 390 435')
     expected_diagram = SvgDiagram(ET.tostring(expected_tree,
                                               encoding='unicode'))
 
