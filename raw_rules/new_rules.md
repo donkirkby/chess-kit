@@ -25,10 +25,6 @@ regular chess.
 ### Design Questions
 * How long can a clue be? (3 words are pretty easy, 2 words are pretty hard.)
 * Can you tell your partner whether they made the move you wanted?
-* Since letter tiles are fiddly, print full boards or rows of squares with
-  printed letters. Rows could be double-sided and shuffled. Need to rotate some
-  rows to make checkerboard pattern work. Need to clip rows together with bag
-  clips or a frame? Rods in sleeves at the ends of each row?
 * Increase difficulty with checkers cards? Discard together with another card
   when the capture was made by your partner's king.
 
@@ -39,8 +35,8 @@ regular chess.
 * letter planks (See how to make them in appendix B.)
 
 ### Setup
-Take a pawn of each colour, and hide one in each hand. Let the other player
-choose a hand to decide their colour.
+Take a pawn of each colour, and hide one in each hand. Let your partner choose a
+hand to decide their colour.
 
 Shuffle the six letter planks, mixing up their order, and which side is face up.
 Then lay the planks out to form a six-by-six grid. To make the light and dark
@@ -62,10 +58,10 @@ position:
 
 Remove the bishop cards from the deck, as well as two pawn cards of each colour,
 they won't be used. Separate the remaining cards by colour, so each player has
-12 cards of their colour.
+12 cards of their partner's colour.
 
-Each player puts their king card aside and shuffles the other 11 cards. Then
-they deal three cards face down and shuffle them together with the king. Put the
+Each player puts the king card aside and shuffles the other 11 cards. Then they
+deal three cards face down and shuffle them together with the king. Put the
 other eight cards on top, so the king is somewhere in the bottom four cards.
 
 Finally, each player draws the top card from their deck, before their first
@@ -83,10 +79,9 @@ White plays first, then Black, and so on. In each turn:
 * The active player makes a move.
 * The active player must have fewer than four cards, or both players lose.
 
-To keep your hand fewer than four cards, you can discard a card when your
-partner captures a piece that matches the card. That's why you ask your partner
-to make a move that either captures one of your pieces to match one of your
-cards or set up a capture on a later turn.
+To keep your hand fewer than four cards, you can discard a card when you capture
+a piece that matches the card. You ask your partner to make a move that lets you
+capture one of their pieces on this turn or a later turn.
 
 However, you can't just tell your partner what move you want. You can only give
 a clue to the move you want. Look at your cards and decide on a move that you'd
@@ -107,9 +102,9 @@ If you don't know what move your partner is asking you to make, or you don't
 want to make the move they're asking for, you can choose your own move.
 
 ### Captures
-When one of your pieces is captured on either player's turn, discard one of your
-cards that matches the piece, if you have one. If you have no matching cards,
-then your **partner must draw** a card.
+When you capture one of your partner's pieces on either player's turn, discard
+one of your cards that matches the piece, if you have one. You may only capture
+a piece if you have the matching card.
 
 ### Legal Moves
 All moves must be legal chess moves, with these changes for Los Alamos Chess:
@@ -126,9 +121,16 @@ The game either ends as a win when one of you captures a king, or as a loss when
 one player has four or more cards at the end of their turn.
 
 ### Increasing Difficulty
-If you want more of a challenge, here are some changes you can make:
+When you get about halfway through the game, decide with your partner if you
+want to make it more challenging. If so, swap draw decks so that you each draw
+cards of your own colour. To discard a card of your own colour, your partner
+must capture one of your matching pieces. If they guess wrong, and you don't
+have a matching card, then they must draw an extra card.
+
+If you want even more of a challenge, here are some changes you can make:
 
 * Give two-word clues.
+* Start with cards of your own colour.
 * Draw more cards during setup.
 
 ## Split-Brain Chess
@@ -729,3 +731,18 @@ you're safe. You're not even safe from the pawns, because your opponent can
 sometimes make two pawn moves.
 
 Maybe it's too similar to Masquerade Chess to begin with.
+
+## Appendix B
+Secret Chesswords is played on a 6x6 board with a letter on each square, and
+there are a couple of ways to create one.
+
+* If you already have a deck of cards with letters from another game, collect a
+  set of 36 cards something like this: A, A, C, D, D, E, E, F, F, G, H, H, I, L,
+  L, M, N, N, O, O, O, R, R, S, S, S, S, S, T, T, T, T, T, T, W, Y. Then shuffle
+  the cards and deal them out in a 6x6 grid.
+* Download the chess planks PDF from
+  [https://donkirkby.github.io/chess-kit][github], print out the two grids on
+  paper, then glue one to each side of a piece of cardboard, and cut the rows
+  apart.
+
+[github]: https://donkirkby.github.io/chess-kit

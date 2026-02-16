@@ -64,9 +64,11 @@ def main():
                                                 total_squares))
 
     print()
+    min_letters = word_counter.choose_letters('min', total_squares)
     print('Min letters:')
-    display_letters(word_counter.choose_letters('min',
-                                                total_squares))
+    display_letters(min_letters)
+    print('Min letters:', ', '.join(letter.upper()
+                                    for letter in sorted(min_letters.elements())))
 
 
 def display_letters(letter_counts: Counter[str]):

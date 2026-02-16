@@ -10,3 +10,8 @@ items:
     icon: fa-heart
     call_to_action_name: Download
     call_to_action_link: /chess-deck.pdf
+  - title: Planks
+    subtitle: Make your own
+    icon: fa-hammer
+    call_to_action_name: Assemble
+    call_to_action_link: /chess-planks.pdf

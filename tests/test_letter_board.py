@@ -1,8 +1,11 @@
 # noinspection PyPep8Naming
 import xml.etree.ElementTree as ET
+from collections import Counter
+from random import seed
+from textwrap import dedent
 
 from diagram_differ import DiagramDiffer
-from letter_board import SvgSquare, SvgLetter, SvgPlank, SvgSheet
+from letter_board import SvgSquare, SvgLetter, SvgPlank, SvgSheet, make_lines
 from svg_diagram import SvgDiagram
 from svg_page import SvgPage
 
@@ -103,15 +106,15 @@ def test_light_square(diagram_differ: DiagramDiffer):
                                      'stroke': '#e0e0e0',
                                      'stroke-width': '2'}))
     top_letter = SvgLetter(letter='B', shade=0)
-    top_letter.x = 30
-    top_letter.y = 35
-    top_letter.scale = 0.5
+    top_letter.x = 20
+    top_letter.y = 25
+    top_letter.scale = 0.3
     top_letter.rotation = 180
     expected_page.append(top_letter.to_element())
     bottom_letter = SvgLetter(letter='B', shade=0)
-    bottom_letter.x = 120
-    bottom_letter.y = 115
-    bottom_letter.scale = 0.5
+    bottom_letter.x = 130
+    bottom_letter.y = 125
+    bottom_letter.scale = 0.3
     expected_page.append(bottom_letter.to_element())
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
@@ -157,15 +160,15 @@ def test_dark_square(diagram_differ: DiagramDiffer):
                                      'stroke': '#202020',
                                      'stroke-width': '2'}))
     top_letter = SvgLetter(letter='B', shade=255)
-    top_letter.x = 30
-    top_letter.y = 35
-    top_letter.scale = 0.5
+    top_letter.x = 20
+    top_letter.y = 25
+    top_letter.scale = 0.3
     top_letter.rotation = 180
     expected_page.append(top_letter.to_element())
     bottom_letter = SvgLetter(letter='B', shade=255)
-    bottom_letter.x = 120
-    bottom_letter.y = 115
-    bottom_letter.scale = 0.5
+    bottom_letter.x = 130
+    bottom_letter.y = 125
+    bottom_letter.scale = 0.3
     expected_page.append(bottom_letter.to_element())
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
@@ -222,3 +225,18 @@ def test_light_sheet(diagram_differ: DiagramDiffer):
     svg_diagram = SvgDiagram(page.to_svg())
 
     diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
+
+
+def test_make_lines():
+    seed(0)
+    letter_counts = Counter('AACCDEEEHHILLLMNOY')
+    expected_lines = dedent('''\
+        EML
+        LCA
+        EHH
+        CDY
+        NOA
+        ILE''')
+    lines = make_lines(letter_counts, line_count=6, line_width=3)
+
+    assert lines == expected_lines

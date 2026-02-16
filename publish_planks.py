@@ -1,5 +1,5 @@
 from pathlib import Path
-from random import shuffle, seed
+from random import seed
 from subprocess import run, Popen
 from xml.etree import ElementTree as ET  # noqa
 
@@ -12,7 +12,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Flowable
 
 import publish_rules
 from font_set import register_fonts
-from letter_board import SvgSheet, SvgSquare
+from letter_board import SvgSheet, SvgSquare, make_lines
 from svg_diagram import SvgDiagram
 from svg_page import SvgPage
 from word_stats import WordCounter
@@ -54,9 +54,9 @@ def main() -> None:
                                    alignment=TA_CENTER)
     title_paragraph = Paragraph('Chess Planks', title_style)
     subtitle_paragraph = Paragraph(
-        'Designed by Don Kirkby. Find game rules at '
-        '<a href="https://donkirkby.github.io/chess-kit/">'
-        'donkirkby.github.io/chess-kit</a>.',
+        'Designed by Don Kirkby. Find the rules for Secret Chesswords at '
+        '<a href="https://donkirkby.github.io/chess-kit/new_rules.html#secret-chesswords">'
+        'donkirkby.github.io/chess-kit/new_rules</a>.',
         body_style)
     title_paragraph.wrap(content_width, page_height)
     subtitle_paragraph.wrap(content_width, page_height)
@@ -66,6 +66,7 @@ def main() -> None:
                           subtitle_paragraph.height +
                           subtitle_paragraph.getSpaceAfter() +
                           first_header_space)
+    footer_height = other_header_space / 2
     cc_section = publish_rules.create_cc_section(doc, centred_style)
     flowables: list[Flowable] = [title_paragraph,
                                  subtitle_paragraph,
@@ -73,12 +74,12 @@ def main() -> None:
     word_counter = WordCounter()
     word_path = Path(__file__).parent.parent / 'ludiverbia' / 'src' / "rawWords.csv"
     word_counter.count(word_path)
-    total_squares = 72
-    letter_counts = word_counter.choose_letters('min', total_squares)
-    all_letters = list(letter_counts.elements())
     seed(0)
-    shuffle(all_letters)
-    sheet_lines = [''.join(line) for line in zip(*(6 * [iter(all_letters)]))]
+    line_length = 6
+    line_count = line_length*2
+    total_squares = line_count * line_length
+    letter_counts = word_counter.choose_letters('min', total_squares)
+    sheet_lines = make_lines(letter_counts, line_count, line_length).splitlines()
 
     for i in range(2):
         if i % 2:
@@ -93,9 +94,10 @@ def main() -> None:
         sheet.y = SvgSquare.BASE_SIZE * 0.1 * sheet.scale
         svg_page.append(sheet.to_element())
         diagram = SvgDiagram(svg_page.to_svg()).to_reportlab()
-        if i > 0:
-            flowables.append(Spacer(0, other_header_space))
         flowables.append(diagram)
+        if i == 0:
+            flowables.append(Spacer(0, footer_height))
+            flowables.append(Spacer(0, other_header_space))
     flowables.extend(cc_section)
     doc.build(flowables)
     try:

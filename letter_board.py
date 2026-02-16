@@ -1,3 +1,5 @@
+from collections import Counter
+from random import shuffle
 # noinspection PyPep8Naming
 from xml.etree import ElementTree as ET
 
@@ -72,15 +74,15 @@ class SvgSquare(SvgGroup):
             rect_offset = (full_size - rect_size) // 2
             border_width = 2
         top_letter = SvgLetter(self.letter, shade=255-self.shade)
-        top_letter.x = 30
-        top_letter.y = 35
-        top_letter.scale = 0.5
+        top_letter.x = 20
+        top_letter.y = 25
+        top_letter.scale = 0.3
         top_letter.rotation = 180
         group.append(top_letter.to_element())
         bottom_letter = SvgLetter(self.letter, shade=255-self.shade)
-        bottom_letter.x = 120
-        bottom_letter.y = 115
-        bottom_letter.scale = 0.5
+        bottom_letter.x = 130
+        bottom_letter.y = 125
+        bottom_letter.scale = 0.3
         group.append(bottom_letter.to_element())
 
         return group
@@ -124,3 +126,30 @@ class SvgSheet(SvgGroup):
             group.append(plank.to_element())
 
         return group
+
+def make_lines(letter_counts: Counter[str],
+               line_count: int,
+               line_width: int) -> str:
+    consonant_counts = Counter(letter_counts)
+    vowel_counts = Counter()
+    for vowel in 'AEIOUYaeiouy':
+        try:
+            vowel_counts[vowel] = consonant_counts.pop(vowel)
+        except KeyError:
+            pass
+    all_consonants = list(consonant_counts.elements())
+    all_vowels = list(vowel_counts.elements())
+    shuffle(all_consonants)
+    shuffle(all_vowels)
+    lines = []
+    for i in range(line_count):
+        remaining_lines = line_count - i
+        vowel_count = len(all_vowels) // remaining_lines
+        consonant_count = line_width - vowel_count
+        line = all_consonants[:consonant_count] + all_vowels[:vowel_count]
+        all_consonants = all_consonants[consonant_count:]
+        all_vowels = all_vowels[vowel_count:]
+        shuffle(line)
+        lines.append(''.join(line))
+
+    return '\n'.join(lines)

@@ -7,6 +7,8 @@
     link: /chess-kit.pdf
   - name: Cards
     link: /chess-deck.pdf
+  - name: Planks
+    link: /chess-planks.pdf
 - name: GitHub
   link: https://github.com/donkirkby/chess-kit
 - name: <img src="https://donkirkby.github.io/favicon.png">

@@ -15,6 +15,9 @@ Chess variant? Create an issue, and describe how it would work.
 The web site uses the [Bulma Clean theme], which is based on [Bulma]. The
 [Bulma colours] can be particularly helpful to learn about.
 
+The callouts use [Font Awesome icons], and you can search for many more free
+icons there.
+
 GitHub generates all the web pages from markdown files, but it can be useful to
 test out that process before you commit changes. See the detailed instructions
 for setting up [Jekyll], but the main command is this:
@@ -103,4 +106,5 @@ features:
 [Bulma Clean theme]: https://github.com/chrisrhymes/bulma-clean-theme
 [Bulma]: https://bulma.io/documentation/
 [Bulma colours]: https://bulma.io/documentation/overview/colors/
+[Font Awesome icons]: https://fontawesome.com/
 [Jekyll]: https://help.github.com/en/github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll
