@@ -123,14 +123,6 @@
             "markers": "python_version >= '3.9'",
             "version": "==2.0.0"
         },
-        "chardet": {
-            "hashes": [
-                "sha256:1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7",
-                "sha256:e1cf59446890a00105fe7b7912492ea04b6e6f06d4b742b2c788469e34c82970"
-            ],
-            "markers": "python_version >= '3.7'",
-            "version": "==5.2.0"
-        },
         "charset-normalizer": {
             "hashes": [
                 "sha256:027f6de494925c0ab2a55eab46ae5129951638a49a34d87f4c3eda90f696b4ad",
@@ -252,10 +244,10 @@
         },
         "chess": {
             "hashes": [
-                "sha256:b7f66a32dc599ab260e2b688e6ac4e868dad840377a54b61357e2dec2a5fed00"
+                "sha256:a8b43e5678fdb3000695bdaa573117ad683761e5ca38e591c4826eba6d25bb39"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==1.11.1"
+            "version": "==1.11.2"
         },
         "coverage": {
             "hashes": [
@@ -372,11 +364,11 @@
         },
         "cssselect2": {
             "hashes": [
-                "sha256:46fc70ebc41ced7a32cd42d58b1884d72ade23d21e5a4eaaf022401c13f0e76e",
-                "sha256:7674ffb954a3b46162392aee2a3a0aedb2e14ecf99fcc28644900f4e6e3e9d3a"
+                "sha256:6a99e5f91f9a016a304dd929b0966ca464bcfda15177b6fb4a118fc0fb5d9563",
+                "sha256:759aa22c216326356f65e62e791d66160a0f9c91d1424e8d8adc5e74dddfc6fb"
             ],
-            "markers": "python_version >= '3.9'",
-            "version": "==0.8.0"
+            "markers": "python_version >= '3.10'",
+            "version": "==0.9.0"
         },
         "defusedxml": {
             "hashes": [
@@ -770,7 +762,8 @@
                 "sha256:4b6268dff3a9d713034eba5c2ffce0da37c62443578941ac5df433adcde57b2f",
                 "sha256:4f1837554134fb45d390a44de8844b2ca9b6c901c82ccc90b340e3b7f3b126ca",
                 "sha256:aeaed76e72cbc061149a825ab0811c5f4752970c56591c2938c5042ec06b26e1",
-                "sha256:bee9f95512f9556dbf2cacfd1413c61b29a55baa07fa7f8fc83d221d8419888a"
+                "sha256:bee9f95512f9556dbf2cacfd1413c61b29a55baa07fa7f8fc83d221d8419888a",
+                "sha256:fa33b512d82c6c4852edadf57f22d5f27d16243bb33dac0fbe4eb0f281c5b17e"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",

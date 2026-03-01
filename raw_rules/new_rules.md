@@ -22,11 +22,9 @@ version of chess. I chose Los Alamos chess, which is a set of rules used by the
 first computer chess program, when computers weren't powerful enough to play
 regular chess.
 
-### Design Questions
-* How long can a clue be? (3 words are pretty easy, 2 words are pretty hard.)
-* Can you tell your partner whether they made the move you wanted?
-* Increase difficulty with checkers cards? Discard together with another card
-  when the capture was made by your partner's king.
+### Goal
+Work together to discard your cards by capturing pieces, until one of you can
+capture the king.
 
 ### Equipment
 * a standard chess set
@@ -58,18 +56,16 @@ position:
 
 Remove the bishop cards from the deck, as well as two pawn cards of each colour,
 they won't be used. Separate the remaining cards by colour, so each player has
-12 cards of their partner's colour.
+12 cards of their *partner's* colour.
 
 Each player puts the king card aside and shuffles the other 11 cards. Then they
-deal three cards face down and shuffle them together with the king. Put the
-other eight cards on top, so the king is somewhere in the bottom four cards.
+deal three cards face down and shuffle them together with the king. Deal two
+more cards face down on top, then place the remaining six cards on top, rotated
+90°, so you can tell when you're halfway through the deck, and the king is
+somewhere in the bottom four cards.
 
 Finally, each player draws the top card from their deck, before their first
 turn.
-
-### Goal
-You're working with your partner to capture one of the two kings, without
-letting too many cards build up in your hand.
 
 ### Play
 White plays first, then Black, and so on. In each turn:
@@ -116,22 +112,37 @@ All moves must be legal chess moves, with these changes for Los Alamos Chess:
 In addition to the Los Alamos changes, there's no such thing as check or
 checkmate, since you're working as partners.
 
+### Increasing Difficulty
+When both players get halfway through the deck and have six cards left, swap
+decks with your partner. Now you will each draw cards of your own colour. To
+discard a card of your own colour, your partner must capture one of your
+matching pieces. If they guess wrong, and you don't have a matching card, then
+they must draw an extra card. If you both have a matching card, choose which one
+of you discards a card.
+
+If you don't want to make the game more difficult, don't swap decks.
+
 ### Game End
 The game either ends as a win when one of you captures a king, or as a loss when
-one player has four or more cards at the end of their turn.
+one player has four or more cards at the end of their turn. If you capture a
+king and neither player has the matching card, you lose.
 
-### Increasing Difficulty
-When you get about halfway through the game, decide with your partner if you
-want to make it more challenging. If so, swap draw decks so that you each draw
-cards of your own colour. To discard a card of your own colour, your partner
-must capture one of your matching pieces. If they guess wrong, and you don't
-have a matching card, then they must draw an extra card.
-
+### More Challenge
 If you want even more of a challenge, here are some changes you can make:
 
 * Give two-word clues.
 * Start with cards of your own colour.
 * Draw more cards during setup.
+* Eliminate the most common clue patterns you use, like "opposite of..." or
+  clues with a blank.
+
+### Design Questions
+* How long can a clue be? (3 words are pretty easy, 2 words are pretty hard.)
+* Can you tell your partner whether they made the move you wanted?
+* Increase difficulty with checkers cards? Discard together with another card
+  when the capture was made by your partner's king.
+* Avoid duplicate letters on one side of a plank?
+* Avoid most difficult letters like X and I? Combine them on one square?
 
 ## Split-Brain Chess
 This is another chess game for four players, this time more chaotic than Crowded
