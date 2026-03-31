@@ -79,7 +79,7 @@ def main() -> None:
     line_count = line_length*2
     total_squares = line_count * line_length
     letter_counts = word_counter.choose_letters('min', total_squares)
-    raw_lines = make_lines(letter_counts, line_count, line_length)
+    raw_lines = make_lines(letter_counts, line_count)
     all_lines = [[letters.upper() for letters in line]
                  for line in raw_lines]
 

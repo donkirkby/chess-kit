@@ -1,6 +1,6 @@
 import typing
 from collections import Counter
-from random import shuffle, choices
+from random import shuffle
 # noinspection PyPep8Naming
 from xml.etree import ElementTree as ET
 
@@ -135,42 +135,43 @@ class SvgSheet(SvgGroup):
         return group
 
 def make_lines(letter_counts: Counter[str],
-               line_count: int,
-               line_width: int) -> list[list[str]]:
-    consonant_counts = Counter(letter_counts)
-    vowel_counts = Counter()
+               line_count: int) -> list[list[str]]:
+    count_pairs = []
+    source_letters = set(letter_counts)
     for vowel in 'AEIOUYaeiouy':
         try:
-            vowel_counts[vowel] = consonant_counts.pop(vowel)
+            vowel_count = letter_counts[vowel]
+            if not vowel_count:
+                continue
+            count_pairs.append((vowel_count, vowel))
+            source_letters.discard(vowel)
         except KeyError:
             pass
-    lines = []
-    for i in range(line_count):
-        line = []
-        line_consonant_counts = Counter(consonant_counts)
-        line_vowel_counts = Counter(vowel_counts)
-        remaining_lines = line_count - i
-        vowel_count = vowel_counts.total() // remaining_lines
-        consonant_count = line_width - vowel_count
-        while vowel_count:
-            weights = list(line_vowel_counts.values())
-            population = list(line_vowel_counts)
-            vowel = choices(population, weights)[0]
-
-            line.append(vowel)
-            vowel_counts[vowel] -= 1
-            line_vowel_counts[vowel] /= 1000
-            vowel_count -= 1
-        while consonant_count:
-            weights = list(line_consonant_counts.values())
-            population = list(line_consonant_counts)
-            consonant = choices(population, weights)[0]
-
-            line.append(consonant)
-            consonant_counts[consonant] -= 1
-            line_consonant_counts[consonant] /= 1000
-            consonant_count -= 1
+    count_pairs.sort(reverse=True)
+    for letter, letter_count in letter_counts.most_common():
+        if letter not in source_letters:
+            # Vowels already handled
+            continue
+        count_pairs.append((letter_count, letter))
+    lines = [[] for _ in range(line_count)]
+    line_indexes = list(range(line_count))
+    for letter_count, letter in count_pairs:
+        shuffle(line_indexes)
+        max_length = max(len(line) for line in lines)
+        for i in range(line_count):
+            line_index = line_indexes[i]
+            line_length = len(lines[line_index])
+            if line_length < max_length:
+                line_indexes.pop(i)
+                line_indexes.insert(0, line_index)
+        while letter_count:
+            for line_index in line_indexes:
+                line = lines[line_index]
+                line.append(letter)
+                letter_count -= 1
+                if not letter_count:
+                    break
+    for line in lines:
         shuffle(line)
-        lines.append(line)
 
     return lines

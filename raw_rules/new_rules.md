@@ -11,138 +11,178 @@ know what you think.
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
 
-## Secret Chesswords
-A cooperative game for two, where you each need your partner to make certain
-moves. You can't just tell your partner where to move, though. You have to
-give a clue to a word that starts and ends with the same letters that the move
-starts and ends on.
+## Cooperative Chess
+If you don't like battling your friend across the board, you can team up against
+the game itself. A line of cards limits what you can capture, and you work
+together to capture as many pieces as you can, with bonus points for each *type*
+of piece you eliminate.
 
-To reduce the number of possible moves, I wanted to base it on a simplified
-version of chess. I chose Los Alamos chess, which is a set of rules used by the
-first computer chess program, when computers weren't powerful enough to play
-regular chess.
-
-### Goal
-Work together to discard your cards by capturing pieces, until one of you can
-capture the king.
+This game worked reasonably well, but the card rules were a bit fiddly. When
+Secret Chesswords became a cooperative game, I decided to use it instead of this
+one.
 
 ### Equipment
-* a standard chess set
-* a deck of chess cards (See how to turn standard playing cards into chess cards
-  in appendix A.)
-* letter planks (See how to make them in appendix B.)
+A standard chess set and a deck of chess cards. (See how to turn standard
+playing cards into chess cards in appendix A.)
 
 ### Setup
-Take a pawn of each colour, and hide one in each hand. Let your partner choose a
-hand to decide their colour.
+* One player **stands** the chess pieces in the standard start position.
+* Meanwhile, the other player **shuffles** the 32 cards,
+* **deals** 2 to each player, and
+* **places** the rest of the cards next to the board as a draw pile.
+* When the chess pieces are set up, the first player secretly places a white
+  pawn in one hand and a black pawn in the other. The other player then
+  **chooses** a hand to decide their colour.
 
-Shuffle the six letter planks, mixing up their order, and which side is face up.
-Then lay the planks out to form a six-by-six grid. To make the light and dark
-checkerboard pattern work, you'll probably have to turn some planks 180°.
-
-Los Alamos chess is played on a 6x6 board, without bishops, so put the bishops
-aside, along with two pawns of each colour. That leaves you with this starting
-position:
-
-    . . . . . . . .
-    . r n q k n r .
-    . p p p p p p .
+    r n b q k b n r
+    p p p p p p p p
     . . . . . . . .
     . . . . . . . .
-    . P P P P P P .
-    . R N Q K N R .
     . . . . . . . .
-    margins: -1.333, -1.333
-
-Remove the bishop cards from the deck, as well as two pawn cards of each colour,
-they won't be used. Separate the remaining cards by colour, so each player has
-12 cards of their *partner's* colour.
-
-Each player puts the king card aside and shuffles the other 11 cards. Then they
-deal three cards face down and shuffle them together with the king. Deal two
-more cards face down on top, then place the remaining six cards on top, rotated
-90°, so you can tell when you're halfway through the deck, and the king is
-somewhere in the bottom four cards.
-
-Finally, each player draws the top card from their deck, before their first
-turn.
+    . . . . . . . .
+    P P P P P P P P
+    R N B Q K B N R
+    margins: 0, 0, 6, 0
+    card: back, 11.5, 0
+    card: back, 12, .25
+    card: back, 8.5, 2.5
+    card: back, 11.5, 5
+    card: back, 12, 4.75
 
 ### Play
-White plays first, then Black, and so on. In each turn:
+White plays the first turn, and then players alternate. Each turn has four
+possible steps, in this order:
 
-* The active player draws a card.
-* The active player asks *their partner* to make a move.
-* The active player makes a move.
-* The active player must have fewer than four cards, or both players lose.
+1. You must **play a card** from your hand to a face-up line beside the draw
+   pile. Add to the end away from the draw pile.
+2. You may make a **non-capturing** chess move.
+3. You may make multiple **capturing** chess moves, if the cards allow.
+4. You must **draw a card** to bring your hand back to 2, unless the draw pile
+   is empty.
 
-To keep your hand fewer than four cards, you can discard a card when you capture
-a piece that matches the card. You ask your partner to make a move that lets you
-capture one of their pieces on this turn or a later turn.
+Three things can also happen to the cards immediately during your turn:
+* If you ever draw or deal a **king** card, immediately add it to the face-up
+  line and draw a replacement card.
+* If there are ever **4 cards in a row** of the same colour in the face-up line,
+  they get recycled, as described below.
+* A pawn and its card can get **promoted**, as described below.
 
-However, you can't just tell your partner what move you want. You can only give
-a clue to the move you want. Look at your cards and decide on a move that you'd
-like your partner to make. Read the letter on the piece's current square and the
-letter on the square that move will end on. Think of a word that starts with the
-move's starting letter and ends with the move's ending letter. Then give a clue
-for that word without saying any form of the word itself. The clue may be one
-word or a short phrase of up to three words.
+The chess pieces make the same moves as in regular chess, but you can only
+make a capturing move if a card like the **capturing** piece is beside a card
+like the **captured** piece in the face-up line.
 
-When your partner asks you to make a move, think about the clue and say what you
-think the secret word is. Find a legal chess move that starts and ends with the
-first and last letter of the secret word, then make that move. The clue giver
-then tells you whether you made the move they wanted. If you didn't, they can't
-tell you what they wanted instead. Either way, they can't tell you anything
-about future moves.
+When you capture a piece, remove the piece from the board, and move the captured
+piece's card from the face-up line to the discard pile. If you can make another
+capturing move that also follows the rule above, you may continue, even by
+moving a different piece.
 
-If you don't know what move your partner is asking you to make, or you don't
-want to make the move they're asking for, you can choose your own move.
+As an example, imagine that Black has a black knight card and a white pawn card
+in hand with the following position:
 
-### Captures
-When you capture one of your partner's pieces on either player's turn, discard
-one of your cards that matches the piece, if you have one. You may only capture
-a piece if you have the matching card.
+    r n b q k b n r
+    p p p . p p p p
+    . . . . . . . .
+    . . . P . . . .
+    . . . . P . . .
+    . . . . . . . .
+    P P . P . P P P
+    R N B Q K B N R
+    margins: 0, 0, 6, 0
+    card: back, 8.5, 2.5
+    card: p, 11, 2.5
+    card: P, 11.5, 2.5
+    card: b, 12, 2.5
 
-### Legal Moves
-All moves must be legal chess moves, with these changes for Los Alamos Chess:
+They can play their pawn card, move the bishop to e6, and then capture both
+pawns. The bishop card is able to capture using the pawn card to its left and
+the pawn card to its right. It could not continue to capture the pawn at g2,
+because the remaining pawn card is black.
 
-* Pawns cannot move two squares on their first move.
-* No castling.
-* Pawns cannot promote to bishops.
+    r n . q k b n r
+    p p p . p p p p
+    . . . . . . . .
+    . . . . . . . .
+    . . . . b . . .
+    . . . . . . . .
+    P P . P . P P P
+    R N B Q K B N R
+    margins: 0, 0, 6, 0
+    card: back, 8.5, 2.5
+    card: p, 11, 2.5
+    card: P, 11.5, 2.5
+    card: b, 12, 2.5
+    card: P, 12.5, 2.5
+    arrow: c8, e6, black
+    arrow: e6, d5, black
+    arrow: d5, e4, black
 
-In addition to the Los Alamos changes, there's no such thing as check or
-checkmate, since you're working as partners.
+After the captured cards are removed, only the black pawn and bishop cards are
+left in the face-up line.
 
-### Increasing Difficulty
-When both players get halfway through the deck and have six cards left, swap
-decks with your partner. Now you will each draw cards of your own colour. To
-discard a card of your own colour, your partner must capture one of your
-matching pieces. If they guess wrong, and you don't have a matching card, then
-they must draw an extra card. If you both have a matching card, choose which one
-of you discards a card.
+    r n . q k b n r
+    p p p . p p p p
+    . . . . . . . .
+    . . . . . . . .
+    . . . . b . . .
+    . . . . . . . .
+    P P . P . P P P
+    R N B Q K B N R
+    margins: 0, 0, 6, 0
+    card: back, 8.5, 2.5
+    card: p, 11, 2.5
+    card: b, 12, 2.5
 
-If you don't want to make the game more difficult, don't swap decks.
+If White now has a white pawn, knight, bishop, or queen card, they can play that
+and capture the black bishop. Otherwise, they can try to set up a future
+capture.
 
-### Game End
-The game either ends as a win when one of you captures a king, or as a loss when
-one player has four or more cards at the end of their turn. If you capture a
-king and neither player has the matching card, you lose.
+If you ever make a **four-in-a-row** group of cards (or more) all the same
+colour, you must recycle them. You can make the group by playing a card to the
+end of the face-up line, or by capturing a card in the middle of the group. To
+recycle the group, take all cards in the group out of the face-up line, and
+shuffle them face down. Take one card out of the group, and place it to the
+side, out of the game. Shuffle the rest of the group back into the draw pile. Do
+the recycling without looking at the card faces, so you don't know which card
+got removed. Recycling can be helpful to extend the game and unclog the face-up
+line, particularly when there's a king in the way, but be careful you don't lose
+both king cards, which would lose the game.
 
-### More Challenge
-If you want even more of a challenge, here are some changes you can make:
+You may only move a pawn to the last rank if it has a matching card in the
+face-up line. **Promote** the pawn to any other piece type that has already been
+captured. Move the pawn's card from the face-up line to the discard pile, then
+find the promoted piece's card in the discard pile, and place it anywhere in the
+face-up line. That can be an effective way to capture cards that are stuck
+behind a king's card. If a pawn captures a piece as it moves to the back rank,
+discard the captured piece's card as normal, then deal with the promotion.
 
-* Give two-word clues.
-* Start with cards of your own colour.
-* Draw more cards during setup.
-* Eliminate the most common clue patterns you use, like "opposite of..." or
-  clues with a blank.
+Castling is allowed. En passant capture is allowed. All individual moves must
+be legal chess moves, with this exception: you may move a king into check or
+leave it in check.
 
-### Design Questions
-* How long can a clue be? (3 words are pretty easy, 2 words are pretty hard.)
-* Can you tell your partner whether they made the move you wanted?
-* Increase difficulty with checkers cards? Discard together with another card
-  when the capture was made by your partner's king.
-* Avoid duplicate letters on one side of a plank?
-* Avoid most difficult letters like X and I? Combine them on one square?
+### Winning
+The game ends immediately when you capture a king. You then get a point for each
+piece that you captured, plus ten bonus points for each piece type that was
+completely removed from the board, both colours. For example, if you captured 23
+pieces, including both queens, all four bishops, and a king, but still had at
+least one pawn, one knight, one rook, and the other king still on the board,
+then you would score 43 points.
+
+Anything lower than 32 points is a loss, anything higher than 50 points is
+great! Keep track of your best score.
+
+If the draw pile is empty, continue playing until you run out of cards in your
+hands. If you run out of cards without capturing a king, you get no bonus
+points.
+
+### Talking
+The game works best if players know something about each other's cards, but not
+everything. They should feel free to ask each other yes or no questions about
+their hands and to discuss general strategy, but shouldn't just reveal their
+hands.
+
+### Solitaire
+To play solitaire, don't have any cards in your hand. At the beginning of each
+turn, draw a card and add it to the face-up line.
 
 ## Split-Brain Chess
 This is another chess game for four players, this time more chaotic than Crowded
@@ -153,6 +193,8 @@ Because chaos is frustrating in a long game, I wanted to base it on a simplified
 version of chess that plays more quickly. I chose Los Alamos chess, which is a
 simplified set of rules used by the first computer chess program, when computers
 weren't powerful enough to play regular chess.
+
+This game evolved into Telepathic Chess, so it's not in the main collection.
 
 ### Design Questions
 1. Los Alamos chess, or Tic Tac Chec?
@@ -742,18 +784,3 @@ you're safe. You're not even safe from the pawns, because your opponent can
 sometimes make two pawn moves.
 
 Maybe it's too similar to Masquerade Chess to begin with.
-
-## Appendix B
-Secret Chesswords is played on a 6x6 board with a letter on each square, and
-there are a couple of ways to create one.
-
-* If you already have a deck of cards with letters from another game, collect a
-  set of 36 cards something like this: A, A, C, D, D, E, E, F, F, G, H, H, I, L,
-  L, M, N, N, O, O, O, R, R, S, S, S, S, S, T, T, T, T, T, T, W, Y. Then shuffle
-  the cards and deal them out in a 6x6 grid.
-* Download the chess planks PDF from
-  [https://donkirkby.github.io/chess-kit][github], print out the two grids on
-  paper, then glue one to each side of a piece of cardboard, and cut the rows
-  apart.
-
-[github]: https://donkirkby.github.io/chess-kit

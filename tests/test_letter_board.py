@@ -294,13 +294,13 @@ def test_light_sheet(diagram_differ: DiagramDiffer):
 def test_make_lines():
     seed(0)
     letter_counts = Counter('AACCDEEEHHITTTTTTT')
-    expected_lines = [['I', 'D', 'T'],
-                      ['E', 'C', 'T'],
+    expected_lines = [['T', 'C', 'A'],
+                      ['D', 'T', 'E'],
+                      ['T', 'E', 'T'],
+                      ['A', 'T', 'C'],
                       ['H', 'E', 'T'],
-                      ['T', 'E', 'C'],
-                      ['A', 'T', 'H'],
-                      ['T', 'A', 'T']]
-    lines = make_lines(letter_counts, line_count=6, line_width=3)
+                      ['I', 'T', 'H']]
+    lines = make_lines(letter_counts, line_count=6)
 
     assert lines == expected_lines
 
@@ -308,12 +308,12 @@ def test_make_lines_with_multiples():
     seed(0)
     letter_counts = Counter('AACCDEEEHHITTTTTT')
     letter_counts['JZ'] += 1
-    expected_lines = [['I', 'D', 'T'],
-                      ['E', 'C', 'T'],
-                      ['T', 'E', 'JZ'],
+    expected_lines = [['T', 'A', 'H'],
+                      ['E', 'T', 'C'],
+                      ['D', 'E', 'T'],
+                      ['A', 'T', 'JZ'],
                       ['T', 'E', 'C'],
-                      ['A', 'T', 'H'],
-                      ['H', 'A', 'T']]
-    lines = make_lines(letter_counts, line_count=6, line_width=3)
+                      ['T', 'H', 'I']]
+    lines = make_lines(letter_counts, line_count=6)
 
     assert lines == expected_lines
