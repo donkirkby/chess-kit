@@ -1331,22 +1331,24 @@ Work together to discard your cards by capturing pieces, until one of you can
 capture the king.
 
 ### Equipment
-* a standard chess set
+* standard chess pieces
 * a deck of chess cards (See how to turn standard playing cards into chess cards
   in appendix A.)
-* letter planks (See how to make them in appendix B.)
+* a chess board with a letter on each square (See how to make one in appendix B.)
 
 ### Setup
 Take a pawn of each colour, and hide one in each hand. Let your partner choose a
 hand to decide their colour.
 
-Shuffle the six letter planks, mixing up their order, and which side is face up.
-Then lay the planks out to form a six-by-six grid. To make the light and dark
-checkerboard pattern work, you'll probably have to turn some planks 180°.
+Make the board of letter squares. If you have the six letter planks, shuffle
+them by mixing up their order and which side of each is face up. Then lay the
+planks out to form a six-by-six grid. To make the light and dark checkerboard
+pattern work, you'll probably have to turn some planks 180°. If you have letter
+cards, shuffle them and deal them out in a six-by-six grid.
 
-Los Alamos chess is played on a 6x6 board, without bishops, so put the bishops
-aside, along with two pawns of each colour. That leaves you with this starting
-position:
+Los Alamos chess is played on a six-by-six board, without bishops, so put the
+bishops aside, along with two pawns of each colour. That leaves you with this
+starting position on the board of letter squares:
 
     . . . . . . . .
     . r n q k n r .
@@ -1389,7 +1391,8 @@ like your partner to make. Read the letter on the piece's current square and the
 letter on the square that move will end on. Think of a word that starts with the
 move's starting letter and ends with the move's ending letter. Then give a clue
 for that word without saying any form of the word itself. The clue may be one
-word or a short phrase of up to three words.
+word or a short phrase of up to three words. If you can't think of any clues for
+the move you want, you may have to take another route.
 
 When your partner asks you to make a move, think about the clue and say what you
 think the secret word is. Find a legal chess move that starts and ends with the
@@ -1400,6 +1403,15 @@ about future moves.
 
 If you don't know what move your partner is asking you to make, or you don't
 want to make the move they're asking for, you can choose your own move.
+
+If you don't see any moves for your partner that are immediately helpful, think
+a few moves ahead. Get them to advance their pieces so they can attack more of
+your pieces.
+
+Take a look at your own pieces to see if any of them are on difficult letters
+like J or X. If you can't think of any clues to move one of your own pieces, it
+might be worth moving it to a new square so your partner can more easily ask you
+to move it.
 
 ### Captures
 When you capture one of your partner's pieces on either player's turn, discard
@@ -1720,7 +1732,8 @@ there are a couple of ways to create one.
 * Download the chess planks PDF from
   [https://donkirkby.github.io/chess-kit][github], print out the two grids on
   paper, then glue one to each side of a piece of cardboard, and cut the rows
-  apart.
+  apart. The first time you play, you could play on the paper board without
+  gluing or cutting it out.
 
 [github]: https://donkirkby.github.io/chess-kit
 
