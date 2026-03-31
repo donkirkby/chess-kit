@@ -2,7 +2,6 @@
 import xml.etree.ElementTree as ET
 from collections import Counter
 from random import seed
-from textwrap import dedent
 
 from diagram_differ import DiagramDiffer
 from letter_board import SvgSquare, SvgLetter, SvgPlank, SvgSheet, make_lines
@@ -120,7 +119,7 @@ def test_light_square(diagram_differ: DiagramDiffer):
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(150, 150)
-    square = SvgSquare(letter='B', shade=255)
+    square = SvgSquare(letters='B', shade=255)
     page.append(square.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
@@ -174,7 +173,72 @@ def test_dark_square(diagram_differ: DiagramDiffer):
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(150, 150)
-    square = SvgSquare(letter='B', shade=0)
+    square = SvgSquare(letters='B', shade=0)
+    page.append(square.to_element())
+    svg_diagram = SvgDiagram(page.to_svg())
+
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
+
+
+def test_dark_square_double(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(150, 150)
+    expected_page.append(ET.Element('rect',
+                                    {'fill': '#606060',
+                                     'width': '150',
+                                     'height': '150',
+                                     'stroke': '#808080',
+                                     'stroke-width': '4'}))
+    expected_page.append(ET.Element('rect',
+                                    {'fill': '#404040',
+                                     'x': '2',
+                                     'y': '2',
+                                     'width': '146',
+                                     'height': '146',
+                                     'stroke': '#606060',
+                                     'stroke-width': '2'}))
+    expected_page.append(ET.Element('rect',
+                                    {'fill': '#202020',
+                                     'x': '4',
+                                     'y': '4',
+                                     'width': '142',
+                                     'height': '142',
+                                     'stroke': '#404040',
+                                     'stroke-width': '2'}))
+    expected_page.append(ET.Element('rect',
+                                    {'fill': 'black',
+                                     'x': '6',
+                                     'y': '6',
+                                     'width': '138',
+                                     'height': '138',
+                                     'stroke': '#202020',
+                                     'stroke-width': '2'}))
+    top_letter = SvgLetter(letter='J', shade=255)
+    top_letter.x = 20
+    top_letter.y = 25
+    top_letter.scale = 0.3
+    top_letter.rotation = 180
+    expected_page.append(top_letter.to_element())
+    top_right_letter = SvgLetter(letter='V', shade=255)
+    top_right_letter.x = 130
+    top_right_letter.y = 25
+    top_right_letter.scale = 0.3
+    top_right_letter.rotation = 180
+    expected_page.append(top_right_letter.to_element())
+    bottom_letter = SvgLetter(letter='J', shade=255)
+    bottom_letter.x = 130
+    bottom_letter.y = 125
+    bottom_letter.scale = 0.3
+    expected_page.append(bottom_letter.to_element())
+    bottom_left_letter = SvgLetter(letter='V', shade=255)
+    bottom_left_letter.x = 20
+    bottom_left_letter.y = 125
+    bottom_left_letter.scale = 0.3
+    expected_page.append(bottom_left_letter.to_element())
+
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(150, 150)
+    square = SvgSquare(letters='JV', shade=0)
     page.append(square.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
@@ -183,11 +247,11 @@ def test_dark_square(diagram_differ: DiagramDiffer):
 
 def test_light_plank(diagram_differ: DiagramDiffer):
     expected_page = SvgPage(450, 150)
-    expected_page.append(SvgSquare(letter='A', shade=0).to_element())
-    letter_b = SvgSquare(letter='B', shade=255)
+    expected_page.append(SvgSquare(letters='A', shade=0).to_element())
+    letter_b = SvgSquare(letters='B', shade=255)
     letter_b.x = 150
     expected_page.append(letter_b.to_element())
-    letter_c = SvgSquare(letter='C', shade=0)
+    letter_c = SvgSquare(letters='C', shade=0)
     letter_c.x = 300
     expected_page.append(letter_c.to_element())
 
@@ -211,7 +275,7 @@ def test_light_sheet(diagram_differ: DiagramDiffer):
     plank2.scale = scale
     plank2.y = 90
     expected_page.append(plank2.to_element())
-    plank3 = SvgPlank(letters='GHI', shade=0)
+    plank3 = SvgPlank(letters=['G', 'H', 'JZ'], shade=0)
     plank3.scale = scale
     plank3.y = 180
     expected_page.append(plank3.to_element())
@@ -219,7 +283,7 @@ def test_light_sheet(diagram_differ: DiagramDiffer):
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
     page = SvgPage(270, 270)
-    sheet = SvgSheet(letters='ABC\nDEF\nGHI', shade=0)
+    sheet = SvgSheet(lines=['ABC', 'DEF', ['G', 'H', 'JZ']], shade=0)
     sheet.scale = scale
     page.append(sheet.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
@@ -229,14 +293,27 @@ def test_light_sheet(diagram_differ: DiagramDiffer):
 
 def test_make_lines():
     seed(0)
-    letter_counts = Counter('AACCDEEEHHILLLMNOY')
-    expected_lines = dedent('''\
-        EML
-        LCA
-        EHH
-        CDY
-        NOA
-        ILE''')
+    letter_counts = Counter('AACCDEEEHHITTTTTTT')
+    expected_lines = [['I', 'D', 'T'],
+                      ['E', 'C', 'T'],
+                      ['H', 'E', 'T'],
+                      ['T', 'E', 'C'],
+                      ['A', 'T', 'H'],
+                      ['T', 'A', 'T']]
+    lines = make_lines(letter_counts, line_count=6, line_width=3)
+
+    assert lines == expected_lines
+
+def test_make_lines_with_multiples():
+    seed(0)
+    letter_counts = Counter('AACCDEEEHHITTTTTT')
+    letter_counts['JZ'] += 1
+    expected_lines = [['I', 'D', 'T'],
+                      ['E', 'C', 'T'],
+                      ['T', 'E', 'JZ'],
+                      ['T', 'E', 'C'],
+                      ['A', 'T', 'H'],
+                      ['H', 'A', 'T']]
     lines = make_lines(letter_counts, line_count=6, line_width=3)
 
     assert lines == expected_lines

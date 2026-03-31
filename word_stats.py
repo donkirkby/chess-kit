@@ -31,16 +31,28 @@ class WordCounter:
                        collection_name: str,
                        total_squares: int) -> Counter[str]:
         letter_counts = getattr(self, collection_name + '_counts')
-        chosen_counts: Counter[str] = Counter()
         word_total = letter_counts.total()
+        ratios = [(letter_count / word_total, letter)
+                  for letter, letter_count in letter_counts.items()]
+        ratios.sort()
+        chosen_counts: Counter[str] = Counter()
         remaining_squares = total_squares
-        for letter, letter_count in letter_counts.most_common():
+        while ratios:
             if not remaining_squares:
                 break
-            ratio = letter_count / word_total
-            goal = max(1, min(round(total_squares * ratio), remaining_squares))
+            ratio, letter = ratios.pop()
+            raw_goal = total_squares * ratio
+            if raw_goal < 0.8 and ratios:
+                extra_ratio, extra_letter = ratios.pop(0)
+                raw_goal += total_squares * extra_ratio
+                letter += extra_letter
+            # print(letter, raw_goal)
+            goal = max(1, min(round(raw_goal), remaining_squares))
             chosen_counts[letter] = goal
             remaining_squares -= goal
+        # print(f'Total squares: {chosen_counts.total()}')
+        # print(f'Total letters: {len("".join(chosen_counts))}')
+        # print(f'All letters: {"".join(chosen_counts)}')
         return chosen_counts
 
 
@@ -48,25 +60,25 @@ def main():
     word_counter = WordCounter()
     word_path = Path(__file__).parent.parent / 'ludiverbia' / 'src' / "rawWords.csv"
     word_counter.count(word_path)
-    total_squares = 36
-    print('Starting letters:')
-    display_letters(word_counter.choose_letters('start',
-                                                total_squares))
-
-    print()
-    print('Ending letters:')
-    display_letters(word_counter.choose_letters('end',
-                                                total_squares))
-
-    print()
-    print('Both letters:')
-    display_letters(word_counter.choose_letters('total',
-                                                total_squares))
-
-    print()
+    total_squares = 72
+    # print('Starting letters:')
+    # display_letters(word_counter.choose_letters('start',
+    #                                             total_squares))
+    #
+    # print()
+    # print('Ending letters:')
+    # display_letters(word_counter.choose_letters('end',
+    #                                             total_squares))
+    #
+    # print()
+    # print('Both letters:')
+    # display_letters(word_counter.choose_letters('total',
+    #                                             total_squares))
+    #
+    # print()
     min_letters = word_counter.choose_letters('min', total_squares)
-    print('Min letters:')
-    display_letters(min_letters)
+    # print('Min letters:')
+    # display_letters(min_letters)
     print('Min letters:', ', '.join(letter.upper()
                                     for letter in sorted(min_letters.elements())))
 

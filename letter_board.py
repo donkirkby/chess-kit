@@ -1,5 +1,6 @@
+import typing
 from collections import Counter
-from random import shuffle
+from random import shuffle, choices
 # noinspection PyPep8Naming
 from xml.etree import ElementTree as ET
 
@@ -38,14 +39,16 @@ class SvgLetter(SvgGroup):
 
 class SvgSquare(SvgGroup):
     BASE_SIZE = 150
-    def __init__(self, letter: str = '?', shade: int = 0) -> None:
+    def __init__(self,
+                 letters: str = '?',
+                 shade: int = 0) -> None:
         """ Initialize the SvgSquare.
 
-        :param letter: The letter to display in the corners.
+        :param letters: The letter(s) to display in the corners.
         :param shade: Background colour from 0 to 255.
         """
         super().__init__()
-        self.letter = letter
+        self.letters = letters
         self.shade = shade
 
     def to_element(self) -> ET.Element:
@@ -73,50 +76,54 @@ class SvgSquare(SvgGroup):
             rect_size -= border_width * 2
             rect_offset = (full_size - rect_size) // 2
             border_width = 2
-        top_letter = SvgLetter(self.letter, shade=255-self.shade)
-        top_letter.x = 20
-        top_letter.y = 25
-        top_letter.scale = 0.3
-        top_letter.rotation = 180
-        group.append(top_letter.to_element())
-        bottom_letter = SvgLetter(self.letter, shade=255-self.shade)
-        bottom_letter.x = 130
-        bottom_letter.y = 125
-        bottom_letter.scale = 0.3
-        group.append(bottom_letter.to_element())
+        for i, letter in enumerate(self.letters):
+            top_letter = SvgLetter(letter, shade=255-self.shade)
+            top_letter.x = 20 + 110 * i
+            top_letter.y = 25
+            top_letter.scale = 0.3
+            top_letter.rotation = 180
+            group.append(top_letter.to_element())
+            bottom_letter = SvgLetter(letter, shade=255-self.shade)
+            bottom_letter.x = 130 - 110 * i
+            bottom_letter.y = 125
+            bottom_letter.scale = 0.3
+            group.append(bottom_letter.to_element())
 
         return group
 
 
 class SvgPlank(SvgGroup):
-    def __init__(self, letters: str = '??', shade: int = 0) -> None:
+    def __init__(self,
+                 letters: typing.Sequence[str] = ('?', '?'),
+                 shade: int = 0) -> None:
         super().__init__()
         self.letters = letters
         self.shade = shade
 
     def to_element(self) -> ET.Element:
         group = super().to_element()
-        for i, letter in enumerate(self.letters):
+        for i, square_letters in enumerate(self.letters):
             if i % 2:
                 shade = 255 - self.shade
             else:
                 shade = self.shade
-            square = SvgSquare(letter, shade)
+            square = SvgSquare(square_letters, shade)
             square.x = i * 150
             group.append(square.to_element())
         return group
 
 
 class SvgSheet(SvgGroup):
-    def __init__(self, letters: str = '??', shade: int = 0) -> None:
+    def __init__(self,
+                 lines: typing.Sequence[typing.Sequence[str]] = (('?', '?'),),
+                 shade: int = 0) -> None:
         super().__init__()
-        self.letters = letters
+        self.lines = lines
         self.shade = shade
 
     def to_element(self) -> ET.Element:
         group = super().to_element()
-        lines = self.letters.splitlines()
-        for i, line in enumerate(lines):
+        for i, line in enumerate(self.lines):
             if i % 2:
                 shade = 255 - self.shade
             else:
@@ -129,7 +136,7 @@ class SvgSheet(SvgGroup):
 
 def make_lines(letter_counts: Counter[str],
                line_count: int,
-               line_width: int) -> str:
+               line_width: int) -> list[list[str]]:
     consonant_counts = Counter(letter_counts)
     vowel_counts = Counter()
     for vowel in 'AEIOUYaeiouy':
@@ -137,19 +144,33 @@ def make_lines(letter_counts: Counter[str],
             vowel_counts[vowel] = consonant_counts.pop(vowel)
         except KeyError:
             pass
-    all_consonants = list(consonant_counts.elements())
-    all_vowels = list(vowel_counts.elements())
-    shuffle(all_consonants)
-    shuffle(all_vowels)
     lines = []
     for i in range(line_count):
+        line = []
+        line_consonant_counts = Counter(consonant_counts)
+        line_vowel_counts = Counter(vowel_counts)
         remaining_lines = line_count - i
-        vowel_count = len(all_vowels) // remaining_lines
+        vowel_count = vowel_counts.total() // remaining_lines
         consonant_count = line_width - vowel_count
-        line = all_consonants[:consonant_count] + all_vowels[:vowel_count]
-        all_consonants = all_consonants[consonant_count:]
-        all_vowels = all_vowels[vowel_count:]
-        shuffle(line)
-        lines.append(''.join(line))
+        while vowel_count:
+            weights = list(line_vowel_counts.values())
+            population = list(line_vowel_counts)
+            vowel = choices(population, weights)[0]
 
-    return '\n'.join(lines)
+            line.append(vowel)
+            vowel_counts[vowel] -= 1
+            line_vowel_counts[vowel] /= 1000
+            vowel_count -= 1
+        while consonant_count:
+            weights = list(line_consonant_counts.values())
+            population = list(line_consonant_counts)
+            consonant = choices(population, weights)[0]
+
+            line.append(consonant)
+            consonant_counts[consonant] -= 1
+            line_consonant_counts[consonant] /= 1000
+            consonant_count -= 1
+        shuffle(line)
+        lines.append(line)
+
+    return lines

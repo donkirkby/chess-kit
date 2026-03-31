@@ -240,7 +240,14 @@ up.
 ## Blank
 ## Blank
 ## Blank
-## Blank
+
+## Secret Chesswords
+2 players
+Chess set
+6 letter planks
+
+Standard starting position
+  without bishops
 
 ## Telepathic Chess
 1. Predict face down.
@@ -289,3 +296,19 @@ through.
     ignoring pieces on the
     other side of the mirror.
 2. Add or remove a checker.
+
+## Secret Chesswords
+1. You draw a card.
+2. You ask your partner to
+    make a move.
+3. You make a move.
+
+Discard one card when
+  either of you captures a
+  matching piece.
+
+Both win when you discard
+  a king.
+
+Both lose when you hold
+  four cards at end of turn.

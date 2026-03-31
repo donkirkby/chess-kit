@@ -79,16 +79,18 @@ def main() -> None:
     line_count = line_length*2
     total_squares = line_count * line_length
     letter_counts = word_counter.choose_letters('min', total_squares)
-    sheet_lines = make_lines(letter_counts, line_count, line_length).splitlines()
+    raw_lines = make_lines(letter_counts, line_count, line_length)
+    all_lines = [[letters.upper() for letters in line]
+                 for line in raw_lines]
 
     for i in range(2):
         if i % 2:
             shade = 255
         else:
             shade = 0
-        sheet_letters = '\n'.join(sheet_lines[i * 6:(i + 1) * 6]).upper()
+        sheet_lines = all_lines[i * 6:(i + 1) * 6]
         svg_page = SvgPage(7.5 * inch, 9 * inch)
-        sheet = SvgSheet(sheet_letters, shade)
+        sheet = SvgSheet(sheet_lines, shade)
         sheet.scale = 7 * inch / (SvgSquare.BASE_SIZE * 6)
         sheet.x = -0.075 * inch
         sheet.y = SvgSquare.BASE_SIZE * 0.1 * sheet.scale
