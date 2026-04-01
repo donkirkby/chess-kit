@@ -46,8 +46,9 @@ together.
     chess set, deck of cards, timer, coins, pencil and paper)
 * [Crowded House][crowded-house] is the only four-player game I know
     of on a standard chess set. (4 players and chess set)
-* [Cooperative Chess][cooperative-chess] lets you play together
-    against the game. (2 players, chess set, and deck of cards)
+* [Secret Chesswords][secret-chesswords] is a cooperative game where
+    you use clue words to guide the other player's moves. (2 players,
+    chess pieces, board with letters, and deck of cards)
 * [Half Alice Chess][half-alice-chess] moves pieces through the
     looking glass to a parallel universe after each move. (2 players,
     chess set, and checkers set)
@@ -66,7 +67,7 @@ together.
 [tar-pit-chess]: rules#tar-pit-chess
 [chess-golf]: rules#chess-golf
 [crowded-house]: rules#crowded-house
-[cooperative-chess]: rules#cooperative-chess
+[secret-chesswords]: rules#secret-chesswords
 [half-alice-chess]: rules#half-alice-chess
 [chess960]: rules#chess960
 [synchronous-chess]: rules#synchronous-chess

@@ -55,8 +55,8 @@ def main() -> None:
     title_paragraph = Paragraph('Chess Planks', title_style)
     subtitle_paragraph = Paragraph(
         'Designed by Don Kirkby. Find the rules for Secret Chesswords at '
-        '<a href="https://donkirkby.github.io/chess-kit/new_rules.html#secret-chesswords">'
-        'donkirkby.github.io/chess-kit/new_rules</a>.',
+        '<a href="https://donkirkby.github.io/chess-kit">'
+        'donkirkby.github.io/chess-kit</a>.',
         body_style)
     title_paragraph.wrap(content_width, page_height)
     subtitle_paragraph.wrap(content_width, page_height)

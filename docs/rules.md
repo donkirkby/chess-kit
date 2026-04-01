@@ -50,7 +50,7 @@ together.
     of on a standard chess set. (4 players and chess set)
 * [Secret Chesswords][secret-chesswords] is a cooperative game where
     you use clue words to guide the other player's moves. (2 players,
-    chess set, letter tiles, and deck of cards)
+    chess pieces, board with letters, and deck of cards)
 * [Half Alice Chess][half-alice-chess] moves pieces through the
     looking glass to a parallel universe after each move. (2 players,
     chess set, and checkers set)
@@ -984,12 +984,12 @@ Finally, each player draws the top card from their deck, before their first
 turn.
 
 ### Play
-White plays first, then Black, and so on. In each turn:
+White plays first, then Black, and so on. On your turn:
 
-* The active player draws a card.
-* The active player asks *their partner* to make a move.
-* The active player makes a move.
-* The active player must have fewer than four cards, or both players lose.
+* You draw a card.
+* You ask *your partner* to make a move.
+* You make a move.
+* Then you must have fewer than four cards, or you both lose.
 
 To keep your hand fewer than four cards, you can discard a card when you capture
 a piece that matches the card. You ask your partner to make a move that lets you

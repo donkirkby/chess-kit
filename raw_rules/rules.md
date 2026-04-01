@@ -1374,12 +1374,12 @@ Finally, each player draws the top card from their deck, before their first
 turn.
 
 ### Play
-White plays first, then Black, and so on. In each turn:
+White plays first, then Black, and so on. On your turn:
 
-* The active player draws a card.
-* The active player asks *their partner* to make a move.
-* The active player makes a move.
-* The active player must have fewer than four cards, or both players lose.
+* You draw a card.
+* You ask *your partner* to make a move.
+* You make a move.
+* Then you must have fewer than four cards, or you both lose.
 
 To keep your hand fewer than four cards, you can discard a card when you capture
 a piece that matches the card. You ask your partner to make a move that lets you
