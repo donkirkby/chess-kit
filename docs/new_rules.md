@@ -7,6 +7,8 @@ These are new games that aren't ready yet. You can try them out and let me
 know what you think.
 
 ## Table of Contents
+* [Chess Solitaire][chess-solitaire] is a card solitaire game where
+    every card must attack and be attacked. (1 player, deck of cards)
 * [Cooperative Chess][cooperative-chess] lets you play together
     against the game. (2 players, chess set, and deck of cards)
 * [Split-Brain Chess][split-brain-chess] is a battle between
@@ -28,6 +30,7 @@ know what you think.
     disguise your chess pieces as checkers, then try to identify your
     opponent's pieces. (2 players, chess set, checkers set, pen, and tape)
 
+[chess-solitaire]: #chess-solitaire
 [cooperative-chess]: #cooperative-chess
 [split-brain-chess]: #split-brain-chess
 [gravity-chess]: #gravity-chess
@@ -39,6 +42,60 @@ know what you think.
 # New Games
 These games are in early development or playtesting. The rules might get more
 filled out or change based on feedback from players.
+
+## Chess Solitaire
+I thought it would be interesting to design a game that uses the chess cards on
+their own, without the chess set. To me, it feels like the flow of a standard
+card solitaire, with the analysis of a chess game.
+
+### Equipment
+A deck of chess cards. (See how to turn standard playing cards into chess cards
+in appendix A.)
+
+### Setup
+Shuffle the 32 chessmen cards, excluding the checkers cards, and deal a 5x5 grid
+face down with slight gaps, then draw 2 cards into your hand. Put the remaining
+5 cards aside without looking at them.
+
+### Play
+Each turn, take any face down card into your hand, then play one of the three
+cards in your hand into the empty space. 
+
+### Winning
+After playing all 25 face up cards, you win if every card is attacking at least
+one card of the opposite colour and is being attacked by at least one card of
+the opposite colour.
+
+A perfect game scores zero points. You lose one point for each card that is not
+attacking any cards and one point for each card that is not being attacked. A
+single card could lose two points.
+
+Attacking rules are as in regular chess on a very crowded board. White pawns
+attack diagonally away from you, and black pawns attack diagonally toward you.
+
+This example shows the board part way through a game. The black pawn at the top
+right is attacking the white rook, but not being attacked by anything. The black
+pawn at the top right is not attacking anything and not being attacked. All
+other cards are attacking and being attacked. Near the end of the game, it can
+be helpful to slightly rotate any cards that still need to attack or be
+attacked. That way, you can see where you still need to place important cards.
+
+![Diagram](images/new_rules/chess-solitaire1.png)
+
+### Increasing Difficulty
+For a more challenging game, shuffle in the 4 checkers cards of each colour,
+deal a 6x6 grid, draw 2 cards into your hand, and put the last 2 cards aside.
+
+The checkers cards represent empty spaces on the board. They don't have to be
+attacked, and they don't attack. Ranged pieces like bishops and knights can
+attack across empty spaces. At the end of the game, all checkers must be in one
+connected group, and two checkers of the same colour cannot be touching.
+(Diagonal neighbours aren't touching.) In other words, the checkers cards must
+form one connected group in a black and white checkerboard pattern.
+
+If you end with more than one connected group of checkers, lose one point per
+group. For each checker card, lose one point for every checker of the same
+colour that it touches.
 
 ## Cooperative Chess
 If you don't like battling your friend across the board, you can team up against
