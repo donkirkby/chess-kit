@@ -48,6 +48,8 @@ together.
     chess set, deck of cards, timer, coins, pencil and paper)
 * [Crowded House][crowded-house] is the only four-player game I know
     of on a standard chess set. (4 players and chess set)
+* [Chess Solitaire][chess-solitaire] is a card solitaire game where
+    every card must attack and be attacked. (1 player, deck of cards)
 * [Secret Chesswords][secret-chesswords] is a cooperative game where
     you use clue words to guide the other player's moves. (2 players,
     chess pieces, board with letters, and deck of cards)
@@ -73,6 +75,7 @@ together.
 [tar-pit-chess]: #tar-pit-chess
 [chess-golf]: #chess-golf
 [crowded-house]: #crowded-house
+[chess-solitaire]: #chess-solitaire
 [secret-chesswords]: #secret-chesswords
 [half-alice-chess]: #half-alice-chess
 [chess960]: #chess960
@@ -932,6 +935,64 @@ partner, but remember that the other team is listening. Any discussion should
 be heard by both teams, so no secret codes or second languages! Of course,
 players should also feel free to ignore their partner's advice.
 
+## Chess Solitaire
+I thought it would be interesting to design a game that uses the chess cards on
+their own, without the chess set. To me, it feels like the flow of a standard
+card solitaire, with the analysis of a chess game.
+
+### Equipment
+A deck of chess cards. (See how to turn standard playing cards into chess cards
+in appendix A.)
+
+### Setup
+Shuffle the 32 chessmen cards, excluding the checkers cards, and deal a 5x5 grid
+face down with slight gaps, then draw 2 cards into your hand. Put the remaining
+5 cards aside without looking at them.
+
+### Play
+Each turn, take any face down card into your hand, then play one of the three
+cards in your hand into the empty space. 
+
+### Winning
+After playing all 25 face up cards, you win if every card is attacking at least
+one card of the opposite colour and is being attacked by at least one card of
+the opposite colour.
+
+A perfect game scores zero points. You lose one point for each card that is not
+attacking any cards and one point for each card that is not being attacked. A
+single card could lose two points.
+
+Attacking rules are as in regular chess on a very crowded board. White pawns
+attack diagonally away from you, and black pawns attack diagonally toward you.
+
+This example shows the board part way through a game. The black pawn at the top
+right is attacking the white rook, but not being attacked by anything. The black
+pawn at the top right is not attacking anything and not being attacked. All
+other cards are attacking and being attacked. Near the end of the game, it can
+be helpful to slightly rotate any cards that still need to attack or be
+attacked. That way, you can see where you still need to place important cards.
+
+![Diagram](images/rules/chess-solitaire1.png)
+
+### Increasing Difficulty
+For a more challenging game, shuffle in the 4 checkers cards of each colour,
+deal a 6x6 grid, draw 2 cards into your hand, and put the last 2 cards aside.
+
+The checkers cards represent empty spaces on the board. They don't have to be
+attacked, and they don't attack. Ranged pieces (queens, rooks, and bishops) can
+attack across empty spaces. At the end of the game, all checkers must be in one
+connected group, and two checkers of the same colour cannot be touching.
+(Diagonal neighbours aren't touching.) In other words, the checkers cards must
+form one connected group in a black and white checkerboard pattern.
+
+If you end with more than one connected group of checkers, lose one point per
+group. For each checker card, lose one point for every checker of the same
+colour that it touches.
+
+If you haven't lost any points, you can actually earn positive points with the
+checkers cards. For every ranged piece that attacks across checkers cards, earn
+one point for every checker it attacks across. Remember, you can't earn positive
+points, if you have lost even one point.
 
 ## Secret Chesswords
 A cooperative game for two, where you each need your partner to make certain

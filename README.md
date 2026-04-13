@@ -43,8 +43,11 @@ together.
     chess set, deck of cards, timer, coins, pencil and paper)
 * [Crowded House][crowded-house] is the only four-player game I know
     of on a standard chess set. (4 players and chess set)
-* [Cooperative Chess][cooperative-chess] lets you play together
-    against the game. (2 players, chess set, and deck of cards)
+* [Chess Solitaire][chess-solitaire] is a card solitaire game where
+    every card must attack and be attacked. (1 player, deck of cards)
+* [Secret Chesswords][secret-chesswords] is a cooperative game where
+    you use clue words to guide the other player's moves. (2 players,
+    chess pieces, board with letters, and deck of cards)
 * [Half Alice Chess][half-alice-chess] moves pieces through the
     looking glass to a parallel universe after each move. (2 players,
     chess set, and checkers set)
@@ -63,7 +66,8 @@ together.
 [tar-pit-chess]: https://donkirkby.github.io/chess-kit/rules.html#tar-pit-chess
 [chess-golf]: https://donkirkby.github.io/chess-kit/rules.html#chess-golf
 [crowded-house]: https://donkirkby.github.io/chess-kit/rules.html#crowded-house
-[cooperative-chess]: https://donkirkby.github.io/chess-kit/rules.html#cooperative-chess
+[chess-solitaire]: https://donkirkby.github.io/chess-kit/rules.html#chess-solitaire
+[secret-chesswords]: https://donkirkby.github.io/chess-kit/rules.html#secret-chesswords
 [half-alice-chess]: https://donkirkby.github.io/chess-kit/rules.html#half-alice-chess
 [chess960]: https://donkirkby.github.io/chess-kit/rules.html#chess960
 [synchronous-chess]: https://donkirkby.github.io/chess-kit/rules.html#synchronous-chess
