@@ -115,7 +115,7 @@ def main() -> None:
                     ['kbnr', 'pppp'],
                     ['PPPP', 'RNBQ'],
                     ['PPPP', 'KBNR'],
-                    [['C4', 'C7', 'C8', 'C9'], ['c4', 'c7', 'c8', 'c9']]]
+                    ['EEEE', 'eeee']]
 
     player_aid_path = Path(__file__).parent / 'raw_rules' / 'player_aids.md'
     player_aid_markdown = player_aid_path.read_text()

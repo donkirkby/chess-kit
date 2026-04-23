@@ -400,6 +400,50 @@ def test_card_checker(diagram_differ: DiagramDiffer):
 
 
 # noinspection DuplicatedCode
+def test_card_empty(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(171, 266)
+    expected_page.append(ET.Element('rect',
+                                    attrib={'width': '171',
+                                            'height': '266',
+                                            'fill': 'white'}))
+    expected_piece1 = SvgSymbol('e')
+    expected_piece1.x = 85.5
+    expected_piece1.y = 133 - 45
+    expected_piece1.scale = 1.75
+    expected_page.append(expected_piece1.to_element())
+    expected_piece2 = deepcopy(expected_piece1)
+    expected_piece2.rotation = 180
+    expected_piece2.y = 133 + 45
+    expected_page.append(expected_piece2.to_element())
+
+    letter_path = ET.Element('path',
+                             attrib=dict(d=LETTER_PATHS['c'],
+                                         transform='scale(0.85)'))
+    letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
+
+    bar_path = deepcopy(letter_path)
+    bar_path.attrib['transform'] = 'scale(0.85)'
+    bar_path.attrib['d'] = BAR_PATH
+    bar_path.attrib['fill'] = 'black'
+    bar_path.attrib['stroke'] = 'black'
+    bar_path.attrib['stroke-width'] = '2'
+    expected_page.append(bar_path)
+
+    bar_path = deepcopy(bar_path)
+    bar_path.attrib['transform'] = letter_path.attrib['transform']
+    expected_page.append(bar_path)
+
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(171, 266)
+    card = SvgCard('e', has_border=False)
+    page.append(card.to_element())
+    svg_diagram = SvgDiagram(page.to_svg())
+
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
 def test_card_back(diagram_differ: DiagramDiffer):
     expected_page = SvgPage(150, 225)
     expected_back = SvgCardBack()

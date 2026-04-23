@@ -188,7 +188,7 @@ class SvgPips(SvgGroup):
 class SvgCard(SvgGroup):
     BASE_WIDTH = 171
     BASE_HEIGHT = 266
-    PIPS = dict(p=0, n=1, b=2, r=3, q=5, k=6)
+    PIPS = dict(p=0, n=1, b=2, r=3, q=5, k=6, e=0)
 
     def __init__(self,
                  symbol: str,
@@ -264,10 +264,15 @@ class SvgCard(SvgGroup):
             pips.scale = 0.75
             group.append(pips.to_element())
         lower_symbol = self.symbol.lower()
-        path_points = LETTER_PATHS[lower_symbol]
+        is_empty = lower_symbol == 'e'
+        if is_empty:
+            path_points = LETTER_PATHS['p']
+        else:
+            path_points = LETTER_PATHS[lower_symbol]
         letter_path = ET.Element('path', dict(d=path_points))
         letter_path.attrib['transform'] = f'scale({LETTER_SCALE})'
-        group.append(letter_path)
+        if not is_empty:
+            group.append(letter_path)
         bar_path = deepcopy(letter_path)
         bar_path.attrib['d'] = BAR_PATH
         if lower_symbol != self.symbol:
@@ -280,7 +285,8 @@ class SvgCard(SvgGroup):
             f'translate({self.rect_width} {self.rect_height}) '
             f'rotate(180) '
             f'scale({LETTER_SCALE}) ')
-        group.append(letter_path)
+        if not is_empty:
+            group.append(letter_path)
         bar_path = deepcopy(bar_path)
         bar_path.attrib['transform'] = letter_path.attrib['transform']
         group.append(bar_path)
@@ -611,6 +617,8 @@ class SvgSymbol(SvgGroup):
     def to_element(self) -> ET.Element:
         if self.symbol.upper() == 'C':
             return self.checker_element()
+        if self.symbol.upper() == 'E':
+            return self.empty_element()
         piece_svg = chess.svg.piece(chess.Piece.from_symbol(self.symbol))
         SvgPage.register_svg()
         piece_tree = ET.XML(piece_svg)
@@ -660,6 +668,41 @@ class SvgSymbol(SvgGroup):
                                      'y2': str(np.imag(z2)),
                                      'stroke': stroke,
                                      'stroke-width': '1'}))
+
+        return group
+
+    def empty_element(self) -> ET.Element:
+        group = super().to_element()
+        size = 34
+        y = -8.3
+        if self.symbol == 'E':
+            fill = 'transparent'
+            stroke = 'black'
+            x1 = -34
+            shift = 3
+        else:
+            fill = 'black'
+            stroke = 'white'
+            x1 = 0
+            shift = 2
+        group.append(ET.Element('rect',
+                                {'x': str(x1),
+                                 'y': str(y),
+                                 'width': str(size),
+                                 'height': str(size),
+                                 'fill': fill,
+                                 'stroke': 'black',
+                                 'stroke-width': '1.5'}))
+        group.append(ET.Element('rect',
+                                {'x': str(x1+shift),
+                                 'y': str(y+shift),
+                                 'rx': '2',
+                                 'ry': '2',
+                                 'width': str(size-2*shift),
+                                 'height': str(size-2*shift),
+                                 'fill': 'transparent',
+                                 'stroke': stroke,
+                                 'stroke-width': '1.5'}))
 
         return group
 
