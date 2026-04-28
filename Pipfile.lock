@@ -751,19 +751,19 @@
         },
         "pymupdf": {
             "hashes": [
-                "sha256:09bb53f9486ccb5297030cbc2dbdae845ba1c3c5126e96eb2d16c4f118de0b5b",
-                "sha256:0b8e924433b7e0bd46be820899300259235997d5a747638471fb2762baa8ee30",
-                "sha256:6cebfbbdfd219ebdebf4d8e3914624b2e3d3a844c43f4f76935822dd9b13cc12",
-                "sha256:800f43e60a6f01f644343c2213b8613db02eaf4f4ba235b417b3351fa99e01c0",
-                "sha256:892698c9768457eb0991c102c96a856c0a7062539371df5e6bee0816f3ef498e",
-                "sha256:8b4bbfa6ef347fade678771a93f6364971c51a2cdc44cd2400dc4eeed1ddb4e6",
-                "sha256:8e2e4299ef1ac0c9dff9be096cbd22783699673abecfa7c3f73173ae06421d73",
-                "sha256:c5e3d54922db1c7da844f1208ac1db05704770988752311f81dd36694ae0a07b",
-                "sha256:ea8fdc3ab6671ca98f629d5ec3032d662c8cf1796b146996b7ad306ac7ed3335"
+                "sha256:1dd460a3ae4597a755f00a3bd9771f5ebf1531dc111f6a36bf05dd00a6b84425",
+                "sha256:580983849c64a08d08344ca3d1580e87c01f046a8392421797bc850efd72a5b6",
+                "sha256:660d93cb6da5bbddf11d3982ae27745dd3a9902d9f24cdb69adab83962294b5a",
+                "sha256:77691604c5d1d0233827139bbcdea61fd57879c84712b8e49b1f45520f7ab9c2",
+                "sha256:7a92faa25129e8bbec5e50eeb9214f187665428c31b05c4ef6e36c58c0b1c6d2",
+                "sha256:857842b4888827bd6155a1131341b2822a7ebe9a8c15a975fd7d490d7a64a30c",
+                "sha256:a5c1088a87189891a4946ab314a14b7934ac4c5b6077f7e74ebee956f8906d0e",
+                "sha256:d20f68ef15195e073071dbc4ae7455257c7889af7584e39df490c0a92728526e",
+                "sha256:fc1bc3cae6e9e150b0dbb0a9221bdfd411d65f0db2fe359eaa22467d7cc2a05f"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==1.27.2.2"
+            "version": "==1.27.2.3"
         },
         "python-chess": {
             "hashes": [
