@@ -71,23 +71,21 @@ Chess set
 
 Standard starting position
 
-## Cooperative Chess
-2 players
-Chess set
+## Chess Solitaire
+1 player
 Chess cards
+1 die (optional)
 
-Standard starting position
+Shuffle cards and deal a 5x5
+grid face down.
 
-End by capturing a king or
-running out of cards.
+Extra difficulty: deal 6x6,
+including empty square
+cards.
 
-Score 1 point for each
-captured piece.
-If you captured a king,
-score 10 points for each
-eliminated piece type.
-
-32 is good, 50 is great!
+Even more difficult: choose
+first cards randomly with the
+die.
 
 ## Adrenaline Chess
 1. Make a legal move.
@@ -137,19 +135,21 @@ Many zombies, all move.
 Unmoved zombies are
 permanently destroyed.
 
-## Cooperative Chess
-1. Must play a card.
-2. May make a non-capture
-    chess move.
-3. Multiple capture chess
-    moves, if cards match.
-4. Must draw a card.
+## Chess Solitaire
+1. Pick up any card.
+2. Play one of your three
+    cards into the gap.
 
-Immediate actions:
-1. Draw a king, play a king.
-2. Recycle 4-in-a-row.
-3. Promote a pawn with its
-    card.
+Lose 1 point for each piece
+not attacking anything.
+
+Lose 1 point for each piece
+not attacked.
+
+Extra difficulty: gain points
+for attacking across empty
+squares. Multiply by number
+of cards randomly chosen.
 
 ## Crowded House
 Turn order:
@@ -213,12 +213,13 @@ White piece chess cards
    and make black mirror
    white.
 
-## Synchronous Chess
+## Secret Chesswords
 2 players
 Chess set
-Pencil and paper
+6 letter planks
 
 Standard starting position
+  without bishops
 
 ## Telepathic Chess
 4 players
@@ -240,14 +241,7 @@ up.
 ## Blank
 ## Blank
 ## Blank
-
-## Secret Chesswords
-2 players
-Chess set
-6 letter planks
-
-Standard starting position
-  without bishops
+## Blank
 
 ## Telepathic Chess
 1. Predict face down.
@@ -264,18 +258,21 @@ Standard starting position
 After losing 8 pieces, only
 use one prediction card.
 
-## Synchronous Chess
-1. Write down moves.
-2. Reveal.
-3. Resolve.
-    a. Capture target didn't
-        move? Normal capture.
-    b. Capture target
-        moved? Not captured.
-    c. Both end on same
-        square? Both captured.
-4. Moved to an attacked
-    square? Exchange blows.
+## Secret Chesswords
+1. You draw a card.
+2. You ask your partner to
+    make a move.
+3. You make a move.
+
+Discard one card when
+  either of you captures a
+  matching piece.
+
+Both win when you discard
+  a king.
+
+Both lose when you hold
+  four cards at end of turn.
 
 ## Chess960
 After start, use standard
@@ -296,19 +293,3 @@ through.
     ignoring pieces on the
     other side of the mirror.
 2. Add or remove a checker.
-
-## Secret Chesswords
-1. You draw a card.
-2. You ask your partner to
-    make a move.
-3. You make a move.
-
-Discard one card when
-  either of you captures a
-  matching piece.
-
-Both win when you discard
-  a king.
-
-Both lose when you hold
-  four cards at end of turn.

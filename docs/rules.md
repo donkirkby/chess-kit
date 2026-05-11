@@ -59,9 +59,6 @@ together.
 * [Chess960][chess960] is a game designed by Bobby Fischer to mix up
     the game opening by randomly choosing your starting position. (2
     players, chess set, and deck of cards)
-* [Synchronous Chess][synchronous-chess] makes both players write down
-    a move, then move at the same time. (2 players, chess set, paper and
-    pencil)
 * [Appendix A][appendix-a] shows how to turn a standard deck of cards
     into chess cards.
 * [Appendix B][appendix-b] shows how to make a board with letters on
@@ -79,7 +76,6 @@ together.
 [secret-chesswords]: #secret-chesswords
 [half-alice-chess]: #half-alice-chess
 [chess960]: #chess960
-[synchronous-chess]: #synchronous-chess
 [appendix-a]: #appendix-a
 [appendix-b]: #appendix-b
 
@@ -266,8 +262,8 @@ four players to choose **colours** and **partners**. The players with the queen
 cards will predict first, and the players with the king cards will move first.
 
 Give each team a set of seven **cards**: pawn, knight, bishop, rook, queen,
-king, and checker. The predictor for each team should take the cards in their
-hand, and play the pawn card face up on their side of the board.
+king, and empty square. The predictor for each team should take the cards in
+their hand, and play the pawn card face up on their side of the board.
 
 Set up the chess **pieces** in the standard start position. Both members of the
 white team sit on the side of the board with the white pieces, opposite both
@@ -280,8 +276,7 @@ forth to keep track of who will play a prediction card next turn.
 
 On your team's turn, the predictor will play a card face down, next to the
 face-up card. The piece cards predict that their partner will play the matching
-piece, and the checker card is like a copy of the face-up card. (Think of C for
-checker and C for copy.)
+piece, and the empty square card is like a copy of the face-up card.
 
 Then the mover makes any legal chess move.
 
@@ -300,8 +295,9 @@ have to remove one of their pieces from the board. After removing a piece, put
 the trophy back beside the middle of the board.
 
 After moving a piece and resolving the prediction, the mover takes the hand of
-cards and picks up one of the cards from the table. If one of them is a checker
-card, pick it up. Otherwise, pick up the card that started the turn face up.
+cards and picks up one of the cards from the table. If one of them is an empty
+square card, pick it up. Otherwise, pick up the card that started the turn face
+up.
 
 ### Losing Eight Pieces
 When you lose pieces through capture or missed predictions, place them beside
@@ -554,14 +550,13 @@ You must be able to stack a chess piece on top of a checker. Coins or poker
 chips would also work, as long as they fit inside the chess board squares. You
 need 12 each of two colours.
 
-From the deck of cards, use one card to represent each piece, plus you also need
-two cards of each colour to represent checkers. That should make 36 cards in
-total, put the rest of the deck aside.
+From the deck of cards, use one card to represent each piece, so 32 cards in
+total. Put the rest of the deck aside.
 
 ### Setup
 Set up the chess pieces in the standard start position, and randomly choose who
 will play white. Place 6 light checkers in front of White and 6 dark checkers in
-front of Black. Keep the extra checkers in a separate pile, but within reach.
+front of Black.
 
 Shuffle the deck and deal 6 cards to each player. Look at your cards, but don't
 show them to your opponent. Place the rest of the cards in a draw stack.
@@ -584,8 +579,8 @@ checkers are modified as follows:
   piece normally, you may throw the tar at one of your opponent's pieces or pass
   it to one of your own. Move the checker like a king, one space in any
   direction, to place it under another piece of either colour. Leave your
-  chess piece where it ended its move. You can only move a checker under
-  another piece, it can't sit alone on a square.
+  chess piece where it ended its move. You can only move a checker to another
+  piece's square, it can't sit alone on a square.
 * Your piece on your opponent's checker is tarred: pawns cannot move at all,
   and other pieces move like pawns.
 
@@ -602,16 +597,8 @@ After you finish moving and throwing, you may play one of your cards to add a
 checker. You may only add checkers of your own colour, and you may only add
 one to a piece that matches the card.
 
-Checkers cards change how many cards and checkers you have. If you play your own
-colour checker card, place one of your extra checkers in front of you. Then draw
-cards until you have the same number of cards as you have checkers in front of
-you. If you play your opponent's colour checker card, they have to return one
-of their checkers to the extra pile. It can come from in front of them or on the
-board. If they now have more cards than checkers in front of them, they must
-discard a card of their choice.
-
-If there are no pieces left on the board to match a card, it can match any of
-your pieces.
+If there are no pieces left on the board to match a card, it can match any piece
+of the matching colour.
 
 Play your card to a discard pile next to the draw pile, and shuffle the discard
 pile to make a new draw pile if it runs out.
@@ -625,8 +612,7 @@ tarred piece leaves you carrying.
 #### Drawing Cards
 After moving a piece and possibly playing a card, draw cards until you have the
 same number of cards as checkers in front of you. In practice, this means that
-you only draw after checkers combine and get returned or after playing a
-checkers card.
+you only draw after checkers combine and get returned.
 
 Here's an example that shows all four parts of a turn:
 
@@ -684,9 +670,10 @@ pieces:
    tar checker.
 2. Move one of your carrying pieces next to your tarred piece, and pass your
    checker to it. Your passed checker will cancel out the tar checker.
-3. Capture one of your opponent's pieces that is tarred with one of your
-   checkers. Remember that a tarred piece can only capture like a pawn: one
-   space diagonally. The captured checker will cancel out the tar checker.
+3. Use your tarred piece to capture one of your opponent's pieces that is tarred
+   with one of your checkers. Remember that a tarred piece can only capture like
+   a pawn: one space diagonally. The captured checker will cancel out the tar
+   checker.
 4. Move the tarred piece like a pawn, all the way to your back rank, and then
    remove the checker.
 
@@ -694,7 +681,7 @@ Only the first two are possible for tarred pawns, because they can't move at
 all.
 
 #### Special Cases
-You may not castle, if either the king or the rook have a checker.
+Remember, you may not castle, if either the king or the rook have a checker.
 
 Tarred pieces move like pawns, but do not move two spaces on their first move. A
 tarred piece may capture an enemy pawn en passant.
@@ -704,10 +691,9 @@ Win by checkmate, as in regular chess. Tarring the king makes it much easier to
 checkmate. Carrying a bucket of tar makes the king much harder to tar.
 
 ### Variants
-Make the game more predictable by using fewer checkers cards in the deck or
-fewer checkers during setup. Make it less predictable by using more. Handicap a
-player by giving them fewer checkers than their opponent. During setup, always
-deal one card for each checker.
+Make the game more predictable by using fewer checkers during setup. Make it
+less predictable by using more. Handicap a player by giving them fewer checkers
+than their opponent. During setup, always deal one card for each checker.
 
 ## Chess Golf
 All the players try to work out the most efficient way to capture the chosen
@@ -943,18 +929,19 @@ card solitaire, with the analysis of a chess game.
 ### Equipment
 A deck of chess cards. (See how to turn standard playing cards into chess cards
 in appendix A.)
+A six-sided die (only used for extra difficulty level)
 
 ### Setup
-Shuffle the 32 chessmen cards, excluding the checkers cards, and deal a 5x5 grid
-face down with slight gaps, then draw 2 cards into your hand. Put the remaining
-5 cards aside without looking at them.
+Shuffle the 32 chess piece cards, excluding the empty square cards, and deal a
+5x5 grid face down with slight gaps, then draw 2 cards into your hand. Put the
+remaining 5 cards aside without looking at them.
 
 ### Play
 Each turn, take any face down card into your hand, then play one of the three
 cards in your hand into the empty space. 
 
 ### Winning
-After playing all 25 face up cards, you win if every card is attacking at least
+After playing all 25 cards face up, you win if every card is attacking at least
 one card of the opposite colour and is being attacked by at least one card of
 the opposite colour.
 
@@ -964,35 +951,65 @@ single card could lose two points.
 
 Attacking rules are as in regular chess on a very crowded board. White pawns
 attack diagonally away from you, and black pawns attack diagonally toward you.
+Think of the board as a diagram from White's perspective.
+
+Near the end of the game, it can be helpful to slightly rotate any cards that
+still need to attack or be attacked. That way, you can see where you still need
+to place important cards. It can also be useful to slightly rotate face down
+cards, if you know that square needs to be a certain piece, so you don't pick up
+that card until you've found a piece that can go there.
 
 This example shows the board part way through a game. The black pawn at the top
 right is attacking the white rook, but not being attacked by anything. The black
 pawn at the top right is not attacking anything and not being attacked. All
-other cards are attacking and being attacked. Near the end of the game, it can
-be helpful to slightly rotate any cards that still need to attack or be
-attacked. That way, you can see where you still need to place important cards.
+other cards are attacking and being attacked.
 
 ![Diagram](images/rules/chess-solitaire1.png)
 
 ### Increasing Difficulty
-For a more challenging game, shuffle in the 4 checkers cards of each colour,
+For a more challenging game, shuffle in the 4 empty square cards of each colour,
 deal a 6x6 grid, draw 2 cards into your hand, and put the last 2 cards aside.
 
-The checkers cards represent empty spaces on the board. They don't have to be
-attacked, and they don't attack. Ranged pieces (queens, rooks, and bishops) can
-attack across empty spaces. At the end of the game, all checkers must be in one
-connected group, and two checkers of the same colour cannot be touching.
-(Diagonal neighbours aren't touching.) In other words, the checkers cards must
-form one connected group in a black and white checkerboard pattern.
+The empty square cards don't have to be attacked, and they don't attack. Ranged
+pieces (queens, rooks, and bishops) can attack across empty spaces. At the end
+of the game, all empty square cards must be in one connected group, and two
+empty squares of the same colour cannot be touching. (Diagonal neighbours aren't
+touching.) In other words, the empty square cards must form one connected group
+in a black and white checkerboard pattern.
 
-If you end with more than one connected group of checkers, lose one point per
-group. For each checker card, lose one point for every checker of the same
-colour that it touches.
+If you end with more than one connected group of empty squares, lose one point
+per group. For each empty square card, lose one point for every empty square of
+the same colour that it touches.
 
 If you haven't lost any points, you can actually earn positive points with the
-checkers cards. For every ranged piece that attacks across checkers cards, earn
-one point for every checker it attacks across. Remember, you can't earn positive
-points, if you have lost even one point.
+empty square cards. For every ranged piece that attacks across empty squares,
+earn one point for every empty square it attacks across. Remember, you can't
+earn positive points, if you have even one negative point.
+
+In this example, the white bishop is attacking the black bishop across two empty
+spaces, and the black bishop is attacking the white bishop back across the same
+two empty spaces. The black rook is attacking the white king across one empty
+space, which makes the current score 5 points.
+
+![Diagram](images/rules/chess-solitaire2.png)
+
+To make it even more challenging, you can randomly pick the first few cards to
+pick up. Roll the die to pick a column of cards (1 on the left to 6 on the
+right). Point at the column with one hand, and roll the die again to pick a card
+in that column (1 on the bottom to 6 on the top). Pick up the chosen card and
+add it to your hand. Then play a card from your hand as in the regular game.
+After each randomly chosen card you can either roll again to randomly choose the
+next card to pick up or switch to choosing which cards to pick up.
+
+When you have randomly chosen and played six cards or when you decide to switch
+to choosing your cards, take the die and turn it to the number of face up cards.
+Finish playing the game, and then multiply your score by the number on the die.
+For example, if you randomly choose the first three cards that you pick up, and
+then attack across 10 empty squares by the end of the game, your final score
+would be 30. If you have negative points, then you don't get any positive
+points, and you multiply the negative points. If you randomly choose the first
+three cards, and then have one card not attacking or being attacked, your final
+score would be -6.
 
 ## Secret Chesswords
 A cooperative game for two, where you each need your partner to make certain
@@ -1249,74 +1266,6 @@ The rest of the standard chess rules apply unchanged.
 
 [weeks]: https://www.mark-weeks.com/cfaa/chess960/c960strt.htm
 
-## Synchronous Chess
-There have been a few attempts to remove the first player's advantage by making
-moves simultaneously, and this is my favourite. Its history is a bit murky, but
-my best guess is that it was designed in 1991 by Vitaly Korolev. Then Ralf
-Hansmann, Arnold J. Krasowsky, and Andrey Krasowsky removed some special cases
-and added an exchange of blows after the simultaneous moves.
-
-Two Move Chess also has a simultaneous choice of which pieces to move, but then
-moves are made in a defined order.
-
-### Equipment
-A standard chess set, plus paper and pencil for each player.
-
-### Setup
-Start with the regular opening position.
-
-### Goal
-Capture the opponent's king, or checkmate it so it is under attack and has no
-safe move.
-
-### Play
-The same moves are legal as in regular chess, but both players write down a move
-at the same time, then reveal them. Feel free to use any chess notation familiar
-to both players. The moves are resolved in one of three ways:
-
-1. If a move ends on a square that was occupied by a piece of the opposite
-   colour, and that piece didn't make a move at the same time, then it is
-   captured as normal.
-2. If a move ends on a square that was occupied by a piece of the opposite
-   colour, and that piece made a move at the same time, then it is not captured.
-   This means that two pieces may swap positions, if they try to capture each
-   other, and pieces sometimes move through each other.
-3. If both moves end on the same empty square, then both pieces are captured.
-
-Remember that a move must be legal in regular chess, before the opponent's piece
-moves.
-
-After resolving the synchronous moves, check to see if an exchange of blows is
-possible. This happens if either piece has moved to a square that was attacked
-by an opponent's piece before the move and is still attacked by the same piece.
-The opponent has the option to capture the piece that just moved. If they do so,
-check to see if the original player can now capture on the same square. This
-continues until no more captures are possible on that square, or a player
-decides not to capture. Each piece may only move once during an exchange of
-blows. The pieces that made simultaneous moves may participate in an exchange of
-blows, if they have a legal attack.
-
-If both players have the option to exchange blows, they should write down their
-moves at the same time, then reveal them. To pass, just write an X.
-
-If a king is under attack, it must move to a square that is not under attack
-before the move. Moving a piece to block the attack isn't legal, because the
-attacker could move at the same time. If a king has no safe squares to move to,
-then it is checkmate. Castling out of check is not legal, because all moves must
-be legal in regular chess.
-
-There is no "en passant" capture. If you don't know what that is, you can safely
-ignore it.
-
-If both kings are checkmated at the same time or captured at the same time, the
-game is a draw.
-
-If a king and any other piece move to the same square, both are captured and
-capturing the king is a win.
-
-All the regular causes of draws are still in effect: repeated positions or many
-moves without any pawn progress.
-
 ## Appendix A
 Several of the games require a deck of cards to match each chess piece. There
 are a few options to choose from:
@@ -1331,14 +1280,14 @@ are a few options to choose from:
   stock, then cut them out.
 
 If you're going to use standard playing cards, these tables show the cards that
-match each type of chess piece or checker. Some of the games also use cards to
-randomly lay out the pieces on the board, and these tables show how big a gap to
-leave before each type of piece. That is, how many empty squares to leave before
-placing the piece.
+match each type of chess piece. Some of the games also use cards to randomly lay
+out the pieces on the board, and these tables show how big a gap to leave before
+each type of piece. That is, how many empty squares to leave before placing the
+piece.
 
 The cards with small numbers match pawns. Kings and queens are obvious, and the
 other pieces are sorted by strength to match the number cards from 8 to 10.
-In the games that use checkers, they match 6s and 7s.
+In the games that use empty square cards, they are 6s and 7s.
 
 Black cards match black pieces:
 
@@ -1376,9 +1325,9 @@ Here are the solutions to the Chess Golf problems.
 Know some other lighthearted chess variants? Ideas to share? Get in touch at
 [https://donkirkby.github.io/chess-kit][github].
 
-Zombie Chess, Masquerade Chess, Two Move Chess, Adrenaline Chess, Tar Pit Chess,
-Chess Golf, Crowded House, and Cooperative Chess are original games designed by
-[Don Kirkby][don].
+Zombie Chess, Masquerade Chess, Telepathic Chess, Two Move Chess, Adrenaline
+Chess, Tar Pit Chess, Chess Golf, Crowded House, Chess Solitaire, and Secret
+Chesswords are original games designed by [Don Kirkby][don].
 
 [github]: https://donkirkby.github.io/chess-kit
 [don]: https://donkirkby.github.io/

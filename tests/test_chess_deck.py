@@ -47,6 +47,7 @@ def test_piece_translate(diagram_differ: DiagramDiffer):
     piece_tree = ET.XML(piece_svg)
     ns = {'': 'http://www.w3.org/2000/svg'}
     piece_group = piece_tree.find('g', ns)
+    assert piece_group is not None
     piece_group.set('transform',
                     'translate(200 100) scale(1 1) translate(-22.5 -22.5)')
     expected_page.append(piece_group)
@@ -135,10 +136,10 @@ def test_pips_transform(diagram_differ: DiagramDiffer):
 
 # noinspection DuplicatedCode
 def test_card(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(171, 266)
+    expected_page = SvgPage(177, 266)
     expected_page.append(ET.Element('rect',
                                     {'fill': 'white',
-                                     'width': '171',
+                                     'width': '177',
                                      'height': '266',
                                      'stroke': '#bbbbbb',
                                      'stroke-width': '4'}))
@@ -146,7 +147,7 @@ def test_card(diagram_differ: DiagramDiffer):
                                     {'fill': 'white',
                                      'x': '3',
                                      'y': '3',
-                                     'width': '165',
+                                     'width': '171',
                                      'height': '260',
                                      'stroke': '#cccccc',
                                      'stroke-width': '2'}))
@@ -154,7 +155,7 @@ def test_card(diagram_differ: DiagramDiffer):
                                     {'fill': 'white',
                                      'x': '5',
                                      'y': '5',
-                                     'width': '161',
+                                     'width': '167',
                                      'height': '256',
                                      'stroke': '#dddddd',
                                      'stroke-width': '2'}))
@@ -162,18 +163,18 @@ def test_card(diagram_differ: DiagramDiffer):
                                     {'fill': 'white',
                                      'x': '7',
                                      'y': '7',
-                                     'width': '157',
+                                     'width': '163',
                                      'height': '252',
                                      'stroke': '#eeeeee',
                                      'stroke-width': '2'}))
     expected_pips = SvgPips(5)
-    expected_pips.x = 85.5
+    expected_pips.x = 88.5
     expected_pips.y = 133
     expected_pips.scale = 0.75
     expected_page.append(expected_pips.to_element())
     card_symbol = 'Q'
     expected_piece = SvgSymbol(card_symbol)
-    expected_piece.x = 85.5
+    expected_piece.x = 88.5
     expected_piece.y = 133 - 45
     expected_piece.scale = 1.75
     expected_page.append(expected_piece.to_element())
@@ -186,7 +187,7 @@ def test_card(diagram_differ: DiagramDiffer):
                                          transform='scale(0.85)'))
     expected_page.append(letter_path)
     letter_path = deepcopy(letter_path)
-    letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
+    letter_path.attrib['transform'] = f'translate(177 266) rotate(180) scale(0.85)'
     expected_page.append(letter_path)
 
     bar_path = deepcopy(letter_path)
@@ -194,7 +195,7 @@ def test_card(diagram_differ: DiagramDiffer):
     bar_path.attrib['d'] = BAR_PATH
     bar_path.attrib['fill'] = 'transparent'
     bar_path.attrib['stroke'] = 'black'
-    bar_path.attrib['stroke-width'] = '2'
+    bar_path.attrib['stroke-width'] = '2.0709'
     expected_page.append(bar_path)
 
     bar_path = deepcopy(bar_path)
@@ -203,7 +204,7 @@ def test_card(diagram_differ: DiagramDiffer):
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
-    page = SvgPage(171, 266)
+    page = SvgPage(177, 266)
     card = SvgCard(card_symbol)
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
@@ -213,7 +214,7 @@ def test_card(diagram_differ: DiagramDiffer):
 
 # noinspection DuplicatedCode
 def test_card_transform(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(171, 266)
+    expected_page = SvgPage(177, 266)
     expected_card1 = SvgCard('Q').to_element()
     expected_card1.set('transform', 'translate(133 0) scale(0.5) rotate(90)')
     expected_page.append(expected_card1)
@@ -222,7 +223,7 @@ def test_card_transform(diagram_differ: DiagramDiffer):
     expected_page.append(expected_card2)
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
-    page = SvgPage(171, 266)
+    page = SvgPage(177, 266)
     card1 = SvgCard('Q')
     card1.scale = 0.5
     card1.rotation = 90
@@ -240,19 +241,19 @@ def test_card_transform(diagram_differ: DiagramDiffer):
 
 # noinspection DuplicatedCode
 def test_card_no_border(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(171, 266)
+    expected_page = SvgPage(177, 266)
     expected_page.append(ET.Element('rect',
                                     attrib={'fill': 'white',
-                                            'width': '171',
+                                            'width': '177',
                                             'height': '266'}))
     expected_pips = SvgPips(5)
-    expected_pips.x = 85.5
+    expected_pips.x = 88.5
     expected_pips.y = 133
     expected_pips.scale = 0.75
     expected_page.append(expected_pips.to_element())
     card_symbol = 'Q'
     expected_piece1 = SvgSymbol(card_symbol)
-    expected_piece1.x = 85.5
+    expected_piece1.x = 88.5
     expected_piece1.y = 133 - 45
     expected_piece1.scale = 1.75
     expected_page.append(expected_piece1.to_element())
@@ -266,7 +267,7 @@ def test_card_no_border(diagram_differ: DiagramDiffer):
                                          transform='scale(0.85)'))
     expected_page.append(letter_path)
     letter_path = deepcopy(letter_path)
-    letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
+    letter_path.attrib['transform'] = f'translate(177 266) rotate(180) scale(0.85)'
     expected_page.append(letter_path)
 
     bar_path = deepcopy(letter_path)
@@ -274,7 +275,7 @@ def test_card_no_border(diagram_differ: DiagramDiffer):
     bar_path.attrib['d'] = BAR_PATH
     bar_path.attrib['fill'] = 'transparent'
     bar_path.attrib['stroke'] = 'black'
-    bar_path.attrib['stroke-width'] = '2'
+    bar_path.attrib['stroke-width'] = '2.079'
     expected_page.append(bar_path)
 
     bar_path = deepcopy(bar_path)
@@ -283,7 +284,7 @@ def test_card_no_border(diagram_differ: DiagramDiffer):
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
-    page = SvgPage(171, 266)
+    page = SvgPage(177, 266)
     card = SvgCard(card_symbol, has_border=False)
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
@@ -293,22 +294,22 @@ def test_card_no_border(diagram_differ: DiagramDiffer):
 
 # noinspection DuplicatedCode
 def test_card_outline(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(171, 266)
+    expected_page = SvgPage(177, 266)
     expected_page.append(ET.Element('rect',
                                     attrib={'fill': 'white',
-                                            'width': '171',
+                                            'width': '177',
                                             'height': '266',
-                                            'rx': '7.7',
+                                            'rx': '7.965',
                                             'stroke': 'black',
-                                            'stroke-width': '1.7'}))
+                                            'stroke-width': '1.77'}))
     expected_pips = SvgPips(5)
-    expected_pips.x = 85.5
+    expected_pips.x = 88.5
     expected_pips.y = 133
     expected_pips.scale = 0.75
     expected_page.append(expected_pips.to_element())
     card_symbol = 'Q'
     expected_piece1 = SvgSymbol(card_symbol)
-    expected_piece1.x = 85.5
+    expected_piece1.x = 88.5
     expected_piece1.y = 133 - 45
     expected_piece1.scale = 1.75
     expected_page.append(expected_piece1.to_element())
@@ -322,7 +323,7 @@ def test_card_outline(diagram_differ: DiagramDiffer):
                                          transform='scale(0.85)'))
     expected_page.append(letter_path)
     letter_path = deepcopy(letter_path)
-    letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
+    letter_path.attrib['transform'] = f'translate(177 266) rotate(180) scale(0.85)'
     expected_page.append(letter_path)
 
     bar_path = deepcopy(letter_path)
@@ -330,7 +331,7 @@ def test_card_outline(diagram_differ: DiagramDiffer):
     bar_path.attrib['d'] = BAR_PATH
     bar_path.attrib['fill'] = 'transparent'
     bar_path.attrib['stroke'] = 'black'
-    bar_path.attrib['stroke-width'] = '2'
+    bar_path.attrib['stroke-width'] = '2.079'
     expected_page.append(bar_path)
 
     bar_path = deepcopy(bar_path)
@@ -339,7 +340,7 @@ def test_card_outline(diagram_differ: DiagramDiffer):
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
-    page = SvgPage(171, 266)
+    page = SvgPage(177, 266)
     card = SvgCard(card_symbol, has_border=False, has_outline=True)
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
@@ -349,18 +350,18 @@ def test_card_outline(diagram_differ: DiagramDiffer):
 
 # noinspection DuplicatedCode
 def test_card_checker(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(171, 266)
+    expected_page = SvgPage(177, 266)
     expected_page.append(ET.Element('rect',
-                                    attrib={'width': '171',
+                                    attrib={'width': '177',
                                             'height': '266',
                                             'fill': 'white'}))
     expected_pips = SvgPips(9)
-    expected_pips.x = 85.5
+    expected_pips.x = 88.5
     expected_pips.y = 133
     expected_pips.scale = 0.75
     expected_page.append(expected_pips.to_element())
     expected_piece1 = SvgSymbol('C')
-    expected_piece1.x = 85.5
+    expected_piece1.x = 88.5
     expected_piece1.y = 133 - 45
     expected_piece1.scale = 1.75
     expected_page.append(expected_piece1.to_element())
@@ -374,7 +375,7 @@ def test_card_checker(diagram_differ: DiagramDiffer):
                                          transform='scale(0.85)'))
     expected_page.append(letter_path)
     letter_path = deepcopy(letter_path)
-    letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
+    letter_path.attrib['transform'] = f'translate(177 266) rotate(180) scale(0.85)'
     expected_page.append(letter_path)
 
     bar_path = deepcopy(letter_path)
@@ -382,7 +383,7 @@ def test_card_checker(diagram_differ: DiagramDiffer):
     bar_path.attrib['d'] = BAR_PATH
     bar_path.attrib['fill'] = 'transparent'
     bar_path.attrib['stroke'] = 'black'
-    bar_path.attrib['stroke-width'] = '2'
+    bar_path.attrib['stroke-width'] = '2.079'
     expected_page.append(bar_path)
 
     bar_path = deepcopy(bar_path)
@@ -391,7 +392,7 @@ def test_card_checker(diagram_differ: DiagramDiffer):
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
-    page = SvgPage(171, 266)
+    page = SvgPage(177, 266)
     card = SvgCard('C9', has_border=False)
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
@@ -400,33 +401,34 @@ def test_card_checker(diagram_differ: DiagramDiffer):
 
 
 # noinspection DuplicatedCode
-def test_card_empty(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(171, 266)
+def test_card_empty_black(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(177, 266)
     expected_page.append(ET.Element('rect',
-                                    attrib={'width': '171',
+                                    attrib={'width': '177',
                                             'height': '266',
                                             'fill': 'white'}))
     expected_piece1 = SvgSymbol('e')
-    expected_piece1.x = 85.5
-    expected_piece1.y = 133 - 45
+    expected_piece1.x = 118.25
+    expected_piece1.y = 133 - 29.6875
     expected_piece1.scale = 1.75
     expected_page.append(expected_piece1.to_element())
     expected_piece2 = deepcopy(expected_piece1)
     expected_piece2.rotation = 180
-    expected_piece2.y = 133 + 45
+    expected_piece2.x = 58.75
+    expected_piece2.y = 133 + 29.6875
     expected_page.append(expected_piece2.to_element())
 
     letter_path = ET.Element('path',
                              attrib=dict(d=LETTER_PATHS['c'],
                                          transform='scale(0.85)'))
-    letter_path.attrib['transform'] = f'translate(171 266) rotate(180) scale(0.85)'
+    letter_path.attrib['transform'] = f'translate(177 266) rotate(180) scale(0.85)'
 
     bar_path = deepcopy(letter_path)
     bar_path.attrib['transform'] = 'scale(0.85)'
     bar_path.attrib['d'] = BAR_PATH
     bar_path.attrib['fill'] = 'black'
     bar_path.attrib['stroke'] = 'black'
-    bar_path.attrib['stroke-width'] = '2'
+    bar_path.attrib['stroke-width'] = '2.079'
     expected_page.append(bar_path)
 
     bar_path = deepcopy(bar_path)
@@ -435,8 +437,53 @@ def test_card_empty(diagram_differ: DiagramDiffer):
 
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
-    page = SvgPage(171, 266)
+    page = SvgPage(177, 266)
     card = SvgCard('e', has_border=False)
+    page.append(card.to_element())
+    svg_diagram = SvgDiagram(page.to_svg())
+
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_card_empty_white(diagram_differ: DiagramDiffer):
+    expected_page = SvgPage(177, 266)
+    expected_page.append(ET.Element('rect',
+                                    attrib={'width': '177',
+                                            'height': '266',
+                                            'fill': 'white'}))
+    expected_piece1 = SvgSymbol('E')
+    expected_piece1.x = 58.75
+    expected_piece1.y = 133 - 29.6875
+    expected_piece1.scale = 1.75
+    expected_page.append(expected_piece1.to_element())
+    expected_piece2 = deepcopy(expected_piece1)
+    expected_piece2.rotation = 180
+    expected_piece2.x = 118.25
+    expected_piece2.y = 133 + 29.6875
+    expected_page.append(expected_piece2.to_element())
+
+    letter_path = ET.Element('path',
+                             attrib=dict(d=LETTER_PATHS['c'],
+                                         transform='scale(0.85)'))
+    letter_path.attrib['transform'] = f'translate(177 266) rotate(180) scale(0.85)'
+
+    bar_path = deepcopy(letter_path)
+    bar_path.attrib['transform'] = 'scale(0.85)'
+    bar_path.attrib['d'] = BAR_PATH
+    bar_path.attrib['fill'] = 'transparent'
+    bar_path.attrib['stroke'] = 'black'
+    bar_path.attrib['stroke-width'] = '2.079'
+    expected_page.append(bar_path)
+
+    bar_path = deepcopy(bar_path)
+    bar_path.attrib['transform'] = letter_path.attrib['transform']
+    expected_page.append(bar_path)
+
+    expected_diagram = SvgDiagram(expected_page.to_svg())
+
+    page = SvgPage(177, 266)
+    card = SvgCard('E', has_border=False)
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
@@ -475,9 +522,9 @@ def test_card_back_outline(diagram_differ: DiagramDiffer):
 
 # noinspection DuplicatedCode
 def test_grid(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(260, 266)
+    expected_page = SvgPage(269, 266)
     expected_page.append(ET.Element('rect',
-                                    {'width': '260',
+                                    {'width': '269',
                                      'height': '266',
                                      'fill': 'ivory'}))
     expected_card1 = SvgCard('P')
@@ -485,11 +532,11 @@ def test_grid(diagram_differ: DiagramDiffer):
     expected_page.append(expected_card1.to_element())
     expected_card2 = SvgCard('N')
     expected_card2.scale = 0.5
-    expected_card2.x = 85.5
+    expected_card2.x = 177/2
     expected_page.append(expected_card2.to_element())
     expected_card3 = SvgCard('B')
     expected_card3.scale = 0.5
-    expected_card3.x = 171
+    expected_card3.x = 177
     expected_page.append(expected_card3.to_element())
     expected_card4 = SvgCard('R')
     expected_card4.scale = 0.5
@@ -497,19 +544,19 @@ def test_grid(diagram_differ: DiagramDiffer):
     expected_page.append(expected_card4.to_element())
     expected_card5 = SvgCard('Q')
     expected_card5.scale = 0.5
-    expected_card5.x = 85.5
+    expected_card5.x = 88.5
     expected_card5.y = 133
     expected_page.append(expected_card5.to_element())
     expected_card6 = SvgCard('K')
     expected_card6.scale = 0.5
-    expected_card6.x = 171
+    expected_card6.x = 177
     expected_card6.y = 133
     expected_page.append(expected_card6.to_element())
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
-    page = SvgPage(260, 266)
+    page = SvgPage(269, 266)
     page.append(ET.Element('rect',
-                           {'width': '260',
+                           {'width': '269',
                             'height': '266',
                             'fill': 'ivory'}))
     grid = SvgGrid(['PNB', 'RQK'])
@@ -522,7 +569,7 @@ def test_grid(diagram_differ: DiagramDiffer):
 
 # noinspection DuplicatedCode
 def test_grid_transform(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(133, 171)
+    expected_page = SvgPage(133, 177)
     expected_page.append(ET.Element('rect',
                                     {'width': '260',
                                      'height': '266',
@@ -536,11 +583,11 @@ def test_grid_transform(diagram_differ: DiagramDiffer):
     expected_card2.scale = 0.5
     expected_card2.rotation = 90
     expected_card2.x = 133
-    expected_card2.y = 85.5
+    expected_card2.y = 88.5
     expected_page.append(expected_card2.to_element())
     expected_diagram = SvgDiagram(expected_page.to_svg())
 
-    page = SvgPage(133, 171)
+    page = SvgPage(133, 177)
     page.append(ET.Element('rect',
                            {'width': '260',
                             'height': '266',
@@ -548,7 +595,7 @@ def test_grid_transform(diagram_differ: DiagramDiffer):
     grid = SvgGrid(['PN'])
     grid.rotation = 90
     grid.x = 133
-    grid.scale = 171 / grid.base_width
+    grid.scale = 177 / grid.base_width
     page.append(grid.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
 
@@ -581,16 +628,16 @@ def test_parse_player_aids():
 
 # noinspection DuplicatedCode
 def test_player_aid(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(171, 266)
+    expected_page = SvgPage(177, 266)
     expected_page.append(ET.Element('rect',
                                     {'fill': 'white',
-                                     'width': '171',
+                                     'width': '177',
                                      'height': '266',
                                      'stroke': '#bbbbbb',
                                      'stroke-width': '4'}))
     expected_page.append(ET.Element('rect',
                                     {'fill': 'white',
-                                     'width': '171',
+                                     'width': '177',
                                      'height': '266',
                                      'stroke': '#bbbbbb',
                                      'stroke-width': '4'}))
@@ -598,7 +645,7 @@ def test_player_aid(diagram_differ: DiagramDiffer):
                                     {'fill': 'white',
                                      'x': '3',
                                      'y': '3',
-                                     'width': '165',
+                                     'width': '171',
                                      'height': '260',
                                      'stroke': '#cccccc',
                                      'stroke-width': '2'}))
@@ -606,7 +653,7 @@ def test_player_aid(diagram_differ: DiagramDiffer):
                                     {'fill': 'white',
                                      'x': '5',
                                      'y': '5',
-                                     'width': '161',
+                                     'width': '167',
                                      'height': '256',
                                      'stroke': '#dddddd',
                                      'stroke-width': '2'}))
@@ -614,7 +661,7 @@ def test_player_aid(diagram_differ: DiagramDiffer):
                                     {'fill': 'white',
                                      'x': '7',
                                      'y': '7',
-                                     'width': '157',
+                                     'width': '163',
                                      'height': '252',
                                      'stroke': '#eeeeee',
                                      'stroke-width': '2'}))
@@ -676,7 +723,7 @@ def test_player_aid(diagram_differ: DiagramDiffer):
         """)
     parsed_aids = parse_player_aids(markdown)
     game_name, markdown_states = parsed_aids[0]
-    page = SvgPage(171, 266)
+    page = SvgPage(177, 266)
     card = SvgAid(game_name, markdown_states)
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())
@@ -686,7 +733,7 @@ def test_player_aid(diagram_differ: DiagramDiffer):
 
 # noinspection DuplicatedCode
 def test_player_aid_diagram(diagram_differ: DiagramDiffer):
-    expected_page = SvgPage(171, 266)
+    expected_page = SvgPage(177, 266)
     expected_page.append(
         SvgAid('Example', []).to_element())
     expected_page.append_text('Some text before.',
@@ -794,7 +841,7 @@ def test_player_aid_diagram(diagram_differ: DiagramDiffer):
         """)
     parsed_aids = parse_player_aids(markdown)
     game_name, markdown_states = parsed_aids[0]
-    page = SvgPage(171, 266)
+    page = SvgPage(177, 266)
     card = SvgAid(game_name, markdown_states)
     page.append(card.to_element())
     svg_diagram = SvgDiagram(page.to_svg())

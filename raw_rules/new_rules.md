@@ -42,7 +42,7 @@ playing cards into chess cards in appendix A.)
     . . . . . . . .
     P P P P P P P P
     R N B Q K B N R
-    margins: 0, 0, 6, 0
+    margins: 0, 0, 6.25, 0
     card: back, 11.5, 0
     card: back, 12, .25
     card: back, 8.5, 2.5
@@ -87,7 +87,7 @@ in hand with the following position:
     . . . . . . . .
     P P . P . P P P
     R N B Q K B N R
-    margins: 0, 0, 6, 0
+    margins: 0, 0, 6.25, 0
     card: back, 8.5, 2.5
     card: p, 11, 2.5
     card: P, 11.5, 2.5
@@ -106,7 +106,7 @@ because the remaining pawn card is black.
     . . . . . . . .
     P P . P . P P P
     R N B Q K B N R
-    margins: 0, 0, 6, 0
+    margins: 0, 0, 6.25, 0
     card: back, 8.5, 2.5
     card: p, 11, 2.5
     card: P, 11.5, 2.5
@@ -127,7 +127,7 @@ left in the face-up line.
     . . . . . . . .
     P P . P . P P P
     R N B Q K B N R
-    margins: 0, 0, 6, 0
+    margins: 0, 0, 6.25, 0
     card: back, 8.5, 2.5
     card: p, 11, 2.5
     card: b, 12, 2.5
@@ -283,6 +283,74 @@ repeat.
 
 ### Winning the Game
 As in regular chess, put the opponent's king in checkmate to win the game.
+
+## Synchronous Chess
+There have been a few attempts to remove the first player's advantage by making
+moves simultaneously, and this is my favourite. Its history is a bit murky, but
+my best guess is that it was designed in 1991 by Vitaly Korolev. Then Ralf
+Hansmann, Arnold J. Krasowsky, and Andrey Krasowsky removed some special cases
+and added an exchange of blows after the simultaneous moves.
+
+This game works fine, but it was a bit too similar to Two Move Chess to keep in
+the main collection.
+
+### Equipment
+A standard chess set, plus paper and pencil for each player.
+
+### Setup
+Start with the regular opening position.
+
+### Goal
+Capture the opponent's king, or checkmate it so it is under attack and has no
+safe move.
+
+### Play
+The same moves are legal as in regular chess, but both players write down a move
+at the same time, then reveal them. Feel free to use any chess notation familiar
+to both players. The moves are resolved in one of three ways:
+
+1. If a move ends on a square that was occupied by a piece of the opposite
+   colour, and that piece didn't make a move at the same time, then it is
+   captured as normal.
+2. If a move ends on a square that was occupied by a piece of the opposite
+   colour, and that piece made a move at the same time, then it is not captured.
+   This means that two pieces may swap positions, if they try to capture each
+   other, and pieces sometimes move through each other.
+3. If both moves end on the same empty square, then both pieces are captured.
+
+Remember that a move must be legal in regular chess, before the opponent's piece
+moves.
+
+After resolving the synchronous moves, check to see if an exchange of blows is
+possible. This happens if either piece has moved to a square that was attacked
+by an opponent's piece before the move and is still attacked by the same piece.
+The opponent has the option to capture the piece that just moved. If they do so,
+check to see if the original player can now capture on the same square. This
+continues until no more captures are possible on that square, or a player
+decides not to capture. Each piece may only move once during an exchange of
+blows. The pieces that made simultaneous moves may participate in an exchange of
+blows, if they have a legal attack.
+
+If both players have the option to exchange blows, they should write down their
+moves at the same time, then reveal them. To pass, just write an X.
+
+If a king is under attack, it must move to a square that is not under attack
+before the move. Moving a piece to block the attack isn't legal, because the
+attacker could move at the same time. If a king has no safe squares to move to,
+then it is checkmate. Castling out of check is not legal, because all moves must
+be legal in regular chess.
+
+There is no "en passant" capture. If you don't know what that is, you can safely
+ignore it.
+
+If both kings are checkmated at the same time or captured at the same time, the
+game is a draw.
+
+If a king and any other piece move to the same square, both are captured and
+capturing the king is a win.
+
+All the regular causes of draws are still in effect: repeated positions or many
+moves without any pawn progress.
 
 ## Gravity Chess
 This game was inspired by several video games that have pieces dropping down a

@@ -54,9 +54,6 @@ together.
 * [Chess960][chess960] is a game designed by Bobby Fischer to mix up
     the game opening by randomly choosing your starting position. (2
     players, chess set, and deck of cards)
-* [Synchronous Chess][synchronous-chess] makes both players write down
-    a move, then move at the same time. (2 players, chess set, paper and
-    pencil)
 
 [zombie-chess]: https://donkirkby.github.io/chess-kit/rules.html#zombie-chess
 [masquerade-chess]: https://donkirkby.github.io/chess-kit/rules.html#masquerade-chess
@@ -70,7 +67,6 @@ together.
 [secret-chesswords]: https://donkirkby.github.io/chess-kit/rules.html#secret-chesswords
 [half-alice-chess]: https://donkirkby.github.io/chess-kit/rules.html#half-alice-chess
 [chess960]: https://donkirkby.github.io/chess-kit/rules.html#chess960
-[synchronous-chess]: https://donkirkby.github.io/chess-kit/rules.html#synchronous-chess
 
 If you're interested, you can read my [design journal]. If you're brave, you can
 read about [experiments] in progress ([PDF]). Want to hear news about my games

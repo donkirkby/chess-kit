@@ -186,7 +186,7 @@ class SvgPips(SvgGroup):
 
 
 class SvgCard(SvgGroup):
-    BASE_WIDTH = 171
+    BASE_WIDTH = 177
     BASE_HEIGHT = 266
     PIPS = dict(p=0, n=1, b=2, r=3, q=5, k=6, e=0)
 
@@ -277,6 +277,9 @@ class SvgCard(SvgGroup):
         bar_path.attrib['d'] = BAR_PATH
         if lower_symbol != self.symbol:
             bar_path.attrib['fill'] = 'transparent'
+            x_direction = -1
+        else:
+            x_direction = 1
         bar_path.attrib['stroke'] = 'black'
         bar_path.attrib['stroke-width'] = str(self.rect_width * 0.0117)
         group.append(bar_path)
@@ -295,8 +298,15 @@ class SvgCard(SvgGroup):
         symbol.scale = 1.75
         symbol.x = self.BASE_WIDTH / 2
         symbol.y = self.BASE_HEIGHT / 2 - symbol_size * 2
+        empty_size = 17
+        if is_empty:
+            symbol.x += empty_size * symbol.scale * x_direction
+            symbol.y += empty_size*0.5147 * symbol.scale
         group.append(symbol.to_element())
         symbol.y = self.BASE_HEIGHT / 2 + symbol_size * 2
+        if is_empty:
+            symbol.x -= 2*17*1.75 * x_direction
+            symbol.y -= empty_size*0.5147 * symbol.scale
         symbol.rotation = 180
         group.append(symbol.to_element())
 
@@ -441,6 +451,8 @@ class SvgCardBack(SvgCard):
         z2 = r * np.exp(1j*theta)  # noqa
         x2 = np.real(z2) + x0
         y2 = np.imag(z2) + y0
+
+        # noinspection PyTypeChecker
         return x2, y2
 
     @staticmethod
@@ -595,6 +607,7 @@ class SvgGrid(SvgGroup):
 
     def to_element(self) -> ET.Element:
         group = super().to_element()
+        # noinspection PyTypeChecker
         for i, row in enumerate(self.symbols):
             for j, symbol in enumerate(row):
                 if isinstance(symbol, SvgCard):
@@ -624,6 +637,7 @@ class SvgSymbol(SvgGroup):
         piece_tree = ET.XML(piece_svg)
         ns = {'': 'http://www.w3.org/2000/svg'}
         piece_group = piece_tree.find('g', ns)
+        assert piece_group is not None
         x_offset = -self.BASE_SIZE / 2
         if self.symbol.upper() == 'Q':
             x_offset += 0.2
@@ -674,27 +688,27 @@ class SvgSymbol(SvgGroup):
     def empty_element(self) -> ET.Element:
         group = super().to_element()
         size = 34
-        y = -8.3
+        x = y = -size/2
         if self.symbol == 'E':
             fill = 'transparent'
             stroke = 'black'
-            x1 = -34
             shift = 3
         else:
             fill = 'black'
             stroke = 'white'
-            x1 = 0
             shift = 2
         group.append(ET.Element('rect',
-                                {'x': str(x1),
+                                {'x': str(x),
                                  'y': str(y),
+                                 'rx': '1',
+                                 'ry': '1',
                                  'width': str(size),
                                  'height': str(size),
                                  'fill': fill,
                                  'stroke': 'black',
                                  'stroke-width': '1.5'}))
         group.append(ET.Element('rect',
-                                {'x': str(x1+shift),
+                                {'x': str(x + shift),
                                  'y': str(y+shift),
                                  'rx': '2',
                                  'ry': '2',

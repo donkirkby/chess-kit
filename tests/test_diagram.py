@@ -91,10 +91,10 @@ def test_checkers(diagram_differ: DiagramDiffer):
     expected_tree.set('height', '195')
     expected_tree.set('viewBox', '0 -0 570 390')
     extra = Drawing(size=(300, 240))
-    extra.add(extra.rect((398.5, 128.5), (85.5, 133),
-                         rx=3.8475,
+    extra.add(extra.rect((398.5, 128.5), (88.5, 133),
+                         rx=3.9825,
                          stroke='black',
-                         stroke_width=0.855,
+                         stroke_width=0.885,
                          fill='#ffce9e'))
     extra.add(extra.circle((37.5+9*45, 37.5+3*45),
                            20.25,
@@ -270,6 +270,49 @@ def test_card(diagram_differ: DiagramDiffer):
     expected_diagram = SvgDiagram(page.to_svg())
 
     diagram = Diagram(390, 195, diagram_text)
+    svg_diagram = diagram.build()
+
+    diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
+
+
+# noinspection DuplicatedCode
+def test_card_size(diagram_differ: DiagramDiffer):
+    diagram_text = dedent("""\
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        . . . . . . . .
+        card: back, 9.5, 0
+        card: Q, 11.5, 0
+        card: Q, 9.5, 3
+        card: back, 11.5, 3
+        margins: -9,0,8,-2
+        """)
+    page = SvgPage(276, 240)
+    SvgPage.register_svg()
+    queen_card = SvgCard('Q', has_border=False, has_outline=True)
+    queen_card.x = 30.8
+    queen_card.y = 120.8
+    queen_card.scale = 0.40
+    page.append(queen_card.to_element())
+    queen_card.x += 72
+    queen_card.y -= 108
+    page.append(queen_card.to_element())
+    card_back = SvgCardBack(has_outline=True)
+    card_back.x = 30.8
+    card_back.y = 12.8
+    card_back.scale = 0.472
+    page.append(card_back.to_element())
+    card_back.x += 72
+    card_back.y += 108
+    page.append(card_back.to_element())
+    expected_diagram = SvgDiagram(page.to_svg())
+
+    diagram = Diagram(570, 240, diagram_text)
     svg_diagram = diagram.build()
 
     diagram_differ.assert_equal_diagrams(svg_diagram, expected_diagram)
