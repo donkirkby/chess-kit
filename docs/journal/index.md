@@ -143,3 +143,39 @@ Still working on predicting your partner's move, but combining two half moves
 was fiddly. This just predicts which piece type your partner will move. As in
 Adrenaline Chess, it's interesting when the penalty can sometimes be an
 advantage.
+
+### Apr 2025 - Simpler 960
+Came up with a simpler method for generating Chess 960 positions, and improved
+the player aid cards.
+
+### Jun 2025 - Improved Telepathy
+Switched from writing down predictions to predicting with cards, much less
+fiddly. Lose face up card after losing half your pieces.
+
+### Oct 2025 - Secret Chesswords
+This went through several variations. The mechanic of using word clues to hint
+at your partner's move was fun from the start, but it took a while to find an
+interesting win condition.
+
+### Feb 2026 - Letter Planks
+Print planks to make the setup of Secret Chesswords much faster. Still trying to
+find a win condition, I tried making words with the letters where the captures
+took place, but surviving long enough to capture a king felt right. Swap card
+decks halfway through the game.
+
+### Apr 2026 - Solitaire
+A game that seemed to fall out of the cards, after I came up with the goal:
+every card must attack and be attacked. The biggest change after the initial
+idea was to use the checkers cards as empty spaces in a 6x6 layout. That
+actually prompted me to change them from checkers cards to empty space cards,
+and stop using them in the one game that treated them as checkers cards.
+
+I liked the design of the checkers cards, but sometimes you have to kill your
+darlings. The empty square cards are also kind of fun, I like the diagonal
+arrangement of the symbols.
+
+I replaced Cooperative Chess with Secret Chesswords and added Solitaire, so I
+had thirteen games in total. Since Synchronous Chess and Two-Move Chess are
+somewhat similar, I dropped Synchronous Chess to reach my target of twelve
+games. Is the project finished? I still like the idea of Chess Mazes. Maybe I'll
+write software to play these games or try to find a publisher.

@@ -18,7 +18,7 @@ from svg_page import SvgPage
 from word_stats import WordCounter
 
 
-def main() -> None:
+def publish(word_path: Path, pdf_path: Path) -> None:
     page_size = pagesizes.letter
     top_margin = 0.25 * inch
     bottom_margin = 0.1 * inch
@@ -28,7 +28,6 @@ def main() -> None:
     register_fonts()
     styles = getSampleStyleSheet()
 
-    pdf_path = Path(__file__).parent / 'docs' / 'chess-planks.pdf'
     doc = SimpleDocTemplate(str(pdf_path),
                             title='Chess Planks',
                             author='Don Kirkby',
@@ -72,7 +71,6 @@ def main() -> None:
                                  subtitle_paragraph,
                                  Spacer(0, first_header_space)]
     word_counter = WordCounter()
-    word_path = Path(__file__).parent.parent / 'ludiverbia' / 'src' / "rawWords.csv"
     word_counter.count(word_path)
     seed(0)
     line_length = 6
@@ -91,8 +89,8 @@ def main() -> None:
         sheet_lines = all_lines[i * 6:(i + 1) * 6]
         svg_page = SvgPage(7.5 * inch, 9 * inch)
         sheet = SvgSheet(sheet_lines, shade)
-        sheet.scale = 7 * inch / (SvgSquare.BASE_SIZE * 6)
-        sheet.x = -0.075 * inch
+        sheet.scale = 8 * inch / (SvgSquare.BASE_SIZE * 6)
+        sheet.x = -0.5 * inch
         sheet.y = SvgSquare.BASE_SIZE * 0.1 * sheet.scale
         svg_page.append(sheet.to_element())
         diagram = SvgDiagram(svg_page.to_svg()).to_reportlab()
@@ -102,6 +100,12 @@ def main() -> None:
             flowables.append(Spacer(0, other_header_space))
     flowables.extend(cc_section)
     doc.build(flowables)
+
+
+def main() -> None:
+    word_path = Path(__file__).parent.parent / 'ludiverbia' / 'src' / "rawWords.csv"
+    pdf_path = Path(__file__).parent / 'docs' / 'chess-planks.pdf'
+    publish(word_path, pdf_path)
     try:
         run(['pdfsizeopt', '--v=30', pdf_path, pdf_path])
     except FileNotFoundError:

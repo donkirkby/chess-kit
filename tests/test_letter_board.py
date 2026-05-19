@@ -1,12 +1,17 @@
 # noinspection PyPep8Naming
 import xml.etree.ElementTree as ET
 from collections import Counter
+from csv import DictWriter
+from pathlib import Path
 from random import seed
+from string import ascii_lowercase
 
 from diagram_differ import DiagramDiffer
 from letter_board import SvgSquare, SvgLetter, SvgPlank, SvgSheet, make_lines
+from publish_planks import publish
 from svg_diagram import SvgDiagram
 from svg_page import SvgPage
+from tests.live_pdf import LivePdf
 
 
 def test_dark_letter(diagram_differ: DiagramDiffer):
@@ -317,3 +322,21 @@ def test_make_lines_with_multiples():
     lines = make_lines(letter_counts, line_count=6)
 
     assert lines == expected_lines
+
+
+def test_publish(tmp_path: Path, diagram_differ: DiagramDiffer) -> None:
+    """ Quick feedback display of the planks page.
+
+    Doesn't really test anything except that no exception is raised.
+    """
+    word_path = tmp_path / "words.txt"
+    pdf_path = tmp_path / "planks.pdf"
+    with word_path.open('w') as f:
+        writer = DictWriter(f, fieldnames=['word', 'total'])
+        writer.writeheader()
+        for letter in ascii_lowercase:
+            writer.writerow({'word': letter, 'total': 1})
+    publish(word_path, pdf_path)
+    live_pdf = LivePdf(pdf_path, page=0)
+
+    diagram_differ.assert_equal(live_pdf, live_pdf)
