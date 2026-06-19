@@ -826,11 +826,11 @@
         },
         "svg-turtle": {
             "hashes": [
-                "sha256:21caebfa176e2cb2fe8e25d7c459d7672933c60e91133c2e4d97798f0412aa0a",
-                "sha256:912b3032383b8a5020b63a1930523d912d0142a3526e579418ca27dbead1c7d6"
+                "sha256:61a7829594cdd1b954644d6caa66a4b767ff34da02d6b2fd8ce286c098b96125",
+                "sha256:babfc15c8b70553655b2bb29238e10c83fc0c270c460e2430621d5f248f5e896"
             ],
             "index": "pypi",
-            "version": "==1.1.0"
+            "version": "==1.2.0"
         },
         "svglib": {
             "hashes": [
