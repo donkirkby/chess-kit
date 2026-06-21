@@ -26,7 +26,8 @@ def generate_card_images(card: SvgCard, base_filename: Path) -> None:
                                             width=str(output_width),
                                             height=str(output_height))))
         y_margin = page.height * bleed
-        card.scale = (page.height - 2 * y_margin) / card.rect_height
+        card.scale = min((page.height - 2 * y_margin) / card.rect_height,
+                         (page.width - 2 * y_margin) / card.rect_width)
         card.x = (page.width - card.rect_width * card.scale) / 2
         card.y = (page.height - card.rect_height * card.scale) / 2
         page.append(card.to_element())
@@ -46,7 +47,7 @@ def generate_images(aid_cards: dict[str, SvgCard]):
     image_folder.mkdir(exist_ok=True)
     card_back = SvgCardBack()
     generate_card_images(card_back, image_folder / 'back')
-    for symbol in 'K Q R B N P k q r b n p C4 C7 C8 C9 c4 c7 c8 c9'.split():
+    for symbol in 'K Q R B N P k q r b n p E e'.split():
         filename = image_folder / f'card-{symbol}'
         card = SvgCard(symbol, has_border=False)
         generate_card_images(card, filename)

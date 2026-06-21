@@ -22,6 +22,23 @@ opponent captures.
 Write other grid to record
 what you learn.
 
+## Telepathic Chess
+4 players
+Chess set
+Chess cards
+Coin or checker trophy
+
+Standard starting position
+
+Trophy in middle position.
+
+7 cards for each team:
+pawn, knight, bishop, rook,
+queen, king, and checker.
+
+Start with pawn card face
+up.
+
 ## Two Move Chess
 2 players
 Chess set
@@ -44,7 +61,6 @@ Standard starting position
 Chess set
 Checkers set
 Chess cards
-    (include 2 checkers each)
 
 Standard starting position
 
@@ -71,34 +87,6 @@ Chess set
 
 Standard starting position
 
-## Chess Solitaire
-1 player
-Chess cards
-1 die (optional)
-
-Shuffle cards and deal a 5x5
-grid face down.
-
-Extra difficulty: deal 6x6,
-including empty square
-cards.
-
-Even more difficult: choose
-first cards randomly with the
-die.
-
-## Adrenaline Chess
-1. Make a legal move.
-
-2. Stack on captured
-    checkers.
-
-3. May spend checkers to
-    make king moves.
-
-4. Add a checker to any
-    opponent after capture.
-
 ## Two Move Chess
 1. Both choose 2 cards.
 2. Reveal, skip duplicates.
@@ -114,6 +102,21 @@ pawn).
 One card? Play it twice.
 Can't move the same pawn
 twice in one turn.
+
+## Telepathic Chess
+1. Predict face down.
+2. Make chess move.
+3. Check prediction.
+4. Pull if match face down.
+5. Push if no match.
+6. Remove your piece, if
+    coin comes off your side.
+7. Coin in centre, if it came
+    off.
+8. Take back face-up card.
+
+After losing 8 pieces, only
+use one prediction card.
 
 ## Masquerade Chess
 Ask if captures are legal.
@@ -134,22 +137,6 @@ Many zombies, all move.
 
 Unmoved zombies are
 permanently destroyed.
-
-## Chess Solitaire
-1. Pick up any card.
-2. Play one of your three
-    cards into the gap.
-
-Lose 1 point for each piece
-not attacking anything.
-
-Lose 1 point for each piece
-not attacked.
-
-Extra difficulty: gain points
-for attacking across empty
-squares. Multiply by number
-of cards randomly chosen.
 
 ## Crowded House
 Turn order:
@@ -187,6 +174,45 @@ Tarred pawns don't move.
 Combine pairs of checkers.
 Remove tar on back rank.
 
+## Adrenaline Chess
+1. Make a legal move.
+
+2. Stack on captured
+    checkers.
+
+3. May spend checkers to
+    make king moves.
+
+4. Add a checker to any
+    opponent after capture.
+
+## Chess Solitaire
+1 player
+Chess cards
+1 die (optional)
+
+Shuffle cards and deal a 5x5
+grid face down.
+
+Extra difficulty: deal 6x6,
+including empty square
+cards.
+
+Even more difficult: choose
+first cards randomly with the
+die.
+
+## Secret Chesswords
+2 players
+Chess set
+6 letter planks
+
+Standard starting position
+  without bishops
+
+## Blank
+## Blank
+
 ## Half Alice Chess
 2 players
 Chess set
@@ -213,50 +239,11 @@ White piece chess cards
    and make black mirror
    white.
 
-## Secret Chesswords
-2 players
-Chess set
-6 letter planks
-
-Standard starting position
-  without bishops
-
-## Telepathic Chess
-4 players
-Chess set
-Chess cards
-Coin or checker trophy
-
-Standard starting position
-
-Trophy in middle position.
-
-7 cards for each team:
-pawn, knight, bishop, rook,
-queen, king, and checker.
-
-Start with pawn card face
-up.
-
-## Blank
-## Blank
 ## Blank
 ## Blank
 
-## Telepathic Chess
-1. Predict face down.
-2. Make chess move.
-3. Check prediction.
-4. Pull if match face down.
-5. Push if no match.
-6. Remove your piece, if
-    coin comes off your side.
-7. Coin in centre, if it came
-    off.
-8. Take back face-up card.
-
-After losing 8 pieces, only
-use one prediction card.
+## Blank
+## Blank
 
 ## Secret Chesswords
 1. You draw a card.
@@ -273,6 +260,25 @@ Both win when you discard
 
 Both lose when you hold
   four cards at end of turn.
+
+## Chess Solitaire
+1. Pick up any card.
+2. Play one of your three
+    cards into the gap.
+
+Lose 1 point for each piece
+not attacking anything.
+
+Lose 1 point for each piece
+not attacked.
+
+Extra difficulty: gain points
+for attacking across empty
+squares. Multiply by number
+of cards randomly chosen.
+
+## Blank
+## Blank
 
 ## Chess960
 After start, use standard
