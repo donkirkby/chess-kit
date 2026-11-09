@@ -1115,12 +1115,12 @@
         },
         "svglib": {
             "hashes": [
-                "sha256:625b62cf440ab57f5def42d5be47a0d6b73c02711ef86ab1545650a98ac1ad5f",
-                "sha256:ac27ab2b72afe0136d83a1a51046a83268be0cdb915156efa090ee58e60b669e"
+                "sha256:0c69c9a7ce14d375f70fed2572f8db7ff4bd7e714be9e6476e392c8703bde97a",
+                "sha256:90f58628ca7e6d48b40f638ad0dab472f2994f823eb33a623c8fa28e434ce574"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.9'",
-            "version": "==2.3.2"
+            "markers": "python_version >= '3.10'",
+            "version": "==2.4.0"
         },
         "svgwrite": {
             "hashes": [
